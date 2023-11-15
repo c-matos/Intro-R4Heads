@@ -1,0 +1,20 @@
+---
+title: "Reporting with Quarto"
+subtitle: "<span class='code'>Day 3 - 14:00</span>"
+date: "2023-11-27"
+image: "images/06-reporting.png"
+tbl-colwidths: [5,20,75]
+---
+
+```{=html}
+<iframe class="slide-deck" src="../materials/00-placeholder.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+<a href='../materials/00-placeholder.html' target="_blank">View slides in full screen</a>
+
+  
+# Outline
+
+- Introduction to Markdown and Quarto
+- Key Quarto features
+- Building reports

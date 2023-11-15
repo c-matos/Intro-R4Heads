@@ -1,0 +1,21 @@
+---
+title: "Interactive shiny dashboards"
+subtitle: "<span class='code'>Day 3 - 15:45</span>"
+date: "2023-11-27"
+image: "images/07-shiny.png"
+tbl-colwidths: [5,20,75]
+---
+
+```{=html}
+<iframe class="slide-deck" src="../materials/00-placeholder.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+<a href='../materials/00-placeholder.html' target="_blank">View slides in full screen</a>
+
+  
+# Outline
+
+- Introduction to shiny
+- How reactivity works
+- Building a simple app
+- Deploying your app

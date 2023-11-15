@@ -1,0 +1,25 @@
+---
+title: "Introduction to R and RStudio"
+subtitle: "<span class='code'>Day 1 - 09:00</span>"
+date: "2023-11-22"
+image: "images/01-intro.png"
+tbl-colwidths: [5,20,75]
+---
+
+```{=html}
+<iframe class="slide-deck" src="../materials/00-placeholder.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+<a href='../materials/00-placeholder.html' target="_blank">View slides in full screen</a>
+
+
+# Outline
+
+<!-- - <a href='../materials/00-placeholder.html' target="_blank">Welcome</a> -->
+-	Welcome to the course
+-	Why use R
+-	Intro to R
+-	Intro to RStudio
+-	Data types and structures
+-	Key concepts
+-	Creating a project

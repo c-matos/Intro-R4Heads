@@ -1,0 +1,24 @@
+---
+title: "Prework"
+
+---
+
+This course requires a computer with R and RStudio installed. Both are free and open source. Please see installation links below. No prior knowledge of R is required. Statistical knowledge is not required but may be helpful in the statistical modelling section.
+
+## Installation links
+
+### R
+
+R can be downloaded and installed from [CRAN](https://cran.r-project.org/)
+
+::: {.callout-warning}
+Version 4.3.1 or above is recommended.
+:::
+
+### RStudio Desktop
+
+RStudio Desktop can be downloaded and installed from the [posit website](https://posit.co/download/rstudio-desktop/)
+
+::: {.callout-warning}
+Version 2023.06 or above is recommended.
+:::

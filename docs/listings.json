@@ -1,0 +1,15 @@
+[
+  {
+    "listing": "/schedule.html",
+    "items": [
+      "/modules/s01-intro.html",
+      "/modules/s02-tidyverse.html",
+      "/modules/s03-eda.html",
+      "/modules/s04-dataviz.html",
+      "/modules/s05-stats.html",
+      "/modules/s06-reporting.html",
+      "/modules/s07-shiny.html",
+      "/modules/s08-git.html"
+    ]
+  }
+]

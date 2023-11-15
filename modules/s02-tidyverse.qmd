@@ -1,0 +1,23 @@
+---
+title: "Introduction to the tidyverse"
+subtitle: "<span class='code'>Day 1 - 14:00</span>"
+date: "2023-11-22"
+image: "images/02-tidyverse.png"
+tbl-colwidths: [5,20,75]
+---
+
+```{=html}
+<iframe class="slide-deck" src="../materials/00-placeholder.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+<a href='../materials/00-placeholder.html' target="_blank">View slides in full screen</a>
+
+  
+# Outline
+
+-	What is tidy data
+-	Tidyverse principles
+-	Data science workflow
+-	The pipe
+-	Import data to R
+-	Data transformation

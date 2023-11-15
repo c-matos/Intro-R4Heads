@@ -1,0 +1,44 @@
+---
+title: "Introduction to R for <br> Health Data Science <br> "
+subtitle: "Hands-on training"
+author: "<a href='https://github.com/c-matos' style='color:#28a87d;font-weight:600;'>Carlos Matos</a>&ensp;//&ensp;ISPUP&ensp;//&ensp;November 2023"
+format:
+  revealjs:
+    theme: slides.scss
+    logo: ../images/logo.png
+    footer: '[Carlos Matos](https://github.com/c-matos) // ISPUP::R4HEADS(2023)'
+    multiplex: 
+      id: '19de33b14ecf93e8'
+      secret: '16994611706571830140'
+    transition: fade
+    progress: true
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: atom-one
+    # chalkboard:
+    #   theme: whiteboard
+    #   boardmarker-width: 4
+    #   buttons: true
+    pause: true
+    code-copy: false
+    #page-layout: custom
+editor: source
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 3
+    dpi: 200
+execute:
+  freeze: auto
+  cache: false
+  echo: true
+  fig-width: 10.1
+  fig-height: 6.3
+  fig-align: center
+# reference-location: margin
+# citation-location: margin
+code-annotations: hover
+---
+
+# Oops! Too soon... <br><br><span style='color:#e2e2e2;font-size:.6em;font-family:Asap;font-stretch:87.5%;font-weight:500;'> Slides will be added here during the course.</span>{data-menu-title="Wait for it!" background-color="#000000"}

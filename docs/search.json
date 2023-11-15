@@ -1,0 +1,135 @@
+[
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "November 23-23 & 27-28, 2023\n\n\n\n\n\n\n\n\nTime*\n\n\nModule\n\n\n\n\n\n\n\n\n\nDay 1 - 09:00\n\n\nIntroduction to R and RStudio\n\n\n\n\n\n\n\nDay 1 - 14:00\n\n\nIntroduction to the tidyverse\n\n\n\n\n\n\n\nDay 2 - 09:00\n\n\nExploratory Data Analysis (EDA)\n\n\n\n\n\n\n\nDay 2 - 14:00\n\n\nData visualization with ggplot2\n\n\n\n\n\n\n\nDay 3 - 09:00\n\n\nStatistics with R\n\n\n\n\n\n\n\nDay 3 - 14:00\n\n\nReporting with Quarto\n\n\n\n\n\n\n\nDay 3 - 15:45\n\n\nInteractive shiny dashboards\n\n\n\n\n\n\n\nDay 4 - 09:00\n\n\nVersion control with git and GitHub\n\n\n\n\n\n\nNo matching items\n\n\n*Approximate times"
+  },
+  {
+    "objectID": "modules/s08-git.html",
+    "href": "modules/s08-git.html",
+    "title": "Version control with git and GitHub",
+    "section": "",
+    "text": "View slides in full screen\n\nOutline\n\nIntro to git and GitHub\nInitial setup\nVersion control in R projects\nPublish to GitHub"
+  },
+  {
+    "objectID": "modules/s06-reporting.html",
+    "href": "modules/s06-reporting.html",
+    "title": "Reporting with Quarto",
+    "section": "",
+    "text": "View slides in full screen\n\nOutline\n\nIntroduction to Markdown and Quarto\nKey Quarto features\nBuilding reports"
+  },
+  {
+    "objectID": "modules/s04-dataviz.html",
+    "href": "modules/s04-dataviz.html",
+    "title": "Data visualization with ggplot2",
+    "section": "",
+    "text": "View slides in full screen\n\nOutline\n\nDefinitions of data visualization\nImportance of visualizing data\nFundamentals of data visualization\nIntro to ggplot2\nAnatomy of a ggplot\nWorked examples\nCreating common plot types"
+  },
+  {
+    "objectID": "modules/s02-tidyverse.html",
+    "href": "modules/s02-tidyverse.html",
+    "title": "Introduction to the tidyverse",
+    "section": "",
+    "text": "View slides in full screen\n\nOutline\n\nWhat is tidy data\nTidyverse principles\nData science workflow\nThe pipe\nImport data to R\nData transformation"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to R for Health Data Science: Hands-on training",
+    "section": "",
+    "text": "A course by Carlos Matos\n📆  November 22-23 & 27-28, 2023\n⏰  09:00–17:30\n🏨  ISPUP"
+  },
+  {
+    "objectID": "index.html#is-this-course-for-me",
+    "href": "index.html#is-this-course-for-me",
+    "title": "Introduction to R for Health Data Science: Hands-on training",
+    "section": "Is this course for me?",
+    "text": "Is this course for me?\nThis course is aimed at health professionals, researchers, data analysts, post-graduation students or anyone wanting to:\n\nStart using R as a tool for research or data science,\nMigrate to R from other software (e.g. Excel, Stata, SPSS),\nExpand their data analysis skillset with data cleaning, visualization and interactive reporting."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "dev/test_flex.html#column-1",
+    "href": "dev/test_flex.html#column-1",
+    "title": "Untitled",
+    "section": "Column",
+    "text": "Column\n\nChart B\n\n\nChart C"
+  },
+  {
+    "objectID": "dev/test_shiny_quarto.html",
+    "href": "dev/test_shiny_quarto.html",
+    "title": "Untitled",
+    "section": "",
+    "text": "This Quarto document is made interactive using Shiny. Interactive documents allow readers to modify parameters and see the results immediately. Learn more about Shiny interactive documents at https://quarto.org/docs/interactive/shiny/."
+  },
+  {
+    "objectID": "dev/test_shiny_quarto.html#shiny-documents",
+    "href": "dev/test_shiny_quarto.html#shiny-documents",
+    "title": "Untitled",
+    "section": "",
+    "text": "This Quarto document is made interactive using Shiny. Interactive documents allow readers to modify parameters and see the results immediately. Learn more about Shiny interactive documents at https://quarto.org/docs/interactive/shiny/."
+  },
+  {
+    "objectID": "dev/test_shiny_quarto.html#inputs-and-outputs",
+    "href": "dev/test_shiny_quarto.html#inputs-and-outputs",
+    "title": "Untitled",
+    "section": "Inputs and Outputs",
+    "text": "Inputs and Outputs\nYou can embed Shiny inputs and outputs in your document. Outputs are automatically updated whenever inputs change. This demonstrates how a standard R plot can be made interactive:\n\n\n\nNumber of bins:"
+  },
+  {
+    "objectID": "license.html",
+    "href": "license.html",
+    "title": "License",
+    "section": "",
+    "text": "This work is licensed under a Creative Commons Attribution 4.0 International License."
+  },
+  {
+    "objectID": "modules/s01-intro.html",
+    "href": "modules/s01-intro.html",
+    "title": "Introduction to R and RStudio",
+    "section": "",
+    "text": "View slides in full screen\n\nOutline\n\n\nWelcome to the course\nWhy use R\nIntro to R\nIntro to RStudio\nData types and structures\nKey concepts\nCreating a project"
+  },
+  {
+    "objectID": "modules/s03-eda.html",
+    "href": "modules/s03-eda.html",
+    "title": "Exploratory Data Analysis (EDA)",
+    "section": "",
+    "text": "View slides in full screen\n\nOutline\n\nDefinitions of EDA\nGoals of EDA\nTypes of EDA\n\nUnivariate non-graphical\nUnivariate graphical\nMultivariate non-graphical\nMultivariate graphical"
+  },
+  {
+    "objectID": "modules/s05-stats.html",
+    "href": "modules/s05-stats.html",
+    "title": "Statistics with R",
+    "section": "",
+    "text": "View slides in full screen\n\nOutline\n\nCommon statistical tests\nSyntax of an r model\nLinear regression\nLogistic regression\nSurvival analysis\nReporting model outputs"
+  },
+  {
+    "objectID": "modules/s07-shiny.html",
+    "href": "modules/s07-shiny.html",
+    "title": "Interactive shiny dashboards",
+    "section": "",
+    "text": "View slides in full screen\n\nOutline\n\nIntroduction to shiny\nHow reactivity works\nBuilding a simple app\nDeploying your app"
+  },
+  {
+    "objectID": "prework.html",
+    "href": "prework.html",
+    "title": "Prework",
+    "section": "",
+    "text": "This course requires a computer with R and RStudio installed. Both are free and open source. Please see installation links below. No prior knowledge of R is required. Statistical knowledge is not required but may be helpful in the statistical modelling section."
+  },
+  {
+    "objectID": "prework.html#installation-links",
+    "href": "prework.html#installation-links",
+    "title": "Prework",
+    "section": "Installation links",
+    "text": "Installation links\n\nR\nR can be downloaded and installed from CRAN\n\n\n\n\n\n\nWarning\n\n\n\nVersion 4.3.1 or above is recommended.\n\n\n\n\nRStudio Desktop\nRStudio Desktop can be downloaded and installed from the posit website\n\n\n\n\n\n\nWarning\n\n\n\nVersion 2023.06 or above is recommended."
+  }
+]

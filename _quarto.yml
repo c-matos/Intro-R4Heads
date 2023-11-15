@@ -1,0 +1,70 @@
+project:
+  type: website
+  output-dir: docs
+  preview:
+    port: 4200
+    browser: true
+    host: 0.0.0.0
+    
+website:
+  page-navigation: true
+  title: ""
+  description: "Homepage for ISPUP::R4HEADS(2023) workshop"
+  site-url: "https://c-matos.github.io/r4heads_hands_on/"
+  
+  repo-url: "https://github.com/c-matos/r4heads_hands_on"
+  repo-actions: issue
+  
+  open-graph: true
+  favicon: "/images/logo.png"
+  
+  page-footer:
+    left: "This page is built with [Quarto](https://quarto.org/)."
+    right: "&copy; Copyright 2023"
+    background: "#D4EEE5"
+
+  navbar:
+    background: "#D4EEE5"
+    logo: "images/logo.png"
+    pinned: true
+    align: center
+    right:
+      - icon: file-certificate
+        href: license.qmd
+      - icon: github
+        href: https://github.com/c-matos/r4heads_hands_on
+        text: GitHub
+    left:
+      - text: Information
+        menu:
+          - text: Prework
+            href: prework.qmd
+          - text: Schedule
+            href: schedule.qmd
+      - text: Sessions
+        menu:
+          - text: Introduction to R and RStudio
+            href: modules/s01-intro.qmd
+          - text: Introduction to the tidyverse
+            href: modules/s02-tidyverse.qmd
+          - text: Exploratory Data Analysis (EDA)
+            href: modules/s03-eda.qmd
+          - text: Data visualization with ggplot2
+            href: modules/s04-dataviz.qmd
+          - text: Statistics with R
+            href: modules/s05-stats.qmd
+          - text: Reporting with Quarto
+            href: modules/s06-reporting.qmd
+          - text: Interactive shiny dashboards
+            href: modules/s07-shiny.qmd
+          - text: Version control with git and GitHub
+            href: modules/s08-git.qmd
+
+format:
+  html:
+    theme:
+      light: [cosmo, theme.scss]
+    toc: true
+    code-cody: true
+    code-overflow: wrap
+    mainfont: "Asap SemiCondensed"

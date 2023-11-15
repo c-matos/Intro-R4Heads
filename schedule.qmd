@@ -1,0 +1,28 @@
+---
+title: "Schedule"
+listing:
+  - id: schedule
+    contents:
+      - modules/s*.qmd
+    type: table
+    fields: [image, subtitle, title]
+    field-display-names:
+      subtitle: "Time<sup>*</sup>"
+      title: "Module"
+    table-hover: true
+    date-format: "MMMM DD, YYYY"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+tbl-colwidths: [5,20,50,25]
+editor: source
+---
+
+November 23-23 & 27-28, 2023
+
+
+
+::: {#schedule}
+:::
+
+ <font size="-1"><sup>*</sup>Approximate times</font>

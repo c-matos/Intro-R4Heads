@@ -1,0 +1,23 @@
+---
+title: "Statistics with R"
+subtitle: "<span class='code'>Day 3 - 09:00</span>"
+date: "2023-11-27"
+image: "images/05-stats.png"
+tbl-colwidths: [5,20,75]
+---
+
+```{=html}
+<iframe class="slide-deck" src="../materials/00-placeholder.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+<a href='../materials/00-placeholder.html' target="_blank">View slides in full screen</a>
+
+  
+# Outline
+
+-	Common statistical tests
+-	Syntax of an r model
+-	Linear regression
+-	Logistic regression
+-	Survival analysis
+-	Reporting model outputs
