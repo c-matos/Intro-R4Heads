@@ -10,9 +10,9 @@ website:
   page-navigation: true
   title: ""
   description: "Homepage for ISPUP::R4HEADS(2023) workshop"
-  site-url: "https://c-matos.github.io/r4heads_hands_on/"
+  site-url: "https://c-matos.github.io/Intro-R4Heads"
   
-  repo-url: "https://github.com/c-matos/r4heads_hands_on"
+  repo-url: "https://github.com/c-matos/Intro-R4Heads"
   repo-actions: issue
   
   open-graph: true
