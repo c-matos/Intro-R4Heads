@@ -32,7 +32,7 @@ website:
       - icon: file-certificate
         href: license.qmd
       - icon: github
-        href: https://github.com/c-matos/r4heads_hands_on
+        href: https://github.com/c-matos/Intro-R4Heads
         text: GitHub
     left:
       - text: Information
