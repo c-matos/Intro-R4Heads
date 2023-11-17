@@ -1,1 +1,1 @@
-Sitemap: https://c-matos.github.io/r4heads_hands_on/sitemap.xml
+Sitemap: https://c-matos.github.io/Intro-R4Heads/sitemap.xml

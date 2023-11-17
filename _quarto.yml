@@ -19,7 +19,7 @@ website:
   favicon: "/images/logo.png"
   
   page-footer:
-    left: "This page is built with [Quarto](https://quarto.org/)."
+    left: "This page is built with [Quarto](https://quarto.org/) and heavily inspired by the work of [Cédric Scherer](https://posit-conf-2023.github.io/dataviz-storytelling/)."
     right: "&copy; Copyright 2023"
     background: "#D4EEE5"
 
