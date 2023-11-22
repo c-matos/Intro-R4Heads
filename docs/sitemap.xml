@@ -2,66 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/schedule.html</loc>
-    <lastmod>2023-11-17T17:17:08.904Z</lastmod>
+    <lastmod>2023-11-22T01:49:28.716Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/modules/s08-git.html</loc>
-    <lastmod>2023-11-17T17:17:07.926Z</lastmod>
+    <lastmod>2023-11-22T01:49:27.768Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/modules/s06-reporting.html</loc>
-    <lastmod>2023-11-17T17:17:07.133Z</lastmod>
+    <lastmod>2023-11-22T01:49:27.021Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/modules/s04-dataviz.html</loc>
-    <lastmod>2023-11-17T17:17:06.417Z</lastmod>
+    <lastmod>2023-11-22T01:49:26.235Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/modules/s02-tidyverse.html</loc>
-    <lastmod>2023-11-17T17:17:05.466Z</lastmod>
+    <lastmod>2023-11-22T01:49:25.433Z</lastmod>
+  </url>
+  <url>
+    <loc>https://c-matos.github.io/Intro-R4Heads/materials/04-dataviz.html</loc>
+    <lastmod>2023-11-22T01:53:49.172Z</lastmod>
+  </url>
+  <url>
+    <loc>https://c-matos.github.io/Intro-R4Heads/materials/02-tidyverse.html</loc>
+    <lastmod>2023-11-22T01:49:22.496Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/materials/00-placeholder.html</loc>
-    <lastmod>2023-11-17T17:17:04.609Z</lastmod>
+    <lastmod>2023-11-22T01:49:15.812Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/index.html</loc>
-    <lastmod>2023-11-17T17:17:03.410Z</lastmod>
+    <lastmod>2023-11-22T01:49:14.797Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/about.html</loc>
-    <lastmod>2023-11-17T17:16:48.903Z</lastmod>
-  </url>
-  <url>
-    <loc>https://c-matos.github.io/Intro-R4Heads/dev/test_flex.html</loc>
-    <lastmod>2023-11-17T17:16:50.547Z</lastmod>
-  </url>
-  <url>
-    <loc>https://c-matos.github.io/Intro-R4Heads/dev/test_shiny_quarto.html</loc>
-    <lastmod>2023-11-17T17:17:02.948Z</lastmod>
+    <lastmod>2023-11-22T01:49:14.388Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/license.html</loc>
-    <lastmod>2023-11-17T17:17:03.796Z</lastmod>
+    <lastmod>2023-11-22T01:49:15.146Z</lastmod>
+  </url>
+  <url>
+    <loc>https://c-matos.github.io/Intro-R4Heads/materials/01-intro.html</loc>
+    <lastmod>2023-11-22T01:49:18.226Z</lastmod>
+  </url>
+  <url>
+    <loc>https://c-matos.github.io/Intro-R4Heads/materials/03-eda.html</loc>
+    <lastmod>2023-11-22T01:49:23.455Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/modules/s01-intro.html</loc>
-    <lastmod>2023-11-17T17:17:05.087Z</lastmod>
+    <lastmod>2023-11-22T01:49:25.058Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/modules/s03-eda.html</loc>
-    <lastmod>2023-11-17T17:17:05.992Z</lastmod>
+    <lastmod>2023-11-22T01:49:25.826Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/modules/s05-stats.html</loc>
-    <lastmod>2023-11-17T17:17:06.764Z</lastmod>
+    <lastmod>2023-11-22T01:49:26.659Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/modules/s07-shiny.html</loc>
-    <lastmod>2023-11-17T17:17:07.566Z</lastmod>
+    <lastmod>2023-11-22T01:49:27.392Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/prework.html</loc>
-    <lastmod>2023-11-17T17:17:08.361Z</lastmod>
+    <lastmod>2023-11-22T01:49:28.152Z</lastmod>
   </url>
 </urlset>

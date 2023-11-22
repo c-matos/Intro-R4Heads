@@ -1,0 +1,1829 @@
+---
+title: "Welcome to the <br> tidyverse"
+# subtitle: "Hands-on training"
+author: "<a href='https://github.com/c-matos' style='color:#28a87d;font-weight:600;'>Carlos Matos</a>&ensp;//&ensp;ISPUP&ensp;//&ensp;November 2023"
+format:
+  revealjs:
+    theme: slides.scss
+    logo: ../images/logo.png
+    footer: '[Carlos Matos](https://github.com/c-matos) // ISPUP::R4HEADS(2023)'
+    multiplex: true
+    transition: fade
+    progress: true
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: atom-one
+    # chalkboard:
+    #   theme: whiteboard
+    #   boardmarker-width: 4
+    #   buttons: true
+    pause: true
+    code-copy: true
+    #page-layout: custom
+    code-line-numbers: false
+revealjs-plugins:
+  - pointer
+editor: source
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 3
+    dpi: 200
+execute:
+  freeze: auto
+  cache: false
+  echo: true
+  fig-width: 10.1
+  fig-height: 6.3
+  fig-align: center
+# reference-location: margin
+# citation-location: margin
+code-annotations: hover
+---
+
+## What is tidy data
+
+![[https://r4ds.hadley.nz/data-tidy.html](https://r4ds.hadley.nz/data-tidy.html)](img/tidy-quote.png)
+
+## What is tidy data
+
+![What is tidy data](img/hadley_tidydata.jpg)
+
+## What is tidy data
+
+![What is tidy data](img/tidy-data1.png)
+
+
+
+
+## Tidyverse guiding principles
+
+- It is **human centered**, i.e. the tidyverse is designed specifically to support the activities of a human data analyst.
+
+- It is **consistent**, so that what you learn about one function or package can be applied to another, and the number of special cases that you need to remember is as small as possible.
+
+- It is **composable**, allowing you to solve complex problems by breaking them down into small pieces, supporting a rapid cycle of exploratory iteration to find the best solution.
+
+- It is **inclusive**, because the tidyverse is not just the collection of packages, but it is also the community of people who use them.
+
+<b class="simple-source"> [https://design.tidyverse.org/unifying.html](https://design.tidyverse.org/unifying.html) </b>
+
+
+## Data Science workflow
+
+![Data science workflow](img/ds_workflow.png)
+
+- **Model** has its own tidy universe, called [tidymodels](https://www.tidymodels.org/)
+- **Communicate** is done with other tools (Markdown, Quarto)
+
+## The pipe
+
+![Pipes in R](img/pipes_in_r.png)
+
+
+## The pipe {auto-animate="true"}
+
+:::: .columns
+::: {.column width="40%"}
+![](img/dplyr-pipe.png)
+:::
+::: {.column width="59%"}
+![](img/pipe2.png) 
+:::
+::::
+
+
+```{.r}
+#Example code:
+dat %>% 
+  filter(study.group == "control")
+
+#Equivalent to:
+filter(dat, study.group == "control")
+
+```
+
+## The pipe {auto-animate="true"}
+
+:::: .columns
+::: {.column width="40%"}
+![](img/dplyr-pipe.png)
+:::
+::: {.column width="59%"}
+![](img/pipe2.png) 
+:::
+::::
+
+```{.r}
+#Example code:
+dat %>% 
+  filter(study.group == "control") %>% 
+  summarize(n = n())
+
+#Equivalent to:
+summarize(filter(dat, study.group == "control"), n = n())
+
+```
+
+## The pipe {auto-animate="true"}
+
+:::: .columns
+::: {.column width="40%"}
+![](img/dplyr-pipe.png)
+:::
+::: {.column width="59%"}
+![](img/pipe2.png) 
+:::
+::::
+
+```{.r}
+#Example code:
+dat %>% 
+  filter(study.group == "control") %>% 
+  mutate(new_column = "something") %>% 
+  summarize(n = n())
+
+#Equivalent to:
+summarize(mutate(filter(dat, study.group == "control"),new_colum == "something"), n = n())
+
+```
+
+## The pipe {auto-animate="true"}
+
+<br>
+
+- Easy to skim because verbs come at the start of each line
+- To add the pipe to your code you can use `Ctrl/Cmd` + `Shift` + `M`
+- It is included in the core tidyverse
+```{.r}
+#Example code:
+dat %>% 
+  filter(study.group == "control") %>% 
+  mutate(new_column = "something") %>% 
+  summarize(n = n())
+
+#Equivalent to:
+summarize(mutate(filter(dat, study.group == "control"),new_colum == "something"), n = n())
+
+```
+
+## The pipe
+
+- Inside a pipe, you can refer to the previous output as `.` (dot)
+
+::: question
+**x %>% f(y)** *is the same as* **f(x, y)**
+<br>
+**y %>% f(x, ., z)** is the same as **f(x, y, z )**
+:::
+
+# Data <br> <br> transformation
+
+## dplyr to the rescue
+
+::::: {.columns}
+
+::: {.column width="30%"}
+![dplyr hex sticker](img/dplyr2.png)
+:::
+
+::: {.column width="70%"}
+::: incremental 
+::: {.question .spaced-2} 
+
+- <span style='font-size:1.3em;'> First argument is <span class=simple-highlight-grn>always</span> a data frame </span>
+
+- <span style='font-size:1.3em;'> Other arguments (usually) are the **names of the columns** to operate on, <span class=simple-highlight-grn>without the quotes</span></span>
+
+- <span style='font-size:1.3em;'> The output is <span class=simple-highlight-grn>always</span> a new data frame</span>
+:::
+:::
+:::
+
+:::::
+
+## dplyr to the rescue
+
+<br>
+
+dplyr's verbs can be organized into groups, based on what they operate on:
+
+<span style='font-size:1.8em;font-family:Literata;'><b>&emsp;&emsp;&rarr; <em>Rows</b></em> <span style='font-size:0.6em;'> (Change rows, w/o affecting columns)</span></span>
+
+<span style='font-size:1.8em;font-family:Literata;'><b>&emsp;&emsp;&rarr; <em>Columns</b></em> <span style='font-size:0.6em;'> (Change columns, w/o affecting rows )</span></span>
+
+<span style='font-size:1.8em;font-family:Literata;'><b>&emsp;&emsp;&rarr; <em>Groups</b></em></span>
+
+<span style='font-size:1.8em;font-family:Literata;'><b>&emsp;&emsp;&rarr; <em>Tables</b> </em></span>
+
+
+
+# <span style='line-height:.97;'> Rows </span> {background-color="#c4edff"}
+
+
+## Prerequisites
+
+```{r}
+library(tidyverse) #loads the tidyverse functions
+library(gapminder) #loads the gapminder dataset
+
+#tibble with 1704 rows and 6 columns
+glimpse(gapminder)
+```
+
+## Sneak peek of the tidyverse
+
+- Calculating the gap in lifeExp by continent
+- The **base R** way
+
+```{r}
+#| output-location: slide
+#| classes: scrolling-400
+#Calculating the gap in lifeExp by continent
+africa <- gapminder[gapminder$continent == "Africa", ]
+africa_mm <- max(africa$lifeExp) - min(africa$lifeExp)
+
+americas <- gapminder[gapminder$continent == "Americas", ]
+americas_mm <- max(americas$lifeExp) - min(americas$lifeExp)
+
+asia <- gapminder[gapminder$continent == "Asia", ]
+asia_mm <- max(asia$lifeExp) - min(africa$lifeExp)
+
+europe <- gapminder[gapminder$continent == "Europe", ]
+europe_mm <- max(europe$lifeExp) - min(europe$lifeExp)
+
+oceania <- gapminder[gapminder$continent == "Oceania", ]
+oceania_mm <- max(europe$lifeExp) - min(oceania$lifeExp)
+
+cbind(
+  continent = c("Africa", "Asias", "Europe", "Oceania"),
+  max_minus_min = c(africa_mm, americas_mm, asia_mm, europe_mm, oceania_mm)
+  )
+```
+
+
+- Prone to errors and hard to understand and debug
+
+## Sneak peek of the tidyverse
+
+- Calculating the gap in lifeExp by continent
+- The **tidyverse** way
+```{r}
+gapminder %>% 
+ group_by(continent) %>% 
+ summarize(max_minus_min = max(lifeExp) - min(lifeExp))
+```
+
+
+## Filter rows with filter()
+
+::: columns
+
+::: {.column width="30%"}
+
+![Filter observations](img/filter-figure.png)
+
+:::
+::: {.column width="70%"}
+
+- `filter()` is used to **subset** observations based on their values
+- 1<sup>st</sup> argument is the *name of the data frame*
+- Other arguments are **logical** expressions that filter the data 
+
+:::
+:::
+
+
+
+::: {.callout-important}
+To check if A equals B we use the **equality operator** (`==`).
+<br>
+Not to be confused with the assignment operator (`=`).
+:::
+
+## Filter rows with filter()
+
+<br> 
+
+```{r}
+
+#Portuguese data
+gapminder %>% 
+  filter(country == "Portugal")
+
+```
+
+
+## Filter rows with filter()
+
+<br> 
+
+```{r}
+#Portuguese data
+#Equivalent to the previous code
+filter(gapminder, country == "Portugal")
+
+```
+
+
+
+## Filter rows with filter()
+
+<br>
+
+```{r}
+#Portuguese data for the year 2007
+gapminder %>% 
+  filter(country == "Portugal", 
+         year == 2007) 
+
+#Alternatively, using the and (&) operator
+gapminder %>% 
+  filter(country == "Portugal" & year == 2007)
+```
+
+## Filter rows with filter()
+
+<br>
+
+```{r}
+#Portuguese or Spanish data for the year 2007
+gapminder %>% 
+  filter(country == "Portugal" | country == "Spain", 
+         year == 2007) 
+
+#Alternatively, using the %in% operator
+gapminder %>% 
+  filter(country %in% c("Portugal","Spain"), 
+         year == 2007) 
+```
+
+## Filter rows with filter()
+
+<br>
+
+:::{.callout-tip}
+The `%in%` operator is very useful inside `filter()`, because it is easy to test different inputs. It allows single or multiple user selection. Using the `==` oeprator we would need to change the code everytime.
+:::
+
+
+::: {.panel-tabset .scrolling-400}
+
+### Example 1
+
+```{r}
+#| output-location: column
+countries <- "Portugal"
+
+#No need to change the chart code! Just the input fields above
+gapminder %>% 
+  filter(country %in% countries) %>% 
+  ggplot(aes(x = year,
+             y = lifeExp, 
+             color = country)) +
+  geom_line()
+```
+
+
+### Example 2
+```{r}
+#| output-location: column
+countries <- c("Portugal","Spain")
+
+#No need to change the chart code! Just the input fields above
+gapminder %>% 
+  filter(country %in% countries) %>% 
+  ggplot(aes(x = year, 
+             y = lifeExp, 
+             color = country)) +
+  geom_line()
+```
+:::
+
+
+
+
+## Filter rows with filter()
+
+<br>
+
+- Common <span class=simple-highlight-grn> mistakes </span>
+
+```{r}
+#| error: true
+#| #Throws an error
+gapminder %>% 
+  filter(year = 2007) 
+```
+
+## Filter rows with filter()
+
+<br>
+
+- Common <span class=simple-highlight-grn> mistakes </span>
+
+```{r}
+#| error: true
+
+#Does not throw error, but does nothing
+# what happens is that R checks the condition (year == 2002) 
+# and then checks the condition 2007, which doesn't make sense
+gapminder %>% 
+  filter(year == 2002 | 2007) 
+```
+
+## Filter rows with filter()
+
+<br>
+
+::: panel-tabset
+### Challenge
+
+<blockquote> Using the `airquality` dataset, filter only observations from 
+<br>
+a) September,
+<br>
+b) for days that are multiples of five, 
+<br>
+c) where temperature was above 80. </blockquote>
+
+### Solution
+
+```{r}
+
+airquality %>% 
+  filter(Month == 9,
+         Day %in% seq(5,30,5),
+         Temp > 80)
+
+```
+:::
+
+
+
+## Arrange rows with arrange()
+
+- `arrange()` changes the order of the rows based on the value of the columns (One or more)
+- The number of rows does not change
+```{r}
+#Arrange/sort by year (oldest to newest - ascending)
+gapminder %>% 
+  arrange(year)
+```
+
+## Arrange rows with arrange()
+
+- `desc()` can be used inside `arrange()` to arrange descending
+```{r}
+#Arrange/sort by year (newest to oldest - descending) 
+gapminder %>% 
+  arrange(desc(year))
+```
+
+## Arrange rows with arrange()
+
+<br>
+
+```{r}
+#Arrange/sort by continent (descending) and then by lifeExp (ascending)
+gapminder %>% 
+  arrange(desc(continent), lifeExp)
+```
+
+## Arrange rows with arrange()
+
+<br>
+
+:::callout-note
+When arranging a column that has **NA** values, they **ALWAYS** appear at the end of the dataset, whether the `arrange()` is ascending or descending.
+<br>
+When arranging by multiple columns, NAs will appear at the **end of each group**.
+:::
+
+
+## Arrange rows with arrange()
+
+<br>
+
+::: panel-tabset
+### Challenge
+
+<blockquote> Using the `gapminder` dataset, show a data frame with the most recent year only, ordered by life expectancy (higher to lower) </blockquote>
+
+### Solution
+
+```{r}
+
+gapminder %>% 
+  filter(year == 2007) %>% 
+  arrange(desc(lifeExp))
+
+```
+:::
+
+## Unique values with distinct()
+
+
+<br>
+
+- `distinct()` finds all the unique rows in a dataset.
+- Can be used for a single column or combination of columns.
+```{r}
+ 
+#Get a list of unique/distinct years
+gapminder %>% 
+  distinct(country)
+```
+
+## Unique values with distinct()
+
+<br>
+
+```{r}
+ 
+#Get a distinct combination of continent + year
+gapminder %>% 
+  distinct(continent, year)
+```
+
+## Unique values with distinct()
+
+<br>
+
+- What if we want to keep the other columns?
+```{r}
+#| output-location: column
+#| classes: custom-40-60 .max-height-200
+gapminder %>% 
+  distinct(continent, year, 
+           .keep_all = T)
+```
+
+
+::: {.callout-warning}
+Note that only one country remains for each continent!
+<br>
+The `.keep_all` argument only keeps the first row of values.
+<br>
+If you wanted to know how many countries were available for each continent/year combination, the `count()` function would work.
+:::
+
+## Count rows with count()
+
+```{r}
+#How many observations exist for each combination of continent + year?
+gapminder %>% 
+  count(continent, year) 
+```
+
+
+
+# <span style='line-height:.97;'> Columns </span> {background-color="#c4edff"}
+
+## Select columns with select()
+
+<br>
+
+:::columns
+:::{.column width="30%"}
+![Select columns](img/select-figure.png)
+:::
+:::{.column width="70%"}
+- Select or exclude columns
+:::
+:::
+
+```{r}
+#Select ONLY continent and lifeExp
+gapminder %>% 
+  select(continent, lifeExp) %>% 
+  glimpse()
+  
+```
+
+## Select columns with select()
+
+<br>
+
+```{r}
+#Select columns BETWEEN continent and lifeExp (inclusive)
+gapminder %>% 
+  select(continent:lifeExp) %>% 
+  glimpse()
+  
+```
+
+## Select columns with select()
+
+<br>
+
+```{r}
+#Select columns EXCEPT those between continent and lifeExp (inclusive)
+gapminder %>% 
+  select(!continent:lifeExp) %>% 
+  glimpse()
+  
+```
+
+::: {.callout-note}
+Previously `-` was used instead of `!`
+<br>
+When searching online for help you may still find answwers using `-`
+:::
+
+## Select columns with select()
+
+<br>
+
+- The tidyverse has some helper functions that can be used with `select()`, from the `tidyselect` package.
+- One example is the `where()` function.
+```{r}
+#| error: true
+#Select only integer columns
+gapminder %>% 
+  select(where(is.integer)) %>% 
+  glimpse()
+
+```
+
+::: {.callout-note}
+Note that `is.integer` is a function, and we are passing the **function name** as an argument of the `where()` function.
+:::
+
+## Select columns with select()
+
+<br>
+
+- There are several selection helpers, which can be found in the tidyselect package [vignette](https://tidyselect.r-lib.org/reference/index.html)
+```{r}
+#| error: true
+#Select only columns of type double
+gapminder %>% 
+  select(where(is.double)) %>% 
+  glimpse()
+
+#Select columns that start with the letter "c"
+gapminder %>% 
+  select(starts_with("c")) %>% 
+  glimpse()
+
+
+```
+
+## Select columns with select()
+
+<br>
+
+- You can **reorder** and/or **rename** columns as you select them
+```{r}
+#| error: true
+#Select three columns, while renaming one
+gapminder %>% 
+  select(continent,
+         le = lifeExp,
+         year) %>% 
+  glimpse()
+
+
+```
+
+
+## Rename columns with rename()
+
+<br>
+
+- `rename()` keeps all existing variables and allows you to rename a few
+- The syntax is `rename(.data, new_name = old_name)`
+```{r}
+
+#rename lifeExp to le
+gapminder %>% 
+  rename(le = lifeExp) %>% 
+  glimpse()
+```
+
+## Rename columns with janitor::clean_names()
+  
+- For larger datasets with inconsistently named columns, the `clean_names()` function is a huge help
+- Suppose you have a gapminder dataset with inconsistent names
+```{r}
+gapminder_crazy_names <- gapminder %>% 
+  rename(ÇOUNTRY = country,
+         Continent = continent,
+         LifeExp = lifeExp,
+         Ýear = year,
+         PÔP = pop,
+         GDPPercap = gdpPercap)
+
+colnames(gapminder_crazy_names)
+```
+
+## Rename columns with janitor::clean_names()
+
+<br>
+
+- Using `clean_names()`
+
+```{r}
+#Suppose you have a gapminder dataset with inconsistent names
+colnames(gapminder_crazy_names)
+
+library(janitor)
+#rename lifeExp to le
+gapminder_crazy_names %>% clean_names() %>% colnames()
+```
+
+::: {.callout-note}
+The default output of `clean_names()` is lower case, with `_` separating words.
+:::
+
+
+
+## Move columns with relocate()
+
+<br>
+
+- `relocate()` moves variables around, without changing them
+```{r}
+#make continent the first column
+gapminder %>% 
+  relocate(continent, .before = country) %>% #by var NAME 
+  colnames()
+
+gapminder %>% 
+  relocate(continent, .before = 1) %>% #by var INDEX 
+  colnames()
+```
+
+## Move columns with relocate() {data-menu-title="tidyselect helpers inside relocate()"}
+
+<br>
+
+::: {.callout-note}
+The tidyselect helpers we saw earlier can be used anywhere that we need to "select" a column.
+:::
+```{r}
+#Move all columns that end with "p" to the right of country
+gapminder %>% 
+  relocate(ends_with("p"), .after = country) %>% #by var NAME 
+  colnames()
+
+```
+
+## Calculate variables with mutate()
+
+:::columns
+:::{.column width="40%"}
+::: {layout="[[-1], [1], [-1]]"}
+![mutate()](img/mutate-figure.png)
+:::
+:::
+:::{.column width="60%"}
+- `mutate()` is used to add new columns, calculated from existing columns
+- By default columns are added to the right hand side of the dataset. 
+:::
+:::
+
+
+```{r}
+gapminder %>% 
+  mutate(pop_millions = pop / 1e6,
+         total_gdp = gdpPercap * pop) %>%
+  head(5)
+```
+
+## Calculate variables with mutate()
+
+<br>
+
+<blockquote> `mutate()` is one of the most frequently used functions in a data analysis pipeline </blockquote>
+
+- Mutate in itself is trivial, the hard part is often the logic/calculations that go into creating the desired columns
+
+# <span style='line-height:.97;'> Groups </span> {background-color="#c4edff"}
+
+## Grouped subsets with group_by()
+
+<br>
+
+:::: .columns
+::: {.column width="40%"}
+![](img/dplyr-group-by.png)
+:::
+::: {.column width="59%"}
+- `group_by()` divides a dataset into meaningful groups
+- Doesn't change the underlying data
+- Subsequent operations will be performed **by each group**
+
+:::
+::::
+
+## Grouped subsets with group_by()
+
+<br>
+
+- looking closely at the output you see "# Groups: continent [5]"
+```{r}
+#Group data by continent
+gapminder %>% 
+  group_by(continent)
+```
+
+
+## Grouped subsets with group_by()
+
+<br>
+
+- It's possible to group by more than one variable simultaneously
+```{r}
+#Group data by continent and year
+gapminder %>% 
+  group_by(continent, year)
+```
+
+
+## Grouped summaries with summarise()
+
+:::columns
+:::{.column width="30%"}
+::: {layout="[[-1], [1], [-1]]"}
+![summarise()](img/summarise-figure.png)
+:::
+:::
+:::{.column width="70%"}
+- `summarise()`^[or summarize] is the most important grouped operation
+- Reduces the data frame to a single row, or one row for each group, if used with `group_by()`
+:::
+:::
+
+:::: .columns
+::: {.column width="49%"}
+
+```{r}
+#mean gdpPercap, worldwide
+gapminder %>% 
+  summarise(mean_gdp = mean(gdpPercap))
+```
+:::
+::: {.column width="50%"}
+
+```{r}
+#mean gdpPercap, by continent
+gapminder %>% 
+  group_by(continent) %>% 
+  summarise(mean_gdp = mean(gdpPercap))
+```
+:::
+::::
+
+## Grouped summaries with summarise()
+
+<br>
+
+- Multiple statistics/measures can be calculated inside `summarise()`
+
+:::: .columns
+::: {.column width="49%"}
+
+```{r}
+#mean gdpPercap, worldwide
+gapminder %>% 
+  summarise(n = n(),
+            mean_gdp = mean(gdpPercap),
+            median_pop = median(pop))
+```
+:::
+::: {.column width="50%"}
+
+```{r}
+#mean gdpPercap, by continent
+gapminder %>% 
+  group_by(continent) %>% 
+  summarise(n = n(), #counts the number of rows
+            mean_gdp = mean(gdpPercap),
+            median_pop = median(pop))
+```
+:::
+::::
+
+
+## Grouped summaries with summarise()
+
+<br>
+
+::: {.callout-tip}
+<span style='font-size:1.3em;'>The `group_by()` and `summarise()` combination is frequently seen at the end of a pipeline.
+<br>
+A typical workflow would be:
+<br>
+Import data &rarr; select and rename relevant columns &rarr; clean and process the dataset &rarr; filter desired rows &rarr; compute new columns &rarr; group and summarise </span>
+:::
+
+::: {.callout-important}
+When summarising a grouped data frame, the groups get **dropped** after the `summarise()` function call.
+However, other operations **KEEP** the groups by default.
+:::
+
+## Ungrouping grouped data frames {auto-animate="true"}
+
+<br>
+
+::: {.callout-important}
+When summarising a grouped data frame, the groups get **dropped** automatically after the `summarise()` function call.
+However, other operations **KEEP** the groups by default. To explicitly ungroup you can use the `ungroup()` function
+:::
+
+```{r}
+#| output-location: column
+#| classes: custom-40-60 .max-height-200
+#Create an ID column
+gapminder %>% 
+  group_by(continent) %>% 
+  mutate(id = row_number())
+```
+
+## Ungrouping grouped data frames {auto-animate="true"}
+
+<br>
+
+::: {.callout-important}
+When summarising a grouped data frame, the groups get **dropped** automatically after the `summarise()` function call.
+However, other operations **KEEP** the groups by default. To explicitly ungroup you can use the `ungroup()` function
+:::
+
+```{r}
+#| output-location: column
+#| classes: custom-40-60 .max-height-200
+#Create an ID column
+gapminder %>% 
+  group_by(continent) %>% 
+  mutate(id = row_number()) %>% 
+  summarise(mean = mean(lifeExp))
+```
+
+- Note that the data frame is still grouped after the `mutate()` call, because the output of `summarise()` is given by continent.
+
+
+
+# <span style='line-height:.97;'> Tables </span> {background-color="#c4edff"}
+
+## Join datasets with *_join()
+
+<br>
+
+- Data analysis frequently involves multiple datasets.
+- Datasets must be joined somehow - some column or set of columns that are equal in both datasets
+- This common identifier is called a **key**
+
+::: question
+There are two types of keys: a **Primary key (PK)** and a **Foreign key (FK)**
+<br><br>
+A **Primary Key** is a variable or set of variables that uniquely identifies each observation.
+<br>
+A **Foreign Key** is a variable or set of variables that correspond to a Primary Key in another table
+:::
+
+## Join datasets with *_join()
+
+<br>
+
+:::: .columns
+::: {.column width="40%"}
+![](img/primary-key.png)
+:::
+::: {.column width="59%"}
+::: question
+- **ID#** is a PK in the Students table, and a FK in the Takes_Course table.
+- **ClassID** is a PK in the Courses table, and a FK in the Takes_Course table.
+- The **combination** of **ID# and ClassID** is a PK in the Takes_Course table.
+:::
+:::
+::::
+
+::: {.callout-important}
+Foreign Keys can be repeated, while Primary Keys must be unique!
+<br>
+Note that R does not enforce by default this restriction. That burden falls to the user.
+:::
+
+## Join datasets with *_join()
+
+![](img/types-of-joins.png){width=80% fig-align="center"}
+
+## Join datasets with *_join()
+
+<br>
+
+- Consider the following datasets:
+
+```{r}
+#| echo: false
+#https://github.com/c-matos/Intro-R4Heads/blob/main/materials/data/pt_pop_2022.csv
+pt_population <- rio::import("data/pt_pop_2022.csv")
+pt_deaths <- rio::import("data/pt_deaths_2022.csv") 
+```
+
+```{r}
+#| echo: true
+#1) PT population in 2022 
+pt_population %>% glimpse
+```
+
+```{r}
+#2) PT deaths in 2022
+pt_deaths %>% glimpse
+
+```
+
+## Join datasets with *_join()
+
+<br>
+
+<blockquote>What column or columns do you consider the Primary Key in each table? How could we join them?</blockquote> 
+
+## Join datasets with *_join()
+
+<br>
+
+::: question
+- `left_join()` allows you to combine two datasets
+- The output will have the same rows as x, the dataframe to which you are joining "external" data
+- If a value of x is not found on y, an `NA` is introduced
+:::
+
+## Join datasets with *_join()
+
+<br>
+
+- In this case the column "year" is non-informative, because it has always the same value, therefore we only need to join by age
+```{r}
+#| output-location: column
+#Join deaths data to the population dataset, by age
+pt_population %>% 
+  left_join(x = .,
+            y = pt_deaths,
+            by = c("age")) %>% 
+  head(5)
+
+```
+
+::: {.callout-note}
+Since both datasets had a column named year, that was not part of "by" condition, the output of `left_join()` adds a ".x" and ".y" suffix to each of the columns so that we know their origin. In this case they always have the same values, but that might not be the case in other situations.
+:::
+
+## Join datasets with *_join()
+
+<br>
+
+- Generally, it would be recommended to join by age and year simultaneously.
+
+```{r}
+#| output-location: column
+#Join deaths data to the population dataset, by age and year
+pt_population %>% 
+  left_join(x = .,
+            y = pt_deaths,
+            by = c("age","year")) %>% 
+  head(5)
+```
+
+::: {.callout-note}
+In this scenario the "year" variable is part of the "by" condition, therefore only a single "year" column exists in the output and no ".x" and ".y" columns are created.
+:::
+
+## Join datasets with *_join()
+
+<br>
+
+- What if the columns to join by **didn't have** the same name in both datasets?
+
+```{r}
+#Rename the year variable to showcase this scenario
+pt_deaths <- pt_deaths %>% 
+  rename(YEAR = year)
+
+colnames(pt_deaths)
+```
+
+## Join datasets with *_join()
+
+<br>
+
+- What if the columns to join by **didn't have** the same name in both datasets?
+
+```{r}
+#| output-location: column
+#| code-line-numbers: '6'
+#Join deaths data to the population dataset, by age and year
+#year and YEAR have different names in each dataset
+pt_population %>% 
+  left_join(x = .,
+            y = pt_deaths,
+            by = c("age","year" = "YEAR")) %>% 
+  head(5)
+```
+
+::: {.callout-important}
+When variable names differ you need to specify "var_in_x" = "var_in_y" for the variables with different names.
+:::
+
+
+## Join datasets with *_join()
+
+<br>
+
+- Using the last example, check if any NAs were introduced
+
+```{r}
+#assign the last calculation to a variable
+pt_full_data <- pt_population %>% 
+  left_join(x = .,
+            y = pt_deaths,
+            by = c("age","year" = "YEAR"))
+
+#Show rows that have NA in any cell
+pt_full_data %>% 
+  filter(if_any(everything(),is.na))
+```
+
+<blockquote> Why were those NA introduced? Could NA be introduced in any other column during the `left_join()`?</blockquote>
+
+## Getting help
+
+[Posit cheatsheets](https://posit.co/resources/cheatsheets/)
+
+![dplyr cheatsheet](img/dplyr_sheet.png)
+
+
+## Tidying data with tidyr
+
+<br>
+
+```{r}
+#| include: false
+#Prepare datasets
+
+deaths <- rio::import("data/pt_deaths_2022.csv")
+pop <- rio::import("data/pt_pop_2022.csv")
+
+full_dataset <- pop %>% 
+  left_join(deaths) %>% 
+  drop_na()
+
+table1 <- full_dataset %>% 
+  pivot_longer(cols = c(population, deaths),
+               names_to = "variable") %>% mutate(age = parse_number(age)) %>% arrange(age)
+
+table2 <- full_dataset %>% 
+  mutate(death_rate = str_c(deaths,"/",population)) %>% 
+  select(-population, -deaths) %>% mutate(age = parse_number(age)) %>% arrange(age) %>% as_tibble()
+
+table3 <- full_dataset %>% mutate(age = parse_number(age)) %>% arrange(age) %>% as_tibble()
+```
+
+- There are multiple ways to represent the same data
+```{r}
+table1 %>% head(8)
+
+```
+
+<blockquote> Is this dataset tidy? Why? </blockquote>
+
+## Tidying data with tidyr
+
+<br>
+
+- There are multiple ways to represent the same data
+```{r}
+table2 %>% head(8)
+
+```
+
+<blockquote> Is this dataset tidy? Why? </blockquote>
+
+
+## Tidying data with tidyr
+
+<br>
+
+- There are multiple ways to represent the same data
+```{r}
+table3 %>% head(8)
+
+```
+
+<blockquote> Is this dataset tidy? Why? </blockquote>
+
+
+## Tidying data with tidyr
+
+<br>
+
+::: question
+- Most built-in R functions work with vectors.
+- Tidy data allows R's vectorized nature to shine.
+:::
+
+```{r}
+#| output-location: column
+table3 %>% 
+  mutate(death_rate = 
+           deaths / population * 1e5)
+```
+
+
+## Tidying data with tidyr
+
+<br>
+
+
+<blockquote> How would you calculate the death rate in `table1` and `table2`? </blockquote>
+
+::: question
+- Real world data is often untidy.
+  - Data is organized to facilitate some goal other than analysis (e.g. entry, display in wide screens)
+- Most data science projects will require some level of tidying prior to analysis.
+:::
+
+##  Lengthening data with pivot_longer()
+
+```{r}
+#| include: false
+#prepare dataset
+indometh_wide <- medicaldata::indometh %>% pivot_wider(names_from = "time", values_from = "conc") %>% rename_with(~str_c("t",.),!starts_with("S"))
+#rio::export(indometh_wide,"data/indometh_wide.rds")
+
+```
+
+<br>
+
+- The following dataset shows the plasma concentrations of Indomethacin over 11 periods of time, for 6 subjects.
+- This way of presenting data (**Wide format**) is frequently seen in repeated measures studies or time series data.  
+
+```{r}
+indometh_wide
+```
+
+##  Lengthening data with pivot_longer()
+
+<br>
+
+- The `pivot_longer()` function takes three key arguments
+  - `cols` specifies the columns that need to be pivoted. Uses the same syntax as `select()`
+  - `names_to` names the variable stored in the column names
+  - `values_to` names the variable stored in the cell values
+  
+::: {#fig-tidy-data layout-ncol=3}
+
+![Existing columns get repeated](img/tidy-data1.png){#fig-tidy1}
+
+![Names go to a new column](img/tidy-data2.png){#fig-tidy2}
+
+![Values are preserved, row by row](img/tidy-data3.png){#fig-tidy3}
+
+How does pivoting work?
+:::
+
+
+##  Lengthening data with pivot_longer()
+
+<br>
+
+```{r}
+#| output-location: column
+#| code-line-numbers: 1-6|11
+#| results: hold
+indometh_wide %>% 
+  pivot_longer(
+    cols = -Subject, #All except Subject
+    names_to = "time", 
+    values_to = "plasma_conc"
+  )
+
+#Alternatively
+alt <- indometh_wide %>% 
+  pivot_longer(
+    cols = starts_with("t"), #All that start with letter "t"
+    names_to = "time", 
+    values_to = "plasma_conc"
+  )
+```
+
+::: {.callout-note}
+"time" and "plasma_conc" need to be in quotes because those are columns we are creating, they don't exist yet in the dataset
+:::
+
+##  Lengthening data with pivot_longer()
+
+<br>
+
+- If we wanted to remove the extra "t" in the time column, we could use the `parse_number()` function
+```{r}
+#| output-location: column
+#| code-line-numbers: '7'
+indometh_long <- 
+  indometh_wide %>% 
+  pivot_longer(
+    cols = -Subject,
+    names_to = "time", 
+    values_to = "plasma_conc"
+  ) %>% 
+  mutate(time = parse_number(time))
+```
+
+##  Lengthening data with pivot_longer()
+
+<br>
+
+- Now it would be much easier to plot the data with ggplot
+```{r}
+#| output-location: column
+#| classes: custom-40-60
+indometh_long %>% 
+  ggplot(aes(x = time, 
+             y = plasma_conc, 
+             color = Subject)) +
+  geom_line() +
+  theme_minimal()
+```
+
+##  Lengthening data with pivot_longer()
+
+<br>
+
+- `pivot_longer()` can deal with multiple and more complex scenarios, such as:
+  - Many variables in column names
+  - Data and variable names in column headers
+<br><br>
+
+::: {.callout-note}
+You can explore these patterns in depth in the [R for Data Science book](https://r4ds.hadley.nz/data-tidy)
+:::
+
+## Widening data with pivot_wider()
+
+- The opposite of pivot_longer() is `pivot_wider()`.
+- The `pivot_wider()` function takes two key arguments
+  - `names_from` names the variable that will be converted into column names 
+  - `values_from` names the variable stored in the cell values
+```{r}
+#| output-location: column
+#Widening the subjects variable
+Indometh %>% 
+  pivot_wider(names_from = Subject,
+              values_from = conc)
+```
+
+## Widening data with pivot_wider()
+
+<br>
+
+- Widening data could make sense at the end of a pipeline, for display purposes
+
+```{r}
+#| output-location: column
+#| results: hold
+library(kableExtra)
+
+Indometh %>% 
+  pivot_wider(names_from = Subject,
+              values_from = conc) %>% 
+  kableExtra::kbl() %>% 
+  kableExtra::kable_styling(font_size = 14) %>% 
+  kableExtra::kable_classic_2()
+```
+
+
+# Importing <br><br> data to R
+
+## Importing data to R
+
+<br>
+
+- There are many data sources that R can read data from (e.g. Databases, JSON, geo data, ...)
+- We will focus on **tabular data**. For most small scale projects, you will import data from:
+  - Spreadsheets (csv, xls, xlsx, txt, google sheets)
+  - Statistical software (spss, stata, sas)
+- Tidyverse packages include
+  - readr (txt, csv, tsv)
+  - readxl (xls, xlsx)
+  - haven (spss, sas, stata)
+- Unsupported file formats (check supported formats [here](https://cran.r-project.org/web/packages/rio/vignettes/rio.html#Data_Export))
+
+## Importing data to R
+
+<br>
+
+::: question
+One {rio} to rule them all!
+:::
+
+```{.r}
+rio::import("filepath/filename.ext")
+```
+
+<br> 
+And that's it...
+
+## Importing data to R
+
+<br>
+
+### And for exporting
+
+::: question
+One {rio} to rule them all!
+:::
+
+```{.r}
+rio::export(my_awesome_object, "filepath/my_aesome_object.csv")
+rio::export(my_awesome_object, "filepath/my_aesome_object.xlsx")
+rio::export(my_awesome_object, "filepath/my_aesome_object.sav")
+rio::export(my_awesome_object, "filepath/my_aesome_object.dta")
+rio::export(my_awesome_object, "filepath/my_aesome_object.rds")
+...
+```
+
+<br> 
+
+Choose whatever file type you want
+<br>
+And that's it.
+
+## When may {rio} not be enough?
+
+- With Excel
+   - Import from  file with multiple sheets
+   - Import multiple ranges separately
+   - `read_excel()` function from {readxl} has you covered
+- With sources that may require authentication (e.g. googlesheets, onedrive)
+   - Specific packages for these purposes (e.g. {googlesheets4})
+
+
+## Encoding hell
+
+<br>
+
+- Sometimes when importing non-english text data you will get errors on characters such as ã, ô, ç, ...
+- `ASCII` (American Standard Code for Information Interchange) encoding, for example, does not include accented characters.
+- `Latin1 (aka ISO-8859-1)` was used for Western European languages, and you may still find datasets with this encoding.
+- The most likely source of such errors are encoding differences.
+
+
+## Encoding hell
+
+<br>
+
+::: {.callout-important}
+The default encoding used almost everywhere today is **UTF-8**.
+<br><br>
+When encountering strange, unexpected, characters in text data one of the first thing you should think about are **encoding differences!**
+<br><br>
+When naming things (variables, files, folders, ...), **avoid non-english characters** to save you trouble down the line!
+:::
+
+- RStudio allows you to open R scripts with a specific encoding, when it's different from the default.
+
+## Learning how to learn
+
+- Check the **function documentation** and examples
+- Check the package **vignettes** and **articles**
+- **Google it!**
+  - You will likely end up on **Stackoverflow**...
+- **ChatGPT**
+    - Useful, but beware of allucinations (e.g. functions or packages that do not exist)
+
+## Learning how to learn
+
+:::callout-tip
+When googling, ask for *tidyverse* solutions:
+<br>
+An example:
+<br>
+**What you want to know:** How to filter only observations that have the pattern "abc" in the "Name" variable, in a dataframe called "my_awesome_dataframe"
+<br>
+**What you would ask:** "Tidyverse how to filter observations that have a specific pattern"
+<br>
+**What you would ask:** "Tidyverse how to filter observations based on a substring"
+<br><br>
+Google the idea/pattern (filtering rows based on a substring of text), instead of the specific pattern that you are looking for.
+:::
+
+# Some useful<br><br> functions and <br><br>patterns
+
+## Making numbers from text
+
+<br>
+
+```{r}
+x <- c("$1,234", "EUR 9,876", "0.5g/l")
+parse_number(x)
+```
+
+## Rounding numbers
+
+<br>
+
+- Very useful when plotting or displaying data in a table
+- Scales package works neatly with ggplot with functions `label_*`
+
+```{r}
+library(scales)
+
+many_decimals <- c(1.13435435, 3.1415926)
+many_decimals %>% scales::number(accuracy = 0.01)
+```
+
+
+## Cutting numbers into ranges
+
+<br>
+
+```{r}
+
+ages <- seq(0,100)
+head(ages)
+
+ages %>% cut_interval(length = 5) %>% unique()
+
+```
+
+::: panel-tabset
+### Challenge
+
+>What if we wanted to store the results in a tibble, with the columns "age" and "age_groups", and have a group "85+" for all the ages >85?
+
+### Solution
+::: {.scrolling-200}
+```{r}
+#| code-overflow: scroll
+age_groups_df <- ages %>% 
+  as_tibble() %>% 
+  rename(age = value) %>% 
+  mutate(age_groups = cut_interval(ages, length = 5)) %>% 
+  mutate(age_groups = fct_collapse(age_groups, 
+                                   "85+" = c("(85,90]", "(90,95]", "(95,100]")))
+#With fct_collapse we can specify a group that we want to create based on other levels, 
+#and all the other groups remain the same
+
+#Alternatively
+age_groups_df <- ages %>% 
+  as_tibble() %>% 
+  rename(age = value) %>% 
+  mutate(age_helper = ifelse(age>85,86,age)) %>% 
+  mutate(age_groups = cut_interval(age_helper, length = 5)) %>% 
+  mutate(age_groups = if_else(age_groups == "(85,90]",
+                              factor("85+"),
+                              age_groups))
+#In this approach we are converting all values greater than 85 to a value
+#in that range, so that the cut_interval only generated one extra group,
+#that can then be converted to the desired format with if_else
+
+```
+:::
+:::
+
+
+## Offset values
+
+- Useful to calculate variations with regularly intervaled data (e.g. year-over-year changes)
+- The `lag(value, n)` functions searches for the *value* in the same col, *n* rows above
+- If the dataset is properly arranged/sorted, this pattern can be used to calculate change in time series datasets
+
+```{r}
+#| echo: false
+
+#Preparing a dataset with monthly values, for Portugal and World
+df <- crossing(year = 2020:2023,
+               month = 1:12,
+               region = c("Portugal","World")) %>% 
+  mutate(some_value = rnorm(96))
+```
+
+```{r}
+#A dataset with monthly values for Portugal and World
+df %>% glimpse()
+```
+
+## Offset values
+
+- The `lag(value, n)` functions searches for the *value*, *n* rows **above**
+- The `lead(value, n)` functions searches for the *value*, *n* rows **below**
+
+
+```{r}
+#Calculating Year-over-Year (YoY) changes (e.g. yoy = 12/2023 - 12/2022)
+df %>% 
+  arrange(region,year,month) %>% 
+  group_by(region) %>% 
+  mutate(yoy = some_value - lag(some_value,12)) %>% 
+  glimpse()
+
+```
+
+
+
+# Strings
+
+## str_* family of functions with {stringr}
+
+- There are some relevant functions to deal with strings
+```{r}
+
+#Dataset from the gapminder package
+country_codes %>% glimpse
+
+#Countries that start with P
+country_codes %>% 
+  filter(str_starts(country,"P")) %>% 
+  glimpse()
+```
+
+## str_* family of functions with {stringr}
+
+- A few examples of relevant functions to deal with strings
+```{r}
+
+#Countries that contain "gal"
+country_codes %>% 
+  filter(str_detect(country,"gal"))
+
+#Replace all capital "A" with "!"
+country_codes %>%
+  mutate(country = str_replace_all(country, "A","!")) %>% 
+  glimpse()
+
+```
+
+## str_* family of functions with {stringr}
+
+- A few examples of relevant functions to deal with strings
+```{r}
+#Replace all "a" or "A" with "!"
+country_codes %>%
+  mutate(country = str_replace_all(country, regex("a", ignore_case=T), "!")) %>% 
+  glimpse()
+```
+
+## str_* family of functions with {stringr}
+
+- A few examples of relevant functions to deal with strings
+```{r}
+#Split the character every time you find the letter "n"
+country_codes$country %>% str_split("n") %>% head(10)
+```
+- And many more...
+
+## separate_* family of functions
+
+- Sometimes a column contains multiple value
+```{r}
+df <- tibble(year_month = c("2023-12", "2023-11", "2023-10"),
+             name = c("Jon Snow", "Arya Stark", "Tyrion Lannister"),
+             some_value = c(1,2,3))
+
+df %>% glimpse
+
+```
+
+## separate_* family of functions
+
+```{r}
+#Separate year_month into two columns, by position
+df %>% separate_wider_position(year_month,
+                widths = c(year = 4, 1, month = 2)) %>% 
+  glimpse()
+
+#Separate name into first and last names, by delimiter
+df %>% separate_wider_delim(name,
+                delim = " ",
+                names = c("first_name","last_name")) %>% 
+  glimpse()
+```
+
+## glue
+
+- Used to easily pass variables into strings
+```{r}
+df <- tibble(year_month = c("2023-12", "2023-11", "2023-10"),
+             name = c("Jon Snow", "Arya Stark", "Tyrion Lannister"),
+             some_value = c(1,2,3))
+
+df %>% glimpse
+
+df %>% mutate(text = (glue::glue("{name} had the value {some_value} in {year_month}")))
+```
+
+
+# Factors wih<br><br> {forcats}
+
+## What is a factor
+
+:::: columns
+::: {.column width="30%"}
+![](img/forcats-logo.png)
+:::
+::: {.column width="70%"}
+- A factor is an **integer vector** with a **levels** attribute that stores a set of mappings between integers and categorical values. 
+- So, stored as numbers but rendered as labels (similar to SPSS)
+:::
+::::
+
+## Creating factors
+```{r}
+#| echo: false
+some_char_vec <- sample(c("Treatment", "Placebo"), 100, replace = T)
+```
+
+- A character vector
+```{r}
+some_char_vec
+```
+
+## Creating factors
+
+- At the bottom now we see **Levels**
+- This means that there are two possible unique values, with those labels: *Placebo* and *Treatment*
+- But R is storing them as numbers
+
+::: {.scrolling-300}
+```{r}
+#A vector with 100 cases of either treatment or placebo
+some_factor_vec <- factor(some_char_vec)
+some_factor_vec
+```
+:::
+
+## Modifying factors
+
+- Change the order with `fct_relevel()`
+  - Useful for plotting
+```{r}
+#Cjecking the levels
+levels(some_factor_vec)
+
+#Changing the order of the levels
+some_factor_vec %>% fct_relevel("Treatment","Placebo") %>% levels()
+
+#Relabel to lower case
+some_factor_vec %>% fct_recode(new_name_treatment = "Treatment", new_name_placebo = "Placebo") %>% levels
+
+#Apply a function to all levels. Eg. convert to upper case
+some_factor_vec %>% fct_relabel(str_to_upper) %>% levels
+
+```
+
+
+# Dates and times
+
+## Creating and formating dates
+
+- Create a date with `as.Date()` function
+- The default date pattern is year, month, day
+  - e.g. 2023-11-20, or 2023/11/20
+```{r}
+as.Date("2023/11/20")
+as.Date("20-11-2023") #No error! But not what we wanted
+as.Date("20-11-2023", format = "%d-%m-%Y")
+as.Date("20/Nov/23", format = "%d/%b/%y")
+```
+
+:::{.callout-important}
+Sometimes when trying to create a data R thinks it has a valid format and creates a date that is not what we want.
+:::
+
+## Creating and formating dates
+
+![](img/common_r_date_formats.png)
+
+# Useful patterns <br><br> and functions
+
+## set.seed
+
+- Using `set.seed()` before a calculation that uses generated (pseudo-) random values will yield the same results
+- This is true as long as the same random generations are called in the same order after set seed!
+```{r}
+set.seed(12345)
+runif(20)
+```
+
+
+## iconv translitt
+
+- This pattern is useful to remove accented characters from latin character strings
+```{r}
+iconv("Mação", to='ASCII//TRANSLIT', sub='')
+```
+
+
+## excel_numeric_to_date()
+
+- Excel treats dates as numbers, with 1 being 1<sup>st</sup> of January 1900
+- Sometimes when importing to R the value will be loaded as a number
+```{r}
+my_excel_date_number <-45251 #20-11-2023
+my_excel_date_number %>% janitor::excel_numeric_to_date()
+```
+
+# Exercises

@@ -32,4 +32,6 @@ _freeze/
 site/
 **/.DS_Store
 **/._.DS_Store
-dev/
+_dev/
+# Speaker version of html
+*-speaker.html

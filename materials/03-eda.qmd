@@ -1,0 +1,591 @@
+---
+title: "Exploratory Data Analysis <br> (EDA)"
+# subtitle: "Hands-on training"
+author: "<a href='https://github.com/c-matos' style='color:#28a87d;font-weight:600;'>Carlos Matos</a>&ensp;//&ensp;ISPUP&ensp;//&ensp;November 2023"
+format:
+  revealjs:
+    theme: slides.scss
+    logo: ../images/logo.png
+    footer: '[Carlos Matos](https://github.com/c-matos) // ISPUP::R4HEADS(2023)'
+    multiplex: true
+    transition: fade
+    progress: true
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: atom-one
+    # chalkboard:
+    #   theme: whiteboard
+    #   boardmarker-width: 4
+    #   buttons: true
+    pause: true
+    code-copy: true
+    #page-layout: custom
+    code-line-numbers: false
+revealjs-plugins:
+  - pointer
+editor: source
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 3
+    dpi: 200
+execute:
+  freeze: auto
+  cache: false
+  echo: true
+  fig-width: 10.1
+  fig-height: 6.3
+  fig-align: center
+# reference-location: margin
+# citation-location: margin
+code-annotations: hover
+---
+
+```{r}
+#| include: false
+knitr::opts_chunk$set(fig.showtext=TRUE) #use this to show correct fonts with showtext
+```
+
+# EDA<br><br>[Perform initial investigations to identify <b style='color:#EDCBA0;font-weight:700;'>patterns</b> and anomalies and check assumptions...]{style="color:#e2e2e2;font-size:.6em;font-family:Asap;font-stretch:87.5%;font-weight:500;"} {background-color="#000000"}
+
+# EDA<br><br>[... with the help of <b style='color:#EDCBA0;font-weight:700;'>summary statistics</b> and <b style='color:#EDCBA0;font-weight:700;'>graphical</b> representations.]{style="color:#e2e2e2;font-size:.6em;font-family:Asap;font-stretch:87.5%;font-weight:500;"} {background-color="#000000"}
+
+# EDA<br><br>[Any method of looking at data that does <b style='color:#EDCBA0;font-weight:700;'>not</b> include formal statistical modelling and inference.]{style="color:#e2e2e2;font-size:.6em;font-family:Asap;font-stretch:87.5%;font-weight:500;"} {background-color="#000000"}
+
+## Goals of EDA
+
+::: incremental
+-   Identify patterns, errors, missings, outliers
+-   Check assumptions
+-   Identify relationships among variables (direction, size)
+:::
+
+## EDA
+
+### One way to categorize
+
+
+<br>
+
+::: question
+**Univariate vs Multivariate**
+:::
+
+<br>
+
+::: question
+**Graphical vs Non-graphical**
+:::
+
+# <span style='line-height:.97;'>Univariate <br> Non-graphical</span> {background-color="#c4edff"}
+
+
+## Univariate non-graphical
+
+::: question
+**Categorical data**
+:::
+
+-   Tabulation (counts, proportions)
+
+```{r}
+#| label: load-data-packages
+#| echo: false
+#| cache: false
+library(tidyverse)
+library(medicaldata)
+library(gapminder)
+library(outbreaks)
+```
+
+
+```{r}
+#| label: table-base
+#| output-location: column
+#Base R
+table(polyps$sex)
+```
+
+```{r}
+#| label: prop-table-base
+#| output-location: column
+prop.table(table(polyps$sex))
+```
+
+```{r}
+#| label: eda-crosstable
+#| tbl-cap: "Univariate, categorical"
+#| output-location: column
+#crosstable
+library(crosstable)
+
+crosstable(data = polyps,
+           cols = sex) %>% 
+  as_flextable()
+
+```
+
+## Univariate non-graphical
+
+::: question
+**Quantitative data**
+:::
+
+-   Summary statistics
+    -   Central tendency
+        -   Mean
+        -   Median
+    -   Dispersion/Spread
+        -   Interquartile range (IQR)
+        -   Variance
+        -   Standard deviation
+
+
+## Univariate non-graphical
+
+::: question
+**Quantitative data**
+:::
+
+```{r}
+#| label: eda-quantitative-summary
+#| output-location: column
+#Base R
+summary(gapminder$lifeExp[gapminder$year == max(gapminder$year)])
+```
+
+```{r}
+#| label: eda-quantitative-quantiles
+#| output-location: column
+#Base R - Specific quantiles
+quantile(x = gapminder$lifeExp, 
+         probs = c(.01,.99))
+```
+
+```{r}
+#| label: eda-quantitative-tidyverse
+#| output-location: column
+#tidyverse
+gapminder %>% 
+  filter(year == max(year)) %>% 
+  summarise(mean = mean(lifeExp),
+            median = median(lifeExp),
+            iqr = IQR(lifeExp),
+            variance = var(lifeExp),
+            sd = sd(lifeExp)) %>% 
+  pivot_longer(everything())
+```
+
+
+## Univariate non-graphical
+
+::: question
+**Quantitative data**
+:::
+
+::: panel-tabset
+### Challenge
+
+<blockquote>What is the **mean** and **standard deviation** of *GDP per capita* in the *most recent year*, by *continent*?</blockquote>
+
+### Solution
+
+```{r}
+library(gapminder)
+
+gapminder %>% 
+  group_by(continent) %>% 
+  filter(year == max(year)) %>% 
+  summarise(mean = mean(gdpPercap),
+            sd = sd(gdpPercap))
+```
+:::
+
+
+# <span style='line-height:.97;'>Univariate <br> Graphical</span> {background-color="#c4edff"}
+
+
+## Univariate graphical
+
+```{r}
+#| label: chart-types-prep
+#| include: false
+#| cache: false
+library(showtext)
+#showtext_auto()
+showtext::showtext_opts(dpi = 200)
+font_add_google("Asap","Asap")
+knitr::opts_chunk$set(fig.showtext=TRUE) #use this to show correct fonts with showtext
+
+theme_set(theme_classic(base_family = "Asap", base_size = 16))
+theme_update(
+  plot.margin = margin(rep(15, 4)),
+  axis.text = element_blank(),
+  panel.grid = element_blank(),
+  plot.title = element_text(face = "bold", margin = margin(b = 20), size = rel(1.35)),
+  plot.title.position = "plot",
+  axis.line = element_line(color = "grey45", linewidth = 1),
+  axis.title.x = element_text(color = "grey45", margin = margin(t = 10)),
+  axis.title.x.top = element_text(color = "grey45", margin = margin(b = 10)),
+  axis.title.y = element_text(color = "grey45", margin = margin(r = 10)),
+  axis.ticks = element_line(color = "grey45"),
+  legend.position = "top",
+  legend.title = element_text(color = "grey45"),
+  legend.text = element_text(margin = margin(t = 3, b = 3), color = "grey45"),
+  legend.background = element_rect(fill = NA, color = NA),
+  legend.justification = "left"
+)
+```
+
+::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| label: eda-histogram
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5.5
+ggplot(airquality, aes(x = Temp)) + 
+  geom_histogram(fill = "#28A87D", color = "#28A87D", binwidth = 2) +
+  coord_cartesian(expand = FALSE) +
+  labs(x = "Numeric Variable", y = "Count", title = "Histogram")
+```
+::: 
+
+:::  {.column width="50%"}
+::::: fragment
+```{r}
+#| label: eda-density
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5.5
+ggplot(airquality, aes(x = Temp)) + 
+  geom_density(fill = "#28A87D", color = "#28A87D", bw = 1.2) +
+  coord_cartesian(expand = FALSE) +
+  labs(x = "Numeric Variable", y = "Density", title = "Density Plot")
+```
+:::::
+:::
+:::
+
+
+## Univariate graphical
+
+::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| label: eda-cdf2
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5.5
+ggplot(airquality, aes(x = Temp)) + 
+  stat_ecdf(color = "#28A87D", linewidth = .9) +
+  coord_cartesian(expand = FALSE) +
+  labs(x = "Numeric Variable", y = "Cumulative Density", title = "Cumulative Density Plot (ECDF)")
+```
+::: 
+
+:::  {.column width="50%"}
+::::: fragment
+```{r}
+#| label: eda-qqplot
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5.5
+ggplot(airquality, aes(sample = Temp)) + 
+  stat_qq_line(color = "grey45", linewidth = .5) +
+  stat_qq(color = "#28A87D", linewidth = .9) +
+  coord_cartesian(expand = FALSE, clip = "off", xlim = c(-3.1, NA)) +
+  labs(x = "Sample Quantiles", y = "Theoretical Quantiles", title = "Quantile-Quantile Plot (QQ)")
+```
+:::::
+:::
+:::
+
+:::
+
+
+# <span style='line-height:.97;'> Multivariate <br> Non-graphical</span> {background-color="#c4edff"}
+
+## Multivariate non-graphical
+
+::: question
+**Qualitative data**
+:::
+
+- Cross-tabulation
+```{r}
+#| label: eda-crosstabs-base
+#| output-location: column
+
+#Base R
+table(sex = polyps$sex, 
+      treatment = polyps$treatment, 
+      useNA = "ifany")
+
+```
+
+
+```{r}
+#| label: eda-crosstabs-crosstable
+#| tbl-cap: "Example crosstable"
+#| output-location: column
+
+#crosstable package
+crosstable(data = polyps,
+           cols = c(treatment, age),
+           by = sex,
+           total = "column", 
+           percent_digits=1) %>% 
+  as_flextable()
+```
+
+## Multivariate non-graphical
+
+::: question
+**Quantitative data**
+:::
+
+- Correlation, covariance
+
+```{r}
+#| output-location: column
+#| label: eda-correlation
+
+#Base R
+with(gapminder,
+     cor(x = lifeExp[year == max(year)],
+         y = gdpPercap[year == max(year)], 
+    method = "spearman"))
+
+```
+
+```{r}
+#| output-location: column
+#| label: eda-corr-crosstable
+#| tbl-cap: 'Multivariate, 2 numerical variables'
+#crosstable package
+gapminder %>% 
+  filter(year == max(year)) %>% 
+  crosstable(cols = c(lifeExp, pop),
+             by = gdpPercap,
+             cor_method = "spearman",
+             percent_digits=2) %>%
+  as_flextable()
+
+```
+
+# <span style='line-height:.97;'> Multivariate <br> Graphical</span> {background-color="#c4edff"}
+
+## Multivariate Graphical
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| label: eda-categorical
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5.5
+fluH7N9_china_2013 %>% 
+  group_by(outcome, gender) %>% 
+  dplyr::tally() %>% 
+  filter(!is.na(gender)) %>%
+  group_by(outcome) %>% 
+  dplyr::mutate(perc = n / sum(n)) %>% 
+  ggplot(aes(y = rev(gender), x = perc, fill = gender, alpha = outcome)) + 
+  geom_col(width = .7) +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_fill_manual(values = c("#19694e", "#28A87D", "#5AD8AE"), guide = "none") +
+  scale_alpha_manual(values = c(.4, .7, 1), name = NULL,
+                    labels = c("Category C", "Category B", "Category A"),
+                    guide = guide_legend(reverse = TRUE)) +
+  labs(y = "Categorical Variable", x = "Percentage", title = "Bar Chart (stacked by category)") +
+  theme(axis.line.y = element_blank(), axis.ticks.y = element_blank())
+```
+:::
+
+::: {.column width="50%"}
+::: fragment
+```{r}
+#| label: chart-types-amounts-heatmap-labels
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5.5
+#theme_set(theme_classic(base_family = "Asap SemiCondensed", base_size = 16))
+theme_update(
+  plot.margin = margin(rep(15, 4)),
+  axis.text = element_blank(),
+  panel.grid = element_blank(),
+  plot.title = element_text(face = "bold", margin = margin(b = 20), size = rel(1.35)),
+  plot.title.position = "plot",
+  axis.line = element_line(color = "grey45", linewidth = 1),
+  axis.title.x = element_text(color = "grey45", margin = margin(t = 10)),
+  axis.title.x.top = element_text(color = "grey45", margin = margin(b = 10)),
+  axis.title.y = element_text(color = "grey45", margin = margin(r = 10)),
+  axis.ticks = element_line(color = "grey45"),
+  legend.position = "top",
+  legend.title = element_text(color = "grey45"),
+  legend.text = element_text(margin = margin(t = 3, b = 3), color = "grey45"),
+  legend.background = element_rect(fill = NA, color = NA),
+  legend.justification = "left"
+)
+fluH7N9_china_2013 %>% 
+  group_by(outcome, gender) %>% 
+  dplyr::tally() %>% 
+  filter(!is.na(gender)) %>% 
+  ggplot(aes(x = gender, y = outcome, fill = n)) + 
+    geom_tile(color = "white", size = 3) +
+    geom_text(aes(label = n, color = n > 30), 
+              family = "Asap SemiCondensed", size = 7) +
+    coord_cartesian(clip = "off", expand = FALSE) +
+    scale_x_discrete(position = "top") +
+    scale_color_manual(values = c("black", "white"), guide = "none") +
+    scale_fill_gradientn(
+      colors = c("#8ae3c5", "#28A87D", "#0a291f"),
+      guide = guide_colorbar(ticks = FALSE, title.position = "top", title.hjust = .5)
+    ) +
+    labs(x = "Categorical Variable", y = "Categorical Variable", 
+         fill = "Numeric Variable", title = "Heatmap Table") +
+    theme(axis.line = element_blank(), axis.ticks = element_blank(), 
+          legend.text = element_blank(), legend.key.width = unit(3, "lines"),
+          legend.key.height = unit(.6, "lines"), legend.justification = "center")
+```
+:::
+:::
+
+::::
+
+## Multivariate Graphical
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| label: eda-scatter
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5.5
+gapminder %>%
+  filter(year==max(year)) %>% 
+  ggplot(aes(x = lifeExp, y = log(gdpPercap))) + 
+  geom_point(color = "#28A87D", size = 2, alpha = .8) +
+  labs(x = "Numeric Variable", y = "Numeric Variable", title = "Scatter Plot")
+```
+:::
+
+::: {.column width="50%"}
+::: fragment
+```{r}
+#| label: eda-density-contour
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5.5
+
+gapminder %>%
+  filter(year==max(year)) %>% 
+  ggplot(aes(x = lifeExp, y = log(gdpPercap))) + 
+  xlim(37, 90) +
+  ylim(5.5, 12) +
+  #coord_cartesian(xlim = c(30, 85), ylim = c(5.5, 15), expand = T)
+  geom_density_2d_filled() +
+  scale_fill_manual(
+    values = colorRampPalette(c("white", "#28A87D"))(8), guide = "none"
+  ) +
+  #coord_cartesian(xlim = c(30, 90), ylim = c(5.5, 15)) +
+  labs(x = "Numeric Variable", y = "Numeric Variable", title = "Density Contour Plot") +
+  theme(legend.text = element_blank(), legend.key.width = unit(3, "lines"),
+        legend.key.height = unit(.6, "lines"), legend.justification = "center")
+```
+:::
+:::
+
+::::
+
+## Multivariate Graphical
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| label: eda-bubble
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5.5
+gapminder %>%
+  filter(year==max(year)) %>% 
+  ggplot(aes(x = lifeExp, y = log(gdpPercap))) + 
+  geom_point(aes(size = 10*pop), color = "#28A87D", 
+             fill = "#28A87D", shape = 21, alpha = .5, stroke = .8) +
+  scale_size(guide = guide_legend(title.position = "top", title.hjust = .5)) +
+  labs(x = "Numeric Variable", y = "Numeric Variable", title = "Bubble Chart",
+       size = "Numeric Variable") +
+  theme(legend.text = element_blank(), legend.justification = "center")
+```
+:::
+
+::: {.column width="50%"}
+::: fragment
+```{r}
+#| label: eda-line
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5.5
+
+ggplot(dplyr::filter(gapminder::gapminder, country == "Portugal"),
+       aes(x = year, y = gdpPercap)) + 
+  geom_line(color = "#28A87D", linewidth = 1.2) +
+  geom_point(color = "white", fill = "#28A87D", shape = 21, size = 5, stroke = 1.2) +
+  labs(x = "Numeric Variable", y = "Numeric Variable", title = "Line Chart with Markers")
+```
+:::
+:::
+
+::::
+
+## Multivariate Graphical
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| label: eda-boxplot
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5.5
+gapminder %>%
+  filter(year==max(year)) %>% 
+  filter(continent %in% c("Asia","Americas","Africa")) %>% 
+  ggplot(aes(x = continent, y = lifeExp)) + 
+  geom_boxplot(color = "#28A87D", fill = "#d9f6ec", size = 1.2) +
+  labs(x = "Categorical Variable", y = "Numeric Variable", title = "Box-Whisker Plot")
+```
+:::
+
+::: {.column width="50%"}
+::: fragment
+```{r}
+#| label: eda-violin
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5.5
+gapminder %>%
+  filter(year==max(year)) %>% 
+  filter(continent %in% c("Asia","Americas","Africa")) %>% 
+  ggplot(aes(x = continent, y = lifeExp)) + 
+  geom_violin(fill = "#28A87D", color = NA, size = 1.2, bw = 1, width = .8) +
+  geom_boxplot(width = .1, color = "#d9f6ec", fill = "#28A87D", size = .6, outlier.colour = NA) +
+  labs(x = "Categorical Variable", y = "Numeric Variable", title = "Violin Plot")
+```
+:::
+:::
+
+::::
+
+# Exercises

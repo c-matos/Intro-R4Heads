@@ -1,0 +1,1005 @@
+---
+title: "Introduction to R for <br> Health Data Science <br> "
+subtitle: "Hands-on training"
+author: "<a href='https://github.com/c-matos' style='color:#28a87d;font-weight:600;'>Carlos Matos</a>&ensp;//&ensp;ISPUP&ensp;//&ensp;November 2023"
+format:
+  revealjs:
+    theme: slides.scss
+    logo: ../images/logo.png
+    footer: '[Carlos Matos](https://github.com/c-matos) // ISPUP::R4HEADS(2023)'
+    multiplex: true
+    transition: fade
+    progress: true
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: atom-one
+    # chalkboard:
+    #   theme: whiteboard
+    #   boardmarker-width: 4
+    #   buttons: true
+    pause: true
+    code-copy: true
+    #page-layout: custom
+    code-line-numbers: false
+revealjs-plugins:
+  - pointer
+editor: source
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 3
+    dpi: 200
+execute:
+  freeze: auto
+  cache: false
+  echo: true
+  fig-width: 10.1
+  fig-height: 6.3
+  fig-align: center
+# reference-location: margin
+# citation-location: margin
+code-annotations: hover
+---
+
+
+```{r}
+#| include: false
+
+library(tidyverse)
+```
+
+# Welcome!
+
+## Language
+
+<br>
+
+- What language do we use ?
+
+<br>
+
+::: {.columns}
+:::: {.column width="50%"}
+![](https://flagcdn.com/pt.svg)
+::::
+:::: {.column width="50%"}
+![](https://flagcdn.com/gb.svg)
+::::
+:::
+
+
+## Checkpoint
+
+<br>
+
+::: question
+Open RStudio!
+:::
+
+Check R version
+
+```{r}
+#| classes: max-height-300
+#| output-location: column
+#Check R version
+sessionInfo()
+```
+
+
+## Packages
+
+- List of packages that we will be using throughout the course
+- Copy the code below to RStudio and run
+```{.r}
+install.packages(
+  c("tidyverse","janitor","gapminder","medicaldata","ggstatsplot",
+  "outbreaks","crosstable","lme4", "datasauRus", "kableExtra", "ineptR",
+  "patchwork","showtext","car","ggpmisc","MASS", "report", "glue"
+  "survival","ggsurvfit","devtools","scales", "eurostat", "leaflet")
+)
+```
+
+
+## How I have used R {auto-animate="true"}
+
+- Public Health Medical Doctor @ Public Health Department
+- Started using R during the COVID-19 pandemic
+  - Epicurves
+  
+![COVID-19 epicurve. Dates and counts are omitted for anonimity](img/covid-epicurve.png)
+
+
+## How I have used R {auto-animate="true}
+
+- Public Health Medical Doctor @ Public Health Department
+- Started using R during the COVID-19 pandemic
+  - Epicurves
+  - Forecasting
+  - Automating procedures
+  
+![Covid case number forecasts by reporting date. Dates and counts are omitted for anonimity](img/covid_forecasts.png)
+
+## How I have used R {auto-animate="true}
+
+::: {.columns}
+:::: {.column width="30%"}
+- Population health needs assessment of the [Portuguese National Health Plan](https://pns.dgs.pt/)
+  - Mortality forecasting
+::::
+:::: {.column width="70%"}
+![](img/pns-forecast.png)
+::::
+:::
+
+
+## How I have used R
+
+::: {.columns}
+:::: {.column width="30%"}
+- Population health needs assessment of the [Portuguese National Health Plan](https://pns.dgs.pt/)
+  - Mortality forecasting
+  - Notifiable diseases
+::::
+:::: {.column width="70%"}
+![](img/dno-pns.png)
+::::
+:::
+
+
+## How I have used R
+
+::: {.columns}
+:::: {.column width="30%"}
+- Population health needs assessment of the [Portuguese National Health Plan](https://pns.dgs.pt/)
+  - Mortality forecasting
+  - Notifiable diseases
+  - Hospital morbidity
+::::
+:::: {.column width="70%"}
+![](img/morb-hosp.png)
+::::
+:::
+
+## How I have used R {auto-animate="true}
+
+::: {.columns}
+:::: {.column width="30%"}
+- Data analysis
+  - Deaths attributable to Covid, Influenza and extreme temperatures
+::::
+:::: {.column width="70%"}
+![](img/attmomo-plot.png)
+::::
+:::
+
+## How I have used R {auto-animate="true}
+
+::: {.columns}
+:::: {.column width="30%"}
+- Data analysis
+  - Deaths attributable to Covid, Influenza and extreme temperatures
+- Developed the [ineptR package](https://c-matos.github.io/ineptR/) to facilitate and automate data extraction from Statistics Portugal with R
+::::
+:::: {.column width="70%"}
+![](img/ineptr-logo.png){width="20%" fig-align="center"}
+
+![](img/get-ine-data.png)
+::::
+:::
+
+## How I have used R {auto-animate="true}
+
+::: {.columns}
+:::: {.column width="50%"}
+- Now working on improving dataviz skills and portfolio...
+
+<br>
+
+![](img/norte-small.png){width="100%"}
+
+::::
+:::: {.column width="50%"}
+![](img/cont-small.png){width="80%"}
+::::
+:::
+
+# Goals
+
+## Goals for this course
+
+::: columns
+::: {.column width="30%"}
+![Always learning](img/always_be_learning.jpg)
+::: 
+:::  {.column width="70%"}
+::: {.incremental}
+- Be a learning catalyst
+  - Know what R is capable of
+  - Learn how to search the web for answers
+- Gain a solid understanding of data wrangling with the tidyverse
+- Learn the syntax of statistical models in R
+- Be empowered to create and edit charts with ggplot
+
+
+:::
+::: 
+:::
+
+## Goals for this course
+
+::: columns
+::: {.column width="30%"}
+![Always learning](img/always_be_learning.jpg)
+::: 
+:::  {.column width="70%"}
+::: {.incremental}
+- Communicate your results
+  - Static reports
+  - Dynamic dashboards
+- Reproducible research and collaboration with version control
+- A first step in the migration from other software!
+
+:::
+::: 
+:::
+
+
+## Methods
+
+::: columns
+
+::: {.column width="40%"}
+- Many worked examples
+  - Assuming no prior knowledge
+- Start simple and increasing complexity over time
+- Minimize redundancy
+  - R has many ways to achieve the same results. Choose one and stick to it.
+::: 
+:::  {.column width="60%"}
+![Cognitive load theory](img/cognitive-load-theory.png){width="90%"}
+::: 
+:::
+
+## Methods
+
+- We will be working side by side in R
+- Slides are available on the [course website](https://c-matos.github.io/Intro-R4Heads/)
+- You can copy the code from the code chunks and paste in R
+  - I recommend that you use this approach as a last resort
+  - It's better if you write the code manually, to get a feel for shortcuts, code completion, bracket auto-closing and other RStudio qualtiy of life features
+
+## Before we go into R...
+
+:::columns
+
+::::{.column width="50%"}
+![](img/programmer-humor.webp)
+::::
+:::::{.column width="50%"}
+![](img/programming-or-googling.jpg){.fragment }
+:::::
+:::
+
+## Before we go into R...
+
+<br>
+
+![](img/hadley-google.png)
+
+
+## Intro to R
+
+<br>
+
+### Why R?
+
+- Free and Open Source
+- Workflow and analysis reproducibility
+- Community engagement
+  - Pretty much all your future questions are already answered online
+  - You just need to **ask the right questions**
+- Certain level of complexity
+  - **BUT**, tidyverse makes it way more approachable
+
+# RStudio 
+
+
+## R and RStudio
+
+![R vs RStudio](img/r_vs_rstudio.png)
+
+
+## RStudio 
+
+![Anatomy of RStudio](img/anatomy_of_rstudio.png)
+
+
+## Frequently used shortcuts
+
+- For future reference
+  - `Esc` to interrupt current execution
+  - `Alt`/`Option` + `-` to insert `<-` (assign operator)
+  - `Ctrl`/`Cmd` + `Shift` + `m` to insert `%>%` (pipe)
+  - `Ctrl`/`Cmd` + `Enter` to run current line/selection of code 
+  - `Ctrl`/`Cmd` + `f` to find and replace in current script
+
+
+## Useful functionalities
+- `F1` or `?` for help
+- `TAB` for autocomplete
+- Plot  auto preview in *Plots* pane
+- `UP` and `DOWN` for history tracking
+- Parenthesis/brackets **autoclose** and **highlight**
+
+## Good vs bad code
+
+The single most important thing to remember
+
+
+::: columns
+::: {.column width="50%"}
+::: question
+**COMMENT YOUR CODE!**
+:::
+
+<br>
+
+![Programmer and God...](img/good_bad_code.jpg)
+::: 
+
+:::  {.column width="50%"}
+![Cooment your code!](img/patrick_code.png){width=70%}
+::: 
+:::
+
+
+## Key concepts
+
+![R vs R Packages](img/r_vs_packages.png)
+
+- **Objects** - Everything we store in R. Can be variables, datasets, graphs, etc. Objetcs are *assigned* a *name*, which can be *referenced* in later commands
+
+- **Functions** - A function is a code operation that accept *inputs* and returns a *transformed output.* Read more in the Functions section. The basic unit of a package.
+
+- **Packages** - A bundle of functions that can be shared.
+
+- **Scripts** - A document/file that stores a set of commands.
+
+## Packages
+
+- Packages can be downloaded and installed locally with `install.packages("package")`
+- Once installed, the package is stored in your *library*
+- To use the package in the current session, we need to *load* the package with `library(package)`
+  - Needs to happen in **each session**
+- Packages are more frequently installed from 
+  1. CRAN (Comprehensive R Archive Network)
+  2. GitHub
+- **Update** a package in the packages pane, in RStudio
+
+## Functions
+
+- Consider the following code that calls the ficticious function `get_prognosis()`, to get the prognosis of a patient:
+
+```{r}
+#| eval: false
+patient_prognosis <- 
+  get_prognosis(gender = "Male", 
+                age = 45,
+                comorbidities = c("diabetes", "hypertension")
+                )
+
+```
+
+- We are calling the function `get_prognosis()` with 3 arguments (gender, age, and comorbidities), and storing the resulting calculation in an object called `patient_prognosis`.
+
+
+# Working with data
+
+## Data types
+- String or character
+```{.r}
+"The patient has diabetes"
+```
+- Number (integer or double)
+```{.r}
+42L
+42
+```
+- Logical
+```{r}
+#| results: hold
+TRUE
+FALSE
+```
+
+## Strings or Characters
+
+- Surrounded by double `"` or single `'` quotes
+```{r}
+"abc"
+typeof("abc")
+"1" #if surrounded by quotes, it's a character.
+```
+
+- Some operations are not available with strings
+```{r}
+#| error: true
+1 + 1 #No error
+1 + "A" #Error. Cant sum a number and a string
+```
+
+## Numbers
+
+### Integers
+
+- Can be of type **integer** or **double**
+- integer comes with the letter `L` right after the number
+
+```{r}
+typeof(1)
+typeof(1L)
+
+1L + 2.5 #When summing an integer and a double, R knows we want a double
+```
+- Integers are more relevant for low level programming, not very much for our use cases. We will always use doubles
+
+## Numbers
+
+### Double / Numeric
+- In most cases numbers will be stored as double
+- Used to represent any real number
+```{r}
+typeof(42)
+typeof(3.14)
+typeof(-5e-10)
+typeof(1/5)
+```
+
+
+## Logicals
+
+- Very frequently used for conditional logic (`if else` statements)
+- We will use then inside tidyverse functions
+```{r}
+TRUE
+FALSE
+c(T,F)
+2 > 1
+c(1,2,3) > c(3,2,1) #Vectorised 'greather than' operation
+c(as.logical(0), as.logical(1)) #0's and 1's can be interpreted as logicals
+```
+
+## Type coercion
+- We can (and very much want to!) convert some data to other types
+  - e.g. we import a dataset with a character column (e.g. outcome: "dead" or "alive") that we want to convert to 0's and 1's for logistic regression
+- R has functions with syntax `as.something()`, that allow conversion of some types into others
+```{r}
+#| message: true
+#| warning: true
+as.logical(1)
+as.integer("1984")
+as.character(42)
+as.numeric("Some text") #No error! Returns NA with a warning.
+```
+
+## Type coercion
+- We can (and very much want to!) convert some data to other types
+  - e.g. we import a dataset with a character column (e.g. outcome: "dead" or "alive") that we want to convert to 0's and 1's for logistic regression
+- R has functions with syntax `as.something()`, that allow conversion of some types into others
+```{r}
+#| message: true
+#| warning: true
+as.numeric("Some text") #No error! Returns NA with a warning.
+```
+
+::: {.callout-important}
+When converting to other data types, sometimes __NAs might be introduced__ if some error is detected. Those values get lost.
+:::
+
+## Data structures
+
+- values
+```{r}
+single_number <- 10
+single_number
+```
+- vectors
+```{r}
+example_vector <- c("A","B","C")
+example_vector
+```
+
+
+## Data structures
+
+
+- lists
+```{r}
+#| output-location: column
+example_list <- list("A",1,c(TRUE,FALSE))
+example_list
+```
+
+- data frames
+```{r}
+#| output-location: column
+example_dataframe <- 
+  data.frame(id = c(1,2,3),
+             name = c("Jon","Tyrion","Arya"))
+example_dataframe
+```
+
+- Matrices, arrays 
+
+
+
+
+## Values
+- The simplest data structures
+- Can be of any  type
+```{r}
+answer_to_life_the_universe_and_everything <- 42 # A numeric value
+something_not_true <- FALSE
+```
+
+## Vectors
+- Set of values of the **same data type**
+- They are created with the concatenate function `c()`
+
+```{r}
+logicals <- c(TRUE, F, FALSE, T)
+logicals
+
+integers <- c(1:10) #sequence of numbers from 1 to 10
+integers
+
+doubles <- integers + 0.5
+doubles
+
+characters <- c("a","b","c","d") #remember the quotes!
+characters
+
+some_long_vector <- seq(0,10,0.1) #all the values from 0 to 100, in 0.1 increments
+```
+
+
+## Vectors
+
+::: question
+R is a language built around vectors!
+:::
+
+<br>
+
+### Type coercion
+
+::: {.callout-warning}
+## Warning
+
+Beware of automatic type coercion when creating vectors or, more often, importing data!
+:::
+
+```{r}
+years_vector <- c(2020,2021,"202a2",2023)
+typeof(years_vector) #We expected 'integer' but got 'character', because one year had a typo
+
+#Let's convert the vector to integer: 
+as.integer(years_vector) #the year with a typo was converted to NA because R couldn't figure out what we wanted
+```
+
+## Vectors
+
+### Type coercion
+
+A vector with different data types in some elements will automatically be coerced to a data type of higher complexity
+```{mermaid}
+%%| echo: false
+%%| fig-height: 10
+flowchart LR
+  A(Logical) --> B(Integer)
+  B --> C(Numeric)
+  C --> D(Character)
+```
+
+::: panel-tabset
+### Challenge
+
+```{.r}
+# What is the data type of each of the following objects:
+c(1, 2, 3)
+c('a', 'b', 'c') 
+c("d", "e", "f") 
+c(TRUE,1L,10)
+c("11",10,12)
+c("Diabetes","Cancer", FALSE)
+```
+
+### Solution
+
+```{.r}
+typeof(c(1, 2, 3)) #double
+typeof(c('a', 'b', 'c')) #character
+typeof(c("d", "e", "f")) #character
+typeof(c(TRUE,1L,10)) #double
+typeof(c("11",10,12)) #character
+typeof(c("Diabetes","Cancer", FALSE)) #character
+```
+:::
+
+## Vectors
+
+- Vector elements can have names
+  - Name can be given when creating the vector, or at a later stage
+```{r}
+#Names attributed when creating a vector
+my_named_vector <- c(value_one = "A",
+                     value_two = "C")
+my_named_vector
+
+#Names attributed to an existing vector
+my_new_vector <- c(1:4)
+names(my_new_vector) <- c("a","b","c","d")
+my_new_vector
+```
+
+
+## Exploring vectors
+
+Let's look at the long vector we created earlier:
+
+```{r}
+some_long_vector
+```
+
+What if we wanted to look only at some data points?
+```{r}
+head(some_long_vector)
+tail(some_long_vector)
+head(some_long_vector, 3)
+```
+
+
+## Exploring vectors
+
+let's look at the long vector we created earlier:
+
+```{r}
+some_long_vector
+```
+
+We can also look at specific sections/positions/indices using `[]` brackets
+```{r}
+some_long_vector[5] #index 5
+some_long_vector[c(5,10)] #indices 5 AND 10
+some_long_vector[5:10] #indices 5 TO 10
+```
+
+## Exploring vectors
+
+Or look at all **except** some indices with the minus `-` sign
+```{r}
+character_vector <- c("a","b","c","d","e","f")
+character_vector[-2] #Excludes the second index
+character_vector[-c(2:4)] #Excludes indices 2 to 4
+```
+
+## Exploring vectors
+
+- Vector elements can be accesses by the **name** given to each index
+```{r}
+#Created earlier
+my_new_vector
+#Access the value wthat is named "a"
+my_new_vector["a"]
+#Access multiple values by name
+my_new_vector[c("b","d")]
+
+#Useful logic to manually control prol colors
+colors_for_a_plot <- c("Portugal" = "red", "Europe" = "blue", "World" = "gray")
+colors_for_a_plot["Portugal"]
+```
+
+## Exploring vectors
+
+- Vector elements can be accesses using a **logical expression**
+```{r}
+#Let's create a numeric vector
+x <- c(10, 33, NA, 4, 9, 2, NA)
+
+#a logical vector. Is TRUE if x is NA
+x_na <- is.na(x)
+x_na
+
+# All non-missing values of x
+x[!x_na]
+
+#All values greater than five (Note that NAs are included!!)
+x[x > 5]
+
+```
+
+
+## Exploring vectors
+
+```{r}
+# All non-missing values of x
+x[!x_na]
+
+#All values GREATER THAN five (Note that NAs are included!!)
+x[x > 5]
+
+#All values EQUAL TO five (Note that NAs are included!!)
+x[x == 5]
+```
+
+::: {.callout-note}
+`!` is the __not/negation__ operator. It transform TRUE to FALSE and vice-versa
+:::
+::: {.callout-note}
+NAs are returned when evaluating equality or inequality: 
+<br>
+`==` ('equal to' operator), `!=` (not equal to), `>` (greather), `<` (smaller), `>=` (greather or equal ), `<=` (smaller or equal)
+:::
+
+
+## Modifying vectors
+
+It's possible to reassign values to a specified index of an existing vector
+```{r}
+#assign the value "z" to the first position of the "character_vector"
+character_vector[1] <- "z"
+character_vector
+
+#assign the values "four" and "five" to the 4th and 5th positions of the "character_vector"
+character_vector[4:5] <- c("four","five")
+character_vector
+
+```
+
+This approach can be used to add data to a vector
+```{r}
+#Assign the value "some_value" to a new index
+character_vector[7] <- "some_value"
+character_vector
+```
+
+
+## Lists
+
+- Are the more comprehensive object type
+  - Can contain (almost) anything
+- Can be created with the function `list()`, similarly to `c()` for vectors 
+- Lists are **ordered**, just like vectors
+```{r}
+#| output-location: column
+my_list <- list(c(1:3),"R",list(1:3))
+my_list
+```
+
+> What differences do you see between the 1<sup>st</sup> and 3<sup>rd</sup> elements of the list? Shouldn't they be the same?
+
+## Exploring lists
+
+- Lists can be tricky
+```{r}
+my_list[1][1]
+my_list[1][1][1]
+my_list[1][1][1][1]
+
+```
+
+### ???????
+
+## Exploring lists
+
+- Lists can be tricky
+```{r}
+my_list[1]
+my_list[[1]]
+
+```
+
+- A list can be accessed with single `[` or double `[[` brackets.
+- `[` Returns a smaller list, while `[[` returns the **contents** of the that smaller list.
+- Usually we want `[[`.
+
+## Exploring lists
+
+![[https://adv-r.hadley.nz/subsetting.html#subset-single](https://adv-r.hadley.nz/subsetting.html#subset-single)](img/train-list.png)
+
+
+## Exploring lists
+
+- List elements can be named, just like vector elements
+```{r}
+my_named_list <- list(some_vector = c(1:3),
+                some_value = "R",
+                other_value = list(1:3))
+
+my_named_list
+```
+## Exploring lists
+
+- Lists can be accessed by name with `$`
+- `$` works like `[[`
+```{r}
+my_named_list$some_vector
+```
+
+::: {.callout-important}
+This behaviour is very relevant for our use cases, because data frames also behave the same way with column names!
+:::
+
+::: panel-tabset
+### Challenge
+
+```{r}
+#Statistical models output lists in R. 
+#Select the coefficient associated with gdpPercap in the model below
+#'[Red]* HINT: use the object explorer to visually explore the output *
+some_model_output <- lm(lifeExp ~ gdpPercap, data = gapminder::gapminder)
+```
+
+### Solution - Base
+
+```{r}
+some_model_output$coefficients[[2]]
+```
+
+### Solution - tidyverse
+```{r}
+some_model_output %>% 
+  pluck(coefficients) %>% #plucks extracts some element from a list
+  magrittr::extract(2)
+  
+```
+:::
+
+## Modifying lists
+
+### Lists
+```{r}
+#| output-location: column
+#| results: hold
+my_list
+#replace the first value of the list with the value "A"
+my_list[1] <- "A"
+#Replace the second value of the list in third element with "nested_modification"
+my_list[[3]][[1]][2] <- "nested_modification"
+my_list
+```
+
+## How much are we going to work directly with lists in this course?
+
+<br>
+
+::: question
+Pretty much zero...
+<br><br>
+But we need to know how they work, because some outputs are lists (notably, outputs of statistical models), and we may want to grab some values from those lists (e.g. a p-value from a linear regression model)
+:::
+
+## Data frames
+
+- A 2D object (aka, a table...)
+  - You can think of it as a more rigorous Excel spreadsheet
+- Unquestionably the most useful storage structure for data analysis
+- Each column/variable is a **vector**
+  - Each column **ALWAYS** has the same type (contrary to Excel, where errors may occur)
+
+
+![](img/data-frame.png)
+
+
+## Exploring data frames
+
+- Vectors and lists are 1D objects, therefore inside `[]` we only need to specify an index.
+- Dataframes are 2D, meaning that we need to specify 2 dimensions inside `[]`: **rows** and **columns**
+  - `df[rows, cols]` selects a **single value**
+  - `df[rows, ]` selects some rows, all columns
+  - `df[,cols]` selects all rows, some columns
+
+## Exploring data frames
+
+```{r}
+df <- data.frame(col1 = c(1,2,3),
+                 col2 = c("A","B","C"))
+df
+
+#Selecting value from third row, second col
+df[3,2]
+
+#Selecting all cols from second row
+df[2,]
+
+```
+
+## Exploring data frames
+```{r}
+#Selecting all rows from first column by index
+df[,1]
+#Selecting all rows from first column by name
+df[,"col1"]
+#Or alternatively, by name
+df$col1
+
+```
+
+
+## Data frames vs tibbles
+
+- A tibble is the tidyverse version of a data frame
+- Very similar, with some qualtiy of life improvements
+- Main differences
+  - Tibbles don't print all rows for large data frames, only first 10
+  - Stricter subsetting (need to specify entire correct name of variable, no abbreviations)
+  - Less prone to errors (converting variable types by mistake)
+  
+```{r}
+#| error: true
+df <- data.frame(some_col = c(1,2,3),
+                 other_col = c("A","B","C"))
+tb <- tibble(some_col = c(1,2,3),
+             other_col = c("A","B","C"))
+#Abbreviated column name
+df$som #Works
+tb$som #Returns error
+
+```
+
+
+## Modifying data frames
+
+::: {.callout-note}
+I will henceforth use data frame and tibble interchangeably, unless otherwise specified, but we will be working with __tibbles.__
+:::
+
+::: {.callout-note}
+Keep in mind that all the ways to access vectors and lists that we have seen before (e.g. using vectors, sequences or logical expressions to subset) also work with data frames, with the appropriate adaptations to 2D space
+:::
+
+```{r}
+df <- tibble(col1 = c("A","B","C"), col2 = c(1,2,3), col3 = c(TRUE, FALSE, TRUE))
+df[1:2,c(1,3)] # Select only rows one and two, from columns one and three
+```
+
+
+## Modifying data frames
+
+- Adding a column to a data frame
+```{r}
+df <- tibble(col1 = c("A","B","C"),
+             col2 = c(1,2,3),
+             col3 = c(TRUE, FALSE, TRUE))
+
+#Add a new variable to the tibble
+df$my_awesome_new_col <- c("Awe-","wait for it","-some!")
+df
+```
+
+::: {.callout-important}
+The new column must have the same number of rows as the existing data frame, or you will get an error.
+:::
+
+## Modifying data frames
+
+```{r}
+#| error: true
+#| output-location: column
+#Create a temporary tibble
+df <- tibble(col1 = c("A","B","C"),
+             col2 = c(1,2,3),
+             col3 = c(TRUE, FALSE, TRUE))
+
+#Change the value of Row 3, Col 2
+df[3,2] <- "some_character"
+```
+
+- We get an error because we are trying to assign a character value to a numeric vector (col2). 
+
+::: {.callout-note}
+With `data.frame()` instead of `tibble()`, automatic conversion to character would occur, which is usually not the desired result. This type of conversions is prone to cause errors in your code, particularly if you use new data with substandard quality.
+:::
+
+# Exercises

@@ -210,9 +210,6 @@ a:hov {
   font-size: .75em;
 }
 
-.max-height-100 pre > code {
-  max-height: 100px;
-}
 
 .reveal .slide .question {
   border-left: 3px solid #28a87d;
@@ -220,6 +217,13 @@ a:hov {
   margin-top: 0.5rem;
   margin-bottom: 0.3rem;
   background: #d9f6ec;
+}
+
+.reveal .slide .spaced-1 p {
+  padding-bottom: 1rem;
+}
+.reveal .slide .spaced-2 p {
+  padding-bottom: 2rem;
 }
 
 .reveal .slide .poll {
@@ -314,11 +318,65 @@ a:hov {
 }
 
 .simple-source > a {
- color: #606060;
+ color: #28a87d;
  font-size: 0.7em;
 }
 
 .simple-source {
  color: #606060;
  font-size: 0.7em;
+}
+
+.reveal .custom-30-70 > div.column:first-child {
+  width: 30%;
+}
+.reveal .custom-30-70 div.column:not(:first-child) {
+  width: 70%;
+}
+
+.reveal .custom-40-60 > div.column:first-child {
+  width: 40%;
+}
+.reveal .custom-40-60 div.column:not(:first-child) {
+  width: 60%;
+}
+
+.scrolling {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.scrolling-600 {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.scrolling-200 {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.scrolling-300 {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.scrolling-400 {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+//dynamic chunk-height for code blocks
+@for $i from 1 through 8 {
+    $chunk-height: 50px * $i;
+    $my-name: 50 * $i;
+    .max-height-#{$my-name} pre > code {  
+        max-height: $chunk-height;
+        }
+}
+
+.output {
+  color: blue;
+  max-height: 200px; /* can change this */
+  overflow: auto;
 }

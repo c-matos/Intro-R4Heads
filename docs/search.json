@@ -35,6 +35,951 @@
     "text": "View slides in full screen\n\nOutline\n\nWhat is tidy data\nTidyverse principles\nData science workflow\nThe pipe\nImport data to R\nData transformation"
   },
   {
+    "objectID": "materials/04-dataviz.html#importance-of-visualizing-data",
+    "href": "materials/04-dataviz.html#importance-of-visualizing-data",
+    "title": "Intro to Data  Visualization",
+    "section": "Importance of visualizing data",
+    "text": "Importance of visualizing data\n\nFigures will often carry the weight of your arguments.\n\n\n\nThey need to be clear, attractive, and convincing.\nA good visualization can be mean the difference between success and failure\n\nhighly influential vs obscure paper\ngrant or contract won or lost\nhelp managers make informed decisions\nGetting your point across!"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#calculations-do-not-replace-graphs",
+    "href": "materials/04-dataviz.html#calculations-do-not-replace-graphs",
+    "title": "Intro to Data  Visualization",
+    "section": "Calculations do NOT replace graphs",
+    "text": "Calculations do NOT replace graphs\n\n\n13 datasets with similar x and y means, standard deviations and x-y correlation\n\n\n\nlibrary(datasauRus)\nlibrary(kableExtra)\ndatasaurus_dozen %&gt;% \n    group_by(dataset) %&gt;% \n    summarize(\n      mean_x   = mean(x),\n      mean_y   = mean(y),\n      sd_x     = sd(x),\n      sd_y     = sd(y),\n      corr_x_y = cor(x, y)\n    ) %&gt;% \n  mutate(across(where(is.numeric), \n                scales::number,\n                accuracy = 0.1)) \n\n\n# A tibble: 13 × 6\n   dataset    mean_x mean_y sd_x  sd_y  corr_x_y\n   &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   \n 1 away       54.3   47.8   16.8  26.9  -0.1    \n 2 bullseye   54.3   47.8   16.8  26.9  -0.1    \n 3 circle     54.3   47.8   16.8  26.9  -0.1    \n 4 dino       54.3   47.8   16.8  26.9  -0.1    \n 5 dots       54.3   47.8   16.8  26.9  -0.1    \n 6 h_lines    54.3   47.8   16.8  26.9  -0.1    \n 7 high_lines 54.3   47.8   16.8  26.9  -0.1    \n 8 slant_down 54.3   47.8   16.8  26.9  -0.1    \n 9 slant_up   54.3   47.8   16.8  26.9  -0.1    \n10 star       54.3   47.8   16.8  26.9  -0.1    \n11 v_lines    54.3   47.8   16.8  26.9  -0.1    \n12 wide_lines 54.3   47.8   16.8  26.9  -0.1    \n13 x_shape    54.3   47.8   16.8  26.9  -0.1"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#calculations-do-not-replace-graphs-1",
+    "href": "materials/04-dataviz.html#calculations-do-not-replace-graphs-1",
+    "title": "Intro to Data  Visualization",
+    "section": "Calculations do NOT replace graphs",
+    "text": "Calculations do NOT replace graphs"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#calculations-do-not-replace-graphs-2",
+    "href": "materials/04-dataviz.html#calculations-do-not-replace-graphs-2",
+    "title": "Intro to Data  Visualization",
+    "section": "Calculations do NOT replace graphs",
+    "text": "Calculations do NOT replace graphs"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#fundamentals-of-data-viz",
+    "href": "materials/04-dataviz.html#fundamentals-of-data-viz",
+    "title": "Intro to Data  Visualization",
+    "section": "Fundamentals of data viz",
+    "text": "Fundamentals of data viz\n\nWhat do a heatmap, a pie chart and a line chart have in common?"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#fundamentals-of-data-viz-1",
+    "href": "materials/04-dataviz.html#fundamentals-of-data-viz-1",
+    "title": "Intro to Data  Visualization",
+    "section": "Fundamentals of data viz",
+    "text": "Fundamentals of data viz\n\n\n  → All data visualizations map data values into quantifiable features  of the resulting graphic\n\n\n\n  → We refer to these features as aesthetics"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#datavizmapping-dimensions",
+    "href": "materials/04-dataviz.html#datavizmapping-dimensions",
+    "title": "Intro to Data  Visualization",
+    "section": "",
+    "text": "“Carte figurative des pertes successives en hommes de l’Armée qu’Annibal conduisit d’Espagne en Italie en traversant les Gaules (selon Polybe)” (top) and “Carte figurative des pertes successives en hommes de l’Armée Française dans la campagne de Russie 1812–1813” (bottom) by Charles Joseph Minard (1869)\n\n\n\n\nMapped Dimensions\n\n\nNº of Napoleon’s troops\ndistance\ntemperature\nlatitude\nlongitude\ndirection of travel\nlocation relative to specific dates"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#common-aesthetics",
+    "href": "materials/04-dataviz.html#common-aesthetics",
+    "title": "Intro to Data  Visualization",
+    "section": "Common aesthetics",
+    "text": "Common aesthetics\n\n\nCommon aesthetics in data visualization"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#intro-to-ggplot2",
+    "href": "materials/04-dataviz.html#intro-to-ggplot2",
+    "title": "Intro to Data  Visualization",
+    "section": "Intro to {ggplot2}",
+    "text": "Intro to {ggplot2}\n\n\n\n\n\n\n\n\nHas an underlying grammar\nEasy to combine multiple datasets in the same plot\nSolutions become more intuitive as we get to know the grammar\nMade to work iteratively: start with a raw data layer and add annotations and statistical summaries as you go\nDefault graphics are quite good (publication-ready)"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#anatomy-of-a-ggplot",
+    "href": "materials/04-dataviz.html#anatomy-of-a-ggplot",
+    "title": "Intro to Data  Visualization",
+    "section": "Anatomy of a ggplot",
+    "text": "Anatomy of a ggplot\n\nFive mapping components:\n\nLayer: What we actually see in the plot. Geometric elements (“geoms”. e.g. points, lines, …) or statistical transformations (“stats”. e.g. counting, binning, fitting a model)\nScales: Convert the values in the data space to values in the aesthetic space\nCoordinate system: Usually cartesian, but other are available (e.g. polar)\nFacet: Subset displays\nTheme: Control finer points of the visualization"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#anatomy-of-a-ggplot-1",
+    "href": "materials/04-dataviz.html#anatomy-of-a-ggplot-1",
+    "title": "Intro to Data  Visualization",
+    "section": "Anatomy of a ggplot",
+    "text": "Anatomy of a ggplot\n\nThree of which are key components that exist in every plot:\n\n\n  → Data \n\n\n  → Mapping \n\n\n  → Geom"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#anatomy-of-a-ggplot-2",
+    "href": "materials/04-dataviz.html#anatomy-of-a-ggplot-2",
+    "title": "Intro to Data  Visualization",
+    "section": "Anatomy of a ggplot",
+    "text": "Anatomy of a ggplot\n\n\nThe overall template of a ggplot looks like this\n\nggplot(data = DATA) +\n    GEOM_FUNCTION(mapping = aes(MAPPINGS))\n\nWhere:\n\nDATA is your dataset\nExample GEOM_FUNCTION are geom_point(), geom_col(), geom_histogram(), …\nExample MAPPINGS are x = year, y = life_expectancy, fill = death_rate, …"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#first-worked-example",
+    "href": "materials/04-dataviz.html#first-worked-example",
+    "title": "Intro to Data  Visualization",
+    "section": "First worked example",
+    "text": "First worked example\n\n#Preparing the data\nlibrary(gapminder)\n\ngm_latest &lt;- gapminder %&gt;% \n  filter(year == max(year)) %&gt;% \n  rename(GDPpc = gdpPercap,\n         LE = lifeExp)\n\ngm_latest\n\n# A tibble: 142 × 6\n   country     continent  year    LE       pop  GDPpc\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt; &lt;dbl&gt;     &lt;int&gt;  &lt;dbl&gt;\n 1 Afghanistan Asia       2007  43.8  31889923   975.\n 2 Albania     Europe     2007  76.4   3600523  5937.\n 3 Algeria     Africa     2007  72.3  33333216  6223.\n 4 Angola      Africa     2007  42.7  12420476  4797.\n 5 Argentina   Americas   2007  75.3  40301927 12779.\n 6 Australia   Oceania    2007  81.2  20434176 34435.\n 7 Austria     Europe     2007  79.8   8199783 36126.\n 8 Bahrain     Asia       2007  75.6    708573 29796.\n 9 Bangladesh  Asia       2007  64.1 150448339  1391.\n10 Belgium     Europe     2007  79.4  10392226 33693.\n# ℹ 132 more rows"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#first-worked-example-1",
+    "href": "materials/04-dataviz.html#first-worked-example-1",
+    "title": "Intro to Data  Visualization",
+    "section": "First worked example",
+    "text": "First worked example\n\n\n#Plot\nggplot(data = gm_latest) #Data"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#first-worked-example-2",
+    "href": "materials/04-dataviz.html#first-worked-example-2",
+    "title": "Intro to Data  Visualization",
+    "section": "First worked example",
+    "text": "First worked example\n\n\n#Plot\nggplot(data = gm_latest) + #Data\n  aes(x = GDPpc) #Mapping"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#first-worked-example-3",
+    "href": "materials/04-dataviz.html#first-worked-example-3",
+    "title": "Intro to Data  Visualization",
+    "section": "First worked example",
+    "text": "First worked example\n\n\n#Plot\nggplot(data = gm_latest) + #Data\n  aes(x = GDPpc, y = LE) #Mapping"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#first-worked-example-4",
+    "href": "materials/04-dataviz.html#first-worked-example-4",
+    "title": "Intro to Data  Visualization",
+    "section": "First worked example",
+    "text": "First worked example\n\n\n#Plot\nggplot(data = gm_latest) + #Data\n  aes(x = GDPpc, y = LE) + #Mapping\n  geom_point() #Layer"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#first-worked-example-5",
+    "href": "materials/04-dataviz.html#first-worked-example-5",
+    "title": "Intro to Data  Visualization",
+    "section": "First worked example",
+    "text": "First worked example\n\n\n#Plot\nggplot(data = gm_latest) + #Data\n  aes(x = GDPpc, y = LE) + #Mapping (global)\n  geom_point(aes(size = pop)) #Layer with mapping"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#first-worked-example-6",
+    "href": "materials/04-dataviz.html#first-worked-example-6",
+    "title": "Intro to Data  Visualization",
+    "section": "First worked example",
+    "text": "First worked example\n\n\n#Plot\nggplot(data = gm_latest) + #Data\n  aes(x = GDPpc, y = LE) + #Mapping (global, for all geom)\n  geom_point(aes(size = pop, color = pop)) #Layer with mapping (only for this geom)"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#layer-order",
+    "href": "materials/04-dataviz.html#layer-order",
+    "title": "Intro to Data  Visualization",
+    "section": "Layer order",
+    "text": "Layer order\n\n\n\n\n#Plot\nggplot(gm_latest, aes(GDPpc, LE)) + \n  geom_point(aes(size = pop, color = pop)) + \n  geom_hline(yintercept = 73, \n             color = \"red\", \n             alpha = 1) #After geom_point\n\n\n\n\n\n\n#Plot\nggplot(gm_latest, aes(GDPpc, LE)) + \n  geom_hline(yintercept = 73, \n             color = \"red\", \n             alpha = 1) + #Before geom_point\n  geom_point(aes(size = pop, color = pop))"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#ggplot2-theme-elements",
+    "href": "materials/04-dataviz.html#ggplot2-theme-elements",
+    "title": "Intro to Data  Visualization",
+    "section": "{ggplot2} Theme elements",
+    "text": "{ggplot2} Theme elements\n\nTaking the mtcars dataset as an example\n\n\nmtcars %&gt;% \n  ggplot(aes(x = mpg, y = hp, color = factor(cyl))) +\n  geom_point(size = 4) +\n  theme(text = element_text(size = 18))"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#ggplot2-theme-elements-1",
+    "href": "materials/04-dataviz.html#ggplot2-theme-elements-1",
+    "title": "Intro to Data  Visualization",
+    "section": "{ggplot2} Theme elements",
+    "text": "{ggplot2} Theme elements\n\nTheme elements of a ggplot"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#interactive-plots-with-plotly",
+    "href": "materials/04-dataviz.html#interactive-plots-with-plotly",
+    "title": "Intro to Data  Visualization",
+    "section": "Interactive plots with plotly",
+    "text": "Interactive plots with plotly\n\n\n#Store the plot in an object\nmy_plot &lt;- mtcars %&gt;% \n  ggplot(aes(x = mpg, y = hp, \n             color = factor(cyl))) +\n  geom_point() \n\n#Call ggplotly with that object \n#as argument\nplotly::ggplotly(my_plot)"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#static-maps-with-ggplot",
+    "href": "materials/04-dataviz.html#static-maps-with-ggplot",
+    "title": "Intro to Data  Visualization",
+    "section": "Static maps with ggplot",
+    "text": "Static maps with ggplot\n\n\n#Get the data\nworld &lt;- map_data(\"world\") \n\n#Plot\nworld %&gt;% \n  ggplot() +\n  geom_polygon(aes(x = long, y = lat, \n                   group = group))  +\n  theme(legend.position = \"none\") +\n  theme_void() +\n  coord_equal()"
+  },
+  {
+    "objectID": "materials/04-dataviz.html#dynamic-maps-with-leaflet",
+    "href": "materials/04-dataviz.html#dynamic-maps-with-leaflet",
+    "title": "Intro to Data  Visualization",
+    "section": "Dynamic maps with leaflet",
+    "text": "Dynamic maps with leaflet\n\nFor more info about leaflet check the website\n\n\nlibrary(leaflet)\n\nleaflet(width = 1100, height = 300) %&gt;% \n  addTiles() %&gt;% \n  addPopups(lng= -8.616611357347235, \n            lat=41.14440087224056, \n            popup=\"ISPUP!\")"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#what-is-tidy-data",
+    "href": "materials/02-tidyverse.html#what-is-tidy-data",
+    "title": "Welcome to the  tidyverse",
+    "section": "What is tidy data",
+    "text": "What is tidy data\n\nhttps://r4ds.hadley.nz/data-tidy.html"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#what-is-tidy-data-1",
+    "href": "materials/02-tidyverse.html#what-is-tidy-data-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "What is tidy data",
+    "text": "What is tidy data\n\nWhat is tidy data"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#what-is-tidy-data-2",
+    "href": "materials/02-tidyverse.html#what-is-tidy-data-2",
+    "title": "Welcome to the  tidyverse",
+    "section": "What is tidy data",
+    "text": "What is tidy data\n\nWhat is tidy data"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#tidyverse-guiding-principles",
+    "href": "materials/02-tidyverse.html#tidyverse-guiding-principles",
+    "title": "Welcome to the  tidyverse",
+    "section": "Tidyverse guiding principles",
+    "text": "Tidyverse guiding principles\n\nIt is human centered, i.e. the tidyverse is designed specifically to support the activities of a human data analyst.\nIt is consistent, so that what you learn about one function or package can be applied to another, and the number of special cases that you need to remember is as small as possible.\nIt is composable, allowing you to solve complex problems by breaking them down into small pieces, supporting a rapid cycle of exploratory iteration to find the best solution.\nIt is inclusive, because the tidyverse is not just the collection of packages, but it is also the community of people who use them.\n\n https://design.tidyverse.org/unifying.html"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#data-science-workflow",
+    "href": "materials/02-tidyverse.html#data-science-workflow",
+    "title": "Welcome to the  tidyverse",
+    "section": "Data Science workflow",
+    "text": "Data Science workflow\n\nData science workflow\nModel has its own tidy universe, called tidymodels\nCommunicate is done with other tools (Markdown, Quarto)"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#the-pipe",
+    "href": "materials/02-tidyverse.html#the-pipe",
+    "title": "Welcome to the  tidyverse",
+    "section": "The pipe",
+    "text": "The pipe\n\nPipes in R"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#the-pipe-1",
+    "href": "materials/02-tidyverse.html#the-pipe-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "The pipe",
+    "text": "The pipe\n\n\n\n\n\n\n\n\n#Example code:\ndat %&gt;% \n  filter(study.group == \"control\")\n\n#Equivalent to:\nfilter(dat, study.group == \"control\")"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#the-pipe-2",
+    "href": "materials/02-tidyverse.html#the-pipe-2",
+    "title": "Welcome to the  tidyverse",
+    "section": "The pipe",
+    "text": "The pipe\n\n\n\n\n\n\n\n\n#Example code:\ndat %&gt;% \n  filter(study.group == \"control\") %&gt;% \n  summarize(n = n())\n\n#Equivalent to:\nsummarize(filter(dat, study.group == \"control\"), n = n())"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#the-pipe-3",
+    "href": "materials/02-tidyverse.html#the-pipe-3",
+    "title": "Welcome to the  tidyverse",
+    "section": "The pipe",
+    "text": "The pipe\n\n\n\n\n\n\n\n\n#Example code:\ndat %&gt;% \n  filter(study.group == \"control\") %&gt;% \n  mutate(new_column = \"something\") %&gt;% \n  summarize(n = n())\n\n#Equivalent to:\nsummarize(mutate(filter(dat, study.group == \"control\"),new_colum == \"something\"), n = n())"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#the-pipe-4",
+    "href": "materials/02-tidyverse.html#the-pipe-4",
+    "title": "Welcome to the  tidyverse",
+    "section": "The pipe",
+    "text": "The pipe\n\n\nEasy to skim because verbs come at the start of each line\nTo add the pipe to your code you can use Ctrl/Cmd + Shift + M\nIt is included in the core tidyverse\n\n#Example code:\ndat %&gt;% \n  filter(study.group == \"control\") %&gt;% \n  mutate(new_column = \"something\") %&gt;% \n  summarize(n = n())\n\n#Equivalent to:\nsummarize(mutate(filter(dat, study.group == \"control\"),new_colum == \"something\"), n = n())"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#the-pipe-5",
+    "href": "materials/02-tidyverse.html#the-pipe-5",
+    "title": "Welcome to the  tidyverse",
+    "section": "The pipe",
+    "text": "The pipe\n\nInside a pipe, you can refer to the previous output as . (dot)\n\n\nx %&gt;% f(y) is the same as f(x, y)  y %&gt;% f(x, ., z) is the same as f(x, y, z )"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#dplyr-to-the-rescue",
+    "href": "materials/02-tidyverse.html#dplyr-to-the-rescue",
+    "title": "Welcome to the  tidyverse",
+    "section": "dplyr to the rescue",
+    "text": "dplyr to the rescue\n\n\n\n\n\ndplyr hex sticker\n\n\n\n\n\n\n First argument is always a data frame \n Other arguments (usually) are the names of the columns to operate on, without the quotes\n The output is always a new data frame"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#dplyr-to-the-rescue-1",
+    "href": "materials/02-tidyverse.html#dplyr-to-the-rescue-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "dplyr to the rescue",
+    "text": "dplyr to the rescue\n\ndplyr’s verbs can be organized into groups, based on what they operate on:\n  → Rows  (Change rows, w/o affecting columns)\n  → Columns  (Change columns, w/o affecting rows )\n  → Groups\n  → Tables"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#prerequisites",
+    "href": "materials/02-tidyverse.html#prerequisites",
+    "title": "Welcome to the  tidyverse",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nlibrary(tidyverse) #loads the tidyverse functions\nlibrary(gapminder) #loads the gapminder dataset\n\n#tibble with 1704 rows and 6 columns\nglimpse(gapminder)\n\nRows: 1,704\nColumns: 6\n$ country   &lt;fct&gt; \"Afghanistan\", \"Afghanistan\", \"Afghanistan\", \"Afghanistan\", …\n$ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, …\n$ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, …\n$ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.8…\n$ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 12…\n$ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134, …"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#sneak-peek-of-the-tidyverse",
+    "href": "materials/02-tidyverse.html#sneak-peek-of-the-tidyverse",
+    "title": "Welcome to the  tidyverse",
+    "section": "Sneak peek of the tidyverse",
+    "text": "Sneak peek of the tidyverse\n\nCalculating the gap in lifeExp by continent\nThe base R way\n\n\n#Calculating the gap in lifeExp by continent\nafrica &lt;- gapminder[gapminder$continent == \"Africa\", ]\nafrica_mm &lt;- max(africa$lifeExp) - min(africa$lifeExp)\n\namericas &lt;- gapminder[gapminder$continent == \"Americas\", ]\namericas_mm &lt;- max(americas$lifeExp) - min(americas$lifeExp)\n\nasia &lt;- gapminder[gapminder$continent == \"Asia\", ]\nasia_mm &lt;- max(asia$lifeExp) - min(africa$lifeExp)\n\neurope &lt;- gapminder[gapminder$continent == \"Europe\", ]\neurope_mm &lt;- max(europe$lifeExp) - min(europe$lifeExp)\n\noceania &lt;- gapminder[gapminder$continent == \"Oceania\", ]\noceania_mm &lt;- max(europe$lifeExp) - min(oceania$lifeExp)\n\ncbind(\n  continent = c(\"Africa\", \"Asias\", \"Europe\", \"Oceania\"),\n  max_minus_min = c(africa_mm, americas_mm, asia_mm, europe_mm, oceania_mm)\n  )\n\n\n\nProne to errors and hard to understand and debug"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#sneak-peek-of-the-tidyverse-output",
+    "href": "materials/02-tidyverse.html#sneak-peek-of-the-tidyverse-output",
+    "title": "Welcome to the  tidyverse",
+    "section": "Sneak peek of the tidyverse",
+    "text": "Sneak peek of the tidyverse\n\n     continent max_minus_min\n[1,] \"Africa\"  \"52.843\"     \n[2,] \"Asias\"   \"43.074\"     \n[3,] \"Europe\"  \"59.004\"     \n[4,] \"Oceania\" \"38.172\"     \n[5,] \"Africa\"  \"12.637\""
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#sneak-peek-of-the-tidyverse-1",
+    "href": "materials/02-tidyverse.html#sneak-peek-of-the-tidyverse-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Sneak peek of the tidyverse",
+    "text": "Sneak peek of the tidyverse\n\nCalculating the gap in lifeExp by continent\nThe tidyverse way\n\n\ngapminder %&gt;% \n group_by(continent) %&gt;% \n summarize(max_minus_min = max(lifeExp) - min(lifeExp))\n\n# A tibble: 5 × 2\n  continent max_minus_min\n  &lt;fct&gt;             &lt;dbl&gt;\n1 Africa             52.8\n2 Americas           43.1\n3 Asia               53.8\n4 Europe             38.2\n5 Oceania            12.1"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#filter-rows-with-filter",
+    "href": "materials/02-tidyverse.html#filter-rows-with-filter",
+    "title": "Welcome to the  tidyverse",
+    "section": "Filter rows with filter()",
+    "text": "Filter rows with filter()\n\n\n\n\n\nFilter observations\n\n\n\n\nfilter() is used to subset observations based on their values\n1st argument is the name of the data frame\nOther arguments are logical expressions that filter the data\n\n\n\n\n\n\n\n\n\nImportant\n\n\nTo check if A equals B we use the equality operator (==).  Not to be confused with the assignment operator (=)."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#filter-rows-with-filter-1",
+    "href": "materials/02-tidyverse.html#filter-rows-with-filter-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Filter rows with filter()",
+    "text": "Filter rows with filter()\n\n\n#Portuguese data\ngapminder %&gt;% \n  filter(country == \"Portugal\")\n\n# A tibble: 12 × 6\n   country  continent  year lifeExp      pop gdpPercap\n   &lt;fct&gt;    &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n 1 Portugal Europe     1952    59.8  8526050     3068.\n 2 Portugal Europe     1957    61.5  8817650     3775.\n 3 Portugal Europe     1962    64.4  9019800     4728.\n 4 Portugal Europe     1967    66.6  9103000     6362.\n 5 Portugal Europe     1972    69.3  8970450     9022.\n 6 Portugal Europe     1977    70.4  9662600    10172.\n 7 Portugal Europe     1982    72.8  9859650    11754.\n 8 Portugal Europe     1987    74.1  9915289    13039.\n 9 Portugal Europe     1992    74.9  9927680    16207.\n10 Portugal Europe     1997    76.0 10156415    17641.\n11 Portugal Europe     2002    77.3 10433867    19971.\n12 Portugal Europe     2007    78.1 10642836    20510."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#filter-rows-with-filter-2",
+    "href": "materials/02-tidyverse.html#filter-rows-with-filter-2",
+    "title": "Welcome to the  tidyverse",
+    "section": "Filter rows with filter()",
+    "text": "Filter rows with filter()\n\n\n#Portuguese data\n#Equivalent to the previous code\nfilter(gapminder, country == \"Portugal\")\n\n# A tibble: 12 × 6\n   country  continent  year lifeExp      pop gdpPercap\n   &lt;fct&gt;    &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n 1 Portugal Europe     1952    59.8  8526050     3068.\n 2 Portugal Europe     1957    61.5  8817650     3775.\n 3 Portugal Europe     1962    64.4  9019800     4728.\n 4 Portugal Europe     1967    66.6  9103000     6362.\n 5 Portugal Europe     1972    69.3  8970450     9022.\n 6 Portugal Europe     1977    70.4  9662600    10172.\n 7 Portugal Europe     1982    72.8  9859650    11754.\n 8 Portugal Europe     1987    74.1  9915289    13039.\n 9 Portugal Europe     1992    74.9  9927680    16207.\n10 Portugal Europe     1997    76.0 10156415    17641.\n11 Portugal Europe     2002    77.3 10433867    19971.\n12 Portugal Europe     2007    78.1 10642836    20510."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#filter-rows-with-filter-3",
+    "href": "materials/02-tidyverse.html#filter-rows-with-filter-3",
+    "title": "Welcome to the  tidyverse",
+    "section": "Filter rows with filter()",
+    "text": "Filter rows with filter()\n\n\n#Portuguese data for the year 2007\ngapminder %&gt;% \n  filter(country == \"Portugal\", \n         year == 2007) \n\n# A tibble: 1 × 6\n  country  continent  year lifeExp      pop gdpPercap\n  &lt;fct&gt;    &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n1 Portugal Europe     2007    78.1 10642836    20510.\n\n#Alternatively, using the and (&) operator\ngapminder %&gt;% \n  filter(country == \"Portugal\" & year == 2007)\n\n# A tibble: 1 × 6\n  country  continent  year lifeExp      pop gdpPercap\n  &lt;fct&gt;    &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n1 Portugal Europe     2007    78.1 10642836    20510."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#filter-rows-with-filter-4",
+    "href": "materials/02-tidyverse.html#filter-rows-with-filter-4",
+    "title": "Welcome to the  tidyverse",
+    "section": "Filter rows with filter()",
+    "text": "Filter rows with filter()\n\n\n#Portuguese or Spanish data for the year 2007\ngapminder %&gt;% \n  filter(country == \"Portugal\" | country == \"Spain\", \n         year == 2007) \n\n# A tibble: 2 × 6\n  country  continent  year lifeExp      pop gdpPercap\n  &lt;fct&gt;    &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n1 Portugal Europe     2007    78.1 10642836    20510.\n2 Spain    Europe     2007    80.9 40448191    28821.\n\n#Alternatively, using the %in% operator\ngapminder %&gt;% \n  filter(country %in% c(\"Portugal\",\"Spain\"), \n         year == 2007) \n\n# A tibble: 2 × 6\n  country  continent  year lifeExp      pop gdpPercap\n  &lt;fct&gt;    &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n1 Portugal Europe     2007    78.1 10642836    20510.\n2 Spain    Europe     2007    80.9 40448191    28821."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#filter-rows-with-filter-5",
+    "href": "materials/02-tidyverse.html#filter-rows-with-filter-5",
+    "title": "Welcome to the  tidyverse",
+    "section": "Filter rows with filter()",
+    "text": "Filter rows with filter()\n\n\n\n\n\n\n\nTip\n\n\nThe %in% operator is very useful inside filter(), because it is easy to test different inputs. It allows single or multiple user selection. Using the == oeprator we would need to change the code everytime.\n\n\n\n\nExample 1Example 2\n\n\n\n\ncountries &lt;- \"Portugal\"\n\n#No need to change the chart code! Just the input fields above\ngapminder %&gt;% \n  filter(country %in% countries) %&gt;% \n  ggplot(aes(x = year,\n             y = lifeExp, \n             color = country)) +\n  geom_line()\n\n\n\n\n\n\n\n\n\n\ncountries &lt;- c(\"Portugal\",\"Spain\")\n\n#No need to change the chart code! Just the input fields above\ngapminder %&gt;% \n  filter(country %in% countries) %&gt;% \n  ggplot(aes(x = year, \n             y = lifeExp, \n             color = country)) +\n  geom_line()"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#filter-rows-with-filter-6",
+    "href": "materials/02-tidyverse.html#filter-rows-with-filter-6",
+    "title": "Welcome to the  tidyverse",
+    "section": "Filter rows with filter()",
+    "text": "Filter rows with filter()\n\n\nCommon  mistakes \n\n\ngapminder %&gt;% \n  filter(year = 2007) \n\nError in `filter()`:\n! We detected a named input.\nℹ This usually means that you've used `=` instead of `==`.\nℹ Did you mean `year == 2007`?"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#filter-rows-with-filter-7",
+    "href": "materials/02-tidyverse.html#filter-rows-with-filter-7",
+    "title": "Welcome to the  tidyverse",
+    "section": "Filter rows with filter()",
+    "text": "Filter rows with filter()\n\n\nCommon  mistakes \n\n\n#Does not throw error, but does nothing\n# what happens is that R checks the condition (year == 2002) \n# and then checks the condition 2007, which doesn't make sense\ngapminder %&gt;% \n  filter(year == 2002 | 2007) \n\n# A tibble: 1,704 × 6\n   country     continent  year lifeExp      pop gdpPercap\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n 1 Afghanistan Asia       1952    28.8  8425333      779.\n 2 Afghanistan Asia       1957    30.3  9240934      821.\n 3 Afghanistan Asia       1962    32.0 10267083      853.\n 4 Afghanistan Asia       1967    34.0 11537966      836.\n 5 Afghanistan Asia       1972    36.1 13079460      740.\n 6 Afghanistan Asia       1977    38.4 14880372      786.\n 7 Afghanistan Asia       1982    39.9 12881816      978.\n 8 Afghanistan Asia       1987    40.8 13867957      852.\n 9 Afghanistan Asia       1992    41.7 16317921      649.\n10 Afghanistan Asia       1997    41.8 22227415      635.\n# ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#filter-rows-with-filter-8",
+    "href": "materials/02-tidyverse.html#filter-rows-with-filter-8",
+    "title": "Welcome to the  tidyverse",
+    "section": "Filter rows with filter()",
+    "text": "Filter rows with filter()\n\n\nChallengeSolution\n\n\n\nUsing the airquality dataset, filter only observations from  a) September,  b) for days that are multiples of five,  c) where temperature was above 80.\n\n\n\n\nairquality %&gt;% \n  filter(Month == 9,\n         Day %in% seq(5,30,5),\n         Temp &gt; 80)\n\n  Ozone Solar.R Wind Temp Month Day\n1    47      95  7.4   87     9   5\n2    16     201  8.0   82     9  20"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#arrange-rows-with-arrange",
+    "href": "materials/02-tidyverse.html#arrange-rows-with-arrange",
+    "title": "Welcome to the  tidyverse",
+    "section": "Arrange rows with arrange()",
+    "text": "Arrange rows with arrange()\n\narrange() changes the order of the rows based on the value of the columns (One or more)\nThe number of rows does not change\n\n\n#Arrange/sort by year (oldest to newest - ascending)\ngapminder %&gt;% \n  arrange(year)\n\n# A tibble: 1,704 × 6\n   country     continent  year lifeExp      pop gdpPercap\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n 1 Afghanistan Asia       1952    28.8  8425333      779.\n 2 Albania     Europe     1952    55.2  1282697     1601.\n 3 Algeria     Africa     1952    43.1  9279525     2449.\n 4 Angola      Africa     1952    30.0  4232095     3521.\n 5 Argentina   Americas   1952    62.5 17876956     5911.\n 6 Australia   Oceania    1952    69.1  8691212    10040.\n 7 Austria     Europe     1952    66.8  6927772     6137.\n 8 Bahrain     Asia       1952    50.9   120447     9867.\n 9 Bangladesh  Asia       1952    37.5 46886859      684.\n10 Belgium     Europe     1952    68    8730405     8343.\n# ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#arrange-rows-with-arrange-1",
+    "href": "materials/02-tidyverse.html#arrange-rows-with-arrange-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Arrange rows with arrange()",
+    "text": "Arrange rows with arrange()\n\ndesc() can be used inside arrange() to arrange descending\n\n\n#Arrange/sort by year (newest to oldest - descending) \ngapminder %&gt;% \n  arrange(desc(year))\n\n# A tibble: 1,704 × 6\n   country     continent  year lifeExp       pop gdpPercap\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;\n 1 Afghanistan Asia       2007    43.8  31889923      975.\n 2 Albania     Europe     2007    76.4   3600523     5937.\n 3 Algeria     Africa     2007    72.3  33333216     6223.\n 4 Angola      Africa     2007    42.7  12420476     4797.\n 5 Argentina   Americas   2007    75.3  40301927    12779.\n 6 Australia   Oceania    2007    81.2  20434176    34435.\n 7 Austria     Europe     2007    79.8   8199783    36126.\n 8 Bahrain     Asia       2007    75.6    708573    29796.\n 9 Bangladesh  Asia       2007    64.1 150448339     1391.\n10 Belgium     Europe     2007    79.4  10392226    33693.\n# ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#arrange-rows-with-arrange-2",
+    "href": "materials/02-tidyverse.html#arrange-rows-with-arrange-2",
+    "title": "Welcome to the  tidyverse",
+    "section": "Arrange rows with arrange()",
+    "text": "Arrange rows with arrange()\n\n\n#Arrange/sort by continent (descending) and then by lifeExp (ascending)\ngapminder %&gt;% \n  arrange(desc(continent), lifeExp)\n\n# A tibble: 1,704 × 6\n   country     continent  year lifeExp      pop gdpPercap\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n 1 Australia   Oceania    1952    69.1  8691212    10040.\n 2 New Zealand Oceania    1952    69.4  1994794    10557.\n 3 New Zealand Oceania    1957    70.3  2229407    12247.\n 4 Australia   Oceania    1957    70.3  9712569    10950.\n 5 Australia   Oceania    1962    70.9 10794968    12217.\n 6 Australia   Oceania    1967    71.1 11872264    14526.\n 7 New Zealand Oceania    1962    71.2  2488550    13176.\n 8 New Zealand Oceania    1967    71.5  2728150    14464.\n 9 New Zealand Oceania    1972    71.9  2929100    16046.\n10 Australia   Oceania    1972    71.9 13177000    16789.\n# ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#arrange-rows-with-arrange-3",
+    "href": "materials/02-tidyverse.html#arrange-rows-with-arrange-3",
+    "title": "Welcome to the  tidyverse",
+    "section": "Arrange rows with arrange()",
+    "text": "Arrange rows with arrange()\n\n\n\n\n\n\n\nNote\n\n\nWhen arranging a column that has NA values, they ALWAYS appear at the end of the dataset, whether the arrange() is ascending or descending.  When arranging by multiple columns, NAs will appear at the end of each group."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#arrange-rows-with-arrange-4",
+    "href": "materials/02-tidyverse.html#arrange-rows-with-arrange-4",
+    "title": "Welcome to the  tidyverse",
+    "section": "Arrange rows with arrange()",
+    "text": "Arrange rows with arrange()\n\n\nChallengeSolution\n\n\n\nUsing the gapminder dataset, show a data frame with the most recent year only, ordered by life expectancy (higher to lower)\n\n\n\n\ngapminder %&gt;% \n  filter(year == 2007) %&gt;% \n  arrange(desc(lifeExp))\n\n# A tibble: 142 × 6\n   country          continent  year lifeExp       pop gdpPercap\n   &lt;fct&gt;            &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;\n 1 Japan            Asia       2007    82.6 127467972    31656.\n 2 Hong Kong, China Asia       2007    82.2   6980412    39725.\n 3 Iceland          Europe     2007    81.8    301931    36181.\n 4 Switzerland      Europe     2007    81.7   7554661    37506.\n 5 Australia        Oceania    2007    81.2  20434176    34435.\n 6 Spain            Europe     2007    80.9  40448191    28821.\n 7 Sweden           Europe     2007    80.9   9031088    33860.\n 8 Israel           Asia       2007    80.7   6426679    25523.\n 9 France           Europe     2007    80.7  61083916    30470.\n10 Canada           Americas   2007    80.7  33390141    36319.\n# ℹ 132 more rows"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#unique-values-with-distinct",
+    "href": "materials/02-tidyverse.html#unique-values-with-distinct",
+    "title": "Welcome to the  tidyverse",
+    "section": "Unique values with distinct()",
+    "text": "Unique values with distinct()\n\n\ndistinct() finds all the unique rows in a dataset.\nCan be used for a single column or combination of columns.\n\n\n#Get a list of unique/distinct years\ngapminder %&gt;% \n  distinct(country)\n\n# A tibble: 142 × 1\n   country    \n   &lt;fct&gt;      \n 1 Afghanistan\n 2 Albania    \n 3 Algeria    \n 4 Angola     \n 5 Argentina  \n 6 Australia  \n 7 Austria    \n 8 Bahrain    \n 9 Bangladesh \n10 Belgium    \n# ℹ 132 more rows"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#unique-values-with-distinct-1",
+    "href": "materials/02-tidyverse.html#unique-values-with-distinct-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Unique values with distinct()",
+    "text": "Unique values with distinct()\n\n\n#Get a distinct combination of continent + year\ngapminder %&gt;% \n  distinct(continent, year)\n\n# A tibble: 60 × 2\n   continent  year\n   &lt;fct&gt;     &lt;int&gt;\n 1 Asia       1952\n 2 Asia       1957\n 3 Asia       1962\n 4 Asia       1967\n 5 Asia       1972\n 6 Asia       1977\n 7 Asia       1982\n 8 Asia       1987\n 9 Asia       1992\n10 Asia       1997\n# ℹ 50 more rows"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#unique-values-with-distinct-2",
+    "href": "materials/02-tidyverse.html#unique-values-with-distinct-2",
+    "title": "Welcome to the  tidyverse",
+    "section": "Unique values with distinct()",
+    "text": "Unique values with distinct()\n\n\nWhat if we want to keep the other columns?\n\n\n\ngapminder %&gt;% \n  distinct(continent, year, \n           .keep_all = T)\n\n\n# A tibble: 60 × 6\n   country     continent  year lifeExp      pop gdpPercap\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n 1 Afghanistan Asia       1952    28.8  8425333      779.\n 2 Afghanistan Asia       1957    30.3  9240934      821.\n 3 Afghanistan Asia       1962    32.0 10267083      853.\n 4 Afghanistan Asia       1967    34.0 11537966      836.\n 5 Afghanistan Asia       1972    36.1 13079460      740.\n 6 Afghanistan Asia       1977    38.4 14880372      786.\n 7 Afghanistan Asia       1982    39.9 12881816      978.\n 8 Afghanistan Asia       1987    40.8 13867957      852.\n 9 Afghanistan Asia       1992    41.7 16317921      649.\n10 Afghanistan Asia       1997    41.8 22227415      635.\n# ℹ 50 more rows\n\n\n\n\n\n\n\n\n\nWarning\n\n\nNote that only one country remains for each continent!  The .keep_all argument only keeps the first row of values.  If you wanted to know how many countries were available for each continent/year combination, the count() function would work."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#count-rows-with-count",
+    "href": "materials/02-tidyverse.html#count-rows-with-count",
+    "title": "Welcome to the  tidyverse",
+    "section": "Count rows with count()",
+    "text": "Count rows with count()\n\n#How many observations exist for each combination of continent + year?\ngapminder %&gt;% \n  count(continent, year) \n\n# A tibble: 60 × 3\n   continent  year     n\n   &lt;fct&gt;     &lt;int&gt; &lt;int&gt;\n 1 Africa     1952    52\n 2 Africa     1957    52\n 3 Africa     1962    52\n 4 Africa     1967    52\n 5 Africa     1972    52\n 6 Africa     1977    52\n 7 Africa     1982    52\n 8 Africa     1987    52\n 9 Africa     1992    52\n10 Africa     1997    52\n# ℹ 50 more rows"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#select-columns-with-select",
+    "href": "materials/02-tidyverse.html#select-columns-with-select",
+    "title": "Welcome to the  tidyverse",
+    "section": "Select columns with select()",
+    "text": "Select columns with select()\n\n\n\n\n\n\nSelect columns\n\n\n\n\nSelect or exclude columns\n\n\n\n\n#Select ONLY continent and lifeExp\ngapminder %&gt;% \n  select(continent, lifeExp) %&gt;% \n  glimpse()\n\nRows: 1,704\nColumns: 2\n$ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, …\n$ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.8…"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#select-columns-with-select-1",
+    "href": "materials/02-tidyverse.html#select-columns-with-select-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Select columns with select()",
+    "text": "Select columns with select()\n\n\n#Select columns BETWEEN continent and lifeExp (inclusive)\ngapminder %&gt;% \n  select(continent:lifeExp) %&gt;% \n  glimpse()\n\nRows: 1,704\nColumns: 3\n$ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, …\n$ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, …\n$ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.8…"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#select-columns-with-select-2",
+    "href": "materials/02-tidyverse.html#select-columns-with-select-2",
+    "title": "Welcome to the  tidyverse",
+    "section": "Select columns with select()",
+    "text": "Select columns with select()\n\n\n#Select columns EXCEPT those between continent and lifeExp (inclusive)\ngapminder %&gt;% \n  select(!continent:lifeExp) %&gt;% \n  glimpse()\n\nRows: 1,704\nColumns: 3\n$ country   &lt;fct&gt; \"Afghanistan\", \"Afghanistan\", \"Afghanistan\", \"Afghanistan\", …\n$ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 12…\n$ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134, …\n\n\n\n\n\n\n\n\nNote\n\n\nPreviously - was used instead of !  When searching online for help you may still find answwers using -"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#select-columns-with-select-3",
+    "href": "materials/02-tidyverse.html#select-columns-with-select-3",
+    "title": "Welcome to the  tidyverse",
+    "section": "Select columns with select()",
+    "text": "Select columns with select()\n\n\nThe tidyverse has some helper functions that can be used with select(), from the tidyselect package.\nOne example is the where() function.\n\n\n#Select only integer columns\ngapminder %&gt;% \n  select(where(is.integer)) %&gt;% \n  glimpse()\n\nRows: 1,704\nColumns: 2\n$ year &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, 2002,…\n$ pop  &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 1288181…\n\n\n\n\n\n\n\n\nNote\n\n\nNote that is.integer is a function, and we are passing the function name as an argument of the where() function."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#select-columns-with-select-4",
+    "href": "materials/02-tidyverse.html#select-columns-with-select-4",
+    "title": "Welcome to the  tidyverse",
+    "section": "Select columns with select()",
+    "text": "Select columns with select()\n\n\nThere are several selection helpers, which can be found in the tidyselect package vignette\n\n\n#Select only columns of type double\ngapminder %&gt;% \n  select(where(is.double)) %&gt;% \n  glimpse()\n\nRows: 1,704\nColumns: 2\n$ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.8…\n$ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134, …\n\n#Select columns that start with the letter \"c\"\ngapminder %&gt;% \n  select(starts_with(\"c\")) %&gt;% \n  glimpse()\n\nRows: 1,704\nColumns: 2\n$ country   &lt;fct&gt; \"Afghanistan\", \"Afghanistan\", \"Afghanistan\", \"Afghanistan\", …\n$ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, …"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#select-columns-with-select-5",
+    "href": "materials/02-tidyverse.html#select-columns-with-select-5",
+    "title": "Welcome to the  tidyverse",
+    "section": "Select columns with select()",
+    "text": "Select columns with select()\n\n\nYou can reorder and/or rename columns as you select them\n\n\n#Select three columns, while renaming one\ngapminder %&gt;% \n  select(continent,\n         le = lifeExp,\n         year) %&gt;% \n  glimpse()\n\nRows: 1,704\nColumns: 3\n$ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, …\n$ le        &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.8…\n$ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, …"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#rename-columns-with-rename",
+    "href": "materials/02-tidyverse.html#rename-columns-with-rename",
+    "title": "Welcome to the  tidyverse",
+    "section": "Rename columns with rename()",
+    "text": "Rename columns with rename()\n\n\nrename() keeps all existing variables and allows you to rename a few\nThe syntax is rename(.data, new_name = old_name)\n\n\n#rename lifeExp to le\ngapminder %&gt;% \n  rename(le = lifeExp) %&gt;% \n  glimpse()\n\nRows: 1,704\nColumns: 6\n$ country   &lt;fct&gt; \"Afghanistan\", \"Afghanistan\", \"Afghanistan\", \"Afghanistan\", …\n$ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, …\n$ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, …\n$ le        &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.8…\n$ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 12…\n$ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134, …"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#rename-columns-with-janitorclean_names",
+    "href": "materials/02-tidyverse.html#rename-columns-with-janitorclean_names",
+    "title": "Welcome to the  tidyverse",
+    "section": "Rename columns with janitor::clean_names()",
+    "text": "Rename columns with janitor::clean_names()\n\nFor larger datasets with inconsistently named columns, the clean_names() function is a huge help\nSuppose you have a gapminder dataset with inconsistent names\n\n\ngapminder_crazy_names &lt;- gapminder %&gt;% \n  rename(ÇOUNTRY = country,\n         Continent = continent,\n         LifeExp = lifeExp,\n         Ýear = year,\n         PÔP = pop,\n         GDPPercap = gdpPercap)\n\ncolnames(gapminder_crazy_names)\n\n[1] \"ÇOUNTRY\"   \"Continent\" \"Ýear\"      \"LifeExp\"   \"PÔP\"       \"GDPPercap\""
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#rename-columns-with-janitorclean_names-1",
+    "href": "materials/02-tidyverse.html#rename-columns-with-janitorclean_names-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Rename columns with janitor::clean_names()",
+    "text": "Rename columns with janitor::clean_names()\n\n\nUsing clean_names()\n\n\n#Suppose you have a gapminder dataset with inconsistent names\ncolnames(gapminder_crazy_names)\n\n[1] \"ÇOUNTRY\"   \"Continent\" \"Ýear\"      \"LifeExp\"   \"PÔP\"       \"GDPPercap\"\n\nlibrary(janitor)\n#rename lifeExp to le\ngapminder_crazy_names %&gt;% clean_names() %&gt;% colnames()\n\n[1] \"country\"    \"continent\"  \"year\"       \"life_exp\"   \"pop\"       \n[6] \"gdp_percap\"\n\n\n\n\n\n\n\n\nNote\n\n\nThe default output of clean_names() is lower case, with _ separating words."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#move-columns-with-relocate",
+    "href": "materials/02-tidyverse.html#move-columns-with-relocate",
+    "title": "Welcome to the  tidyverse",
+    "section": "Move columns with relocate()",
+    "text": "Move columns with relocate()\n\n\nrelocate() moves variables around, without changing them\n\n\n#make continent the first column\ngapminder %&gt;% \n  relocate(continent, .before = country) %&gt;% #by var NAME \n  colnames()\n\n[1] \"continent\" \"country\"   \"year\"      \"lifeExp\"   \"pop\"       \"gdpPercap\"\n\ngapminder %&gt;% \n  relocate(continent, .before = 1) %&gt;% #by var INDEX \n  colnames()\n\n[1] \"continent\" \"country\"   \"year\"      \"lifeExp\"   \"pop\"       \"gdpPercap\""
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#move-columns-with-relocate-1",
+    "href": "materials/02-tidyverse.html#move-columns-with-relocate-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Move columns with relocate()",
+    "text": "Move columns with relocate()\n\n\n\n\n\n\n\nNote\n\n\nThe tidyselect helpers we saw earlier can be used anywhere that we need to “select” a column.\n\n\n\n\n#Move all columns that end with \"p\" to the right of country\ngapminder %&gt;% \n  relocate(ends_with(\"p\"), .after = country) %&gt;% #by var NAME \n  colnames()\n\n[1] \"country\"   \"lifeExp\"   \"pop\"       \"gdpPercap\" \"continent\" \"year\""
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#calculate-variables-with-mutate",
+    "href": "materials/02-tidyverse.html#calculate-variables-with-mutate",
+    "title": "Welcome to the  tidyverse",
+    "section": "Calculate variables with mutate()",
+    "text": "Calculate variables with mutate()\n\n\n\n\n\n \n\n\n\n\n\n\n\nmutate()\n\n\n\n\n\n\n\nmutate() is used to add new columns, calculated from existing columns\nBy default columns are added to the right hand side of the dataset.\n\n\n\n\ngapminder %&gt;% \n  mutate(pop_millions = pop / 1e6,\n         total_gdp = gdpPercap * pop) %&gt;%\n  head(5)\n\n# A tibble: 5 × 8\n  country     continent  year lifeExp      pop gdpPercap pop_millions  total_gdp\n  &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan Asia       1952    28.8  8425333      779.         8.43     6.57e9\n2 Afghanistan Asia       1957    30.3  9240934      821.         9.24     7.59e9\n3 Afghanistan Asia       1962    32.0 10267083      853.        10.3      8.76e9\n4 Afghanistan Asia       1967    34.0 11537966      836.        11.5      9.65e9\n5 Afghanistan Asia       1972    36.1 13079460      740.        13.1      9.68e9"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#calculate-variables-with-mutate-1",
+    "href": "materials/02-tidyverse.html#calculate-variables-with-mutate-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Calculate variables with mutate()",
+    "text": "Calculate variables with mutate()\n\n\nmutate() is one of the most frequently used functions in a data analysis pipeline\n\n\nMutate in itself is trivial, the hard part is often the logic/calculations that go into creating the desired columns"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#grouped-subsets-with-group_by",
+    "href": "materials/02-tidyverse.html#grouped-subsets-with-group_by",
+    "title": "Welcome to the  tidyverse",
+    "section": "Grouped subsets with group_by()",
+    "text": "Grouped subsets with group_by()\n\n\n\n\n\n\n\ngroup_by() divides a dataset into meaningful groups\nDoesn’t change the underlying data\nSubsequent operations will be performed by each group"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#grouped-subsets-with-group_by-1",
+    "href": "materials/02-tidyverse.html#grouped-subsets-with-group_by-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Grouped subsets with group_by()",
+    "text": "Grouped subsets with group_by()\n\n\nlooking closely at the output you see “# Groups: continent [5]”\n\n\n#Group data by continent\ngapminder %&gt;% \n  group_by(continent)\n\n# A tibble: 1,704 × 6\n# Groups:   continent [5]\n   country     continent  year lifeExp      pop gdpPercap\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n 1 Afghanistan Asia       1952    28.8  8425333      779.\n 2 Afghanistan Asia       1957    30.3  9240934      821.\n 3 Afghanistan Asia       1962    32.0 10267083      853.\n 4 Afghanistan Asia       1967    34.0 11537966      836.\n 5 Afghanistan Asia       1972    36.1 13079460      740.\n 6 Afghanistan Asia       1977    38.4 14880372      786.\n 7 Afghanistan Asia       1982    39.9 12881816      978.\n 8 Afghanistan Asia       1987    40.8 13867957      852.\n 9 Afghanistan Asia       1992    41.7 16317921      649.\n10 Afghanistan Asia       1997    41.8 22227415      635.\n# ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#grouped-subsets-with-group_by-2",
+    "href": "materials/02-tidyverse.html#grouped-subsets-with-group_by-2",
+    "title": "Welcome to the  tidyverse",
+    "section": "Grouped subsets with group_by()",
+    "text": "Grouped subsets with group_by()\n\n\nIt’s possible to group by more than one variable simultaneously\n\n\n#Group data by continent and year\ngapminder %&gt;% \n  group_by(continent, year)\n\n# A tibble: 1,704 × 6\n# Groups:   continent, year [60]\n   country     continent  year lifeExp      pop gdpPercap\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n 1 Afghanistan Asia       1952    28.8  8425333      779.\n 2 Afghanistan Asia       1957    30.3  9240934      821.\n 3 Afghanistan Asia       1962    32.0 10267083      853.\n 4 Afghanistan Asia       1967    34.0 11537966      836.\n 5 Afghanistan Asia       1972    36.1 13079460      740.\n 6 Afghanistan Asia       1977    38.4 14880372      786.\n 7 Afghanistan Asia       1982    39.9 12881816      978.\n 8 Afghanistan Asia       1987    40.8 13867957      852.\n 9 Afghanistan Asia       1992    41.7 16317921      649.\n10 Afghanistan Asia       1997    41.8 22227415      635.\n# ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#grouped-summaries-with-summarise",
+    "href": "materials/02-tidyverse.html#grouped-summaries-with-summarise",
+    "title": "Welcome to the  tidyverse",
+    "section": "Grouped summaries with summarise()",
+    "text": "Grouped summaries with summarise()\n\n\n\n\n\n \n\n\n\n\n\n\n\nsummarise()\n\n\n\n\n\n\n\nsummarise()1 is the most important grouped operation\nReduces the data frame to a single row, or one row for each group, if used with group_by()\n\n\n\n\n\n\n#mean gdpPercap, worldwide\ngapminder %&gt;% \n  summarise(mean_gdp = mean(gdpPercap))\n\n# A tibble: 1 × 1\n  mean_gdp\n     &lt;dbl&gt;\n1    7215.\n\n\n\n\n\n#mean gdpPercap, by continent\ngapminder %&gt;% \n  group_by(continent) %&gt;% \n  summarise(mean_gdp = mean(gdpPercap))\n\n# A tibble: 5 × 2\n  continent mean_gdp\n  &lt;fct&gt;        &lt;dbl&gt;\n1 Africa       2194.\n2 Americas     7136.\n3 Asia         7902.\n4 Europe      14469.\n5 Oceania     18622.\n\n\n\n\nor summarize"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#grouped-summaries-with-summarise-1",
+    "href": "materials/02-tidyverse.html#grouped-summaries-with-summarise-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Grouped summaries with summarise()",
+    "text": "Grouped summaries with summarise()\n\n\nMultiple statistics/measures can be calculated inside summarise()\n\n\n\n\n#mean gdpPercap, worldwide\ngapminder %&gt;% \n  summarise(n = n(),\n            mean_gdp = mean(gdpPercap),\n            median_pop = median(pop))\n\n# A tibble: 1 × 3\n      n mean_gdp median_pop\n  &lt;int&gt;    &lt;dbl&gt;      &lt;dbl&gt;\n1  1704    7215.   7023596.\n\n\n\n\n\n#mean gdpPercap, by continent\ngapminder %&gt;% \n  group_by(continent) %&gt;% \n  summarise(n = n(), #counts the number of rows\n            mean_gdp = mean(gdpPercap),\n            median_pop = median(pop))\n\n# A tibble: 5 × 4\n  continent     n mean_gdp median_pop\n  &lt;fct&gt;     &lt;int&gt;    &lt;dbl&gt;      &lt;dbl&gt;\n1 Africa      624    2194.   4579311 \n2 Americas    300    7136.   6227510 \n3 Asia        396    7902.  14530830.\n4 Europe      360   14469.   8551125 \n5 Oceania      24   18622.   6403492."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#grouped-summaries-with-summarise-2",
+    "href": "materials/02-tidyverse.html#grouped-summaries-with-summarise-2",
+    "title": "Welcome to the  tidyverse",
+    "section": "Grouped summaries with summarise()",
+    "text": "Grouped summaries with summarise()\n\n\n\n\n\n\n\nTip\n\n\nThe group_by() and summarise() combination is frequently seen at the end of a pipeline.  A typical workflow would be:  Import data → select and rename relevant columns → clean and process the dataset → filter desired rows → compute new columns → group and summarise \n\n\n\n\n\n\n\n\n\nImportant\n\n\nWhen summarising a grouped data frame, the groups get dropped after the summarise() function call. However, other operations KEEP the groups by default."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#ungrouping-grouped-data-frames",
+    "href": "materials/02-tidyverse.html#ungrouping-grouped-data-frames",
+    "title": "Welcome to the  tidyverse",
+    "section": "Ungrouping grouped data frames",
+    "text": "Ungrouping grouped data frames\n\n\n\n\n\n\n\nImportant\n\n\nWhen summarising a grouped data frame, the groups get dropped automatically after the summarise() function call. However, other operations KEEP the groups by default. To explicitly ungroup you can use the ungroup() function\n\n\n\n\n\n#Create an ID column\ngapminder %&gt;% \n  group_by(continent) %&gt;% \n  mutate(id = row_number())\n\n\n# A tibble: 1,704 × 7\n# Groups:   continent [5]\n   country     continent  year lifeExp      pop gdpPercap    id\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt; &lt;int&gt;\n 1 Afghanistan Asia       1952    28.8  8425333      779.     1\n 2 Afghanistan Asia       1957    30.3  9240934      821.     2\n 3 Afghanistan Asia       1962    32.0 10267083      853.     3\n 4 Afghanistan Asia       1967    34.0 11537966      836.     4\n 5 Afghanistan Asia       1972    36.1 13079460      740.     5\n 6 Afghanistan Asia       1977    38.4 14880372      786.     6\n 7 Afghanistan Asia       1982    39.9 12881816      978.     7\n 8 Afghanistan Asia       1987    40.8 13867957      852.     8\n 9 Afghanistan Asia       1992    41.7 16317921      649.     9\n10 Afghanistan Asia       1997    41.8 22227415      635.    10\n# ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#ungrouping-grouped-data-frames-1",
+    "href": "materials/02-tidyverse.html#ungrouping-grouped-data-frames-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Ungrouping grouped data frames",
+    "text": "Ungrouping grouped data frames\n\n\n\n\n\n\n\nImportant\n\n\nWhen summarising a grouped data frame, the groups get dropped automatically after the summarise() function call. However, other operations KEEP the groups by default. To explicitly ungroup you can use the ungroup() function\n\n\n\n\n\n#Create an ID column\ngapminder %&gt;% \n  group_by(continent) %&gt;% \n  mutate(id = row_number()) %&gt;% \n  summarise(mean = mean(lifeExp))\n\n\n# A tibble: 5 × 2\n  continent  mean\n  &lt;fct&gt;     &lt;dbl&gt;\n1 Africa     48.9\n2 Americas   64.7\n3 Asia       60.1\n4 Europe     71.9\n5 Oceania    74.3\n\n\n\n\nNote that the data frame is still grouped after the mutate() call, because the output of summarise() is given by continent."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#join-datasets-with-_join",
+    "href": "materials/02-tidyverse.html#join-datasets-with-_join",
+    "title": "Welcome to the  tidyverse",
+    "section": "Join datasets with *_join()",
+    "text": "Join datasets with *_join()\n\n\nData analysis frequently involves multiple datasets.\nDatasets must be joined somehow - some column or set of columns that are equal in both datasets\nThis common identifier is called a key\n\n\nThere are two types of keys: a Primary key (PK) and a Foreign key (FK)  A Primary Key is a variable or set of variables that uniquely identifies each observation.  A Foreign Key is a variable or set of variables that correspond to a Primary Key in another table"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#join-datasets-with-_join-1",
+    "href": "materials/02-tidyverse.html#join-datasets-with-_join-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Join datasets with *_join()",
+    "text": "Join datasets with *_join()\n\n\n\n\n\n\n\n\nID# is a PK in the Students table, and a FK in the Takes_Course table.\nClassID is a PK in the Courses table, and a FK in the Takes_Course table.\nThe combination of ID# and ClassID is a PK in the Takes_Course table.\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\nForeign Keys can be repeated, while Primary Keys must be unique!  Note that R does not enforce by default this restriction. That burden falls to the user."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#join-datasets-with-_join-2",
+    "href": "materials/02-tidyverse.html#join-datasets-with-_join-2",
+    "title": "Welcome to the  tidyverse",
+    "section": "Join datasets with *_join()",
+    "text": "Join datasets with *_join()"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#join-datasets-with-_join-3",
+    "href": "materials/02-tidyverse.html#join-datasets-with-_join-3",
+    "title": "Welcome to the  tidyverse",
+    "section": "Join datasets with *_join()",
+    "text": "Join datasets with *_join()\n\n\nConsider the following datasets:\n\n\n#1) PT population in 2022 \npt_population %&gt;% glimpse\n\nRows: 86\nColumns: 3\n$ year       &lt;int&gt; 2022, 2022, 2022, 2022, 2022, 2022, 2022, 2022, 2022, 2022,…\n$ age        &lt;chr&gt; \"75 anos\", \"83 anos\", \"3 anos\", \"2 anos\", \"6 anos\", \"16 ano…\n$ population &lt;int&gt; 106539, 69073, 88015, 85532, 89039, 102837, 109057, 121978,…\n\n\n\n#2) PT deaths in 2022\npt_deaths %&gt;% glimpse\n\nRows: 119\nColumns: 3\n$ year   &lt;int&gt; 2022, 2022, 2022, 2022, 2022, 2022, 2022, 2022, 2022, 2022, 202…\n$ age    &lt;chr&gt; \"7 anos\", \"10 anos\", \"11 anos\", \"13 anos\", \"20 anos\", \"23 anos\"…\n$ deaths &lt;int&gt; 4, 4, 9, 12, 47, 44, 215, 433, 555, 3649, 4694, 132, 15, 34, 77…"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#join-datasets-with-_join-4",
+    "href": "materials/02-tidyverse.html#join-datasets-with-_join-4",
+    "title": "Welcome to the  tidyverse",
+    "section": "Join datasets with *_join()",
+    "text": "Join datasets with *_join()\n\n\nWhat column or columns do you consider the Primary Key in each table? How could we join them?"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#join-datasets-with-_join-5",
+    "href": "materials/02-tidyverse.html#join-datasets-with-_join-5",
+    "title": "Welcome to the  tidyverse",
+    "section": "Join datasets with *_join()",
+    "text": "Join datasets with *_join()\n\n\n\nleft_join() allows you to combine two datasets\nThe output will have the same rows as x, the dataframe to which you are joining “external” data\nIf a value of x is not found on y, an NA is introduced"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#join-datasets-with-_join-6",
+    "href": "materials/02-tidyverse.html#join-datasets-with-_join-6",
+    "title": "Welcome to the  tidyverse",
+    "section": "Join datasets with *_join()",
+    "text": "Join datasets with *_join()\n\n\nIn this case the column “year” is non-informative, because it has always the same value, therefore we only need to join by age\n\n\n\n#Join deaths data to the population dataset, by age\npt_population %&gt;% \n  left_join(x = .,\n            y = pt_deaths,\n            by = c(\"age\")) %&gt;% \n  head(5)\n\n\n  year.x     age population year.y deaths\n1   2022 75 anos     106539   2022   2498\n2   2022 83 anos      69073   2022   4500\n3   2022  3 anos      88015   2022     22\n4   2022  2 anos      85532   2022     15\n5   2022  6 anos      89039   2022     14\n\n\n\n\n\n\n\n\n\nNote\n\n\nSince both datasets had a column named year, that was not part of “by” condition, the output of left_join() adds a “.x” and “.y” suffix to each of the columns so that we know their origin. In this case they always have the same values, but that might not be the case in other situations."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#join-datasets-with-_join-7",
+    "href": "materials/02-tidyverse.html#join-datasets-with-_join-7",
+    "title": "Welcome to the  tidyverse",
+    "section": "Join datasets with *_join()",
+    "text": "Join datasets with *_join()\n\n\nGenerally, it would be recommended to join by age and year simultaneously.\n\n\n\n#Join deaths data to the population dataset, by age and year\npt_population %&gt;% \n  left_join(x = .,\n            y = pt_deaths,\n            by = c(\"age\",\"year\")) %&gt;% \n  head(5)\n\n\n  year     age population deaths\n1 2022 75 anos     106539   2498\n2 2022 83 anos      69073   4500\n3 2022  3 anos      88015     22\n4 2022  2 anos      85532     15\n5 2022  6 anos      89039     14\n\n\n\n\n\n\n\n\n\nNote\n\n\nIn this scenario the “year” variable is part of the “by” condition, therefore only a single “year” column exists in the output and no “.x” and “.y” columns are created."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#join-datasets-with-_join-8",
+    "href": "materials/02-tidyverse.html#join-datasets-with-_join-8",
+    "title": "Welcome to the  tidyverse",
+    "section": "Join datasets with *_join()",
+    "text": "Join datasets with *_join()\n\n\nWhat if the columns to join by didn’t have the same name in both datasets?\n\n\n#Rename the year variable to showcase this scenario\npt_deaths &lt;- pt_deaths %&gt;% \n  rename(YEAR = year)\n\ncolnames(pt_deaths)\n\n[1] \"YEAR\"   \"age\"    \"deaths\""
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#join-datasets-with-_join-9",
+    "href": "materials/02-tidyverse.html#join-datasets-with-_join-9",
+    "title": "Welcome to the  tidyverse",
+    "section": "Join datasets with *_join()",
+    "text": "Join datasets with *_join()\n\n\nWhat if the columns to join by didn’t have the same name in both datasets?\n\n\n\n#Join deaths data to the population dataset, by age and year\n#year and YEAR have different names in each dataset\npt_population %&gt;% \n  left_join(x = .,\n            y = pt_deaths,\n            by = c(\"age\",\"year\" = \"YEAR\")) %&gt;% \n  head(5)\n\n\n  year     age population deaths\n1 2022 75 anos     106539   2498\n2 2022 83 anos      69073   4500\n3 2022  3 anos      88015     22\n4 2022  2 anos      85532     15\n5 2022  6 anos      89039     14\n\n\n\n\n\n\n\n\n\nImportant\n\n\nWhen variable names differ you need to specify “var_in_x” = “var_in_y” for the variables with different names."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#join-datasets-with-_join-10",
+    "href": "materials/02-tidyverse.html#join-datasets-with-_join-10",
+    "title": "Welcome to the  tidyverse",
+    "section": "Join datasets with *_join()",
+    "text": "Join datasets with *_join()\n\n\nUsing the last example, check if any NAs were introduced\n\n\n#assign the last calculation to a variable\npt_full_data &lt;- pt_population %&gt;% \n  left_join(x = .,\n            y = pt_deaths,\n            by = c(\"age\",\"year\" = \"YEAR\"))\n\n#Show rows that have NA in any cell\npt_full_data %&gt;% \n  filter(if_any(everything(),is.na))\n\n  year            age population deaths\n1 2022 85 e mais anos     368400     NA\n2 2022          0 ano      83727     NA\n\n\n\nWhy were those NA introduced? Could NA be introduced in any other column during the left_join()?"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#getting-help",
+    "href": "materials/02-tidyverse.html#getting-help",
+    "title": "Welcome to the  tidyverse",
+    "section": "Getting help",
+    "text": "Getting help\nPosit cheatsheets\n\ndplyr cheatsheet"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#tidying-data-with-tidyr",
+    "href": "materials/02-tidyverse.html#tidying-data-with-tidyr",
+    "title": "Welcome to the  tidyverse",
+    "section": "Tidying data with tidyr",
+    "text": "Tidying data with tidyr\n\n\nThere are multiple ways to represent the same data\n\n\ntable1 %&gt;% head(8)\n\n# A tibble: 8 × 4\n   year   age variable   value\n  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;int&gt;\n1  2022     1 population 79975\n2  2022     1 deaths        15\n3  2022     2 population 85532\n4  2022     2 deaths        15\n5  2022     3 population 88015\n6  2022     3 deaths        22\n7  2022     4 population 88463\n8  2022     4 deaths         9\n\n\n\nIs this dataset tidy? Why?"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#tidying-data-with-tidyr-1",
+    "href": "materials/02-tidyverse.html#tidying-data-with-tidyr-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Tidying data with tidyr",
+    "text": "Tidying data with tidyr\n\n\nThere are multiple ways to represent the same data\n\n\ntable2 %&gt;% head(8)\n\n# A tibble: 8 × 3\n   year   age death_rate\n  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;     \n1  2022     1 15/79975  \n2  2022     2 15/85532  \n3  2022     3 22/88015  \n4  2022     4 9/88463   \n5  2022     5 6/87918   \n6  2022     6 14/89039  \n7  2022     7 4/87372   \n8  2022     8 10/84277  \n\n\n\nIs this dataset tidy? Why?"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#tidying-data-with-tidyr-2",
+    "href": "materials/02-tidyverse.html#tidying-data-with-tidyr-2",
+    "title": "Welcome to the  tidyverse",
+    "section": "Tidying data with tidyr",
+    "text": "Tidying data with tidyr\n\n\nThere are multiple ways to represent the same data\n\n\ntable3 %&gt;% head(8)\n\n# A tibble: 8 × 4\n   year   age population deaths\n  &lt;int&gt; &lt;dbl&gt;      &lt;int&gt;  &lt;int&gt;\n1  2022     1      79975     15\n2  2022     2      85532     15\n3  2022     3      88015     22\n4  2022     4      88463      9\n5  2022     5      87918      6\n6  2022     6      89039     14\n7  2022     7      87372      4\n8  2022     8      84277     10\n\n\n\nIs this dataset tidy? Why?"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#tidying-data-with-tidyr-3",
+    "href": "materials/02-tidyverse.html#tidying-data-with-tidyr-3",
+    "title": "Welcome to the  tidyverse",
+    "section": "Tidying data with tidyr",
+    "text": "Tidying data with tidyr\n\n\n\nMost built-in R functions work with vectors.\nTidy data allows R’s vectorized nature to shine.\n\n\n\n\ntable3 %&gt;% \n  mutate(death_rate = \n           deaths / population * 1e5)\n\n\n# A tibble: 84 × 5\n    year   age population deaths death_rate\n   &lt;int&gt; &lt;dbl&gt;      &lt;int&gt;  &lt;int&gt;      &lt;dbl&gt;\n 1  2022     1      79975     15      18.8 \n 2  2022     2      85532     15      17.5 \n 3  2022     3      88015     22      25.0 \n 4  2022     4      88463      9      10.2 \n 5  2022     5      87918      6       6.82\n 6  2022     6      89039     14      15.7 \n 7  2022     7      87372      4       4.58\n 8  2022     8      84277     10      11.9 \n 9  2022     9      84561      3       3.55\n10  2022    10      91241      4       4.38\n# ℹ 74 more rows"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#tidying-data-with-tidyr-4",
+    "href": "materials/02-tidyverse.html#tidying-data-with-tidyr-4",
+    "title": "Welcome to the  tidyverse",
+    "section": "Tidying data with tidyr",
+    "text": "Tidying data with tidyr\n\n\nHow would you calculate the death rate in table1 and table2?\n\n\n\nReal world data is often untidy.\n\nData is organized to facilitate some goal other than analysis (e.g. entry, display in wide screens)\n\nMost data science projects will require some level of tidying prior to analysis."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#lengthening-data-with-pivot_longer",
+    "href": "materials/02-tidyverse.html#lengthening-data-with-pivot_longer",
+    "title": "Welcome to the  tidyverse",
+    "section": "Lengthening data with pivot_longer()",
+    "text": "Lengthening data with pivot_longer()\n\n\nThe following dataset shows the plasma concentrations of Indomethacin over 11 periods of time, for 6 subjects.\nThis way of presenting data (Wide format) is frequently seen in repeated measures studies or time series data.\n\n\nindometh_wide\n\n# A tibble: 6 × 12\n  Subject t0.25  t0.5 t0.75    t1 t1.25    t2    t3    t4    t5    t6    t8\n  &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 1        1.5   0.94  0.78  0.48  0.37  0.19  0.12  0.11  0.08  0.07  0.05\n2 2        2.03  1.63  0.71  0.7   0.64  0.36  0.32  0.2   0.25  0.12  0.08\n3 3        2.72  1.49  1.16  0.8   0.8   0.39  0.22  0.12  0.11  0.08  0.08\n4 4        1.85  1.39  1.02  0.89  0.59  0.4   0.16  0.11  0.1   0.07  0.07\n5 5        2.05  1.04  0.81  0.39  0.3   0.23  0.13  0.11  0.08  0.1   0.06\n6 6        2.31  1.44  1.03  0.84  0.64  0.42  0.24  0.17  0.13  0.1   0.09"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#lengthening-data-with-pivot_longer-1",
+    "href": "materials/02-tidyverse.html#lengthening-data-with-pivot_longer-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Lengthening data with pivot_longer()",
+    "text": "Lengthening data with pivot_longer()\n\n\nThe pivot_longer() function takes three key arguments\n\ncols specifies the columns that need to be pivoted. Uses the same syntax as select()\nnames_to names the variable stored in the column names\nvalues_to names the variable stored in the cell values\n\n\n\n\n\n\n\n\n\n(a) Existing columns get repeated\n\n\n\n\n\n\n\n(b) Names go to a new column\n\n\n\n\n\n\n\n(c) Values are preserved, row by row\n\n\n\n\nFigure 1: How does pivoting work?"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#lengthening-data-with-pivot_longer-2",
+    "href": "materials/02-tidyverse.html#lengthening-data-with-pivot_longer-2",
+    "title": "Welcome to the  tidyverse",
+    "section": "Lengthening data with pivot_longer()",
+    "text": "Lengthening data with pivot_longer()\n\n\n\nindometh_wide %&gt;% \n  pivot_longer(\n    cols = -Subject, #All except Subject\n    names_to = \"time\", \n    values_to = \"plasma_conc\"\n  )\n\n#Alternatively\nalt &lt;- indometh_wide %&gt;% \n  pivot_longer(\n    cols = starts_with(\"t\"), #All that start with letter \"t\"\n    names_to = \"time\", \n    values_to = \"plasma_conc\"\n  )\n\n\n# A tibble: 66 × 3\n   Subject time  plasma_conc\n   &lt;ord&gt;   &lt;chr&gt;       &lt;dbl&gt;\n 1 1       t0.25        1.5 \n 2 1       t0.5         0.94\n 3 1       t0.75        0.78\n 4 1       t1           0.48\n 5 1       t1.25        0.37\n 6 1       t2           0.19\n 7 1       t3           0.12\n 8 1       t4           0.11\n 9 1       t5           0.08\n10 1       t6           0.07\n# ℹ 56 more rows\n\n\n\n\n\n\n\n\n\nNote\n\n\n“time” and “plasma_conc” need to be in quotes because those are columns we are creating, they don’t exist yet in the dataset"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#lengthening-data-with-pivot_longer-3",
+    "href": "materials/02-tidyverse.html#lengthening-data-with-pivot_longer-3",
+    "title": "Welcome to the  tidyverse",
+    "section": "Lengthening data with pivot_longer()",
+    "text": "Lengthening data with pivot_longer()\n\n\nIf we wanted to remove the extra “t” in the time column, we could use the parse_number() function\n\n\n\nindometh_long &lt;- \n  indometh_wide %&gt;% \n  pivot_longer(\n    cols = -Subject,\n    names_to = \"time\", \n    values_to = \"plasma_conc\"\n  ) %&gt;% \n  mutate(time = parse_number(time))"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#lengthening-data-with-pivot_longer-4",
+    "href": "materials/02-tidyverse.html#lengthening-data-with-pivot_longer-4",
+    "title": "Welcome to the  tidyverse",
+    "section": "Lengthening data with pivot_longer()",
+    "text": "Lengthening data with pivot_longer()\n\n\nNow it would be much easier to plot the data with ggplot\n\n\n\nindometh_long %&gt;% \n  ggplot(aes(x = time, \n             y = plasma_conc, \n             color = Subject)) +\n  geom_line() +\n  theme_minimal()"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#lengthening-data-with-pivot_longer-5",
+    "href": "materials/02-tidyverse.html#lengthening-data-with-pivot_longer-5",
+    "title": "Welcome to the  tidyverse",
+    "section": "Lengthening data with pivot_longer()",
+    "text": "Lengthening data with pivot_longer()\n\n\npivot_longer() can deal with multiple and more complex scenarios, such as:\n\nMany variables in column names\nData and variable names in column headers \n\n\n\n\n\n\n\n\nNote\n\n\nYou can explore these patterns in depth in the R for Data Science book"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#widening-data-with-pivot_wider",
+    "href": "materials/02-tidyverse.html#widening-data-with-pivot_wider",
+    "title": "Welcome to the  tidyverse",
+    "section": "Widening data with pivot_wider()",
+    "text": "Widening data with pivot_wider()\n\nThe opposite of pivot_longer() is pivot_wider().\nThe pivot_wider() function takes two key arguments\n\nnames_from names the variable that will be converted into column names\nvalues_from names the variable stored in the cell values\n\n\n\n\n#Widening the subjects variable\nIndometh %&gt;% \n  pivot_wider(names_from = Subject,\n              values_from = conc)\n\n\n# A tibble: 11 × 7\n    time   `1`   `2`   `3`   `4`   `5`   `6`\n   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  0.25  1.5   2.03  2.72  1.85  2.05  2.31\n 2  0.5   0.94  1.63  1.49  1.39  1.04  1.44\n 3  0.75  0.78  0.71  1.16  1.02  0.81  1.03\n 4  1     0.48  0.7   0.8   0.89  0.39  0.84\n 5  1.25  0.37  0.64  0.8   0.59  0.3   0.64\n 6  2     0.19  0.36  0.39  0.4   0.23  0.42\n 7  3     0.12  0.32  0.22  0.16  0.13  0.24\n 8  4     0.11  0.2   0.12  0.11  0.11  0.17\n 9  5     0.08  0.25  0.11  0.1   0.08  0.13\n10  6     0.07  0.12  0.08  0.07  0.1   0.1 \n11  8     0.05  0.08  0.08  0.07  0.06  0.09"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#widening-data-with-pivot_wider-1",
+    "href": "materials/02-tidyverse.html#widening-data-with-pivot_wider-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Widening data with pivot_wider()",
+    "text": "Widening data with pivot_wider()\n\n\nWidening data could make sense at the end of a pipeline, for display purposes\n\n\n\nlibrary(kableExtra)\n\nIndometh %&gt;% \n  pivot_wider(names_from = Subject,\n              values_from = conc) %&gt;% \n  kableExtra::kbl() %&gt;% \n  kableExtra::kable_styling(font_size = 14) %&gt;% \n  kableExtra::kable_classic_2()\n\n\n\n\n\ntime\n1\n2\n3\n4\n5\n6\n\n\n\n\n0.25\n1.50\n2.03\n2.72\n1.85\n2.05\n2.31\n\n\n0.50\n0.94\n1.63\n1.49\n1.39\n1.04\n1.44\n\n\n0.75\n0.78\n0.71\n1.16\n1.02\n0.81\n1.03\n\n\n1.00\n0.48\n0.70\n0.80\n0.89\n0.39\n0.84\n\n\n1.25\n0.37\n0.64\n0.80\n0.59\n0.30\n0.64\n\n\n2.00\n0.19\n0.36\n0.39\n0.40\n0.23\n0.42\n\n\n3.00\n0.12\n0.32\n0.22\n0.16\n0.13\n0.24\n\n\n4.00\n0.11\n0.20\n0.12\n0.11\n0.11\n0.17\n\n\n5.00\n0.08\n0.25\n0.11\n0.10\n0.08\n0.13\n\n\n6.00\n0.07\n0.12\n0.08\n0.07\n0.10\n0.10\n\n\n8.00\n0.05\n0.08\n0.08\n0.07\n0.06\n0.09"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#importing-data-to-r-1",
+    "href": "materials/02-tidyverse.html#importing-data-to-r-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Importing data to R",
+    "text": "Importing data to R\n\n\nThere are many data sources that R can read data from (e.g. Databases, JSON, geo data, …)\nWe will focus on tabular data. For most small scale projects, you will import data from:\n\nSpreadsheets (csv, xls, xlsx, txt, google sheets)\nStatistical software (spss, stata, sas)\n\nTidyverse packages include\n\nreadr (txt, csv, tsv)\nreadxl (xls, xlsx)\nhaven (spss, sas, stata)\n\nUnsupported file formats (check supported formats here)"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#importing-data-to-r-2",
+    "href": "materials/02-tidyverse.html#importing-data-to-r-2",
+    "title": "Welcome to the  tidyverse",
+    "section": "Importing data to R",
+    "text": "Importing data to R\n\n\nOne {rio} to rule them all!\n\nrio::import(\"filepath/filename.ext\")\n And that’s it…"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#importing-data-to-r-3",
+    "href": "materials/02-tidyverse.html#importing-data-to-r-3",
+    "title": "Welcome to the  tidyverse",
+    "section": "Importing data to R",
+    "text": "Importing data to R\n\nAnd for exporting\n\nOne {rio} to rule them all!\n\nrio::export(my_awesome_object, \"filepath/my_aesome_object.csv\")\nrio::export(my_awesome_object, \"filepath/my_aesome_object.xlsx\")\nrio::export(my_awesome_object, \"filepath/my_aesome_object.sav\")\nrio::export(my_awesome_object, \"filepath/my_aesome_object.dta\")\nrio::export(my_awesome_object, \"filepath/my_aesome_object.rds\")\n...\n\nChoose whatever file type you want  And that’s it."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#when-may-rio-not-be-enough",
+    "href": "materials/02-tidyverse.html#when-may-rio-not-be-enough",
+    "title": "Welcome to the  tidyverse",
+    "section": "When may {rio} not be enough?",
+    "text": "When may {rio} not be enough?\n\nWith Excel\n\nImport from file with multiple sheets\nImport multiple ranges separately\nread_excel() function from {readxl} has you covered\n\nWith sources that may require authentication (e.g. googlesheets, onedrive)\n\nSpecific packages for these purposes (e.g. {googlesheets4})"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#encoding-hell",
+    "href": "materials/02-tidyverse.html#encoding-hell",
+    "title": "Welcome to the  tidyverse",
+    "section": "Encoding hell",
+    "text": "Encoding hell\n\n\nSometimes when importing non-english text data you will get errors on characters such as ã, ô, ç, …\nASCII (American Standard Code for Information Interchange) encoding, for example, does not include accented characters.\nLatin1 (aka ISO-8859-1) was used for Western European languages, and you may still find datasets with this encoding.\nThe most likely source of such errors are encoding differences."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#encoding-hell-1",
+    "href": "materials/02-tidyverse.html#encoding-hell-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Encoding hell",
+    "text": "Encoding hell\n\n\n\n\n\n\n\nImportant\n\n\nThe default encoding used almost everywhere today is UTF-8.  When encountering strange, unexpected, characters in text data one of the first thing you should think about are encoding differences!  When naming things (variables, files, folders, …), avoid non-english characters to save you trouble down the line!\n\n\n\n\nRStudio allows you to open R scripts with a specific encoding, when it’s different from the default."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#learning-how-to-learn",
+    "href": "materials/02-tidyverse.html#learning-how-to-learn",
+    "title": "Welcome to the  tidyverse",
+    "section": "Learning how to learn",
+    "text": "Learning how to learn\n\nCheck the function documentation and examples\nCheck the package vignettes and articles\nGoogle it!\n\nYou will likely end up on Stackoverflow…\n\nChatGPT\n\nUseful, but beware of allucinations (e.g. functions or packages that do not exist)"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#learning-how-to-learn-1",
+    "href": "materials/02-tidyverse.html#learning-how-to-learn-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Learning how to learn",
+    "text": "Learning how to learn\n\n\n\n\n\n\nTip\n\n\nWhen googling, ask for tidyverse solutions:  An example:  What you want to know: How to filter only observations that have the pattern “abc” in the “Name” variable, in a dataframe called “my_awesome_dataframe”  What you would ask: “Tidyverse how to filter observations that have a specific pattern”  What you would ask: “Tidyverse how to filter observations based on a substring”  Google the idea/pattern (filtering rows based on a substring of text), instead of the specific pattern that you are looking for."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#making-numbers-from-text",
+    "href": "materials/02-tidyverse.html#making-numbers-from-text",
+    "title": "Welcome to the  tidyverse",
+    "section": "Making numbers from text",
+    "text": "Making numbers from text\n\n\nx &lt;- c(\"$1,234\", \"EUR 9,876\", \"0.5g/l\")\nparse_number(x)\n\n[1] 1234.0 9876.0    0.5"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#rounding-numbers",
+    "href": "materials/02-tidyverse.html#rounding-numbers",
+    "title": "Welcome to the  tidyverse",
+    "section": "Rounding numbers",
+    "text": "Rounding numbers\n\n\nVery useful when plotting or displaying data in a table\nScales package works neatly with ggplot with functions label_*\n\n\nlibrary(scales)\n\nmany_decimals &lt;- c(1.13435435, 3.1415926)\nmany_decimals %&gt;% scales::number(accuracy = 0.01)\n\n[1] \"1.13\" \"3.14\""
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#cutting-numbers-into-ranges",
+    "href": "materials/02-tidyverse.html#cutting-numbers-into-ranges",
+    "title": "Welcome to the  tidyverse",
+    "section": "Cutting numbers into ranges",
+    "text": "Cutting numbers into ranges\n\n\nages &lt;- seq(0,100)\nhead(ages)\n\n[1] 0 1 2 3 4 5\n\nages %&gt;% cut_interval(length = 5) %&gt;% unique()\n\n [1] [0,5]    (5,10]   (10,15]  (15,20]  (20,25]  (25,30]  (30,35]  (35,40] \n [9] (40,45]  (45,50]  (50,55]  (55,60]  (60,65]  (65,70]  (70,75]  (75,80] \n[17] (80,85]  (85,90]  (90,95]  (95,100]\n20 Levels: [0,5] (5,10] (10,15] (15,20] (20,25] (25,30] (30,35] ... (95,100]\n\n\n\nChallengeSolution\n\n\n\nWhat if we wanted to store the results in a tibble, with the columns “age” and “age_groups”, and have a group “85+” for all the ages &gt;85?\n\n\n\n\n\nage_groups_df &lt;- ages %&gt;% \n  as_tibble() %&gt;% \n  rename(age = value) %&gt;% \n  mutate(age_groups = cut_interval(ages, length = 5)) %&gt;% \n  mutate(age_groups = fct_collapse(age_groups, \n                                   \"85+\" = c(\"(85,90]\", \"(90,95]\", \"(95,100]\")))\n#With fct_collapse we can specify a group that we want to create based on other levels, \n#and all the other groups remain the same\n\n#Alternatively\nage_groups_df &lt;- ages %&gt;% \n  as_tibble() %&gt;% \n  rename(age = value) %&gt;% \n  mutate(age_helper = ifelse(age&gt;85,86,age)) %&gt;% \n  mutate(age_groups = cut_interval(age_helper, length = 5)) %&gt;% \n  mutate(age_groups = if_else(age_groups == \"(85,90]\",\n                              factor(\"85+\"),\n                              age_groups))\n#In this approach we are converting all values greater than 85 to a value\n#in that range, so that the cut_interval only generated one extra group,\n#that can then be converted to the desired format with if_else"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#offset-values",
+    "href": "materials/02-tidyverse.html#offset-values",
+    "title": "Welcome to the  tidyverse",
+    "section": "Offset values",
+    "text": "Offset values\n\nUseful to calculate variations with regularly intervaled data (e.g. year-over-year changes)\nThe lag(value, n) functions searches for the value in the same col, n rows above\nIf the dataset is properly arranged/sorted, this pattern can be used to calculate change in time series datasets\n\n\n#A dataset with monthly values for Portugal and World\ndf %&gt;% glimpse()\n\nRows: 96\nColumns: 4\n$ year       &lt;int&gt; 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020,…\n$ month      &lt;int&gt; 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 1…\n$ region     &lt;chr&gt; \"Portugal\", \"World\", \"Portugal\", \"World\", \"Portugal\", \"Worl…\n$ some_value &lt;dbl&gt; -0.893967315, -0.653607296, -1.002733093, 1.503094867, -0.3…"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#offset-values-1",
+    "href": "materials/02-tidyverse.html#offset-values-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Offset values",
+    "text": "Offset values\n\nThe lag(value, n) functions searches for the value, n rows above\nThe lead(value, n) functions searches for the value, n rows below\n\n\n#Calculating Year-over-Year (YoY) changes (e.g. yoy = 12/2023 - 12/2022)\ndf %&gt;% \n  arrange(region,year,month) %&gt;% \n  group_by(region) %&gt;% \n  mutate(yoy = some_value - lag(some_value,12)) %&gt;% \n  glimpse()\n\nRows: 96\nColumns: 5\nGroups: region [2]\n$ year       &lt;int&gt; 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020,…\n$ month      &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7,…\n$ region     &lt;chr&gt; \"Portugal\", \"Portugal\", \"Portugal\", \"Portugal\", \"Portugal\",…\n$ some_value &lt;dbl&gt; -0.893967315, -1.002733093, -0.310926633, -0.018757948, -0.…\n$ yoy        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1.3871914, …"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#str_-family-of-functions-with-stringr",
+    "href": "materials/02-tidyverse.html#str_-family-of-functions-with-stringr",
+    "title": "Welcome to the  tidyverse",
+    "section": "str_* family of functions with {stringr}",
+    "text": "str_* family of functions with {stringr}\n\nThere are some relevant functions to deal with strings\n\n\n#Dataset from the gapminder package\ncountry_codes %&gt;% glimpse\n\nRows: 187\nColumns: 3\n$ country   &lt;chr&gt; \"Afghanistan\", \"Albania\", \"Algeria\", \"Angola\", \"Argentina\", …\n$ iso_alpha &lt;chr&gt; \"AFG\", \"ALB\", \"DZA\", \"AGO\", \"ARG\", \"ARM\", \"ABW\", \"AUS\", \"AUT…\n$ iso_num   &lt;int&gt; 4, 8, 12, 24, 32, 51, 533, 36, 40, 31, 44, 48, 50, 52, 112, …\n\n#Countries that start with P\ncountry_codes %&gt;% \n  filter(str_starts(country,\"P\")) %&gt;% \n  glimpse()\n\nRows: 9\nColumns: 3\n$ country   &lt;chr&gt; \"Pakistan\", \"Panama\", \"Papua New Guinea\", \"Paraguay\", \"Peru\"…\n$ iso_alpha &lt;chr&gt; \"PAK\", \"PAN\", \"PNG\", \"PRY\", \"PER\", \"PHL\", \"POL\", \"PRT\", \"PRI\"\n$ iso_num   &lt;int&gt; 586, 591, 598, 600, 604, 608, 616, 620, 630"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#str_-family-of-functions-with-stringr-1",
+    "href": "materials/02-tidyverse.html#str_-family-of-functions-with-stringr-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "str_* family of functions with {stringr}",
+    "text": "str_* family of functions with {stringr}\n\nA few examples of relevant functions to deal with strings\n\n\n#Countries that contain \"gal\"\ncountry_codes %&gt;% \n  filter(str_detect(country,\"gal\"))\n\n# A tibble: 2 × 3\n  country  iso_alpha iso_num\n  &lt;chr&gt;    &lt;chr&gt;       &lt;int&gt;\n1 Portugal PRT           620\n2 Senegal  SEN           686\n\n#Replace all capital \"A\" with \"!\"\ncountry_codes %&gt;%\n  mutate(country = str_replace_all(country, \"A\",\"!\")) %&gt;% \n  glimpse()\n\nRows: 187\nColumns: 3\n$ country   &lt;chr&gt; \"!fghanistan\", \"!lbania\", \"!lgeria\", \"!ngola\", \"!rgentina\", …\n$ iso_alpha &lt;chr&gt; \"AFG\", \"ALB\", \"DZA\", \"AGO\", \"ARG\", \"ARM\", \"ABW\", \"AUS\", \"AUT…\n$ iso_num   &lt;int&gt; 4, 8, 12, 24, 32, 51, 533, 36, 40, 31, 44, 48, 50, 52, 112, …"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#str_-family-of-functions-with-stringr-2",
+    "href": "materials/02-tidyverse.html#str_-family-of-functions-with-stringr-2",
+    "title": "Welcome to the  tidyverse",
+    "section": "str_* family of functions with {stringr}",
+    "text": "str_* family of functions with {stringr}\n\nA few examples of relevant functions to deal with strings\n\n\n#Replace all \"a\" or \"A\" with \"!\"\ncountry_codes %&gt;%\n  mutate(country = str_replace_all(country, regex(\"a\", ignore_case=T), \"!\")) %&gt;% \n  glimpse()\n\nRows: 187\nColumns: 3\n$ country   &lt;chr&gt; \"!fgh!nist!n\", \"!lb!ni!\", \"!lgeri!\", \"!ngol!\", \"!rgentin!\", …\n$ iso_alpha &lt;chr&gt; \"AFG\", \"ALB\", \"DZA\", \"AGO\", \"ARG\", \"ARM\", \"ABW\", \"AUS\", \"AUT…\n$ iso_num   &lt;int&gt; 4, 8, 12, 24, 32, 51, 533, 36, 40, 31, 44, 48, 50, 52, 112, …"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#str_-family-of-functions-with-stringr-3",
+    "href": "materials/02-tidyverse.html#str_-family-of-functions-with-stringr-3",
+    "title": "Welcome to the  tidyverse",
+    "section": "str_* family of functions with {stringr}",
+    "text": "str_* family of functions with {stringr}\n\nA few examples of relevant functions to deal with strings\n\n\n#Split the character every time you find the letter \"n\"\ncountry_codes$country %&gt;% str_split(\"n\") %&gt;% head(10)\n\n[[1]]\n[1] \"Afgha\" \"ista\"  \"\"     \n\n[[2]]\n[1] \"Alba\" \"ia\"  \n\n[[3]]\n[1] \"Algeria\"\n\n[[4]]\n[1] \"A\"    \"gola\"\n\n[[5]]\n[1] \"Arge\" \"ti\"   \"a\"   \n\n[[6]]\n[1] \"Arme\" \"ia\"  \n\n[[7]]\n[1] \"Aruba\"\n\n[[8]]\n[1] \"Australia\"\n\n[[9]]\n[1] \"Austria\"\n\n[[10]]\n[1] \"Azerbaija\" \"\"         \n\n\n\nAnd many more…"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#separate_-family-of-functions",
+    "href": "materials/02-tidyverse.html#separate_-family-of-functions",
+    "title": "Welcome to the  tidyverse",
+    "section": "separate_* family of functions",
+    "text": "separate_* family of functions\n\nSometimes a column contains multiple value\n\n\ndf &lt;- tibble(year_month = c(\"2023-12\", \"2023-11\", \"2023-10\"),\n             name = c(\"Jon Snow\", \"Arya Stark\", \"Tyrion Lannister\"),\n             some_value = c(1,2,3))\n\ndf %&gt;% glimpse\n\nRows: 3\nColumns: 3\n$ year_month &lt;chr&gt; \"2023-12\", \"2023-11\", \"2023-10\"\n$ name       &lt;chr&gt; \"Jon Snow\", \"Arya Stark\", \"Tyrion Lannister\"\n$ some_value &lt;dbl&gt; 1, 2, 3"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#separate_-family-of-functions-1",
+    "href": "materials/02-tidyverse.html#separate_-family-of-functions-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "separate_* family of functions",
+    "text": "separate_* family of functions\n\n#Separate year_month into two columns, by position\ndf %&gt;% separate_wider_position(year_month,\n                widths = c(year = 4, 1, month = 2)) %&gt;% \n  glimpse()\n\nRows: 3\nColumns: 4\n$ year       &lt;chr&gt; \"2023\", \"2023\", \"2023\"\n$ month      &lt;chr&gt; \"12\", \"11\", \"10\"\n$ name       &lt;chr&gt; \"Jon Snow\", \"Arya Stark\", \"Tyrion Lannister\"\n$ some_value &lt;dbl&gt; 1, 2, 3\n\n#Separate name into first and last names, by delimiter\ndf %&gt;% separate_wider_delim(name,\n                delim = \" \",\n                names = c(\"first_name\",\"last_name\")) %&gt;% \n  glimpse()\n\nRows: 3\nColumns: 4\n$ year_month &lt;chr&gt; \"2023-12\", \"2023-11\", \"2023-10\"\n$ first_name &lt;chr&gt; \"Jon\", \"Arya\", \"Tyrion\"\n$ last_name  &lt;chr&gt; \"Snow\", \"Stark\", \"Lannister\"\n$ some_value &lt;dbl&gt; 1, 2, 3"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#glue",
+    "href": "materials/02-tidyverse.html#glue",
+    "title": "Welcome to the  tidyverse",
+    "section": "glue",
+    "text": "glue\n\nUsed to easily pass variables into strings\n\n\ndf &lt;- tibble(year_month = c(\"2023-12\", \"2023-11\", \"2023-10\"),\n             name = c(\"Jon Snow\", \"Arya Stark\", \"Tyrion Lannister\"),\n             some_value = c(1,2,3))\n\ndf %&gt;% glimpse\n\nRows: 3\nColumns: 3\n$ year_month &lt;chr&gt; \"2023-12\", \"2023-11\", \"2023-10\"\n$ name       &lt;chr&gt; \"Jon Snow\", \"Arya Stark\", \"Tyrion Lannister\"\n$ some_value &lt;dbl&gt; 1, 2, 3\n\ndf %&gt;% mutate(text = (glue::glue(\"{name} had the value {some_value} in {year_month}\")))\n\n# A tibble: 3 × 4\n  year_month name             some_value text                                   \n  &lt;chr&gt;      &lt;chr&gt;                 &lt;dbl&gt; &lt;glue&gt;                                 \n1 2023-12    Jon Snow                  1 Jon Snow had the value 1 in 2023-12    \n2 2023-11    Arya Stark                2 Arya Stark had the value 2 in 2023-11  \n3 2023-10    Tyrion Lannister          3 Tyrion Lannister had the value 3 in 20…"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#what-is-a-factor",
+    "href": "materials/02-tidyverse.html#what-is-a-factor",
+    "title": "Welcome to the  tidyverse",
+    "section": "What is a factor",
+    "text": "What is a factor\n\n\n\n\n\nA factor is an integer vector with a levels attribute that stores a set of mappings between integers and categorical values.\nSo, stored as numbers but rendered as labels (similar to SPSS)"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#creating-factors",
+    "href": "materials/02-tidyverse.html#creating-factors",
+    "title": "Welcome to the  tidyverse",
+    "section": "Creating factors",
+    "text": "Creating factors\n\nA character vector\n\n\nsome_char_vec\n\n  [1] \"Placebo\"   \"Placebo\"   \"Treatment\" \"Placebo\"   \"Treatment\" \"Placebo\"  \n  [7] \"Placebo\"   \"Treatment\" \"Treatment\" \"Placebo\"   \"Placebo\"   \"Treatment\"\n [13] \"Treatment\" \"Treatment\" \"Treatment\" \"Treatment\" \"Treatment\" \"Treatment\"\n [19] \"Placebo\"   \"Placebo\"   \"Placebo\"   \"Treatment\" \"Treatment\" \"Treatment\"\n [25] \"Treatment\" \"Treatment\" \"Placebo\"   \"Treatment\" \"Placebo\"   \"Treatment\"\n [31] \"Placebo\"   \"Treatment\" \"Treatment\" \"Placebo\"   \"Placebo\"   \"Treatment\"\n [37] \"Treatment\" \"Placebo\"   \"Treatment\" \"Placebo\"   \"Placebo\"   \"Placebo\"  \n [43] \"Treatment\" \"Placebo\"   \"Placebo\"   \"Treatment\" \"Treatment\" \"Placebo\"  \n [49] \"Treatment\" \"Placebo\"   \"Placebo\"   \"Placebo\"   \"Treatment\" \"Placebo\"  \n [55] \"Placebo\"   \"Placebo\"   \"Placebo\"   \"Treatment\" \"Placebo\"   \"Treatment\"\n [61] \"Placebo\"   \"Placebo\"   \"Treatment\" \"Treatment\" \"Treatment\" \"Treatment\"\n [67] \"Placebo\"   \"Placebo\"   \"Treatment\" \"Placebo\"   \"Treatment\" \"Treatment\"\n [73] \"Treatment\" \"Placebo\"   \"Placebo\"   \"Treatment\" \"Placebo\"   \"Treatment\"\n [79] \"Placebo\"   \"Placebo\"   \"Placebo\"   \"Treatment\" \"Treatment\" \"Treatment\"\n [85] \"Treatment\" \"Treatment\" \"Placebo\"   \"Placebo\"   \"Placebo\"   \"Placebo\"  \n [91] \"Treatment\" \"Treatment\" \"Treatment\" \"Treatment\" \"Placebo\"   \"Placebo\"  \n [97] \"Placebo\"   \"Placebo\"   \"Treatment\" \"Treatment\""
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#creating-factors-1",
+    "href": "materials/02-tidyverse.html#creating-factors-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Creating factors",
+    "text": "Creating factors\n\nAt the bottom now we see Levels\nThis means that there are two possible unique values, with those labels: Placebo and Treatment\nBut R is storing them as numbers\n\n\n\n#A vector with 100 cases of either treatment or placebo\nsome_factor_vec &lt;- factor(some_char_vec)\nsome_factor_vec\n\n  [1] Placebo   Placebo   Treatment Placebo   Treatment Placebo   Placebo  \n  [8] Treatment Treatment Placebo   Placebo   Treatment Treatment Treatment\n [15] Treatment Treatment Treatment Treatment Placebo   Placebo   Placebo  \n [22] Treatment Treatment Treatment Treatment Treatment Placebo   Treatment\n [29] Placebo   Treatment Placebo   Treatment Treatment Placebo   Placebo  \n [36] Treatment Treatment Placebo   Treatment Placebo   Placebo   Placebo  \n [43] Treatment Placebo   Placebo   Treatment Treatment Placebo   Treatment\n [50] Placebo   Placebo   Placebo   Treatment Placebo   Placebo   Placebo  \n [57] Placebo   Treatment Placebo   Treatment Placebo   Placebo   Treatment\n [64] Treatment Treatment Treatment Placebo   Placebo   Treatment Placebo  \n [71] Treatment Treatment Treatment Placebo   Placebo   Treatment Placebo  \n [78] Treatment Placebo   Placebo   Placebo   Treatment Treatment Treatment\n [85] Treatment Treatment Placebo   Placebo   Placebo   Placebo   Treatment\n [92] Treatment Treatment Treatment Placebo   Placebo   Placebo   Placebo  \n [99] Treatment Treatment\nLevels: Placebo Treatment"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#modifying-factors",
+    "href": "materials/02-tidyverse.html#modifying-factors",
+    "title": "Welcome to the  tidyverse",
+    "section": "Modifying factors",
+    "text": "Modifying factors\n\nChange the order with fct_relevel()\n\nUseful for plotting\n\n\n\n#Cjecking the levels\nlevels(some_factor_vec)\n\n[1] \"Placebo\"   \"Treatment\"\n\n#Changing the order of the levels\nsome_factor_vec %&gt;% fct_relevel(\"Treatment\",\"Placebo\") %&gt;% levels()\n\n[1] \"Treatment\" \"Placebo\"  \n\n#Relabel to lower case\nsome_factor_vec %&gt;% fct_recode(new_name_treatment = \"Treatment\", new_name_placebo = \"Placebo\") %&gt;% levels\n\n[1] \"new_name_placebo\"   \"new_name_treatment\"\n\n#Apply a function to all levels. Eg. convert to upper case\nsome_factor_vec %&gt;% fct_relabel(str_to_upper) %&gt;% levels\n\n[1] \"PLACEBO\"   \"TREATMENT\""
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#creating-and-formating-dates",
+    "href": "materials/02-tidyverse.html#creating-and-formating-dates",
+    "title": "Welcome to the  tidyverse",
+    "section": "Creating and formating dates",
+    "text": "Creating and formating dates\n\nCreate a date with as.Date() function\nThe default date pattern is year, month, day\n\ne.g. 2023-11-20, or 2023/11/20\n\n\n\nas.Date(\"2023/11/20\")\n\n[1] \"2023-11-20\"\n\nas.Date(\"20-11-2023\") #No error! But not what we wanted\n\n[1] \"0020-11-20\"\n\nas.Date(\"20-11-2023\", format = \"%d-%m-%Y\")\n\n[1] \"2023-11-20\"\n\nas.Date(\"20/Nov/23\", format = \"%d/%b/%y\")\n\n[1] \"2023-11-20\"\n\n\n\n\n\n\n\n\nImportant\n\n\nSometimes when trying to create a data R thinks it has a valid format and creates a date that is not what we want."
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#creating-and-formating-dates-1",
+    "href": "materials/02-tidyverse.html#creating-and-formating-dates-1",
+    "title": "Welcome to the  tidyverse",
+    "section": "Creating and formating dates",
+    "text": "Creating and formating dates"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#set.seed",
+    "href": "materials/02-tidyverse.html#set.seed",
+    "title": "Welcome to the  tidyverse",
+    "section": "set.seed",
+    "text": "set.seed\n\nUsing set.seed() before a calculation that uses generated (pseudo-) random values will yield the same results\nThis is true as long as the same random generations are called in the same order after set seed!\n\n\nset.seed(12345)\nrunif(20)\n\n [1] 0.720903896 0.875773193 0.760982328 0.886124566 0.456480960 0.166371785\n [7] 0.325095387 0.509224336 0.727705254 0.989736938 0.034535435 0.152373490\n[13] 0.735684952 0.001136587 0.391203335 0.462494654 0.388143982 0.402485142\n[19] 0.178963585 0.951658754"
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#iconv-translitt",
+    "href": "materials/02-tidyverse.html#iconv-translitt",
+    "title": "Welcome to the  tidyverse",
+    "section": "iconv translitt",
+    "text": "iconv translitt\n\nThis pattern is useful to remove accented characters from latin character strings\n\n\niconv(\"Mação\", to='ASCII//TRANSLIT', sub='')\n\n[1] \"Macao\""
+  },
+  {
+    "objectID": "materials/02-tidyverse.html#excel_numeric_to_date",
+    "href": "materials/02-tidyverse.html#excel_numeric_to_date",
+    "title": "Welcome to the  tidyverse",
+    "section": "excel_numeric_to_date()",
+    "text": "excel_numeric_to_date()\n\nExcel treats dates as numbers, with 1 being 1st of January 1900\nSometimes when importing to R the value will be loaded as a number\n\n\nmy_excel_date_number &lt;-45251 #20-11-2023\nmy_excel_date_number %&gt;% janitor::excel_numeric_to_date()\n\n[1] \"2023-11-21\""
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Introduction to R for Health Data Science: Hands-on training",
@@ -56,34 +1001,6 @@
     "text": "About this site"
   },
   {
-    "objectID": "dev/test_flex.html#column-1",
-    "href": "dev/test_flex.html#column-1",
-    "title": "Untitled",
-    "section": "Column",
-    "text": "Column\n\nChart B\n\n\nChart C"
-  },
-  {
-    "objectID": "dev/test_shiny_quarto.html",
-    "href": "dev/test_shiny_quarto.html",
-    "title": "Untitled",
-    "section": "",
-    "text": "This Quarto document is made interactive using Shiny. Interactive documents allow readers to modify parameters and see the results immediately. Learn more about Shiny interactive documents at https://quarto.org/docs/interactive/shiny/."
-  },
-  {
-    "objectID": "dev/test_shiny_quarto.html#shiny-documents",
-    "href": "dev/test_shiny_quarto.html#shiny-documents",
-    "title": "Untitled",
-    "section": "",
-    "text": "This Quarto document is made interactive using Shiny. Interactive documents allow readers to modify parameters and see the results immediately. Learn more about Shiny interactive documents at https://quarto.org/docs/interactive/shiny/."
-  },
-  {
-    "objectID": "dev/test_shiny_quarto.html#inputs-and-outputs",
-    "href": "dev/test_shiny_quarto.html#inputs-and-outputs",
-    "title": "Untitled",
-    "section": "Inputs and Outputs",
-    "text": "Inputs and Outputs\nYou can embed Shiny inputs and outputs in your document. Outputs are automatically updated whenever inputs change. This demonstrates how a standard R plot can be made interactive:\n\n\n\nNumber of bins:"
-  },
-  {
     "objectID": "license.html",
     "href": "license.html",
     "title": "License",
@@ -91,11 +1008,550 @@
     "text": "This work is licensed under a Creative Commons Attribution 4.0 International License."
   },
   {
+    "objectID": "materials/01-intro.html#language",
+    "href": "materials/01-intro.html#language",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Language",
+    "text": "Language\n\n\nWhat language do we use ?"
+  },
+  {
+    "objectID": "materials/01-intro.html#checkpoint",
+    "href": "materials/01-intro.html#checkpoint",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Checkpoint",
+    "text": "Checkpoint\n\n\nOpen RStudio!\n\nCheck R version\n\n\n#Check R version\nsessionInfo()\n\n\nR version 4.3.1 (2023-06-16 ucrt)\nPlatform: x86_64-w64-mingw32/x64 (64-bit)\nRunning under: Windows 10 x64 (build 19045)\n\nMatrix products: default\n\n\nlocale:\n[1] LC_COLLATE=English_United States.utf8 \n[2] LC_CTYPE=English_United States.utf8   \n[3] LC_MONETARY=English_United States.utf8\n[4] LC_NUMERIC=C                          \n[5] LC_TIME=English_United States.utf8    \n\ntime zone: Europe/Lisbon\ntzcode source: internal\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n [1] lubridate_1.9.2 forcats_1.0.0   stringr_1.5.0   dplyr_1.1.3    \n [5] purrr_1.0.2     readr_2.1.4     tidyr_1.3.0     tibble_3.2.1   \n [9] ggplot2_3.4.4   tidyverse_2.0.0\n\nloaded via a namespace (and not attached):\n [1] gtable_0.3.4      jsonlite_1.8.7    compiler_4.3.1    tidyselect_1.2.0 \n [5] systemfonts_1.0.4 scales_1.2.1      textshaping_0.3.6 yaml_2.3.7       \n [9] fastmap_1.1.1     R6_2.5.1          generics_0.1.3    knitr_1.45       \n[13] munsell_0.5.0     pillar_1.9.0      tzdb_0.4.0        rlang_1.1.1      \n[17] utf8_1.2.3        stringi_1.7.12    xfun_0.39         timechange_0.2.0 \n[21] cli_3.6.1         withr_2.5.2       magrittr_2.0.3    digest_0.6.33    \n[25] grid_4.3.1        rstudioapi_0.15.0 hms_1.1.3         lifecycle_1.0.4  \n[29] vctrs_0.6.3       evaluate_0.23     glue_1.6.2        ragg_1.2.5       \n[33] fansi_1.0.4       colorspace_2.1-0  rmarkdown_2.25    tools_4.3.1      \n[37] pkgconfig_2.0.3   htmltools_0.5.5"
+  },
+  {
+    "objectID": "materials/01-intro.html#packages",
+    "href": "materials/01-intro.html#packages",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Packages",
+    "text": "Packages\n\nList of packages that we will be using throughout the course\nCopy the code below to RStudio and run\n\ninstall.packages(\n  c(\"tidyverse\",\"janitor\",\"gapminder\",\"medicaldata\",\"ggstatsplot\",\n  \"outbreaks\",\"crosstable\",\"lme4\", \"datasauRus\", \"kableExtra\", \"ineptR\",\n  \"patchwork\",\"showtext\",\"car\",\"ggpmisc\",\"MASS\", \"report\", \"glue\"\n  \"survival\",\"ggsurvfit\",\"devtools\",\"scales\", \"eurostat\", \"leaflet\")\n)"
+  },
+  {
+    "objectID": "materials/01-intro.html#how-i-have-used-r",
+    "href": "materials/01-intro.html#how-i-have-used-r",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "How I have used R",
+    "text": "How I have used R\n\nPublic Health Medical Doctor @ Public Health Department\nStarted using R during the COVID-19 pandemic\n\nEpicurves\n\n\n\nCOVID-19 epicurve. Dates and counts are omitted for anonimity"
+  },
+  {
+    "objectID": "materials/01-intro.html#how-i-have-used-r-1",
+    "href": "materials/01-intro.html#how-i-have-used-r-1",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "How I have used R",
+    "text": "How I have used R\n\nPublic Health Medical Doctor @ Public Health Department\nStarted using R during the COVID-19 pandemic\n\nEpicurves\nForecasting\nAutomating procedures\n\n\n\nCovid case number forecasts by reporting date. Dates and counts are omitted for anonimity"
+  },
+  {
+    "objectID": "materials/01-intro.html#how-i-have-used-r-2",
+    "href": "materials/01-intro.html#how-i-have-used-r-2",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "How I have used R",
+    "text": "How I have used R\n\n\n\nPopulation health needs assessment of the Portuguese National Health Plan\n\nMortality forecasting"
+  },
+  {
+    "objectID": "materials/01-intro.html#how-i-have-used-r-3",
+    "href": "materials/01-intro.html#how-i-have-used-r-3",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "How I have used R",
+    "text": "How I have used R\n\n\n\nPopulation health needs assessment of the Portuguese National Health Plan\n\nMortality forecasting\nNotifiable diseases"
+  },
+  {
+    "objectID": "materials/01-intro.html#how-i-have-used-r-4",
+    "href": "materials/01-intro.html#how-i-have-used-r-4",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "How I have used R",
+    "text": "How I have used R\n\n\n\nPopulation health needs assessment of the Portuguese National Health Plan\n\nMortality forecasting\nNotifiable diseases\nHospital morbidity"
+  },
+  {
+    "objectID": "materials/01-intro.html#how-i-have-used-r-5",
+    "href": "materials/01-intro.html#how-i-have-used-r-5",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "How I have used R",
+    "text": "How I have used R\n\n\n\nData analysis\n\nDeaths attributable to Covid, Influenza and extreme temperatures"
+  },
+  {
+    "objectID": "materials/01-intro.html#how-i-have-used-r-6",
+    "href": "materials/01-intro.html#how-i-have-used-r-6",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "How I have used R",
+    "text": "How I have used R\n\n\n\nData analysis\n\nDeaths attributable to Covid, Influenza and extreme temperatures\n\nDeveloped the ineptR package to facilitate and automate data extraction from Statistics Portugal with R"
+  },
+  {
+    "objectID": "materials/01-intro.html#how-i-have-used-r-7",
+    "href": "materials/01-intro.html#how-i-have-used-r-7",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "How I have used R",
+    "text": "How I have used R\n\n\n\nNow working on improving dataviz skills and portfolio…"
+  },
+  {
+    "objectID": "materials/01-intro.html#goals-for-this-course",
+    "href": "materials/01-intro.html#goals-for-this-course",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Goals for this course",
+    "text": "Goals for this course\n\n\n\n\n\nAlways learning\n\n\n\n\n\nBe a learning catalyst\n\nKnow what R is capable of\nLearn how to search the web for answers\n\nGain a solid understanding of data wrangling with the tidyverse\nLearn the syntax of statistical models in R\nBe empowered to create and edit charts with ggplot"
+  },
+  {
+    "objectID": "materials/01-intro.html#goals-for-this-course-1",
+    "href": "materials/01-intro.html#goals-for-this-course-1",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Goals for this course",
+    "text": "Goals for this course\n\n\n\n\n\nAlways learning\n\n\n\n\n\nCommunicate your results\n\nStatic reports\nDynamic dashboards\n\nReproducible research and collaboration with version control\nA first step in the migration from other software!"
+  },
+  {
+    "objectID": "materials/01-intro.html#methods",
+    "href": "materials/01-intro.html#methods",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Methods",
+    "text": "Methods\n\n\n\nMany worked examples\n\nAssuming no prior knowledge\n\nStart simple and increasing complexity over time\nMinimize redundancy\n\nR has many ways to achieve the same results. Choose one and stick to it.\n\n\n\n\n\n\nCognitive load theory"
+  },
+  {
+    "objectID": "materials/01-intro.html#methods-1",
+    "href": "materials/01-intro.html#methods-1",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Methods",
+    "text": "Methods\n\nWe will be working side by side in R\nSlides are available on the course website\nYou can copy the code from the code chunks and paste in R\n\nI recommend that you use this approach as a last resort\nIt’s better if you write the code manually, to get a feel for shortcuts, code completion, bracket auto-closing and other RStudio qualtiy of life features"
+  },
+  {
+    "objectID": "materials/01-intro.html#before-we-go-into-r",
+    "href": "materials/01-intro.html#before-we-go-into-r",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Before we go into R…",
+    "text": "Before we go into R…"
+  },
+  {
+    "objectID": "materials/01-intro.html#before-we-go-into-r-1",
+    "href": "materials/01-intro.html#before-we-go-into-r-1",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Before we go into R…",
+    "text": "Before we go into R…"
+  },
+  {
+    "objectID": "materials/01-intro.html#intro-to-r",
+    "href": "materials/01-intro.html#intro-to-r",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Intro to R",
+    "text": "Intro to R\n\nWhy R?\n\nFree and Open Source\nWorkflow and analysis reproducibility\nCommunity engagement\n\nPretty much all your future questions are already answered online\nYou just need to ask the right questions\n\nCertain level of complexity\n\nBUT, tidyverse makes it way more approachable"
+  },
+  {
+    "objectID": "materials/01-intro.html#r-and-rstudio",
+    "href": "materials/01-intro.html#r-and-rstudio",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "R and RStudio",
+    "text": "R and RStudio\n\nR vs RStudio"
+  },
+  {
+    "objectID": "materials/01-intro.html#rstudio-1",
+    "href": "materials/01-intro.html#rstudio-1",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "RStudio",
+    "text": "RStudio\n\nAnatomy of RStudio"
+  },
+  {
+    "objectID": "materials/01-intro.html#frequently-used-shortcuts",
+    "href": "materials/01-intro.html#frequently-used-shortcuts",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Frequently used shortcuts",
+    "text": "Frequently used shortcuts\n\nFor future reference\n\nEsc to interrupt current execution\nAlt/Option + - to insert &lt;- (assign operator)\nCtrl/Cmd + Shift + m to insert %&gt;% (pipe)\nCtrl/Cmd + Enter to run current line/selection of code\nCtrl/Cmd + f to find and replace in current script"
+  },
+  {
+    "objectID": "materials/01-intro.html#useful-functionalities",
+    "href": "materials/01-intro.html#useful-functionalities",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Useful functionalities",
+    "text": "Useful functionalities\n\nF1 or ? for help\nTAB for autocomplete\nPlot auto preview in Plots pane\nUP and DOWN for history tracking\nParenthesis/brackets autoclose and highlight"
+  },
+  {
+    "objectID": "materials/01-intro.html#good-vs-bad-code",
+    "href": "materials/01-intro.html#good-vs-bad-code",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Good vs bad code",
+    "text": "Good vs bad code\nThe single most important thing to remember\n\n\n\nCOMMENT YOUR CODE!\n\n\n\n\n\nProgrammer and God…\n\n\n\n\n\n\nCooment your code!"
+  },
+  {
+    "objectID": "materials/01-intro.html#key-concepts",
+    "href": "materials/01-intro.html#key-concepts",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Key concepts",
+    "text": "Key concepts\n\nR vs R Packages\nObjects - Everything we store in R. Can be variables, datasets, graphs, etc. Objetcs are assigned a name, which can be referenced in later commands\nFunctions - A function is a code operation that accept inputs and returns a transformed output. Read more in the Functions section. The basic unit of a package.\nPackages - A bundle of functions that can be shared.\nScripts - A document/file that stores a set of commands."
+  },
+  {
+    "objectID": "materials/01-intro.html#packages-1",
+    "href": "materials/01-intro.html#packages-1",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Packages",
+    "text": "Packages\n\nPackages can be downloaded and installed locally with install.packages(\"package\")\nOnce installed, the package is stored in your library\nTo use the package in the current session, we need to load the package with library(package)\n\nNeeds to happen in each session\n\nPackages are more frequently installed from\n\nCRAN (Comprehensive R Archive Network)\nGitHub\n\nUpdate a package in the packages pane, in RStudio"
+  },
+  {
+    "objectID": "materials/01-intro.html#functions",
+    "href": "materials/01-intro.html#functions",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Functions",
+    "text": "Functions\n\nConsider the following code that calls the ficticious function get_prognosis(), to get the prognosis of a patient:\n\n\npatient_prognosis &lt;- \n  get_prognosis(gender = \"Male\", \n                age = 45,\n                comorbidities = c(\"diabetes\", \"hypertension\")\n                )\n\n\nWe are calling the function get_prognosis() with 3 arguments (gender, age, and comorbidities), and storing the resulting calculation in an object called patient_prognosis."
+  },
+  {
+    "objectID": "materials/01-intro.html#data-types",
+    "href": "materials/01-intro.html#data-types",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Data types",
+    "text": "Data types\n\nString or character\n\n\"The patient has diabetes\"\n\nNumber (integer or double)\n\n42L\n42\n\nLogical\n\n\nTRUE\nFALSE\n\n[1] TRUE\n[1] FALSE"
+  },
+  {
+    "objectID": "materials/01-intro.html#strings-or-characters",
+    "href": "materials/01-intro.html#strings-or-characters",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Strings or Characters",
+    "text": "Strings or Characters\n\nSurrounded by double \" or single ' quotes\n\n\n\"abc\"\n\n[1] \"abc\"\n\ntypeof(\"abc\")\n\n[1] \"character\"\n\n\"1\" #if surrounded by quotes, it's a character.\n\n[1] \"1\"\n\n\n\nSome operations are not available with strings\n\n\n1 + 1 #No error\n\n[1] 2\n\n1 + \"A\" #Error. Cant sum a number and a string\n\nError in 1 + \"A\": non-numeric argument to binary operator"
+  },
+  {
+    "objectID": "materials/01-intro.html#numbers",
+    "href": "materials/01-intro.html#numbers",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Numbers",
+    "text": "Numbers\nIntegers\n\nCan be of type integer or double\ninteger comes with the letter L right after the number\n\n\ntypeof(1)\n\n[1] \"double\"\n\ntypeof(1L)\n\n[1] \"integer\"\n\n1L + 2.5 #When summing an integer and a double, R knows we want a double\n\n[1] 3.5\n\n\n\nIntegers are more relevant for low level programming, not very much for our use cases. We will always use doubles"
+  },
+  {
+    "objectID": "materials/01-intro.html#numbers-1",
+    "href": "materials/01-intro.html#numbers-1",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Numbers",
+    "text": "Numbers\nDouble / Numeric\n\nIn most cases numbers will be stored as double\nUsed to represent any real number\n\n\ntypeof(42)\n\n[1] \"double\"\n\ntypeof(3.14)\n\n[1] \"double\"\n\ntypeof(-5e-10)\n\n[1] \"double\"\n\ntypeof(1/5)\n\n[1] \"double\""
+  },
+  {
+    "objectID": "materials/01-intro.html#logicals",
+    "href": "materials/01-intro.html#logicals",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Logicals",
+    "text": "Logicals\n\nVery frequently used for conditional logic (if else statements)\nWe will use then inside tidyverse functions\n\n\nTRUE\n\n[1] TRUE\n\nFALSE\n\n[1] FALSE\n\nc(T,F)\n\n[1]  TRUE FALSE\n\n2 &gt; 1\n\n[1] TRUE\n\nc(1,2,3) &gt; c(3,2,1) #Vectorised 'greather than' operation\n\n[1] FALSE FALSE  TRUE\n\nc(as.logical(0), as.logical(1)) #0's and 1's can be interpreted as logicals\n\n[1] FALSE  TRUE"
+  },
+  {
+    "objectID": "materials/01-intro.html#type-coercion",
+    "href": "materials/01-intro.html#type-coercion",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Type coercion",
+    "text": "Type coercion\n\nWe can (and very much want to!) convert some data to other types\n\ne.g. we import a dataset with a character column (e.g. outcome: “dead” or “alive”) that we want to convert to 0’s and 1’s for logistic regression\n\nR has functions with syntax as.something(), that allow conversion of some types into others\n\n\nas.logical(1)\n\n[1] TRUE\n\nas.integer(\"1984\")\n\n[1] 1984\n\nas.character(42)\n\n[1] \"42\"\n\nas.numeric(\"Some text\") #No error! Returns NA with a warning.\n\nWarning: NAs introduced by coercion\n\n\n[1] NA"
+  },
+  {
+    "objectID": "materials/01-intro.html#type-coercion-1",
+    "href": "materials/01-intro.html#type-coercion-1",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Type coercion",
+    "text": "Type coercion\n\nWe can (and very much want to!) convert some data to other types\n\ne.g. we import a dataset with a character column (e.g. outcome: “dead” or “alive”) that we want to convert to 0’s and 1’s for logistic regression\n\nR has functions with syntax as.something(), that allow conversion of some types into others\n\n\nas.numeric(\"Some text\") #No error! Returns NA with a warning.\n\nWarning: NAs introduced by coercion\n\n\n[1] NA\n\n\n\n\n\n\n\n\nImportant\n\n\nWhen converting to other data types, sometimes NAs might be introduced if some error is detected. Those values get lost."
+  },
+  {
+    "objectID": "materials/01-intro.html#data-structures",
+    "href": "materials/01-intro.html#data-structures",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Data structures",
+    "text": "Data structures\n\nvalues\n\n\nsingle_number &lt;- 10\nsingle_number\n\n[1] 10\n\n\n\nvectors\n\n\nexample_vector &lt;- c(\"A\",\"B\",\"C\")\nexample_vector\n\n[1] \"A\" \"B\" \"C\""
+  },
+  {
+    "objectID": "materials/01-intro.html#data-structures-1",
+    "href": "materials/01-intro.html#data-structures-1",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Data structures",
+    "text": "Data structures\n\nlists\n\n\n\nexample_list &lt;- list(\"A\",1,c(TRUE,FALSE))\nexample_list\n\n\n[[1]]\n[1] \"A\"\n\n[[2]]\n[1] 1\n\n[[3]]\n[1]  TRUE FALSE\n\n\n\n\ndata frames\n\n\n\nexample_dataframe &lt;- \n  data.frame(id = c(1,2,3),\n             name = c(\"Jon\",\"Tyrion\",\"Arya\"))\nexample_dataframe\n\n\n  id   name\n1  1    Jon\n2  2 Tyrion\n3  3   Arya\n\n\n\n\nMatrices, arrays"
+  },
+  {
+    "objectID": "materials/01-intro.html#values",
+    "href": "materials/01-intro.html#values",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Values",
+    "text": "Values\n\nThe simplest data structures\nCan be of any type\n\n\nanswer_to_life_the_universe_and_everything &lt;- 42 # A numeric value\nsomething_not_true &lt;- FALSE"
+  },
+  {
+    "objectID": "materials/01-intro.html#vectors",
+    "href": "materials/01-intro.html#vectors",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Vectors",
+    "text": "Vectors\n\nSet of values of the same data type\nThey are created with the concatenate function c()\n\n\nlogicals &lt;- c(TRUE, F, FALSE, T)\nlogicals\n\n[1]  TRUE FALSE FALSE  TRUE\n\nintegers &lt;- c(1:10) #sequence of numbers from 1 to 10\nintegers\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\ndoubles &lt;- integers + 0.5\ndoubles\n\n [1]  1.5  2.5  3.5  4.5  5.5  6.5  7.5  8.5  9.5 10.5\n\ncharacters &lt;- c(\"a\",\"b\",\"c\",\"d\") #remember the quotes!\ncharacters\n\n[1] \"a\" \"b\" \"c\" \"d\"\n\nsome_long_vector &lt;- seq(0,10,0.1) #all the values from 0 to 100, in 0.1 increments"
+  },
+  {
+    "objectID": "materials/01-intro.html#vectors-1",
+    "href": "materials/01-intro.html#vectors-1",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Vectors",
+    "text": "Vectors\n\nR is a language built around vectors!\n\n\nType coercion\n\n\n\n\n\n\nWarning\n\n\nBeware of automatic type coercion when creating vectors or, more often, importing data!\n\n\n\n\nyears_vector &lt;- c(2020,2021,\"202a2\",2023)\ntypeof(years_vector) #We expected 'integer' but got 'character', because one year had a typo\n\n[1] \"character\"\n\n#Let's convert the vector to integer: \nas.integer(years_vector) #the year with a typo was converted to NA because R couldn't figure out what we wanted\n\n[1] 2020 2021   NA 2023"
+  },
+  {
+    "objectID": "materials/01-intro.html#vectors-2",
+    "href": "materials/01-intro.html#vectors-2",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Vectors",
+    "text": "Vectors\nType coercion\nA vector with different data types in some elements will automatically be coerced to a data type of higher complexity\n\n\n\n\nflowchart LR\n  A(Logical) --&gt; B(Integer)\n  B --&gt; C(Numeric)\n  C --&gt; D(Character)\n\n\n\n\n\n\nChallengeSolution\n\n\n# What is the data type of each of the following objects:\nc(1, 2, 3)\nc('a', 'b', 'c') \nc(\"d\", \"e\", \"f\") \nc(TRUE,1L,10)\nc(\"11\",10,12)\nc(\"Diabetes\",\"Cancer\", FALSE)\n\n\ntypeof(c(1, 2, 3)) #double\ntypeof(c('a', 'b', 'c')) #character\ntypeof(c(\"d\", \"e\", \"f\")) #character\ntypeof(c(TRUE,1L,10)) #double\ntypeof(c(\"11\",10,12)) #character\ntypeof(c(\"Diabetes\",\"Cancer\", FALSE)) #character"
+  },
+  {
+    "objectID": "materials/01-intro.html#vectors-3",
+    "href": "materials/01-intro.html#vectors-3",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Vectors",
+    "text": "Vectors\n\nVector elements can have names\n\nName can be given when creating the vector, or at a later stage\n\n\n\n#Names attributed when creating a vector\nmy_named_vector &lt;- c(value_one = \"A\",\n                     value_two = \"C\")\nmy_named_vector\n\nvalue_one value_two \n      \"A\"       \"C\" \n\n#Names attributed to an existing vector\nmy_new_vector &lt;- c(1:4)\nnames(my_new_vector) &lt;- c(\"a\",\"b\",\"c\",\"d\")\nmy_new_vector\n\na b c d \n1 2 3 4"
+  },
+  {
+    "objectID": "materials/01-intro.html#exploring-vectors",
+    "href": "materials/01-intro.html#exploring-vectors",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Exploring vectors",
+    "text": "Exploring vectors\nLet’s look at the long vector we created earlier:\n\nsome_long_vector\n\n  [1]  0.0  0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1.0  1.1  1.2  1.3  1.4\n [16]  1.5  1.6  1.7  1.8  1.9  2.0  2.1  2.2  2.3  2.4  2.5  2.6  2.7  2.8  2.9\n [31]  3.0  3.1  3.2  3.3  3.4  3.5  3.6  3.7  3.8  3.9  4.0  4.1  4.2  4.3  4.4\n [46]  4.5  4.6  4.7  4.8  4.9  5.0  5.1  5.2  5.3  5.4  5.5  5.6  5.7  5.8  5.9\n [61]  6.0  6.1  6.2  6.3  6.4  6.5  6.6  6.7  6.8  6.9  7.0  7.1  7.2  7.3  7.4\n [76]  7.5  7.6  7.7  7.8  7.9  8.0  8.1  8.2  8.3  8.4  8.5  8.6  8.7  8.8  8.9\n [91]  9.0  9.1  9.2  9.3  9.4  9.5  9.6  9.7  9.8  9.9 10.0\n\n\nWhat if we wanted to look only at some data points?\n\nhead(some_long_vector)\n\n[1] 0.0 0.1 0.2 0.3 0.4 0.5\n\ntail(some_long_vector)\n\n[1]  9.5  9.6  9.7  9.8  9.9 10.0\n\nhead(some_long_vector, 3)\n\n[1] 0.0 0.1 0.2"
+  },
+  {
+    "objectID": "materials/01-intro.html#exploring-vectors-1",
+    "href": "materials/01-intro.html#exploring-vectors-1",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Exploring vectors",
+    "text": "Exploring vectors\nlet’s look at the long vector we created earlier:\n\nsome_long_vector\n\n  [1]  0.0  0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1.0  1.1  1.2  1.3  1.4\n [16]  1.5  1.6  1.7  1.8  1.9  2.0  2.1  2.2  2.3  2.4  2.5  2.6  2.7  2.8  2.9\n [31]  3.0  3.1  3.2  3.3  3.4  3.5  3.6  3.7  3.8  3.9  4.0  4.1  4.2  4.3  4.4\n [46]  4.5  4.6  4.7  4.8  4.9  5.0  5.1  5.2  5.3  5.4  5.5  5.6  5.7  5.8  5.9\n [61]  6.0  6.1  6.2  6.3  6.4  6.5  6.6  6.7  6.8  6.9  7.0  7.1  7.2  7.3  7.4\n [76]  7.5  7.6  7.7  7.8  7.9  8.0  8.1  8.2  8.3  8.4  8.5  8.6  8.7  8.8  8.9\n [91]  9.0  9.1  9.2  9.3  9.4  9.5  9.6  9.7  9.8  9.9 10.0\n\n\nWe can also look at specific sections/positions/indices using [] brackets\n\nsome_long_vector[5] #index 5\n\n[1] 0.4\n\nsome_long_vector[c(5,10)] #indices 5 AND 10\n\n[1] 0.4 0.9\n\nsome_long_vector[5:10] #indices 5 TO 10\n\n[1] 0.4 0.5 0.6 0.7 0.8 0.9"
+  },
+  {
+    "objectID": "materials/01-intro.html#exploring-vectors-2",
+    "href": "materials/01-intro.html#exploring-vectors-2",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Exploring vectors",
+    "text": "Exploring vectors\nOr look at all except some indices with the minus - sign\n\ncharacter_vector &lt;- c(\"a\",\"b\",\"c\",\"d\",\"e\",\"f\")\ncharacter_vector[-2] #Excludes the second index\n\n[1] \"a\" \"c\" \"d\" \"e\" \"f\"\n\ncharacter_vector[-c(2:4)] #Excludes indices 2 to 4\n\n[1] \"a\" \"e\" \"f\""
+  },
+  {
+    "objectID": "materials/01-intro.html#exploring-vectors-3",
+    "href": "materials/01-intro.html#exploring-vectors-3",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Exploring vectors",
+    "text": "Exploring vectors\n\nVector elements can be accesses by the name given to each index\n\n\n#Created earlier\nmy_new_vector\n\na b c d \n1 2 3 4 \n\n#Access the value wthat is named \"a\"\nmy_new_vector[\"a\"]\n\na \n1 \n\n#Access multiple values by name\nmy_new_vector[c(\"b\",\"d\")]\n\nb d \n2 4 \n\n#Useful logic to manually control prol colors\ncolors_for_a_plot &lt;- c(\"Portugal\" = \"red\", \"Europe\" = \"blue\", \"World\" = \"gray\")\ncolors_for_a_plot[\"Portugal\"]\n\nPortugal \n   \"red\""
+  },
+  {
+    "objectID": "materials/01-intro.html#exploring-vectors-4",
+    "href": "materials/01-intro.html#exploring-vectors-4",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Exploring vectors",
+    "text": "Exploring vectors\n\nVector elements can be accesses using a logical expression\n\n\n#Let's create a numeric vector\nx &lt;- c(10, 33, NA, 4, 9, 2, NA)\n\n#a logical vector. Is TRUE if x is NA\nx_na &lt;- is.na(x)\nx_na\n\n[1] FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE\n\n# All non-missing values of x\nx[!x_na]\n\n[1] 10 33  4  9  2\n\n#All values greater than five (Note that NAs are included!!)\nx[x &gt; 5]\n\n[1] 10 33 NA  9 NA"
+  },
+  {
+    "objectID": "materials/01-intro.html#exploring-vectors-5",
+    "href": "materials/01-intro.html#exploring-vectors-5",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Exploring vectors",
+    "text": "Exploring vectors\n\n# All non-missing values of x\nx[!x_na]\n\n[1] 10 33  4  9  2\n\n#All values GREATER THAN five (Note that NAs are included!!)\nx[x &gt; 5]\n\n[1] 10 33 NA  9 NA\n\n#All values EQUAL TO five (Note that NAs are included!!)\nx[x == 5]\n\n[1] NA NA\n\n\n\n\n\n\n\n\nNote\n\n\n! is the not/negation operator. It transform TRUE to FALSE and vice-versa\n\n\n\n\n\n\n\n\n\nNote\n\n\nNAs are returned when evaluating equality or inequality:  == (‘equal to’ operator), != (not equal to), &gt; (greather), &lt; (smaller), &gt;= (greather or equal ), &lt;= (smaller or equal)"
+  },
+  {
+    "objectID": "materials/01-intro.html#modifying-vectors",
+    "href": "materials/01-intro.html#modifying-vectors",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Modifying vectors",
+    "text": "Modifying vectors\nIt’s possible to reassign values to a specified index of an existing vector\n\n#assign the value \"z\" to the first position of the \"character_vector\"\ncharacter_vector[1] &lt;- \"z\"\ncharacter_vector\n\n[1] \"z\" \"b\" \"c\" \"d\" \"e\" \"f\"\n\n#assign the values \"four\" and \"five\" to the 4th and 5th positions of the \"character_vector\"\ncharacter_vector[4:5] &lt;- c(\"four\",\"five\")\ncharacter_vector\n\n[1] \"z\"    \"b\"    \"c\"    \"four\" \"five\" \"f\"   \n\n\nThis approach can be used to add data to a vector\n\n#Assign the value \"some_value\" to a new index\ncharacter_vector[7] &lt;- \"some_value\"\ncharacter_vector\n\n[1] \"z\"          \"b\"          \"c\"          \"four\"       \"five\"      \n[6] \"f\"          \"some_value\""
+  },
+  {
+    "objectID": "materials/01-intro.html#lists",
+    "href": "materials/01-intro.html#lists",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Lists",
+    "text": "Lists\n\nAre the more comprehensive object type\n\nCan contain (almost) anything\n\nCan be created with the function list(), similarly to c() for vectors\nLists are ordered, just like vectors\n\n\n\nmy_list &lt;- list(c(1:3),\"R\",list(1:3))\nmy_list\n\n\n[[1]]\n[1] 1 2 3\n\n[[2]]\n[1] \"R\"\n\n[[3]]\n[[3]][[1]]\n[1] 1 2 3\n\n\n\n\nWhat differences do you see between the 1st and 3rd elements of the list? Shouldn’t they be the same?"
+  },
+  {
+    "objectID": "materials/01-intro.html#exploring-lists",
+    "href": "materials/01-intro.html#exploring-lists",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Exploring lists",
+    "text": "Exploring lists\n\nLists can be tricky\n\n\nmy_list[1][1]\n\n[[1]]\n[1] 1 2 3\n\nmy_list[1][1][1]\n\n[[1]]\n[1] 1 2 3\n\nmy_list[1][1][1][1]\n\n[[1]]\n[1] 1 2 3\n\n\n???????"
+  },
+  {
+    "objectID": "materials/01-intro.html#exploring-lists-1",
+    "href": "materials/01-intro.html#exploring-lists-1",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Exploring lists",
+    "text": "Exploring lists\n\nLists can be tricky\n\n\nmy_list[1]\n\n[[1]]\n[1] 1 2 3\n\nmy_list[[1]]\n\n[1] 1 2 3\n\n\n\nA list can be accessed with single [ or double [[ brackets.\n[ Returns a smaller list, while [[ returns the contents of the that smaller list.\nUsually we want [[."
+  },
+  {
+    "objectID": "materials/01-intro.html#exploring-lists-2",
+    "href": "materials/01-intro.html#exploring-lists-2",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Exploring lists",
+    "text": "Exploring lists\n\nhttps://adv-r.hadley.nz/subsetting.html#subset-single"
+  },
+  {
+    "objectID": "materials/01-intro.html#exploring-lists-3",
+    "href": "materials/01-intro.html#exploring-lists-3",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Exploring lists",
+    "text": "Exploring lists\n\nList elements can be named, just like vector elements\n\n\nmy_named_list &lt;- list(some_vector = c(1:3),\n                some_value = \"R\",\n                other_value = list(1:3))\n\nmy_named_list\n\n$some_vector\n[1] 1 2 3\n\n$some_value\n[1] \"R\"\n\n$other_value\n$other_value[[1]]\n[1] 1 2 3"
+  },
+  {
+    "objectID": "materials/01-intro.html#exploring-lists-4",
+    "href": "materials/01-intro.html#exploring-lists-4",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Exploring lists",
+    "text": "Exploring lists\n\nLists can be accessed by name with $\n$ works like [[\n\n\nmy_named_list$some_vector\n\n[1] 1 2 3\n\n\n\n\n\n\n\n\nImportant\n\n\nThis behaviour is very relevant for our use cases, because data frames also behave the same way with column names!\n\n\n\n\nChallengeSolution - BaseSolution - tidyverse\n\n\n\n#Statistical models output lists in R. \n#Select the coefficient associated with gdpPercap in the model below\n#'[Red]* HINT: use the object explorer to visually explore the output *\nsome_model_output &lt;- lm(lifeExp ~ gdpPercap, data = gapminder::gapminder)\n\n\n\n\nsome_model_output$coefficients[[2]]\n\n[1] 0.0007648826\n\n\n\n\n\nsome_model_output %&gt;% \n  pluck(coefficients) %&gt;% #plucks extracts some element from a list\n  magrittr::extract(2)\n\n   gdpPercap \n0.0007648826"
+  },
+  {
+    "objectID": "materials/01-intro.html#modifying-lists",
+    "href": "materials/01-intro.html#modifying-lists",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Modifying lists",
+    "text": "Modifying lists\nLists\n\n\nmy_list\n#replace the first value of the list with the value \"A\"\nmy_list[1] &lt;- \"A\"\n#Replace the second value of the list in third element with \"nested_modification\"\nmy_list[[3]][[1]][2] &lt;- \"nested_modification\"\nmy_list\n\n\n[[1]]\n[1] 1 2 3\n\n[[2]]\n[1] \"R\"\n\n[[3]]\n[[3]][[1]]\n[1] 1 2 3\n\n\n[[1]]\n[1] \"A\"\n\n[[2]]\n[1] \"R\"\n\n[[3]]\n[[3]][[1]]\n[1] \"1\"                   \"nested_modification\" \"3\""
+  },
+  {
+    "objectID": "materials/01-intro.html#how-much-are-we-going-to-work-directly-with-lists-in-this-course",
+    "href": "materials/01-intro.html#how-much-are-we-going-to-work-directly-with-lists-in-this-course",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "How much are we going to work directly with lists in this course?",
+    "text": "How much are we going to work directly with lists in this course?\n\n\nPretty much zero…  But we need to know how they work, because some outputs are lists (notably, outputs of statistical models), and we may want to grab some values from those lists (e.g. a p-value from a linear regression model)"
+  },
+  {
+    "objectID": "materials/01-intro.html#data-frames",
+    "href": "materials/01-intro.html#data-frames",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Data frames",
+    "text": "Data frames\n\nA 2D object (aka, a table…)\n\nYou can think of it as a more rigorous Excel spreadsheet\n\nUnquestionably the most useful storage structure for data analysis\nEach column/variable is a vector\n\nEach column ALWAYS has the same type (contrary to Excel, where errors may occur)"
+  },
+  {
+    "objectID": "materials/01-intro.html#exploring-data-frames",
+    "href": "materials/01-intro.html#exploring-data-frames",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Exploring data frames",
+    "text": "Exploring data frames\n\nVectors and lists are 1D objects, therefore inside [] we only need to specify an index.\nDataframes are 2D, meaning that we need to specify 2 dimensions inside []: rows and columns\n\ndf[rows, cols] selects a single value\ndf[rows, ] selects some rows, all columns\ndf[,cols] selects all rows, some columns"
+  },
+  {
+    "objectID": "materials/01-intro.html#exploring-data-frames-1",
+    "href": "materials/01-intro.html#exploring-data-frames-1",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Exploring data frames",
+    "text": "Exploring data frames\n\ndf &lt;- data.frame(col1 = c(1,2,3),\n                 col2 = c(\"A\",\"B\",\"C\"))\ndf\n\n  col1 col2\n1    1    A\n2    2    B\n3    3    C\n\n#Selecting value from third row, second col\ndf[3,2]\n\n[1] \"C\"\n\n#Selecting all cols from second row\ndf[2,]\n\n  col1 col2\n2    2    B"
+  },
+  {
+    "objectID": "materials/01-intro.html#exploring-data-frames-2",
+    "href": "materials/01-intro.html#exploring-data-frames-2",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Exploring data frames",
+    "text": "Exploring data frames\n\n#Selecting all rows from first column by index\ndf[,1]\n\n[1] 1 2 3\n\n#Selecting all rows from first column by name\ndf[,\"col1\"]\n\n[1] 1 2 3\n\n#Or alternatively, by name\ndf$col1\n\n[1] 1 2 3"
+  },
+  {
+    "objectID": "materials/01-intro.html#data-frames-vs-tibbles",
+    "href": "materials/01-intro.html#data-frames-vs-tibbles",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Data frames vs tibbles",
+    "text": "Data frames vs tibbles\n\nA tibble is the tidyverse version of a data frame\nVery similar, with some qualtiy of life improvements\nMain differences\n\nTibbles don’t print all rows for large data frames, only first 10\nStricter subsetting (need to specify entire correct name of variable, no abbreviations)\nLess prone to errors (converting variable types by mistake)\n\n\n\ndf &lt;- data.frame(some_col = c(1,2,3),\n                 other_col = c(\"A\",\"B\",\"C\"))\ntb &lt;- tibble(some_col = c(1,2,3),\n             other_col = c(\"A\",\"B\",\"C\"))\n#Abbreviated column name\ndf$som #Works\n\n[1] 1 2 3\n\ntb$som #Returns error\n\nNULL"
+  },
+  {
+    "objectID": "materials/01-intro.html#modifying-data-frames",
+    "href": "materials/01-intro.html#modifying-data-frames",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Modifying data frames",
+    "text": "Modifying data frames\n\n\n\n\n\n\nNote\n\n\nI will henceforth use data frame and tibble interchangeably, unless otherwise specified, but we will be working with tibbles.\n\n\n\n\n\n\n\n\n\nNote\n\n\nKeep in mind that all the ways to access vectors and lists that we have seen before (e.g. using vectors, sequences or logical expressions to subset) also work with data frames, with the appropriate adaptations to 2D space\n\n\n\n\ndf &lt;- tibble(col1 = c(\"A\",\"B\",\"C\"), col2 = c(1,2,3), col3 = c(TRUE, FALSE, TRUE))\ndf[1:2,c(1,3)] # Select only rows one and two, from columns one and three\n\n# A tibble: 2 × 2\n  col1  col3 \n  &lt;chr&gt; &lt;lgl&gt;\n1 A     TRUE \n2 B     FALSE"
+  },
+  {
+    "objectID": "materials/01-intro.html#modifying-data-frames-1",
+    "href": "materials/01-intro.html#modifying-data-frames-1",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Modifying data frames",
+    "text": "Modifying data frames\n\nAdding a column to a data frame\n\n\ndf &lt;- tibble(col1 = c(\"A\",\"B\",\"C\"),\n             col2 = c(1,2,3),\n             col3 = c(TRUE, FALSE, TRUE))\n\n#Add a new variable to the tibble\ndf$my_awesome_new_col &lt;- c(\"Awe-\",\"wait for it\",\"-some!\")\ndf\n\n# A tibble: 3 × 4\n  col1   col2 col3  my_awesome_new_col\n  &lt;chr&gt; &lt;dbl&gt; &lt;lgl&gt; &lt;chr&gt;             \n1 A         1 TRUE  Awe-              \n2 B         2 FALSE wait for it       \n3 C         3 TRUE  -some!            \n\n\n\n\n\n\n\n\nImportant\n\n\nThe new column must have the same number of rows as the existing data frame, or you will get an error."
+  },
+  {
+    "objectID": "materials/01-intro.html#modifying-data-frames-2",
+    "href": "materials/01-intro.html#modifying-data-frames-2",
+    "title": "Introduction to R for  Health Data Science ",
+    "section": "Modifying data frames",
+    "text": "Modifying data frames\n\n\n#Create a temporary tibble\ndf &lt;- tibble(col1 = c(\"A\",\"B\",\"C\"),\n             col2 = c(1,2,3),\n             col3 = c(TRUE, FALSE, TRUE))\n\n#Change the value of Row 3, Col 2\ndf[3,2] &lt;- \"some_character\"\n\n\nError in `[&lt;-`:\n! Assigned data `\"some_character\"` must be compatible with existing\n  data.\nℹ Error occurred for column `col2`.\nCaused by error in `vec_assign()`:\n! Can't convert &lt;character&gt; to &lt;double&gt;.\n\n\n\n\nWe get an error because we are trying to assign a character value to a numeric vector (col2).\n\n\n\n\n\n\n\nNote\n\n\nWith data.frame() instead of tibble(), automatic conversion to character would occur, which is usually not the desired result. This type of conversions is prone to cause errors in your code, particularly if you use new data with substandard quality."
+  },
+  {
+    "objectID": "materials/03-eda.html#goals-of-eda",
+    "href": "materials/03-eda.html#goals-of-eda",
+    "title": "Exploratory Data Analysis  (EDA)",
+    "section": "Goals of EDA",
+    "text": "Goals of EDA\n\n\nIdentify patterns, errors, missings, outliers\nCheck assumptions\nIdentify relationships among variables (direction, size)"
+  },
+  {
+    "objectID": "materials/03-eda.html#eda",
+    "href": "materials/03-eda.html#eda",
+    "title": "Exploratory Data Analysis  (EDA)",
+    "section": "EDA",
+    "text": "EDA\nOne way to categorize\n\n\nUnivariate vs Multivariate\n\n\n\nGraphical vs Non-graphical"
+  },
+  {
+    "objectID": "materials/03-eda.html#univariate-non-graphical-1",
+    "href": "materials/03-eda.html#univariate-non-graphical-1",
+    "title": "Exploratory Data Analysis  (EDA)",
+    "section": "Univariate non-graphical",
+    "text": "Univariate non-graphical\n\nCategorical data\n\n\nTabulation (counts, proportions)\n\n\n\n#Base R\ntable(polyps$sex)\n\n\n\nfemale   male \n     9     13 \n\n\n\n\n\nprop.table(table(polyps$sex))\n\n\n\n   female      male \n0.4090909 0.5909091 \n\n\n\n\n\n#crosstable\nlibrary(crosstable)\n\ncrosstable(data = polyps,\n           cols = sex) %&gt;% \n  as_flextable()\n\n\n\nUnivariate, categoricallabelvariablevaluesexfemale9 (40.91%)male13 (59.09%)"
+  },
+  {
+    "objectID": "materials/03-eda.html#univariate-non-graphical-2",
+    "href": "materials/03-eda.html#univariate-non-graphical-2",
+    "title": "Exploratory Data Analysis  (EDA)",
+    "section": "Univariate non-graphical",
+    "text": "Univariate non-graphical\n\nQuantitative data\n\n\nSummary statistics\n\nCentral tendency\n\nMean\nMedian\n\nDispersion/Spread\n\nInterquartile range (IQR)\nVariance\nStandard deviation"
+  },
+  {
+    "objectID": "materials/03-eda.html#univariate-non-graphical-3",
+    "href": "materials/03-eda.html#univariate-non-graphical-3",
+    "title": "Exploratory Data Analysis  (EDA)",
+    "section": "Univariate non-graphical",
+    "text": "Univariate non-graphical\n\nQuantitative data\n\n\n\n#Base R\nsummary(gapminder$lifeExp[gapminder$year == max(gapminder$year)])\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  39.61   57.16   71.94   67.01   76.41   82.60 \n\n\n\n\n\n#Base R - Specific quantiles\nquantile(x = gapminder$lifeExp, \n         probs = c(.01,.99))\n\n\n      1%      99% \n33.49260 80.23892 \n\n\n\n\n\n#tidyverse\ngapminder %&gt;% \n  filter(year == max(year)) %&gt;% \n  summarise(mean = mean(lifeExp),\n            median = median(lifeExp),\n            iqr = IQR(lifeExp),\n            variance = var(lifeExp),\n            sd = sd(lifeExp)) %&gt;% \n  pivot_longer(everything())\n\n\n# A tibble: 5 × 2\n  name     value\n  &lt;chr&gt;    &lt;dbl&gt;\n1 mean      67.0\n2 median    71.9\n3 iqr       19.3\n4 variance 146. \n5 sd        12.1"
+  },
+  {
+    "objectID": "materials/03-eda.html#univariate-non-graphical-4",
+    "href": "materials/03-eda.html#univariate-non-graphical-4",
+    "title": "Exploratory Data Analysis  (EDA)",
+    "section": "Univariate non-graphical",
+    "text": "Univariate non-graphical\n\nQuantitative data\n\n\nChallengeSolution\n\n\n\nWhat is the mean and standard deviation of GDP per capita in the most recent year, by continent?\n\n\n\n\nlibrary(gapminder)\n\ngapminder %&gt;% \n  group_by(continent) %&gt;% \n  filter(year == max(year)) %&gt;% \n  summarise(mean = mean(gdpPercap),\n            sd = sd(gdpPercap))\n\n# A tibble: 5 × 3\n  continent   mean     sd\n  &lt;fct&gt;      &lt;dbl&gt;  &lt;dbl&gt;\n1 Africa     3089.  3618.\n2 Americas  11003.  9713.\n3 Asia      12473. 14155.\n4 Europe    25054. 11800.\n5 Oceania   29810.  6541."
+  },
+  {
+    "objectID": "materials/03-eda.html#univariate-graphical-1",
+    "href": "materials/03-eda.html#univariate-graphical-1",
+    "title": "Exploratory Data Analysis  (EDA)",
+    "section": "Univariate graphical",
+    "text": "Univariate graphical"
+  },
+  {
+    "objectID": "materials/03-eda.html#univariate-graphical-2",
+    "href": "materials/03-eda.html#univariate-graphical-2",
+    "title": "Exploratory Data Analysis  (EDA)",
+    "section": "Univariate graphical",
+    "text": "Univariate graphical\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n:::"
+  },
+  {
+    "objectID": "materials/03-eda.html#multivariate-non-graphical-1",
+    "href": "materials/03-eda.html#multivariate-non-graphical-1",
+    "title": "Exploratory Data Analysis  (EDA)",
+    "section": "Multivariate non-graphical",
+    "text": "Multivariate non-graphical\n\nQualitative data\n\n\nCross-tabulation\n\n\n\n#Base R\ntable(sex = polyps$sex, \n      treatment = polyps$treatment, \n      useNA = \"ifany\")\n\n\n        treatment\nsex      placebo sulindac\n  female       4        5\n  male         7        6\n\n\n\n\n\n#crosstable package\ncrosstable(data = polyps,\n           cols = c(treatment, age),\n           by = sex,\n           total = \"column\", \n           percent_digits=1) %&gt;% \n  as_flextable()\n\n\n\nExample crosstablelabelvariablesexfemalemaletreatmentplacebo4 (36.4%)7 (63.6%)sulindac5 (45.5%)6 (54.5%)Total9 (40.9%)13 (59.1%)ageMin / Max13.0 / 23.013.0 / 50.0Med [IQR]22.0 [18.0;23.0]23.0 [19.0;34.0]Mean (std)20.1 (3.5)26.8 (10.8)N (NA)9 (0)13 (0)"
+  },
+  {
+    "objectID": "materials/03-eda.html#multivariate-non-graphical-2",
+    "href": "materials/03-eda.html#multivariate-non-graphical-2",
+    "title": "Exploratory Data Analysis  (EDA)",
+    "section": "Multivariate non-graphical",
+    "text": "Multivariate non-graphical\n\nQuantitative data\n\n\nCorrelation, covariance\n\n\n\n#Base R\nwith(gapminder,\n     cor(x = lifeExp[year == max(year)],\n         y = gdpPercap[year == max(year)], \n    method = \"spearman\"))\n\n\n[1] 0.8565899\n\n\n\n\n\n#crosstable package\ngapminder %&gt;% \n  filter(year == max(year)) %&gt;% \n  crosstable(cols = c(lifeExp, pop),\n             by = gdpPercap,\n             cor_method = \"spearman\",\n             percent_digits=2) %&gt;%\n  as_flextable()\n\n\n\nMultivariate, 2 numerical variableslabelvariablegdpPercapgdpPercaplifeExpspearman0.86popspearman-0.06"
+  },
+  {
+    "objectID": "materials/03-eda.html#multivariate-graphical-1",
+    "href": "materials/03-eda.html#multivariate-graphical-1",
+    "title": "Exploratory Data Analysis  (EDA)",
+    "section": "Multivariate Graphical",
+    "text": "Multivariate Graphical"
+  },
+  {
+    "objectID": "materials/03-eda.html#multivariate-graphical-2",
+    "href": "materials/03-eda.html#multivariate-graphical-2",
+    "title": "Exploratory Data Analysis  (EDA)",
+    "section": "Multivariate Graphical",
+    "text": "Multivariate Graphical"
+  },
+  {
+    "objectID": "materials/03-eda.html#multivariate-graphical-3",
+    "href": "materials/03-eda.html#multivariate-graphical-3",
+    "title": "Exploratory Data Analysis  (EDA)",
+    "section": "Multivariate Graphical",
+    "text": "Multivariate Graphical"
+  },
+  {
+    "objectID": "materials/03-eda.html#multivariate-graphical-4",
+    "href": "materials/03-eda.html#multivariate-graphical-4",
+    "title": "Exploratory Data Analysis  (EDA)",
+    "section": "Multivariate Graphical",
+    "text": "Multivariate Graphical"
+  },
+  {
     "objectID": "modules/s01-intro.html",
     "href": "modules/s01-intro.html",
     "title": "Introduction to R and RStudio",
     "section": "",
-    "text": "View slides in full screen\n\nOutline\n\n\nWelcome to the course\nWhy use R\nIntro to R\nIntro to RStudio\nData types and structures\nKey concepts\nCreating a project"
+    "text": "View slides in full screen\n\nOutline\n\nWelcome to the course\nWhy use R\nIntro to R\nIntro to RStudio\nData types and structures\nKey concepts\nCreating a project"
   },
   {
     "objectID": "modules/s03-eda.html",

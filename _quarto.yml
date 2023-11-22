@@ -1,10 +1,6 @@
 project:
   type: website
   output-dir: docs
-  preview:
-    port: 4200
-    browser: true
-    host: 0.0.0.0
     
 website:
   page-navigation: true

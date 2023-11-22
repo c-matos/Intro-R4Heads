@@ -7,9 +7,7 @@ format:
     theme: slides.scss
     logo: ../images/logo.png
     footer: '[Carlos Matos](https://github.com/c-matos) // ISPUP::R4HEADS(2023)'
-    multiplex: 
-      id: '19de33b14ecf93e8'
-      secret: '16994611706571830140'
+    multiplex: false
     transition: fade
     progress: true
     preview-links: true
