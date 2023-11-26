@@ -1,0 +1,191 @@
+---
+title: "Version control <br> with Git and GitHub"
+# subtitle: "Hands-on training"
+author: "<a href='https://github.com/c-matos' style='color:#28a87d;font-weight:600;'>Carlos Matos</a>&ensp;//&ensp;ISPUP&ensp;//&ensp;November 2023"
+format:
+  revealjs:
+    theme: slides.scss
+    logo: ../images/logo.png
+    footer: '[Carlos Matos](https://github.com/c-matos) // ISPUP::R4HEADS(2023)'
+    multiplex: true
+    transition: fade
+    progress: true
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: atom-one
+    # chalkboard:
+    #   theme: whiteboard
+    #   boardmarker-width: 4
+    #   buttons: true
+    pause: true
+    code-copy: true
+    #page-layout: custom
+    code-line-numbers: false
+    mermaid: 
+      theme: neutral
+revealjs-plugins:
+  - pointer
+editor: source
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 3
+    dpi: 200
+execute:
+  freeze: auto
+  cache: false
+  echo: true
+  fig-width: 10.1
+  fig-height: 6.3
+  fig-align: center
+# reference-location: margin
+# citation-location: margin
+code-annotations: hover
+---
+
+## What is  ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/1200px-Git-logo.svg.png){width=15%} ?
+  
+- Application that runs on your computer
+- Helps you manage work done on projects
+- It's like the *track changes* option on Word, but on steroids
+- Rigorous, powerful, scales up to multiple files (data, figures, reports, code) 
+
+## Why use version control for data science?
+
+![](img/git-example.png){fig-align="center"}
+
+
+## Why use version control for data science?
+
+- **Organizing** and recording your work becomes part of your workflow, instead of a separate and burdensome task
+- **Collaboration** is more structured, improved asynchronous work and managing versions
+- After the initial setup, almost **effortless**  to put your project online is marginal
+- Online **exposure** 
+- Works as a **backup** (safe, shareable and accessible from different places)
+
+## What is![](https://miro.medium.com/v2/resize:fit:1125/0*CpxR8zt1z6vZDorB.png){width=25% } ?
+
+
+- GitHub complements Git
+  - Distribution mechanism for Git repositories
+  - Git works locally, GitHub online
+  - Control who has what type of access (view, edit, admin)
+  - Easy to regularly reconcile files between contributors
+
+
+## GitHub features  
+
+- **Markdown** integration
+- **Issues** lets users of your code report problems they found
+- **Pull requests** by people that want to add features to your work
+- **Github Pages** to quickly host static websites (like the one where these slides are hosted!)
+- Easy to deploy packages or other functionality (e.g. Some R packages are only available on GitHub, not on CRAN
+
+## Git and GitHub jargon {auto-animate=true}
+
+- **repo or repository** - your project folder
+- **commit** - save a snapshot to your repo
+- **hash** - a computer generated id for each commit
+- **checkout** - time travel to a specific commit
+- **branch** - a label that points to a commit
+- **merge** - combination of two or more branches
+- **remote** - a repo that exists in a different location (e.g. GitHub, other PC)
+- **pull** - get new commits from the remote to the repo
+- **push** - send your new commits to the remote
+
+## Git and GitHub jargon {auto-animate=true}
+
+- **repo or repository** - your project folder
+
+::: {style="color: red;"}
+- **commit** - save a snapshot to your repo
+:::
+- **hash** - a computer generated id for each commit
+- **checkout** - time travel to a specific commit
+- **branch** - a label that points to a commit
+- **merge** - combination of two or more branches
+- **remote** - a repo that exists in a different location (e.g. GitHub, other PC)
+- **pull** - get new commits from the remote to the repo
+
+::: {style="color: red;"}
+- **push** - send your new commits to the remote
+:::
+
+  
+
+## Git and GitHub workflow
+
+- We will work almost exclusively with RStudio, not the command line!
+
+![](img/git-workflow.png)
+
+## How to revert to a previous commit?
+
+<br>
+
+```{mermaid }
+%%| echo: false
+gitGraph
+    commit
+    commit
+    branch new_feature
+    checkout new_feature
+    commit
+    commit
+    checkout main
+    merge new_feature
+    commit id: "5-106eefa"
+    commit
+```
+
+- Suppose that When you made commit #6, you made some mistakes and want to revert back to the state of your repo at moment #5.
+- You would write in the terminal **git reset 106eefa**
+
+## Initial setup
+
+1. Register a free account on [GitHub](https://github.com/)
+2. Install [Git](https://gitforwindows.org/)
+3. Introduce yourself to git (username, email)
+
+```{.r}
+## install.packages("usethis")
+
+library(usethis)
+use_git_config(user.name = "Your Name", user.email = "email@example.org")
+
+#configure the default branch name
+usethis::git_default_branch_configure()
+
+#Create token
+#I highly recommend selecting “repo”, “user”, and “workflow” scopes (the default ones)
+usethis::create_github_token()
+```
+
+
+## Initial setup
+
+4. Tell RStudio where to find Git (Tools > Global Options > Git/SVN should point to your Git install directory)
+   a. usually something like "C:/Program Files/Git/bin/git.exe" on windows or "/usr/bin/git" on macOS
+5. Create a project on GitHub. More detailed instructions available [here](https://happygitwithr.com/new-github-first)
+6. On the GitHub repository, click on Code and copy the HTTPS value
+7. After that, create a new RProject
+   a. File > New Project > Version Control > Git
+8. If all went well, you should have a new folder with the same name as your GitHub repo
+9. If you already had a project, move the contents to the repo directory
+
+
+## Folder structure
+
+- a **.git** hidden folder exists at the project directory, that should not be deleted
+- a **.gitignore** file will be present if you select R language option on GitHub when first creating your repo (recommended)
+
+
+## Exercises
+
+- After moving the course scripts to the newly created project, stage the files, commit and push to GitHub.
+- Make some changes and commit again. Check the results on git and GitHub.
+
+#
+
+![](../images/logo.png){width=60% fig-align="center"}

@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "November 23-23 & 27-28, 2023\n\n\n\n\n\n\n\n\nTime*\n\n\nModule\n\n\n\n\n\n\n\n\n\nDay 1 - 09:00\n\n\nIntroduction to R and RStudio\n\n\n\n\n\n\n\nDay 1 - 14:00\n\n\nIntroduction to the tidyverse\n\n\n\n\n\n\n\nDay 2 - 09:00\n\n\nExploratory Data Analysis (EDA)\n\n\n\n\n\n\n\nDay 2 - 14:00\n\n\nData visualization with ggplot2\n\n\n\n\n\n\n\nDay 3 - 09:00\n\n\nStatistics with R\n\n\n\n\n\n\n\nDay 3 - 14:00\n\n\nReporting with Quarto\n\n\n\n\n\n\n\nDay 3 - 15:45\n\n\nInteractive shiny dashboards\n\n\n\n\n\n\n\nDay 4 - 09:00\n\n\nVersion control with git and GitHub\n\n\n\n\n\n\nNo matching items\n\n\n*Approximate times"
+    "text": "November 23-23 & 27-28, 2023\n\n\n\n\n\n\n\nTime*\n\n\nModule\n\n\n\n\n\n\n\n\n\nDay 1 - 09:00\n\n\nIntroduction to R and RStudio\n\n\n\n\n\n\n\nDay 1 - 14:00\n\n\nIntroduction to the tidyverse\n\n\n\n\n\n\n\nDay 2 - 09:00\n\n\nExploratory Data Analysis (EDA)\n\n\n\n\n\n\n\nDay 2 - 14:00\n\n\nData visualization with ggplot2\n\n\n\n\n\n\n\nDay 3 - 09:00\n\n\nStatistics with R\n\n\n\n\n\n\n\nDay 3 - 14:00\n\n\nReporting with Quarto\n\n\n\n\n\n\n\nDay 3 - 15:45\n\n\nInteractive shiny dashboards\n\n\n\n\n\n\n\nDay 4 - 09:00\n\n\nVersion control with git and GitHub\n\n\n\n\n\nNo matching items\n\n\n*Approximate times"
   },
   {
     "objectID": "modules/s08-git.html",
@@ -33,6 +33,153 @@
     "title": "Introduction to the tidyverse",
     "section": "",
     "text": "View slides in full screen\n\nOutline\n\nWhat is tidy data\nTidyverse principles\nData science workflow\nThe pipe\nImport data to R\nData transformation"
+  },
+  {
+    "objectID": "materials/08-git.html#what-is",
+    "href": "materials/08-git.html#what-is",
+    "title": "Version control  with Git and GitHub",
+    "section": "What is  ?",
+    "text": "What is  ?\n\nApplication that runs on your computer\nHelps you manage work done on projects\nIt’s like the track changes option on Word, but on steroids\nRigorous, powerful, scales up to multiple files (data, figures, reports, code)"
+  },
+  {
+    "objectID": "materials/08-git.html#why-use-version-control-for-data-science",
+    "href": "materials/08-git.html#why-use-version-control-for-data-science",
+    "title": "Version control  with Git and GitHub",
+    "section": "Why use version control for data science?",
+    "text": "Why use version control for data science?"
+  },
+  {
+    "objectID": "materials/08-git.html#why-use-version-control-for-data-science-1",
+    "href": "materials/08-git.html#why-use-version-control-for-data-science-1",
+    "title": "Version control  with Git and GitHub",
+    "section": "Why use version control for data science?",
+    "text": "Why use version control for data science?\n\nOrganizing and recording your work becomes part of your workflow, instead of a separate and burdensome task\nCollaboration is more structured, improved asynchronous work and managing versions\nAfter the initial setup, almost effortless to put your project online is marginal\nOnline exposure\nWorks as a backup (safe, shareable and accessible from different places)"
+  },
+  {
+    "objectID": "materials/08-git.html#what-is-1",
+    "href": "materials/08-git.html#what-is-1",
+    "title": "Version control  with Git and GitHub",
+    "section": "What is ?",
+    "text": "What is ?\n\nGitHub complements Git\n\nDistribution mechanism for Git repositories\nGit works locally, GitHub online\nControl who has what type of access (view, edit, admin)\nEasy to regularly reconcile files between contributors"
+  },
+  {
+    "objectID": "materials/08-git.html#github-features",
+    "href": "materials/08-git.html#github-features",
+    "title": "Version control  with Git and GitHub",
+    "section": "GitHub features",
+    "text": "GitHub features\n\nMarkdown integration\nIssues lets users of your code report problems they found\nPull requests by people that want to add features to your work\nGithub Pages to quickly host static websites (like the one where these slides are hosted!)\nEasy to deploy packages or other functionality (e.g. Some R packages are only available on GitHub, not on CRAN"
+  },
+  {
+    "objectID": "materials/08-git.html#git-and-github-jargon",
+    "href": "materials/08-git.html#git-and-github-jargon",
+    "title": "Version control  with Git and GitHub",
+    "section": "Git and GitHub jargon",
+    "text": "Git and GitHub jargon\n\nrepo or repository - your project folder\ncommit - save a snapshot to your repo\nhash - a computer generated id for each commit\ncheckout - time travel to a specific commit\nbranch - a label that points to a commit\nmerge - combination of two or more branches\nremote - a repo that exists in a different location (e.g. GitHub, other PC)\npull - get new commits from the remote to the repo\npush - send your new commits to the remote"
+  },
+  {
+    "objectID": "materials/08-git.html#git-and-github-jargon-1",
+    "href": "materials/08-git.html#git-and-github-jargon-1",
+    "title": "Version control  with Git and GitHub",
+    "section": "Git and GitHub jargon",
+    "text": "Git and GitHub jargon\n\nrepo or repository - your project folder\n\n\n\ncommit - save a snapshot to your repo\n\n\n\nhash - a computer generated id for each commit\ncheckout - time travel to a specific commit\nbranch - a label that points to a commit\nmerge - combination of two or more branches\nremote - a repo that exists in a different location (e.g. GitHub, other PC)\npull - get new commits from the remote to the repo\n\n\n\npush - send your new commits to the remote"
+  },
+  {
+    "objectID": "materials/08-git.html#git-and-github-workflow",
+    "href": "materials/08-git.html#git-and-github-workflow",
+    "title": "Version control  with Git and GitHub",
+    "section": "Git and GitHub workflow",
+    "text": "Git and GitHub workflow\n\nWe will work almost exclusively with RStudio, not the command line!"
+  },
+  {
+    "objectID": "materials/08-git.html#how-to-revert-to-a-previous-commit",
+    "href": "materials/08-git.html#how-to-revert-to-a-previous-commit",
+    "title": "Version control  with Git and GitHub",
+    "section": "How to revert to a previous commit?",
+    "text": "How to revert to a previous commit?\n\n\n\n\n\ngitGraph\n    commit\n    commit\n    branch new_feature\n    checkout new_feature\n    commit\n    commit\n    checkout main\n    merge new_feature\n    commit id: \"5-106eefa\"\n    commit\n\n\n\n\n\n\nSuppose that When you made commit #6, you made some mistakes and want to revert back to the state of your repo at moment #5.\nYou would write in the terminal git reset 106eefa"
+  },
+  {
+    "objectID": "materials/08-git.html#initial-setup",
+    "href": "materials/08-git.html#initial-setup",
+    "title": "Version control  with Git and GitHub",
+    "section": "Initial setup",
+    "text": "Initial setup\n\nRegister a free account on GitHub\nInstall Git\nIntroduce yourself to git (username, email)\n\n## install.packages(\"usethis\")\n\nlibrary(usethis)\nuse_git_config(user.name = \"Your Name\", user.email = \"email@example.org\")\n\n#configure the default branch name\nusethis::git_default_branch_configure()\n\n#Create token\n#I highly recommend selecting “repo”, “user”, and “workflow” scopes (the default ones)\nusethis::create_github_token()"
+  },
+  {
+    "objectID": "materials/08-git.html#initial-setup-1",
+    "href": "materials/08-git.html#initial-setup-1",
+    "title": "Version control  with Git and GitHub",
+    "section": "Initial setup",
+    "text": "Initial setup\n\nTell RStudio where to find Git (Tools &gt; Global Options &gt; Git/SVN should point to your Git install directory)\n\nusually something like “C:/Program Files/Git/bin/git.exe” on windows or “/usr/bin/git” on macOS\n\nCreate a project on GitHub. More detailed instructions available here\nOn the GitHub repository, click on Code and copy the HTTPS value\nAfter that, create a new RProject\n\nFile &gt; New Project &gt; Version Control &gt; Git\n\nIf all went well, you should have a new folder with the same name as your GitHub repo\nIf you already had a project, move the contents to the repo directory"
+  },
+  {
+    "objectID": "materials/08-git.html#folder-structure",
+    "href": "materials/08-git.html#folder-structure",
+    "title": "Version control  with Git and GitHub",
+    "section": "Folder structure",
+    "text": "Folder structure\n\na .git hidden folder exists at the project directory, that should not be deleted\na .gitignore file will be present if you select R language option on GitHub when first creating your repo (recommended)"
+  },
+  {
+    "objectID": "materials/08-git.html#exercises",
+    "href": "materials/08-git.html#exercises",
+    "title": "Version control  with Git and GitHub",
+    "section": "Exercises",
+    "text": "Exercises\n\nAfter moving the course scripts to the newly created project, stage the files, commit and push to GitHub.\nMake some changes and commit again. Check the results on git and GitHub."
+  },
+  {
+    "objectID": "materials/06-reporting.html#what-is",
+    "href": "materials/06-reporting.html#what-is",
+    "title": "Reporting with  Quarto",
+    "section": "What is  ?",
+    "text": "What is  ?\n\n\nUnified authoring framework for data science\n\nSeamlessly combine code, results and prose\n\nFully reproducible\nSupports several output formats (e.g. HTML, PDF, Word, Presentations, …)\n\nWrite in one language (Markdown), output to several\n\nCommand line tool\n\nBut don’t worry, you won’t have to deal with the command line\n\nCreate websites, blogs, articles, presentations, books, dashboards (in the next version!)"
+  },
+  {
+    "objectID": "materials/06-reporting.html#why-quarto",
+    "href": "materials/06-reporting.html#why-quarto",
+    "title": "Reporting with  Quarto",
+    "section": "Why Quarto?",
+    "text": "Why Quarto?\n\nCommunication to decision makers\n\nFocus on conclusions, not the code behind\n\nCollaboration with other data scientists\n\nInterested in conclusions but also the code\n\nEnvironment to work in\n\nModern day notebook\n\nNative support for multiple languages\n\n(R, python, Observable, …)\n\nYou can choose between a source and visual editor"
+  },
+  {
+    "objectID": "materials/06-reporting.html#anatomy-of-a-quarto-document",
+    "href": "materials/06-reporting.html#anatomy-of-a-quarto-document",
+    "title": "Reporting with  Quarto",
+    "section": "Anatomy of a Quarto document",
+    "text": "Anatomy of a Quarto document\nIt contains three important types of content:\n\nAn (optional) YAML header surrounded by ---.\nChunks of R code surrounded by ```.\nText mixed with simple text formatting like # heading and _italics_.\n\nRegular text\nInline code\nFigures\nTables\nCitations\nCross-references\nLaTeX Equations\n…"
+  },
+  {
+    "objectID": "materials/06-reporting.html#quarto-basics",
+    "href": "materials/06-reporting.html#quarto-basics",
+    "title": "Reporting with  Quarto",
+    "section": "Quarto basics",
+    "text": "Quarto basics"
+  },
+  {
+    "objectID": "materials/06-reporting.html#quarto-citations",
+    "href": "materials/06-reporting.html#quarto-citations",
+    "title": "Reporting with  Quarto",
+    "section": "Quarto citations",
+    "text": "Quarto citations\n\nCreate a references.bib file in your main project folder\nAdd bibliography: references.bib to the YAML header of your .qmd file\nAdd citations in bibtext format to references.bib\n\nTo see an example use citation(“tidyverse”) in RStudio\n\n(Optionally) define a citation style with csl: [path_to_file.csl]\n\ncsl files can be found here: https://github.com/citation-style-language/styles\nYou can refer directly to the online file (e.g. https://raw.githubusercontent.com/citation-style-language/styles/master/american-medical-association.csl)"
+  },
+  {
+    "objectID": "materials/06-reporting.html#quarto-extensions",
+    "href": "materials/06-reporting.html#quarto-extensions",
+    "title": "Reporting with  Quarto",
+    "section": "Quarto extensions",
+    "text": "Quarto extensions"
+  },
+  {
+    "objectID": "materials/06-reporting.html#exercises",
+    "href": "materials/06-reporting.html#exercises",
+    "title": "Reporting with  Quarto",
+    "section": "Exercises",
+    "text": "Exercises\n\nCreate a new Quarto document using File &gt; New File &gt; Quarto Document.\n\nRead the instructions.\n\nPractice running the chunks individually.\n\nThen render the document by clicking the appropriate button.\n\nVerify that you can modify the code, re-run it, and see modified output.\nAdd a hyperlink to the course website, re-run it, and see the modified output\n\nhttps://c-matos.github.io/Intro-R4Heads/\n\nChange the output type (html, pdf, docx) and render again (may need some package installation)"
+  },
+  {
+    "objectID": "materials/06-reporting.html#exercises-1",
+    "href": "materials/06-reporting.html#exercises-1",
+    "title": "Reporting with  Quarto",
+    "section": "Exercises",
+    "text": "Exercises\n\nReplicate the document “06-quarto.pdf”, using Quarto.\nCreate similar documents in docx and html formats"
   },
   {
     "objectID": "materials/04-dataviz.html#importance-of-visualizing-data",
@@ -172,7 +319,7 @@
     "href": "materials/04-dataviz.html#layer-order",
     "title": "Intro to Data  Visualization",
     "section": "Layer order",
-    "text": "Layer order\n\n\n\n\n#Plot\nggplot(gm_latest, aes(GDPpc, LE)) + \n  geom_point(aes(size = pop, color = pop)) + \n  geom_hline(yintercept = 73, \n             color = \"red\", \n             alpha = 1) #After geom_point\n\n\n\n\n\n\n#Plot\nggplot(gm_latest, aes(GDPpc, LE)) + \n  geom_hline(yintercept = 73, \n             color = \"red\", \n             alpha = 1) + #Before geom_point\n  geom_point(aes(size = pop, color = pop))"
+    "text": "Layer order\n\n\n\n\n#Plot\nggplot(gm_latest, aes(GDPpc, LE)) + \n  geom_point(aes(size = pop, color = pop)) + \n  geom_hline(yintercept = 73, \n             color = \"red\", \n             alpha = 1) #After geom_point\n\n\n\n\n\n\n\n\n\n\n#Plot\nggplot(gm_latest, aes(GDPpc, LE)) + \n  geom_hline(yintercept = 73, \n             color = \"red\", \n             alpha = 1) + #Before geom_point\n  geom_point(aes(size = pop, color = pop))"
   },
   {
     "objectID": "materials/04-dataviz.html#ggplot2-theme-elements",
@@ -368,7 +515,7 @@
     "href": "materials/02-tidyverse.html#filter-rows-with-filter-5",
     "title": "Welcome to the  tidyverse",
     "section": "Filter rows with filter()",
-    "text": "Filter rows with filter()\n\n\n\n\n\n\n\nTip\n\n\nThe %in% operator is very useful inside filter(), because it is easy to test different inputs. It allows single or multiple user selection. Using the == oeprator we would need to change the code everytime.\n\n\n\n\nExample 1Example 2\n\n\n\n\ncountries &lt;- \"Portugal\"\n\n#No need to change the chart code! Just the input fields above\ngapminder %&gt;% \n  filter(country %in% countries) %&gt;% \n  ggplot(aes(x = year,\n             y = lifeExp, \n             color = country)) +\n  geom_line()\n\n\n\n\n\n\n\n\n\n\ncountries &lt;- c(\"Portugal\",\"Spain\")\n\n#No need to change the chart code! Just the input fields above\ngapminder %&gt;% \n  filter(country %in% countries) %&gt;% \n  ggplot(aes(x = year, \n             y = lifeExp, \n             color = country)) +\n  geom_line()"
+    "text": "Filter rows with filter()\n\n\n\n\n\n\n\nTip\n\n\nThe %in% operator is very useful inside filter(), because it is easy to test different inputs. It allows single or multiple user selection. Using the == oeprator we would need to change the code everytime.\n\n\n\n\nExample 1Example 2\n\n\n\n\ncountries &lt;- \"Portugal\"\n\n#No need to change the chart code! Just the input fields above\ngapminder %&gt;% \n  filter(country %in% countries) %&gt;% \n  ggplot(aes(x = year,\n             y = lifeExp, \n             color = country)) +\n  geom_line()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncountries &lt;- c(\"Portugal\",\"Spain\")\n\n#No need to change the chart code! Just the input fields above\ngapminder %&gt;% \n  filter(country %in% countries) %&gt;% \n  ggplot(aes(x = year, \n             y = lifeExp, \n             color = country)) +\n  geom_line()"
   },
   {
     "objectID": "materials/02-tidyverse.html#filter-rows-with-filter-6",
@@ -536,7 +683,7 @@
     "href": "materials/02-tidyverse.html#calculate-variables-with-mutate",
     "title": "Welcome to the  tidyverse",
     "section": "Calculate variables with mutate()",
-    "text": "Calculate variables with mutate()\n\n\n\n\n\n \n\n\n\n\n\n\n\nmutate()\n\n\n\n\n\n\n\nmutate() is used to add new columns, calculated from existing columns\nBy default columns are added to the right hand side of the dataset.\n\n\n\n\ngapminder %&gt;% \n  mutate(pop_millions = pop / 1e6,\n         total_gdp = gdpPercap * pop) %&gt;%\n  head(5)\n\n# A tibble: 5 × 8\n  country     continent  year lifeExp      pop gdpPercap pop_millions  total_gdp\n  &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan Asia       1952    28.8  8425333      779.         8.43     6.57e9\n2 Afghanistan Asia       1957    30.3  9240934      821.         9.24     7.59e9\n3 Afghanistan Asia       1962    32.0 10267083      853.        10.3      8.76e9\n4 Afghanistan Asia       1967    34.0 11537966      836.        11.5      9.65e9\n5 Afghanistan Asia       1972    36.1 13079460      740.        13.1      9.68e9"
+    "text": "Calculate variables with mutate()\n\n\n\n\n\n \n\n\n\n\n\n\nmutate()\n\n\n\n\n\n\nmutate() is used to add new columns, calculated from existing columns\nBy default columns are added to the right hand side of the dataset.\n\n\n\n\ngapminder %&gt;% \n  mutate(pop_millions = pop / 1e6,\n         total_gdp = gdpPercap * pop) %&gt;%\n  head(5)\n\n# A tibble: 5 × 8\n  country     continent  year lifeExp      pop gdpPercap pop_millions  total_gdp\n  &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan Asia       1952    28.8  8425333      779.         8.43     6.57e9\n2 Afghanistan Asia       1957    30.3  9240934      821.         9.24     7.59e9\n3 Afghanistan Asia       1962    32.0 10267083      853.        10.3      8.76e9\n4 Afghanistan Asia       1967    34.0 11537966      836.        11.5      9.65e9\n5 Afghanistan Asia       1972    36.1 13079460      740.        13.1      9.68e9"
   },
   {
     "objectID": "materials/02-tidyverse.html#calculate-variables-with-mutate-1",
@@ -571,7 +718,7 @@
     "href": "materials/02-tidyverse.html#grouped-summaries-with-summarise",
     "title": "Welcome to the  tidyverse",
     "section": "Grouped summaries with summarise()",
-    "text": "Grouped summaries with summarise()\n\n\n\n\n\n \n\n\n\n\n\n\n\nsummarise()\n\n\n\n\n\n\n\nsummarise()1 is the most important grouped operation\nReduces the data frame to a single row, or one row for each group, if used with group_by()\n\n\n\n\n\n\n#mean gdpPercap, worldwide\ngapminder %&gt;% \n  summarise(mean_gdp = mean(gdpPercap))\n\n# A tibble: 1 × 1\n  mean_gdp\n     &lt;dbl&gt;\n1    7215.\n\n\n\n\n\n#mean gdpPercap, by continent\ngapminder %&gt;% \n  group_by(continent) %&gt;% \n  summarise(mean_gdp = mean(gdpPercap))\n\n# A tibble: 5 × 2\n  continent mean_gdp\n  &lt;fct&gt;        &lt;dbl&gt;\n1 Africa       2194.\n2 Americas     7136.\n3 Asia         7902.\n4 Europe      14469.\n5 Oceania     18622.\n\n\n\n\nor summarize"
+    "text": "Grouped summaries with summarise()\n\n\n\n\n\n \n\n\n\n\n\n\nsummarise()\n\n\n\n\n\n\nsummarise()1 is the most important grouped operation\nReduces the data frame to a single row, or one row for each group, if used with group_by()\n\n\n\n\n\n\n#mean gdpPercap, worldwide\ngapminder %&gt;% \n  summarise(mean_gdp = mean(gdpPercap))\n\n# A tibble: 1 × 1\n  mean_gdp\n     &lt;dbl&gt;\n1    7215.\n\n\n\n\n\n#mean gdpPercap, by continent\ngapminder %&gt;% \n  group_by(continent) %&gt;% \n  summarise(mean_gdp = mean(gdpPercap))\n\n# A tibble: 5 × 2\n  continent mean_gdp\n  &lt;fct&gt;        &lt;dbl&gt;\n1 Africa       2194.\n2 Americas     7136.\n3 Asia         7902.\n4 Europe      14469.\n5 Oceania     18622.\n\n\n\n\nor summarize"
   },
   {
     "objectID": "materials/02-tidyverse.html#grouped-summaries-with-summarise-1",
@@ -732,7 +879,7 @@
     "href": "materials/02-tidyverse.html#lengthening-data-with-pivot_longer-1",
     "title": "Welcome to the  tidyverse",
     "section": "Lengthening data with pivot_longer()",
-    "text": "Lengthening data with pivot_longer()\n\n\nThe pivot_longer() function takes three key arguments\n\ncols specifies the columns that need to be pivoted. Uses the same syntax as select()\nnames_to names the variable stored in the column names\nvalues_to names the variable stored in the cell values\n\n\n\n\n\n\n\n\n\n(a) Existing columns get repeated\n\n\n\n\n\n\n\n(b) Names go to a new column\n\n\n\n\n\n\n\n(c) Values are preserved, row by row\n\n\n\n\nFigure 1: How does pivoting work?"
+    "text": "Lengthening data with pivot_longer()\n\n\nThe pivot_longer() function takes three key arguments\n\ncols specifies the columns that need to be pivoted. Uses the same syntax as select()\nnames_to names the variable stored in the column names\nvalues_to names the variable stored in the cell values\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Existing columns get repeated\n\n\n\n\n\n\n\n\n\n\n\n(b) Names go to a new column\n\n\n\n\n\n\n\n\n\n\n\n(c) Values are preserved, row by row\n\n\n\n\n\n\n\nFigure 1: How does pivoting work?"
   },
   {
     "objectID": "materials/02-tidyverse.html#lengthening-data-with-pivot_longer-2",
@@ -858,14 +1005,14 @@
     "href": "materials/02-tidyverse.html#offset-values",
     "title": "Welcome to the  tidyverse",
     "section": "Offset values",
-    "text": "Offset values\n\nUseful to calculate variations with regularly intervaled data (e.g. year-over-year changes)\nThe lag(value, n) functions searches for the value in the same col, n rows above\nIf the dataset is properly arranged/sorted, this pattern can be used to calculate change in time series datasets\n\n\n#A dataset with monthly values for Portugal and World\ndf %&gt;% glimpse()\n\nRows: 96\nColumns: 4\n$ year       &lt;int&gt; 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020,…\n$ month      &lt;int&gt; 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 1…\n$ region     &lt;chr&gt; \"Portugal\", \"World\", \"Portugal\", \"World\", \"Portugal\", \"Worl…\n$ some_value &lt;dbl&gt; -0.893967315, -0.653607296, -1.002733093, 1.503094867, -0.3…"
+    "text": "Offset values\n\nUseful to calculate variations with regularly intervaled data (e.g. year-over-year changes)\nThe lag(value, n) functions searches for the value in the same col, n rows above\nIf the dataset is properly arranged/sorted, this pattern can be used to calculate change in time series datasets\n\n\n#A dataset with monthly values for Portugal and World\ndf %&gt;% glimpse()\n\nRows: 96\nColumns: 4\n$ year       &lt;int&gt; 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020,…\n$ month      &lt;int&gt; 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 1…\n$ region     &lt;chr&gt; \"Portugal\", \"World\", \"Portugal\", \"World\", \"Portugal\", \"Worl…\n$ some_value &lt;dbl&gt; 1.53070845, 1.24319833, -0.71736323, -0.61063213, 0.1250573…"
   },
   {
     "objectID": "materials/02-tidyverse.html#offset-values-1",
     "href": "materials/02-tidyverse.html#offset-values-1",
     "title": "Welcome to the  tidyverse",
     "section": "Offset values",
-    "text": "Offset values\n\nThe lag(value, n) functions searches for the value, n rows above\nThe lead(value, n) functions searches for the value, n rows below\n\n\n#Calculating Year-over-Year (YoY) changes (e.g. yoy = 12/2023 - 12/2022)\ndf %&gt;% \n  arrange(region,year,month) %&gt;% \n  group_by(region) %&gt;% \n  mutate(yoy = some_value - lag(some_value,12)) %&gt;% \n  glimpse()\n\nRows: 96\nColumns: 5\nGroups: region [2]\n$ year       &lt;int&gt; 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020,…\n$ month      &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7,…\n$ region     &lt;chr&gt; \"Portugal\", \"Portugal\", \"Portugal\", \"Portugal\", \"Portugal\",…\n$ some_value &lt;dbl&gt; -0.893967315, -1.002733093, -0.310926633, -0.018757948, -0.…\n$ yoy        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1.3871914, …"
+    "text": "Offset values\n\nThe lag(value, n) functions searches for the value, n rows above\nThe lead(value, n) functions searches for the value, n rows below\n\n\n#Calculating Year-over-Year (YoY) changes (e.g. yoy = 12/2023 - 12/2022)\ndf %&gt;% \n  arrange(region,year,month) %&gt;% \n  group_by(region) %&gt;% \n  mutate(yoy = some_value - lag(some_value,12)) %&gt;% \n  glimpse()\n\nRows: 96\nColumns: 5\nGroups: region [2]\n$ year       &lt;int&gt; 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020,…\n$ month      &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7,…\n$ region     &lt;chr&gt; \"Portugal\", \"Portugal\", \"Portugal\", \"Portugal\", \"Portugal\",…\n$ some_value &lt;dbl&gt; 1.53070845, -0.71736323, 0.12505738, -0.49000543, 0.0203951…\n$ yoy        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, -0.7213474,…"
   },
   {
     "objectID": "materials/02-tidyverse.html#str_-family-of-functions-with-stringr",
@@ -928,14 +1075,14 @@
     "href": "materials/02-tidyverse.html#creating-factors",
     "title": "Welcome to the  tidyverse",
     "section": "Creating factors",
-    "text": "Creating factors\n\nA character vector\n\n\nsome_char_vec\n\n  [1] \"Placebo\"   \"Placebo\"   \"Treatment\" \"Placebo\"   \"Treatment\" \"Placebo\"  \n  [7] \"Placebo\"   \"Treatment\" \"Treatment\" \"Placebo\"   \"Placebo\"   \"Treatment\"\n [13] \"Treatment\" \"Treatment\" \"Treatment\" \"Treatment\" \"Treatment\" \"Treatment\"\n [19] \"Placebo\"   \"Placebo\"   \"Placebo\"   \"Treatment\" \"Treatment\" \"Treatment\"\n [25] \"Treatment\" \"Treatment\" \"Placebo\"   \"Treatment\" \"Placebo\"   \"Treatment\"\n [31] \"Placebo\"   \"Treatment\" \"Treatment\" \"Placebo\"   \"Placebo\"   \"Treatment\"\n [37] \"Treatment\" \"Placebo\"   \"Treatment\" \"Placebo\"   \"Placebo\"   \"Placebo\"  \n [43] \"Treatment\" \"Placebo\"   \"Placebo\"   \"Treatment\" \"Treatment\" \"Placebo\"  \n [49] \"Treatment\" \"Placebo\"   \"Placebo\"   \"Placebo\"   \"Treatment\" \"Placebo\"  \n [55] \"Placebo\"   \"Placebo\"   \"Placebo\"   \"Treatment\" \"Placebo\"   \"Treatment\"\n [61] \"Placebo\"   \"Placebo\"   \"Treatment\" \"Treatment\" \"Treatment\" \"Treatment\"\n [67] \"Placebo\"   \"Placebo\"   \"Treatment\" \"Placebo\"   \"Treatment\" \"Treatment\"\n [73] \"Treatment\" \"Placebo\"   \"Placebo\"   \"Treatment\" \"Placebo\"   \"Treatment\"\n [79] \"Placebo\"   \"Placebo\"   \"Placebo\"   \"Treatment\" \"Treatment\" \"Treatment\"\n [85] \"Treatment\" \"Treatment\" \"Placebo\"   \"Placebo\"   \"Placebo\"   \"Placebo\"  \n [91] \"Treatment\" \"Treatment\" \"Treatment\" \"Treatment\" \"Placebo\"   \"Placebo\"  \n [97] \"Placebo\"   \"Placebo\"   \"Treatment\" \"Treatment\""
+    "text": "Creating factors\n\nA character vector\n\n\nsome_char_vec\n\n  [1] \"Treatment\" \"Placebo\"   \"Placebo\"   \"Treatment\" \"Placebo\"   \"Placebo\"  \n  [7] \"Placebo\"   \"Placebo\"   \"Placebo\"   \"Treatment\" \"Treatment\" \"Treatment\"\n [13] \"Treatment\" \"Treatment\" \"Treatment\" \"Treatment\" \"Placebo\"   \"Treatment\"\n [19] \"Placebo\"   \"Placebo\"   \"Treatment\" \"Placebo\"   \"Treatment\" \"Placebo\"  \n [25] \"Treatment\" \"Placebo\"   \"Treatment\" \"Placebo\"   \"Treatment\" \"Placebo\"  \n [31] \"Placebo\"   \"Placebo\"   \"Placebo\"   \"Treatment\" \"Placebo\"   \"Treatment\"\n [37] \"Treatment\" \"Placebo\"   \"Placebo\"   \"Treatment\" \"Treatment\" \"Placebo\"  \n [43] \"Placebo\"   \"Placebo\"   \"Placebo\"   \"Treatment\" \"Placebo\"   \"Placebo\"  \n [49] \"Treatment\" \"Placebo\"   \"Treatment\" \"Treatment\" \"Placebo\"   \"Placebo\"  \n [55] \"Placebo\"   \"Treatment\" \"Treatment\" \"Treatment\" \"Placebo\"   \"Placebo\"  \n [61] \"Placebo\"   \"Treatment\" \"Treatment\" \"Placebo\"   \"Treatment\" \"Treatment\"\n [67] \"Treatment\" \"Placebo\"   \"Treatment\" \"Placebo\"   \"Treatment\" \"Treatment\"\n [73] \"Placebo\"   \"Treatment\" \"Treatment\" \"Treatment\" \"Treatment\" \"Treatment\"\n [79] \"Placebo\"   \"Treatment\" \"Treatment\" \"Placebo\"   \"Treatment\" \"Treatment\"\n [85] \"Treatment\" \"Placebo\"   \"Placebo\"   \"Placebo\"   \"Placebo\"   \"Placebo\"  \n [91] \"Treatment\" \"Treatment\" \"Treatment\" \"Placebo\"   \"Treatment\" \"Placebo\"  \n [97] \"Treatment\" \"Placebo\"   \"Treatment\" \"Placebo\""
   },
   {
     "objectID": "materials/02-tidyverse.html#creating-factors-1",
     "href": "materials/02-tidyverse.html#creating-factors-1",
     "title": "Welcome to the  tidyverse",
     "section": "Creating factors",
-    "text": "Creating factors\n\nAt the bottom now we see Levels\nThis means that there are two possible unique values, with those labels: Placebo and Treatment\nBut R is storing them as numbers\n\n\n\n#A vector with 100 cases of either treatment or placebo\nsome_factor_vec &lt;- factor(some_char_vec)\nsome_factor_vec\n\n  [1] Placebo   Placebo   Treatment Placebo   Treatment Placebo   Placebo  \n  [8] Treatment Treatment Placebo   Placebo   Treatment Treatment Treatment\n [15] Treatment Treatment Treatment Treatment Placebo   Placebo   Placebo  \n [22] Treatment Treatment Treatment Treatment Treatment Placebo   Treatment\n [29] Placebo   Treatment Placebo   Treatment Treatment Placebo   Placebo  \n [36] Treatment Treatment Placebo   Treatment Placebo   Placebo   Placebo  \n [43] Treatment Placebo   Placebo   Treatment Treatment Placebo   Treatment\n [50] Placebo   Placebo   Placebo   Treatment Placebo   Placebo   Placebo  \n [57] Placebo   Treatment Placebo   Treatment Placebo   Placebo   Treatment\n [64] Treatment Treatment Treatment Placebo   Placebo   Treatment Placebo  \n [71] Treatment Treatment Treatment Placebo   Placebo   Treatment Placebo  \n [78] Treatment Placebo   Placebo   Placebo   Treatment Treatment Treatment\n [85] Treatment Treatment Placebo   Placebo   Placebo   Placebo   Treatment\n [92] Treatment Treatment Treatment Placebo   Placebo   Placebo   Placebo  \n [99] Treatment Treatment\nLevels: Placebo Treatment"
+    "text": "Creating factors\n\nAt the bottom now we see Levels\nThis means that there are two possible unique values, with those labels: Placebo and Treatment\nBut R is storing them as numbers\n\n\n\n#A vector with 100 cases of either treatment or placebo\nsome_factor_vec &lt;- factor(some_char_vec)\nsome_factor_vec\n\n  [1] Treatment Placebo   Placebo   Treatment Placebo   Placebo   Placebo  \n  [8] Placebo   Placebo   Treatment Treatment Treatment Treatment Treatment\n [15] Treatment Treatment Placebo   Treatment Placebo   Placebo   Treatment\n [22] Placebo   Treatment Placebo   Treatment Placebo   Treatment Placebo  \n [29] Treatment Placebo   Placebo   Placebo   Placebo   Treatment Placebo  \n [36] Treatment Treatment Placebo   Placebo   Treatment Treatment Placebo  \n [43] Placebo   Placebo   Placebo   Treatment Placebo   Placebo   Treatment\n [50] Placebo   Treatment Treatment Placebo   Placebo   Placebo   Treatment\n [57] Treatment Treatment Placebo   Placebo   Placebo   Treatment Treatment\n [64] Placebo   Treatment Treatment Treatment Placebo   Treatment Placebo  \n [71] Treatment Treatment Placebo   Treatment Treatment Treatment Treatment\n [78] Treatment Placebo   Treatment Treatment Placebo   Treatment Treatment\n [85] Treatment Placebo   Placebo   Placebo   Placebo   Placebo   Treatment\n [92] Treatment Treatment Placebo   Treatment Placebo   Treatment Placebo  \n [99] Treatment Placebo  \nLevels: Placebo Treatment"
   },
   {
     "objectID": "materials/02-tidyverse.html#modifying-factors",
@@ -1019,7 +1166,7 @@
     "href": "materials/01-intro.html#checkpoint",
     "title": "Introduction to R for  Health Data Science ",
     "section": "Checkpoint",
-    "text": "Checkpoint\n\n\nOpen RStudio!\n\nCheck R version\n\n\n#Check R version\nsessionInfo()\n\n\nR version 4.3.1 (2023-06-16 ucrt)\nPlatform: x86_64-w64-mingw32/x64 (64-bit)\nRunning under: Windows 10 x64 (build 19045)\n\nMatrix products: default\n\n\nlocale:\n[1] LC_COLLATE=English_United States.utf8 \n[2] LC_CTYPE=English_United States.utf8   \n[3] LC_MONETARY=English_United States.utf8\n[4] LC_NUMERIC=C                          \n[5] LC_TIME=English_United States.utf8    \n\ntime zone: Europe/Lisbon\ntzcode source: internal\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n [1] lubridate_1.9.2 forcats_1.0.0   stringr_1.5.0   dplyr_1.1.3    \n [5] purrr_1.0.2     readr_2.1.4     tidyr_1.3.0     tibble_3.2.1   \n [9] ggplot2_3.4.4   tidyverse_2.0.0\n\nloaded via a namespace (and not attached):\n [1] gtable_0.3.4      jsonlite_1.8.7    compiler_4.3.1    tidyselect_1.2.0 \n [5] systemfonts_1.0.4 scales_1.2.1      textshaping_0.3.6 yaml_2.3.7       \n [9] fastmap_1.1.1     R6_2.5.1          generics_0.1.3    knitr_1.45       \n[13] munsell_0.5.0     pillar_1.9.0      tzdb_0.4.0        rlang_1.1.1      \n[17] utf8_1.2.3        stringi_1.7.12    xfun_0.39         timechange_0.2.0 \n[21] cli_3.6.1         withr_2.5.2       magrittr_2.0.3    digest_0.6.33    \n[25] grid_4.3.1        rstudioapi_0.15.0 hms_1.1.3         lifecycle_1.0.4  \n[29] vctrs_0.6.3       evaluate_0.23     glue_1.6.2        ragg_1.2.5       \n[33] fansi_1.0.4       colorspace_2.1-0  rmarkdown_2.25    tools_4.3.1      \n[37] pkgconfig_2.0.3   htmltools_0.5.5"
+    "text": "Checkpoint\n\n\nOpen RStudio!\n\nCheck R version\n\n\n#Check R version\nsessionInfo()\n\n\nR version 4.3.2 (2023-10-31 ucrt)\nPlatform: x86_64-w64-mingw32/x64 (64-bit)\nRunning under: Windows 10 x64 (build 19045)\n\nMatrix products: default\n\n\nlocale:\n[1] LC_COLLATE=English_United States.utf8 \n[2] LC_CTYPE=English_United States.utf8   \n[3] LC_MONETARY=English_United States.utf8\n[4] LC_NUMERIC=C                          \n[5] LC_TIME=English_United States.utf8    \n\ntime zone: Europe/Lisbon\ntzcode source: internal\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n [1] lubridate_1.9.3 forcats_1.0.0   stringr_1.5.1   dplyr_1.1.4    \n [5] purrr_1.0.2     readr_2.1.4     tidyr_1.3.0     tibble_3.2.1   \n [9] ggplot2_3.4.4   tidyverse_2.0.0\n\nloaded via a namespace (and not attached):\n [1] gtable_0.3.4      jsonlite_1.8.7    compiler_4.3.2    tidyselect_1.2.0 \n [5] systemfonts_1.0.5 scales_1.2.1      textshaping_0.3.7 yaml_2.3.7       \n [9] fastmap_1.1.1     R6_2.5.1          generics_0.1.3    knitr_1.45       \n[13] munsell_0.5.0     pillar_1.9.0      tzdb_0.4.0        rlang_1.1.1      \n[17] utf8_1.2.4        stringi_1.8.1     xfun_0.41         timechange_0.2.0 \n[21] cli_3.6.1         withr_2.5.2       magrittr_2.0.3    digest_0.6.33    \n[25] grid_4.3.2        rstudioapi_0.15.0 hms_1.1.3         lifecycle_1.0.4  \n[29] vctrs_0.6.4       evaluate_0.23     glue_1.6.2        ragg_1.2.6       \n[33] fansi_1.0.5       colorspace_2.1-0  rmarkdown_2.25    tools_4.3.2      \n[37] pkgconfig_2.0.3   htmltools_0.5.7"
   },
   {
     "objectID": "materials/01-intro.html#packages",
@@ -1467,7 +1614,7 @@
     "href": "materials/03-eda.html#univariate-non-graphical-1",
     "title": "Exploratory Data Analysis  (EDA)",
     "section": "Univariate non-graphical",
-    "text": "Univariate non-graphical\n\nCategorical data\n\n\nTabulation (counts, proportions)\n\n\n\n#Base R\ntable(polyps$sex)\n\n\n\nfemale   male \n     9     13 \n\n\n\n\n\nprop.table(table(polyps$sex))\n\n\n\n   female      male \n0.4090909 0.5909091 \n\n\n\n\n\n#crosstable\nlibrary(crosstable)\n\ncrosstable(data = polyps,\n           cols = sex) %&gt;% \n  as_flextable()\n\n\n\nUnivariate, categoricallabelvariablevaluesexfemale9 (40.91%)male13 (59.09%)"
+    "text": "Univariate non-graphical\n\nCategorical data\n\n\nTabulation (counts, proportions)\n\n\n\n#Base R\ntable(polyps$sex)\n\n\n\nfemale   male \n     9     13 \n\n\n\n\n\nprop.table(table(polyps$sex))\n\n\n\n   female      male \n0.4090909 0.5909091 \n\n\n\n\n\n#crosstable\nlibrary(crosstable)\n\ncrosstable(data = polyps,\n           cols = sex) %&gt;% \n  as_flextable()\n\n\nUnivariate, categoricallabelvariablevaluesexfemale9 (40.91%)male13 (59.09%)"
   },
   {
     "objectID": "materials/03-eda.html#univariate-non-graphical-2",
@@ -1502,21 +1649,21 @@
     "href": "materials/03-eda.html#univariate-graphical-2",
     "title": "Exploratory Data Analysis  (EDA)",
     "section": "Univariate graphical",
-    "text": "Univariate graphical\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n:::"
+    "text": "Univariate graphical\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n:::"
   },
   {
     "objectID": "materials/03-eda.html#multivariate-non-graphical-1",
     "href": "materials/03-eda.html#multivariate-non-graphical-1",
     "title": "Exploratory Data Analysis  (EDA)",
     "section": "Multivariate non-graphical",
-    "text": "Multivariate non-graphical\n\nQualitative data\n\n\nCross-tabulation\n\n\n\n#Base R\ntable(sex = polyps$sex, \n      treatment = polyps$treatment, \n      useNA = \"ifany\")\n\n\n        treatment\nsex      placebo sulindac\n  female       4        5\n  male         7        6\n\n\n\n\n\n#crosstable package\ncrosstable(data = polyps,\n           cols = c(treatment, age),\n           by = sex,\n           total = \"column\", \n           percent_digits=1) %&gt;% \n  as_flextable()\n\n\n\nExample crosstablelabelvariablesexfemalemaletreatmentplacebo4 (36.4%)7 (63.6%)sulindac5 (45.5%)6 (54.5%)Total9 (40.9%)13 (59.1%)ageMin / Max13.0 / 23.013.0 / 50.0Med [IQR]22.0 [18.0;23.0]23.0 [19.0;34.0]Mean (std)20.1 (3.5)26.8 (10.8)N (NA)9 (0)13 (0)"
+    "text": "Multivariate non-graphical\n\nQualitative data\n\n\nCross-tabulation\n\n\n\n#Base R\ntable(sex = polyps$sex, \n      treatment = polyps$treatment, \n      useNA = \"ifany\")\n\n\n        treatment\nsex      placebo sulindac\n  female       4        5\n  male         7        6\n\n\n\n\n\n#crosstable package\ncrosstable(data = polyps,\n           cols = c(treatment, age),\n           by = sex,\n           total = \"column\", \n           percent_digits=1) %&gt;% \n  as_flextable()\n\n\nExample crosstablelabelvariablesexfemalemaletreatmentplacebo4 (36.4%)7 (63.6%)sulindac5 (45.5%)6 (54.5%)Total9 (40.9%)13 (59.1%)ageMin / Max13.0 / 23.013.0 / 50.0Med [IQR]22.0 [18.0;23.0]23.0 [19.0;34.0]Mean (std)20.1 (3.5)26.8 (10.8)N (NA)9 (0)13 (0)"
   },
   {
     "objectID": "materials/03-eda.html#multivariate-non-graphical-2",
     "href": "materials/03-eda.html#multivariate-non-graphical-2",
     "title": "Exploratory Data Analysis  (EDA)",
     "section": "Multivariate non-graphical",
-    "text": "Multivariate non-graphical\n\nQuantitative data\n\n\nCorrelation, covariance\n\n\n\n#Base R\nwith(gapminder,\n     cor(x = lifeExp[year == max(year)],\n         y = gdpPercap[year == max(year)], \n    method = \"spearman\"))\n\n\n[1] 0.8565899\n\n\n\n\n\n#crosstable package\ngapminder %&gt;% \n  filter(year == max(year)) %&gt;% \n  crosstable(cols = c(lifeExp, pop),\n             by = gdpPercap,\n             cor_method = \"spearman\",\n             percent_digits=2) %&gt;%\n  as_flextable()\n\n\n\nMultivariate, 2 numerical variableslabelvariablegdpPercapgdpPercaplifeExpspearman0.86popspearman-0.06"
+    "text": "Multivariate non-graphical\n\nQuantitative data\n\n\nCorrelation, covariance\n\n\n\n#Base R\nwith(gapminder,\n     cor(x = lifeExp[year == max(year)],\n         y = gdpPercap[year == max(year)], \n    method = \"spearman\"))\n\n\n[1] 0.8565899\n\n\n\n\n\n#crosstable package\ngapminder %&gt;% \n  filter(year == max(year)) %&gt;% \n  crosstable(cols = c(lifeExp, pop),\n             by = gdpPercap,\n             cor_method = \"spearman\",\n             percent_digits=2) %&gt;%\n  as_flextable()\n\n\nMultivariate, 2 numerical variableslabelvariablegdpPercapgdpPercaplifeExpspearman0.86popspearman-0.06"
   },
   {
     "objectID": "materials/03-eda.html#multivariate-graphical-1",
@@ -1547,6 +1694,496 @@
     "text": "Multivariate Graphical"
   },
   {
+    "objectID": "materials/05-stats.html#very-brief-overview-of-hypothesis-testing",
+    "href": "materials/05-stats.html#very-brief-overview-of-hypothesis-testing",
+    "title": "Statistics  with R",
+    "section": "Very brief overview of hypothesis testing",
+    "text": "Very brief overview of hypothesis testing\n\n\nDefine the null hypothesis (H0)\nSet the significance level (alpha) - usually 0.05\nGet the test statistic with your sample data and the p-value\n\np-value\n\nprobability of obtaining the result we obtained or even more extreme, assuming H0 is true.\n\n\nInterpret the p-value\n\nif p &lt; alpha, reject H0\nif p &gt;= alpha, not enough evidence to reject H0"
+  },
+  {
+    "objectID": "materials/05-stats.html#statistical-tests",
+    "href": "materials/05-stats.html#statistical-tests",
+    "title": "Statistics  with R",
+    "section": "Statistical tests",
+    "text": "Statistical tests"
+  },
+  {
+    "objectID": "materials/05-stats.html#chi-square-test",
+    "href": "materials/05-stats.html#chi-square-test",
+    "title": "Statistics  with R",
+    "section": "Chi-square test",
+    "text": "Chi-square test\n\nlibrary(medicaldata)  #Sample datasets\n\nchisq.test(covid_testing$result, covid_testing$gender)\n\n\n    Pearson's Chi-squared test\n\ndata:  covid_testing$result and covid_testing$gender\nX-squared = 1.2028, df = 2, p-value = 0.5481"
+  },
+  {
+    "objectID": "materials/05-stats.html#chi-square-test-1",
+    "href": "materials/05-stats.html#chi-square-test-1",
+    "title": "Statistics  with R",
+    "section": "Chi-square test",
+    "text": "Chi-square test\n\nlibrary(ggstatsplot) #Automatically display common statistical tests in plots\n\nggbarstats(data = covid_testing, x = result, y = gender)"
+  },
+  {
+    "objectID": "materials/05-stats.html#statistical-tests-1",
+    "href": "materials/05-stats.html#statistical-tests-1",
+    "title": "Statistics  with R",
+    "section": "Statistical tests",
+    "text": "Statistical tests"
+  },
+  {
+    "objectID": "materials/05-stats.html#one-sample-t-test",
+    "href": "materials/05-stats.html#one-sample-t-test",
+    "title": "Statistics  with R",
+    "section": "One sample t-test",
+    "text": "One sample t-test\n\nNumeric outcome variable (in R data type terms)\nComparing one mean with a target value\n\nlibrary(tidyverse)\nlibrary(rio)\n\n#develop datest\n#Dataset with a development index at 5yo (general1) and 8yo (general2)\n#Includes socioeconomic class variable, with value 1 = high, 2 = mewdium and 3 = low\n\n#Import from github and create a factor\ndevelop &lt;- rio::import(\"https://github.com/c-matos/Intro-R4Heads/raw/main/materials/data/develop.rds\") %&gt;% \n  mutate(soclass = factor(soclass, \n                          labels = c(\"high\",\"medium\",\"low\"), #The labels that we see\n                          levels = c(1,2,3), #the values that are coded\n                          ordered = T)) # TRUE if the values have an inherent order e.g. high &gt; medium &gt; low"
+  },
+  {
+    "objectID": "materials/05-stats.html#one-sample-t-test-1",
+    "href": "materials/05-stats.html#one-sample-t-test-1",
+    "title": "Statistics  with R",
+    "section": "One sample t-test",
+    "text": "One sample t-test\n\nNumeric outcome variable (in R data type terms)\nComparing one mean with a target value\n\n\nt.test(x = develop$general1, mu = 120)\n\n\n    One Sample t-test\n\ndata:  develop$general1\nt = -2.3548, df = 38, p-value = 0.0238\nalternative hypothesis: true mean is not equal to 120\n95 percent confidence interval:\n 114.7070 119.6007\nsample estimates:\nmean of x \n 117.1538"
+  },
+  {
+    "objectID": "materials/05-stats.html#paired-sample-t-test",
+    "href": "materials/05-stats.html#paired-sample-t-test",
+    "title": "Statistics  with R",
+    "section": "Paired Sample t-test",
+    "text": "Paired Sample t-test\n\nNumeric outcome variable (in R data type terms)\nComparing two paired means\n\n\n#Paired samples t-test\nt.test(x = develop$general1, y = develop$general2,\n       paired = TRUE)\n\n\n    Paired t-test\n\ndata:  develop$general1 and develop$general2\nt = 4.0779, df = 38, p-value = 0.0002239\nalternative hypothesis: true mean difference is not equal to 0\n95 percent confidence interval:\n 2.233808 6.637987\nsample estimates:\nmean difference \n       4.435897"
+  },
+  {
+    "objectID": "materials/05-stats.html#independent-samples-t-test",
+    "href": "materials/05-stats.html#independent-samples-t-test",
+    "title": "Statistics  with R",
+    "section": "Independent Samples t-test",
+    "text": "Independent Samples t-test\n\nNumeric outcome variable (in R data type terms)\nComparing two independent means\n\n\n#Using the polyps data from the {medicaldata} package\nlibrary(medicaldata)\n\nt.test(number12m ~ treatment, data = polyps)\n\n\n    Welch Two Sample t-test\n\ndata:  number12m by treatment\nt = 3.6114, df = 16.901, p-value = 0.002172\nalternative hypothesis: true difference in means between group placebo and group sulindac is not equal to 0\n95 percent confidence interval:\n 10.69898 40.79597\nsample estimates:\n mean in group placebo mean in group sulindac \n             35.636364               9.888889 \n\n\n\nAre variances equal?"
+  },
+  {
+    "objectID": "materials/05-stats.html#levene-test-for-homogeneity-of-variances",
+    "href": "materials/05-stats.html#levene-test-for-homogeneity-of-variances",
+    "title": "Statistics  with R",
+    "section": "Levene test for homogeneity of variances",
+    "text": "Levene test for homogeneity of variances\n\nlibrary(car)\n\ncar::leveneTest(y = number12m ~ treatment, data = polyps)\n\nLevene's Test for Homogeneity of Variance (center = median)\n      Df F value Pr(&gt;F)\ngroup  1  2.5663 0.1266\n      18               \n\nt.test(number12m ~ treatment, data = polyps, var.equal = T)\n\n\n    Two Sample t-test\n\ndata:  number12m by treatment\nt = 3.4449, df = 18, p-value = 0.00289\nalternative hypothesis: true difference in means between group placebo and group sulindac is not equal to 0\n95 percent confidence interval:\n 10.04479 41.45016\nsample estimates:\n mean in group placebo mean in group sulindac \n             35.636364               9.888889"
+  },
+  {
+    "objectID": "materials/05-stats.html#t-test-levene-test",
+    "href": "materials/05-stats.html#t-test-levene-test",
+    "title": "Statistics  with R",
+    "section": "T-test + Levene test",
+    "text": "T-test + Levene test\n\n\nSummary\n\n#One sample t.test\nt.test(x = a_vector, mu = some_value) \n\n#Paired samples t.test\nt.test(x = a_vector, y = other_vector, paired = TRUE)\n\n#Independent samples t.test\nt.test(num_vec ~ 2_levels_cat_vec, data = some_df, var.equal = T or F) \n\n#Levene Test for homogeneity of variances\ncar::leveneTest(y = num_vec ~ 2_levels_cat_vec, data = some_df)"
+  },
+  {
+    "objectID": "materials/05-stats.html#one-way-anova",
+    "href": "materials/05-stats.html#one-way-anova",
+    "title": "Statistics  with R",
+    "section": "One-Way ANOVA",
+    "text": "One-Way ANOVA\n\nNumeric outcome variable (in R data type terms)\nComparing more than two means\n\n\nleveneTest(general1 ~ soclass, data = develop)\noneway.test(general1 ~ soclass, data = develop)\n\nLevene's Test for Homogeneity of Variance (center = median)\n      Df F value Pr(&gt;F)\ngroup  2  0.3116 0.7342\n      36               \n\n    One-way analysis of means (not assuming equal variances)\n\ndata:  general1 and soclass\nF = 5.9897, num df = 2.000, denom df = 19.942, p-value = 0.009179\n\n\n\n\n\n\n\n\nNote\n\n\nRemember that a p &lt; alpha for the levene test and for the one-way ANOVA means at least one difference between groups. If that is the case, then pairwise comparisons need to be performed to identify which groups differ"
+  },
+  {
+    "objectID": "materials/05-stats.html#one-way-anova-1",
+    "href": "materials/05-stats.html#one-way-anova-1",
+    "title": "Statistics  with R",
+    "section": "One-Way ANOVA",
+    "text": "One-Way ANOVA\n\nPairwise comparissons\n\n\npairwise.t.test(x = develop$general1,\n                g = develop$soclass,\n                p.adjust.method = \"bonferroni\")\n\n\n    Pairwise comparisons using t tests with pooled SD \n\ndata:  develop$general1 and develop$soclass \n\n       high   medium\nmedium 0.0250 -     \nlow    0.0018 0.8172\n\nP value adjustment method: bonferroni \n\n\n\nHigh - low and high - medium are significantly different"
+  },
+  {
+    "objectID": "materials/05-stats.html#one-way-anova-2",
+    "href": "materials/05-stats.html#one-way-anova-2",
+    "title": "Statistics  with R",
+    "section": "One-Way ANOVA",
+    "text": "One-Way ANOVA\n\nVisualizing with ggstatsplot\n\n\nlibrary(ggstatsplot)\n\ndevelop %&gt;% \n  ggbetweenstats(x = soclass, \n                 y = general1, \n                 p.adjust.method = \"bonferroni\",\n                 pairwise.display = \"all\")"
+  },
+  {
+    "objectID": "materials/05-stats.html#one-way-anova-2-output",
+    "href": "materials/05-stats.html#one-way-anova-2-output",
+    "title": "Statistics  with R",
+    "section": "One-Way ANOVA",
+    "text": "One-Way ANOVA"
+  },
+  {
+    "objectID": "materials/05-stats.html#one-way-anova-3",
+    "href": "materials/05-stats.html#one-way-anova-3",
+    "title": "Statistics  with R",
+    "section": "One-Way ANOVA",
+    "text": "One-Way ANOVA\n\nExtracting the statistics\n\n\n\nlibrary(ggstatsplot)\n\ndevelop %&gt;% \n  ggbetweenstats(x = soclass, \n                 y = general1, \n                 p.adjust.method = \"bonferroni\",\n                 pairwise.display = \"all\") %&gt;% \n  extract_stats() %&gt;% glimpse\n\n\nList of 7\n $ subtitle_data            : sttsExpr [1 × 14] (S3: statsExpressions/tbl_df/tbl/data.frame)\n  ..$ statistic        : num 5.99\n  ..$ df               : num 2\n  ..$ df.error         : num 19.9\n  ..$ p.value          : num 0.00918\n  ..$ method           : chr \"One-way analysis of means (not assuming equal variances)\"\n  ..$ effectsize       : chr \"Omega2\"\n  .. ..- attr(*, \"na.action\")= 'omit' int [1:3] 2 3 4\n  ..$ estimate         : num 0.303\n  ..$ conf.level       : num 0.95\n  ..$ conf.low         : num 0.0249\n  ..$ conf.high        : num 1\n  ..$ conf.method      : chr \"ncp\"\n  ..$ conf.distribution: chr \"F\"\n  ..$ n.obs            : int 39\n  ..$ expression       :List of 1\n $ caption_data             : sttsExpr [6 × 17] (S3: statsExpressions/tbl_df/tbl/data.frame)\n  ..$ term              : chr [1:6] \"mu\" \"soclass-high\" \"soclass-medium\" \"soclass-low\" ...\n  ..$ pd                : num [1:6] 1 0.998 0.823 0.995 1 ...\n  ..$ prior.distribution: chr [1:6] \"cauchy\" \"cauchy\" \"cauchy\" \"cauchy\" ...\n  ..$ prior.location    : num [1:6] 0 0 0 0 0 0\n  ..$ prior.scale       : num [1:6] 0.707 0.707 0.707 0.707 0.707 0.707\n  ..$ bf10              : num [1:6] 15.4 15.4 15.4 15.4 15.4 ...\n  ..$ method            : chr [1:6] \"Bayes factors for linear models\" \"Bayes factors for linear models\" \"Bayes factors for linear models\" \"Bayes factors for linear models\" ...\n  ..$ log_e_bf10        : num [1:6] 2.73 2.73 2.73 2.73 2.73 ...\n  ..$ effectsize        : chr [1:6] \"Bayesian R-squared\" \"Bayesian R-squared\" \"Bayesian R-squared\" \"Bayesian R-squared\" ...\n  ..$ estimate          : num [1:6] 0.222 0.222 0.222 0.222 0.222 ...\n  ..$ std.dev           : num [1:6] 0.12 0.12 0.12 0.12 0.12 ...\n  ..$ conf.level        : num [1:6] 0.95 0.95 0.95 0.95 0.95 0.95\n  ..$ conf.low          : num [1:6] 0 0 0 0 0 0\n  ..$ conf.high         : num [1:6] 0.39 0.39 0.39 0.39 0.39 ...\n  ..$ conf.method       : chr [1:6] \"HDI\" \"HDI\" \"HDI\" \"HDI\" ...\n  ..$ n.obs             : int [1:6] 39 39 39 39 39 39\n  ..$ expression        :List of 6\n $ pairwise_comparisons_data: sttsExpr [3 × 9] (S3: statsExpressions/tbl_df/tbl/data.frame)\n  ..$ group1         : chr [1:3] \"high\" \"high\" \"medium\"\n  ..$ group2         : chr [1:3] \"low\" \"medium\" \"low\"\n  ..$ statistic      : num [1:3] -4.92 -3.87 -1.62\n  ..$ p.value        : num [1:3] 0.0237 0.1187 1\n  ..$ alternative    : chr [1:3] \"two.sided\" \"two.sided\" \"two.sided\"\n  ..$ distribution   : chr [1:3] \"q\" \"q\" \"q\"\n  ..$ p.adjust.method: chr [1:3] \"Bonferroni\" \"Bonferroni\" \"Bonferroni\"\n  ..$ test           : chr [1:3] \"Games-Howell\" \"Games-Howell\" \"Games-Howell\"\n  ..$ expression     :List of 3\n $ descriptive_data         : NULL\n $ one_sample_data          : NULL\n $ tidy_data                : NULL\n $ glance_data              : NULL"
+  },
+  {
+    "objectID": "materials/05-stats.html#wilcoxon-signed-rank-test",
+    "href": "materials/05-stats.html#wilcoxon-signed-rank-test",
+    "title": "Statistics  with R",
+    "section": "Wilcoxon signed-rank test",
+    "text": "Wilcoxon signed-rank test\n\nUsed in similar situations to the one sample t-test, but tests the median\n\n\ndevelop &lt;- develop %&gt;% \n  mutate(general_dif = general2 - general1)\n\nwilcox.test(develop$general_dif, exact = F,\n            correct = F) #Do not use continuity correction\n\n\n    Wilcoxon signed rank test\n\ndata:  develop$general_dif\nV = 142, p-value = 0.0005297\nalternative hypothesis: true location is not equal to 0"
+  },
+  {
+    "objectID": "materials/05-stats.html#mann-whitney-u-test",
+    "href": "materials/05-stats.html#mann-whitney-u-test",
+    "title": "Statistics  with R",
+    "section": "Mann-Whitney U test",
+    "text": "Mann-Whitney U test\n\nUsed to compare two sample means (similar to Independent samples t-test)\nIt’s the same function as the wilcoxon test\n\n\nwilcox.test(number12m ~ treatment, data = polyps,\n            exact = F, correct = F)\n\n\n    Wilcoxon rank sum test\n\ndata:  number12m by treatment\nW = 88, p-value = 0.003408\nalternative hypothesis: true location shift is not equal to 0"
+  },
+  {
+    "objectID": "materials/05-stats.html#kruskal-wallis-test",
+    "href": "materials/05-stats.html#kruskal-wallis-test",
+    "title": "Statistics  with R",
+    "section": "Kruskal-Wallis test",
+    "text": "Kruskal-Wallis test\n\nNumerical outcome variable, comparing more than two means\n\n\nkruskal.test(general1 ~ soclass, data = develop)\n\n\n    Kruskal-Wallis rank sum test\n\ndata:  general1 by soclass\nKruskal-Wallis chi-squared = 9.8587, df = 2, p-value = 0.007231"
+  },
+  {
+    "objectID": "materials/05-stats.html#statistical-models",
+    "href": "materials/05-stats.html#statistical-models",
+    "title": "Statistics  with R",
+    "section": "Statistical models",
+    "text": "Statistical models\n\nUsed to describe the relation of one outcome with multiple predictors\nThe choice of model will depend on several factors\n\nResearch question\nDesign type\nType of outcome\nDistributional assumptions"
+  },
+  {
+    "objectID": "materials/05-stats.html#statistical-models-1",
+    "href": "materials/05-stats.html#statistical-models-1",
+    "title": "Statistics  with R",
+    "section": "Statistical models",
+    "text": "Statistical models\n\nWhy do we care about modelling?\n\nDescribe strength of the association between outcome and factors of interest\nAdjust for confounders, therefore reducing noise\nIdentify health determinants and have insights about causality\nPredict outcomes for diagnostic and prognostic purposes\n\n\nExamples include linear regression, logistic regression, Poisson regresison, Cox regression"
+  },
+  {
+    "objectID": "materials/05-stats.html#linear-regression",
+    "href": "materials/05-stats.html#linear-regression",
+    "title": "Statistics  with R",
+    "section": "Linear regression",
+    "text": "Linear regression\n\n\nGeneral syntax of a statistical model in R\n\nA formula argument, to specify the column names of the variables used in the model\nA data argument, to specify the dataset\n\nThe tilde ~ is used to create formulas\n\nThe outcome goes to the left\nThe predictors go to the right\n\n\nlm(formula = outcome ~ predictor1 + ... + predictor_X,\n   data = my_dataset)"
+  },
+  {
+    "objectID": "materials/05-stats.html#linear-regression-1",
+    "href": "materials/05-stats.html#linear-regression-1",
+    "title": "Statistics  with R",
+    "section": "Linear regression",
+    "text": "Linear regression\n\n\nExploring the blood_pressure dataset\n\n\nbp_dataset &lt;- rio::import(\"data/blood_pressure.sav\") %&gt;% \n  as_tibble() %&gt;% \n  glimpse()\n\nRows: 300\nColumns: 5\n$ id        &lt;dbl&gt; 5147, 2786, 3489, 5454, 3162, 2734, 5154, 5395, 5679, 3152, …\n$ age       &lt;dbl&gt; 35, 19, 26, 31, 26, 31, 68, 73, 59, 80, 49, 48, 54, 48, 48, …\n$ weight    &lt;dbl&gt; 81, 65, 78, 75, 92, 75, 76, 90, 72, 71, 64, 83, 75, 91, 78, …\n$ systolic  &lt;dbl&gt; 139, 116, 141, 135, 148, 136, 121, 129, 126, 167, 133, 117, …\n$ diastolic &lt;dbl&gt; 78, 73, 94, 86, 86, 86, 76, 81, 78, 87, 84, 64, 97, 89, 82, …"
+  },
+  {
+    "objectID": "materials/05-stats.html#linear-regression-2",
+    "href": "materials/05-stats.html#linear-regression-2",
+    "title": "Statistics  with R",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nModelling systolic blood pressure as a function of age\n\n\n#Storing the model results in the \"my_lm\" object\nmy_lm &lt;- lm(formula = systolic ~ age,\n   data = bp_dataset)\n\nmy_lm # Only shows the coefficients\n\n\nCall:\nlm(formula = systolic ~ age, data = bp_dataset)\n\nCoefficients:\n(Intercept)          age  \n   105.3207       0.6868  \n\n\n\nExplore the my_lm object with View(my_lm). What do you see?"
+  },
+  {
+    "objectID": "materials/05-stats.html#linear-regression-3",
+    "href": "materials/05-stats.html#linear-regression-3",
+    "title": "Statistics  with R",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nSummary() shows more details about the model\n\n\n#Exploring the \"fit\" object\nsummary(my_lm) #Shows more info\n\n\nCall:\nlm(formula = systolic ~ age, data = bp_dataset)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-49.95 -11.28  -2.40  10.71  74.16 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 105.32075    3.02978   34.76   &lt;2e-16 ***\nage           0.68677    0.06242   11.00   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 18.59 on 298 degrees of freedom\nMultiple R-squared:  0.2889,    Adjusted R-squared:  0.2865 \nF-statistic:   121 on 1 and 298 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "materials/05-stats.html#tidy-model-outputs-with-broom",
+    "href": "materials/05-stats.html#tidy-model-outputs-with-broom",
+    "title": "Statistics  with R",
+    "section": "Tidy model outputs with {broom}",
+    "text": "Tidy model outputs with {broom}\n\ntidy() summarizes information about model components\n\n\n\n\n\n\n\nmy_lm %&gt;% broom::tidy(conf.int = TRUE, conf.level = 0.95)\n\n# A tibble: 2 × 7\n  term        estimate std.error statistic   p.value conf.low conf.high\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)  105.       3.03        34.8 7.21e-107   99.4     111.   \n2 age            0.687    0.0624      11.0 7.45e- 24    0.564     0.810"
+  },
+  {
+    "objectID": "materials/05-stats.html#tidy-model-outputs-with-broom-1",
+    "href": "materials/05-stats.html#tidy-model-outputs-with-broom-1",
+    "title": "Statistics  with R",
+    "section": "Tidy model outputs with {broom}",
+    "text": "Tidy model outputs with {broom}\n\nglance() reports information about the entire model\n\n\n\n\n\n\n\nmy_lm %&gt;% broom::glance()\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.289         0.286  18.6      121. 7.45e-24     1 -1301. 2609. 2620.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;"
+  },
+  {
+    "objectID": "materials/05-stats.html#tidy-model-outputs-with-broom-2",
+    "href": "materials/05-stats.html#tidy-model-outputs-with-broom-2",
+    "title": "Statistics  with R",
+    "section": "Tidy model outputs with {broom}",
+    "text": "Tidy model outputs with {broom}\n\naugment() adds informations about observations to a dataset\nThe meaning of each column can be found here\n\n\n\n\n\n\n\nmy_lm %&gt;% broom::augment()\n\n# A tibble: 300 × 8\n   systolic   age .fitted .resid    .hat .sigma   .cooksd .std.resid\n      &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1      139    35    129.   9.64 0.00455   18.6 0.000618       0.520\n 2      116    19    118.  -2.37 0.0112    18.6 0.0000930     -0.128\n 3      141    26    123.  17.8  0.00757   18.6 0.00354        0.963\n 4      135    31    127.   8.39 0.00567   18.6 0.000584       0.453\n 5      148    26    123.  24.8  0.00757   18.6 0.00686        1.34 \n 6      136    31    127.   9.39 0.00567   18.6 0.000732       0.507\n 7      121    68    152. -31.0  0.00910   18.5 0.0129        -1.68 \n 8      129    73    155. -26.5  0.0119    18.6 0.0124        -1.43 \n 9      126    59    146. -19.8  0.00542   18.6 0.00312       -1.07 \n10      167    80    160.   6.74 0.0168    18.6 0.00114        0.366\n# ℹ 290 more rows"
+  },
+  {
+    "objectID": "materials/05-stats.html#linear-regression-4",
+    "href": "materials/05-stats.html#linear-regression-4",
+    "title": "Statistics  with R",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nPlotting the linear correlation between two variables\n\n\nggscatterstats(bp_dataset, y = systolic, x = age)"
+  },
+  {
+    "objectID": "materials/05-stats.html#what-does-all-that-mean",
+    "href": "materials/05-stats.html#what-does-all-that-mean",
+    "title": "Statistics  with R",
+    "section": "What does all that mean?",
+    "text": "What does all that mean?"
+  },
+  {
+    "objectID": "materials/05-stats.html#alternative-plot-with-ggpmisc",
+    "href": "materials/05-stats.html#alternative-plot-with-ggpmisc",
+    "title": "Statistics  with R",
+    "section": "Alternative plot with {ggpmisc}",
+    "text": "Alternative plot with {ggpmisc}\n\n\nlibrary(ggpmisc)\n\nbp_dataset %&gt;% \n  ggplot(aes(diastolic, weight)) +\n  geom_point() +\n  stat_smooth(method = \"lm\") +\n  stat_poly_eq(use_label(\n    c(\"eq\", \"R2\", \"adj.R2\", \"P\", \"n\")))\n\n\n\n\n\n\n\n\n\n\nEasy way to have finer control over what values are shown in the plot"
+  },
+  {
+    "objectID": "materials/05-stats.html#linear-regression-5",
+    "href": "materials/05-stats.html#linear-regression-5",
+    "title": "Statistics  with R",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nPlotting the coefficients\n\n\n#plotting the coefficients\nggcoefstats(my_lm, exclude.intercept = TRUE)"
+  },
+  {
+    "objectID": "materials/05-stats.html#linear-regression-6",
+    "href": "materials/05-stats.html#linear-regression-6",
+    "title": "Statistics  with R",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nWhat if we want to use the model to make predictions for a 55yo person?\n\n\n#Create a data.frame with the new data\nnew_data &lt;- tibble(age = 55)\n\n#Make the prediction\npredict(my_lm, new_data)\n\n       1 \n143.0932"
+  },
+  {
+    "objectID": "materials/05-stats.html#linear-regression-7",
+    "href": "materials/05-stats.html#linear-regression-7",
+    "title": "Statistics  with R",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nExample with categorical covariates\n\n\n#Let's change the dataset to add a mock categorical variable with 3 levels\n#Randomly add the values \"High\", \"Medium\" or \"Low\" to a new variable\nbp_dataset_mock &lt;- bp_dataset %&gt;% \n  mutate(mock = sample(c(\"High\",\"Medium\",\"Low\"), 300, replace =T))\n\nmy_lm_mock &lt;- lm(diastolic ~ age + weight + mock, data = bp_dataset_mock)\n\nmy_lm_mock %&gt;% broom::tidy()\n\n# A tibble: 5 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)   58.8      3.62      16.2   8.97e-43\n2 age            0.154    0.0383     4.01  7.68e- 5\n3 weight         0.260    0.0448     5.80  1.72e- 8\n4 mockLow       -0.423    1.56      -0.270 7.87e- 1\n5 mockMedium    -5.29     1.68      -3.16  1.76e- 3\n\n\n\nDummy variables are created automatically as needed"
+  },
+  {
+    "objectID": "materials/05-stats.html#linear-regression-8",
+    "href": "materials/05-stats.html#linear-regression-8",
+    "title": "Statistics  with R",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nExample with interactions\n\n\nmy_lm_mock &lt;- lm(diastolic ~  weight*age, data = bp_dataset_mock)\nmy_lm_mock %&gt;% broom::tidy()\n\n# A tibble: 4 × 5\n  term         estimate std.error statistic       p.value\n  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 (Intercept) 58.7        9.67        6.07  0.00000000394\n2 weight       0.230      0.141       1.63  0.103        \n3 age          0.137      0.206       0.666 0.506        \n4 weight:age   0.000381   0.00297     0.128 0.898        \n\n\n\nInstead of the *, use the colon : for the interaction. What is the difference?"
+  },
+  {
+    "objectID": "materials/05-stats.html#linear-regression-9",
+    "href": "materials/05-stats.html#linear-regression-9",
+    "title": "Statistics  with R",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nInstead of the *, use the colon : for the interaction. What is the difference?\n\n\nmy_lm_mock &lt;- lm(diastolic ~  weight:age, data = bp_dataset_mock)\nmy_lm_mock %&gt;% broom::tidy()\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic   p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept) 72.3      1.68         43.0  2.04e-129\n2 weight:age   0.00313  0.000479      6.53 2.82e- 10\n\n\n\n\n\n\n\n\nNote\n\n\nWith the *, the interaction parameters are automatically added individually to the model, as well as their interaction, while using : only the interaction is added to the model, thus allowing greater control of the final model."
+  },
+  {
+    "objectID": "materials/05-stats.html#linear-regression-10",
+    "href": "materials/05-stats.html#linear-regression-10",
+    "title": "Statistics  with R",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nThe dot . adds all the variables as predictors\nIt does not include interactions\n\n\nmy_lm_all &lt;- lm(diastolic ~ ., data = bp_dataset_mock) # the dot add all the variables as predictors\nmy_lm_all %&gt;% broom::tidy()\n\n# A tibble: 7 × 5\n  term         estimate std.error statistic  p.value\n  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept) 24.8       3.73         6.64  1.50e-10\n2 id          -0.000156  0.000308    -0.507 6.13e- 1\n3 age         -0.103     0.0354      -2.92  3.77e- 3\n4 weight       0.130     0.0363       3.60  3.79e- 4\n5 systolic     0.403     0.0289      14.0   3.21e-34\n6 mockLow     -1.42      1.22        -1.16  2.45e- 1\n7 mockMedium  -3.22      1.31        -2.45  1.47e- 2"
+  },
+  {
+    "objectID": "materials/05-stats.html#linear-regression-11",
+    "href": "materials/05-stats.html#linear-regression-11",
+    "title": "Statistics  with R",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nThe dot . adds all the variables as predictors\nThis works well if we want to implement a stepwise approach to variable selection with the {MASS} package\n\n\nlibrary(MASS)\n\nstep &lt;- stepAIC(my_lm_all, direction = \"both\", trace = F)\nstep %&gt;% broom::tidy()\n\n# A tibble: 6 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)   24.7      3.72        6.63 1.58e-10\n2 age           -0.106    0.0351     -3.02 2.73e- 3\n3 weight         0.129    0.0360      3.57 4.20e- 4\n4 systolic       0.403    0.0288     14.0  2.81e-34\n5 mockLow       -1.41     1.22       -1.16 2.47e- 1\n6 mockMedium    -3.22     1.31       -2.46 1.45e- 2"
+  },
+  {
+    "objectID": "materials/05-stats.html#checking-model-assumptions",
+    "href": "materials/05-stats.html#checking-model-assumptions",
+    "title": "Statistics  with R",
+    "section": "Checking model assumptions",
+    "text": "Checking model assumptions\n\n\nplot(step)"
+  },
+  {
+    "objectID": "materials/05-stats.html#statistical-tests-2",
+    "href": "materials/05-stats.html#statistical-tests-2",
+    "title": "Statistics  with R",
+    "section": "Statistical tests",
+    "text": "Statistical tests"
+  },
+  {
+    "objectID": "materials/05-stats.html#logistic-regression",
+    "href": "materials/05-stats.html#logistic-regression",
+    "title": "Statistics  with R",
+    "section": "Logistic regression",
+    "text": "Logistic regression\n\nThe function glm is used for generalized linear models\nThe family argument specifies the details of the glm model\n\n\ncancer_data &lt;- rio::import(\"data/cancer_data.xlsx\")\nlogit_model &lt;- glm(status ~ ., data = cancer_data, \n                   family = \"binomial\")\n\nlogit_model %&gt;% summary()\n\n\nCall:\nglm(formula = status ~ ., family = \"binomial\", data = cancer_data)\n\nCoefficients:\n              Estimate Std. Error z value Pr(&gt;|z|)   \n(Intercept) -0.7209579  1.5166269  -0.475  0.63452   \nage          0.0219774  0.0210127   1.046  0.29560   \nsex2        -1.0021949  0.3737194  -2.682  0.00733 **\necog         0.7576818  0.2682974   2.824  0.00474 **\nmeal_cal     0.0001768  0.0004920   0.359  0.71928   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 206.72  on 179  degrees of freedom\nResidual deviance: 186.09  on 175  degrees of freedom\nAIC: 196.09\n\nNumber of Fisher Scoring iterations: 4"
+  },
+  {
+    "objectID": "materials/05-stats.html#logistic-regression-1",
+    "href": "materials/05-stats.html#logistic-regression-1",
+    "title": "Statistics  with R",
+    "section": "Logistic regression",
+    "text": "Logistic regression\n\nAvailable function families in glm()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\nIf you don’t specify a family, it may use gaussian by default and your output will not be a logistic regression!"
+  },
+  {
+    "objectID": "materials/05-stats.html#logistic-regression-2",
+    "href": "materials/05-stats.html#logistic-regression-2",
+    "title": "Statistics  with R",
+    "section": "Logistic regression",
+    "text": "Logistic regression\n\n\n\n\n\n\nNote\n\n\nRemember that the coefficients of a logistic model are the log of Odds Ratio\n\n\n\n\nWe can specify to the tidy() function that we want to exponentiate the coefficients\n\n\n\n# estimate is log-OR\nlogit_model %&gt;% \n  broom::tidy() \n\n#estimate is OR\nlogit_model %&gt;% \n  broom::tidy(exponentiate = T, \n              conf.int = T) \n\n\n# A tibble: 5 × 5\n  term         estimate std.error statistic p.value\n  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n1 (Intercept) -0.721     1.52        -0.475 0.635  \n2 age          0.0220    0.0210       1.05  0.296  \n3 sex2        -1.00      0.374       -2.68  0.00733\n4 ecog         0.758     0.268        2.82  0.00474\n5 meal_cal     0.000177  0.000492     0.359 0.719  \n# A tibble: 5 × 7\n  term        estimate std.error statistic p.value conf.low conf.high\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)    0.486  1.52        -0.475 0.635     0.0241     9.55 \n2 age            1.02   0.0210       1.05  0.296     0.981      1.07 \n3 sex2           0.367  0.374       -2.68  0.00733   0.174      0.760\n4 ecog           2.13   0.268        2.82  0.00474   1.28       3.67 \n5 meal_cal       1.00   0.000492     0.359 0.719     0.999      1.00"
+  },
+  {
+    "objectID": "materials/05-stats.html#logistic-regression-3",
+    "href": "materials/05-stats.html#logistic-regression-3",
+    "title": "Statistics  with R",
+    "section": "Logistic regression",
+    "text": "Logistic regression\n\n\n\n\n\n\nWarning\n\n\nR will NOT tell you IF you should exponentiate or not. You could also (wrongly) exponentiate the coefficients of a linear model. You have to know in which situation it makes sense to exponentiate."
+  },
+  {
+    "objectID": "materials/05-stats.html#survival-analysis-with-survival",
+    "href": "materials/05-stats.html#survival-analysis-with-survival",
+    "title": "Statistics  with R",
+    "section": "Survival analysis with {survival}",
+    "text": "Survival analysis with {survival}\n\nlibrary(survival)\nlibrary(ggsurvfit)\n\nlung_data &lt;- lung %&gt;% \n  mutate(sex = factor(sex, levels = c(1,2), labels = c(\"Male\",\"Female\")))\n\nlung_data\n\n    inst time status age    sex ph.ecog ph.karno pat.karno meal.cal wt.loss\n1      3  306      2  74   Male       1       90       100     1175      NA\n2      3  455      2  68   Male       0       90        90     1225      15\n3      3 1010      1  56   Male       0       90        90       NA      15\n4      5  210      2  57   Male       1       90        60     1150      11\n5      1  883      2  60   Male       0      100        90       NA       0\n6     12 1022      1  74   Male       1       50        80      513       0\n7      7  310      2  68 Female       2       70        60      384      10\n8     11  361      2  71 Female       2       60        80      538       1\n9      1  218      2  53   Male       1       70        80      825      16\n10     7  166      2  61   Male       2       70        70      271      34\n11     6  170      2  57   Male       1       80        80     1025      27\n12    16  654      2  68 Female       2       70        70       NA      23\n13    11  728      2  68 Female       1       90        90       NA       5\n14    21   71      2  60   Male      NA       60        70     1225      32\n15    12  567      2  57   Male       1       80        70     2600      60\n16     1  144      2  67   Male       1       80        90       NA      15\n17    22  613      2  70   Male       1       90       100     1150      -5\n18    16  707      2  63   Male       2       50        70     1025      22\n19     1   61      2  56 Female       2       60        60      238      10\n20    21   88      2  57   Male       1       90        80     1175      NA\n21    11  301      2  67   Male       1       80        80     1025      17\n22     6   81      2  49 Female       0      100        70     1175      -8\n23    11  624      2  50   Male       1       70        80       NA      16\n24    15  371      2  58   Male       0       90       100      975      13\n25    12  394      2  72   Male       0       90        80       NA       0\n26    12  520      2  70 Female       1       90        80      825       6\n27     4  574      2  60   Male       0      100       100     1025     -13\n28    13  118      2  70   Male       3       60        70     1075      20\n29    13  390      2  53   Male       1       80        70      875      -7\n30     1   12      2  74   Male       2       70        50      305      20\n31    12  473      2  69 Female       1       90        90     1025      -1\n32     1   26      2  73   Male       2       60        70      388      20\n33     7  533      2  48   Male       2       60        80       NA     -11\n34    16  107      2  60 Female       2       50        60      925     -15\n35    12   53      2  61   Male       2       70       100     1075      10\n36     1  122      2  62 Female       2       50        50     1025      NA\n37    22  814      2  65   Male       2       70        60      513      28\n38    15  965      1  66 Female       1       70        90      875       4\n39     1   93      2  74   Male       2       50        40     1225      24\n40     1  731      2  64 Female       1       80       100     1175      15\n41     5  460      2  70   Male       1       80        60      975      10\n42    11  153      2  73 Female       2       60        70     1075      11\n43    10  433      2  59 Female       0       90        90      363      27\n44    12  145      2  60 Female       2       70        60       NA      NA\n45     7  583      2  68   Male       1       60        70     1025       7\n46     7   95      2  76 Female       2       60        60      625     -24\n47     1  303      2  74   Male       0       90        70      463      30\n48     3  519      2  63   Male       1       80        70     1025      10\n49    13  643      2  74   Male       0       90        90     1425       2\n50    22  765      2  50 Female       1       90       100     1175       4\n51     3  735      2  72 Female       1       90        90       NA       9\n52    12  189      2  63   Male       0       80        70       NA       0\n53    21   53      2  68   Male       0       90       100     1025       0\n54     1  246      2  58   Male       0      100        90     1175       7\n55     6  689      2  59   Male       1       90        80     1300      15\n56     1   65      2  62   Male       0       90        80      725      NA\n57     5    5      2  65 Female       0      100        80      338       5\n58    22  132      2  57   Male       2       70        60       NA      18\n59     3  687      2  58 Female       1       80        80     1225      10\n60     1  345      2  64 Female       1       90        80     1075      -3\n61    22  444      2  75 Female       2       70        70      438       8\n62    12  223      2  48   Male       1       90        80     1300      68\n63    21  175      2  73   Male       1       80       100     1025      NA\n64    11   60      2  65 Female       1       90        80     1025       0\n65     3  163      2  69   Male       1       80        60     1125       0\n66     3   65      2  68   Male       2       70        50      825       8\n67    16  208      2  67 Female       2       70        NA      538       2\n68     5  821      1  64 Female       0       90        70     1025       3\n69    22  428      2  68   Male       0      100        80     1039       0\n70     6  230      2  67   Male       1       80       100      488      23\n71    13  840      1  63   Male       0       90        90     1175      -1\n72     3  305      2  48 Female       1       80        90      538      29\n73     5   11      2  74   Male       2       70       100     1175       0\n74     2  132      2  40   Male       1       80        80       NA       3\n75    21  226      2  53 Female       1       90        80      825       3\n76    12  426      2  71 Female       1       90        90     1075      19\n77     1  705      2  51 Female       0      100        80     1300       0\n78     6  363      2  56 Female       1       80        70     1225      -2\n79     3   11      2  81   Male       0       90        NA      731      15\n80     1  176      2  73   Male       0       90        70      169      30\n81     4  791      2  59   Male       0      100        80      768       5\n82    13   95      2  55   Male       1       70        90     1500      15\n83    11  196      1  42   Male       1       80        80     1425       8\n84    21  167      2  44 Female       1       80        90      588      -1\n85    16  806      1  44   Male       1       80        80     1025       1\n86     6  284      2  71   Male       1       80        90     1100      14\n87    22  641      2  62 Female       1       80        80     1150       1\n88    21  147      2  61   Male       0      100        90     1175       4\n89    13  740      1  44 Female       1       90        80      588      39\n90     1  163      2  72   Male       2       70        70      910       2\n91    11  655      2  63   Male       0      100        90      975      -1\n92    22  239      2  70   Male       1       80       100       NA      23\n93     5   88      2  66   Male       1       90        80      875       8\n94    10  245      2  57 Female       1       80        60      280      14\n95     1  588      1  69 Female       0      100        90       NA      13\n96    12   30      2  72   Male       2       80        60      288       7\n97     3  179      2  69   Male       1       80        80       NA      25\n98    12  310      2  71   Male       1       90       100       NA       0\n99    11  477      2  64   Male       1       90       100      910       0\n100    3  166      2  70 Female       0       90        70       NA      10\n101    1  559      1  58 Female       0      100       100      710      15\n102    6  450      2  69 Female       1       80        90     1175       3\n103   13  364      2  56   Male       1       70        80       NA       4\n104    6  107      2  63   Male       1       90        70       NA       0\n105   13  177      2  59   Male       2       50        NA       NA      32\n106   12  156      2  66   Male       1       80        90      875      14\n107   26  529      1  54 Female       1       80       100      975      -3\n108    1   11      2  67   Male       1       90        90      925      NA\n109   21  429      2  55   Male       1      100        80      975       5\n110    3  351      2  75 Female       2       60        50      925      11\n111   13   15      2  69   Male       0       90        70      575      10\n112    1  181      2  44   Male       1       80        90     1175       5\n113   10  283      2  80   Male       1       80       100     1030       6\n114    3  201      2  75 Female       0       90       100       NA       1\n115    6  524      2  54 Female       1       80       100       NA      15\n116    1   13      2  76   Male       2       70        70      413      20\n117    3  212      2  49   Male       2       70        60      675      20\n118    1  524      2  68   Male       2       60        70     1300      30\n119   16  288      2  66   Male       2       70        60      613      24\n120   15  363      2  80   Male       1       80        90      346      11\n121   22  442      2  75   Male       0       90        90       NA       0\n122   26  199      2  60 Female       2       70        80      675      10\n123    3  550      2  69 Female       1       70        80      910       0\n124   11   54      2  72   Male       2       60        60      768      -3\n125    1  558      2  70   Male       0       90        90     1025      17\n126   22  207      2  66   Male       1       80        80      925      20\n127    7   92      2  50   Male       1       80        60     1075      13\n128   12   60      2  64   Male       1       80        90      993       0\n129   16  551      1  77 Female       2       80        60      750      28\n130   12  543      1  48 Female       0       90        60       NA       4\n131    4  293      2  59 Female       1       80        80      925      52\n132   16  202      2  53   Male       1       80        80       NA      20\n133    6  353      2  47   Male       0      100        90     1225       5\n134   13  511      1  55 Female       1       80        70       NA      49\n135    1  267      2  67   Male       0       90        70      313       6\n136   22  511      1  74 Female       2       60        40       96      37\n137   12  371      2  58 Female       1       80        70       NA       0\n138   13  387      2  56   Male       2       80        60     1075      NA\n139    1  457      2  54   Male       1       90        90      975      -5\n140    5  337      2  56   Male       0      100       100     1500      15\n141   21  201      2  73 Female       2       70        60     1225     -16\n142    3  404      1  74   Male       1       80        70      413      38\n143   26  222      2  76   Male       2       70        70     1500       8\n144    1   62      2  65 Female       1       80        90     1075       0\n145   11  458      1  57   Male       1       80       100      513      30\n146   26  356      1  53 Female       1       90        90       NA       2\n147   16  353      2  71   Male       0      100        80      775       2\n148   16  163      2  54   Male       1       90        80     1225      13\n149   12   31      2  82   Male       0      100        90      413      27\n150   13  340      2  59 Female       0      100        90       NA       0\n151   13  229      2  70   Male       1       70        60     1175      -2\n152   22  444      1  60   Male       0       90       100       NA       7\n153    5  315      1  62 Female       0       90        90       NA       0\n154   16  182      2  53 Female       1       80        60       NA       4\n155   32  156      2  55   Male       2       70        30     1025      10\n156   NA  329      2  69   Male       2       70        80      713      20\n157   26  364      1  68 Female       1       90        90       NA       7\n158    4  291      2  62   Male       2       70        60      475      27\n159   12  179      2  63   Male       1       80        70      538      -2\n160    1  376      1  56 Female       1       80        90      825      17\n161   32  384      1  62 Female       0       90        90      588       8\n162   10  268      2  44 Female       1       90       100     2450       2\n163   11  292      1  69   Male       2       60        70     2450      36\n164    6  142      2  63   Male       1       90        80      875       2\n165    7  413      1  64   Male       1       80        70      413      16\n166   16  266      1  57 Female       0       90        90     1075       3\n167   11  194      2  60 Female       1       80        60       NA      33\n168   21  320      2  46   Male       0      100       100      860       4\n169    6  181      2  61   Male       1       90        90      730       0\n170   12  285      2  65   Male       0      100        90     1025       0\n171   13  301      1  61   Male       1       90       100      825       2\n172    2  348      2  58 Female       0       90        80     1225      10\n173    2  197      2  56   Male       1       90        60      768      37\n174   16  382      1  43 Female       0      100        90      338       6\n175    1  303      1  53   Male       1       90        80     1225      12\n176   13  296      1  59 Female       1       80       100     1025       0\n177    1  180      2  56   Male       2       60        80     1225      -2\n178   13  186      2  55 Female       1       80        70       NA      NA\n179    1  145      2  53 Female       1       80        90      588      13\n180    7  269      1  74 Female       0      100       100      588       0\n181   13  300      1  60   Male       0      100       100      975       5\n182    1  284      1  39   Male       0      100        90     1225      -5\n183   16  350      2  66 Female       0       90       100     1025      NA\n184   32  272      1  65 Female       1       80        90       NA      -1\n185   12  292      1  51 Female       0       90        80     1225       0\n186   12  332      1  45 Female       0       90       100      975       5\n187    2  285      2  72 Female       2       70        90      463      20\n188    3  259      1  58   Male       0       90        80     1300       8\n189   15  110      2  64   Male       1       80        60     1025      12\n190   22  286      2  53   Male       0       90        90     1225       8\n191   16  270      2  72   Male       1       80        90      488      14\n192   16   81      2  52   Male       2       60        70     1075      NA\n193   12  131      2  50   Male       1       90        80      513      NA\n194    1  225      1  64   Male       1       90        80      825      33\n195   22  269      2  71   Male       1       90        90     1300      -2\n196   12  225      1  70   Male       0      100       100     1175       6\n197   32  243      1  63 Female       1       80        90      825       0\n198   21  279      1  64   Male       1       90        90       NA       4\n199    1  276      1  52 Female       0      100        80      975       0\n200   32  135      2  60   Male       1       90        70     1275       0\n201   15   79      2  64 Female       1       90        90      488      37\n202   22   59      2  73   Male       1       60        60     2200       5\n203   32  240      1  63 Female       0       90       100     1025       0\n204    3  202      1  50 Female       0      100       100      635       1\n205   26  235      1  63 Female       0      100        90      413       0\n206   33  105      2  62   Male       2       NA        70       NA      NA\n207    5  224      1  55 Female       0       80        90       NA      23\n208   13  239      2  50 Female       2       60        60     1025      -3\n209   21  237      1  69   Male       1       80        70       NA      NA\n210   33  173      1  59 Female       1       90        80       NA      10\n211    1  252      1  60 Female       0      100        90      488      -2\n212    6  221      1  67   Male       1       80        70      413      23\n213   15  185      1  69   Male       1       90        70     1075       0\n214   11   92      1  64 Female       2       70       100       NA      31\n215   11   13      2  65   Male       1       80        90       NA      10\n216   11  222      1  65   Male       1       90        70     1025      18\n217   13  192      1  41 Female       1       90        80       NA     -10\n218   21  183      2  76   Male       2       80        60      825       7\n219   11  211      1  70 Female       2       70        30      131       3\n220    2  175      1  57 Female       0       80        80      725      11\n221   22  197      1  67   Male       1       80        90     1500       2\n222   11  203      1  71 Female       1       80        90     1025       0\n223    1  116      2  76   Male       1       80        80       NA       0\n224    1  188      1  77   Male       1       80        60       NA       3\n225   13  191      1  39   Male       0       90        90     2350      -5\n226   32  105      1  75 Female       2       60        70     1025       5\n227    6  174      1  66   Male       1       90       100     1075       1\n228   22  177      1  58 Female       1       80        90     1060       0"
+  },
+  {
+    "objectID": "materials/05-stats.html#survival-analysis-with-survival-1",
+    "href": "materials/05-stats.html#survival-analysis-with-survival-1",
+    "title": "Statistics  with R",
+    "section": "Survival analysis with {survival}",
+    "text": "Survival analysis with {survival}\n\nkaplan_meier &lt;- survfit2(Surv(time, status) ~ sex, data = lung_data)\n\nkaplan_meier %&gt;% \n  ggsurvfit() +\n  add_confidence_interval() +\n  add_risktable(risktable_stats = c(\"n.risk\", \"cum.event\")) +\n  labs(\n    x = \"Days\",\n    y = \"Overall survival probability\"\n  )"
+  },
+  {
+    "objectID": "materials/05-stats.html#survival-analysis-with-survival-1-output",
+    "href": "materials/05-stats.html#survival-analysis-with-survival-1-output",
+    "title": "Statistics  with R",
+    "section": "Survival analysis with {survival}",
+    "text": "Survival analysis with {survival}"
+  },
+  {
+    "objectID": "materials/05-stats.html#survival-analysis-with-survival-2",
+    "href": "materials/05-stats.html#survival-analysis-with-survival-2",
+    "title": "Statistics  with R",
+    "section": "Survival analysis with {survival}",
+    "text": "Survival analysis with {survival}\n\nSyntax of a kaplan meier curve with {survival}\n\nThe time argument is the total follow up time\nAlternatively, time can be the start date of the follow up, and time2 can be the end date of follow up\nThe event argument is 1 or 0 if the event occurred or not, respectively\n\nsurvfit2(Surv(time = follow_up_time, event = status) ~ group, data = my_dataset)"
+  },
+  {
+    "objectID": "materials/05-stats.html#survival-analysis-with-survival-3",
+    "href": "materials/05-stats.html#survival-analysis-with-survival-3",
+    "title": "Statistics  with R",
+    "section": "Survival analysis with {survival}",
+    "text": "Survival analysis with {survival}\n\nsurvdiff() can be used to perfom a log rank test for differences in survival curves\n\n\nsurvdiff(Surv(time, status) ~ sex, data = lung_data)\n\nCall:\nsurvdiff(formula = Surv(time, status) ~ sex, data = lung_data)\n\n             N Observed Expected (O-E)^2/E (O-E)^2/V\nsex=Male   138      112     91.6      4.55      10.3\nsex=Female  90       53     73.4      5.68      10.3\n\n Chisq= 10.3  on 1 degrees of freedom, p= 0.001"
+  },
+  {
+    "objectID": "materials/05-stats.html#survival-analysis-with-survival-4",
+    "href": "materials/05-stats.html#survival-analysis-with-survival-4",
+    "title": "Statistics  with R",
+    "section": "Survival analysis with {survival}",
+    "text": "Survival analysis with {survival}\n\nFor the Cox proportional hazards model there is a similar function, but to which you can add covariates\n\n\ncox_model &lt;- coxph(Surv(time, status) ~ sex + ph.ecog + wt.loss, data = lung_data)\n\nsummary(cox_model) \n\nCall:\ncoxph(formula = Surv(time, status) ~ sex + ph.ecog + wt.loss, \n    data = lung_data)\n\n  n= 213, number of events= 151 \n   (15 observations deleted due to missingness)\n\n               coef exp(coef)  se(coef)      z Pr(&gt;|z|)    \nsexFemale -0.588819  0.554983  0.174878 -3.367  0.00076 ***\nph.ecog    0.543620  1.722231  0.123701  4.395 1.11e-05 ***\nwt.loss   -0.008753  0.991285  0.006497 -1.347  0.17787    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n          exp(coef) exp(-coef) lower .95 upper .95\nsexFemale    0.5550     1.8019    0.3939    0.7819\nph.ecog      1.7222     0.5806    1.3514    2.1948\nwt.loss      0.9913     1.0088    0.9787    1.0040\n\nConcordance= 0.646  (se = 0.027 )\nLikelihood ratio test= 29.05  on 3 df,   p=2e-06\nWald test            = 28.84  on 3 df,   p=2e-06\nScore (logrank) test = 29.29  on 3 df,   p=2e-06"
+  },
+  {
+    "objectID": "materials/05-stats.html#mixed-models-with-lme4",
+    "href": "materials/05-stats.html#mixed-models-with-lme4",
+    "title": "Statistics  with R",
+    "section": "Mixed models with {lme4}",
+    "text": "Mixed models with {lme4}\n\nlibrary(lme4)\n\n# Reaction time per day (in milliseconds) for subjects in a sleep deprivation study\nsleepstudy %&gt;% as_tibble()\n\n# A tibble: 180 × 3\n   Reaction  Days Subject\n      &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;  \n 1     250.     0 308    \n 2     259.     1 308    \n 3     251.     2 308    \n 4     321.     3 308    \n 5     357.     4 308    \n 6     415.     5 308    \n 7     382.     6 308    \n 8     290.     7 308    \n 9     431.     8 308    \n10     466.     9 308    \n# ℹ 170 more rows"
+  },
+  {
+    "objectID": "materials/05-stats.html#mixed-models-with-lme4-1",
+    "href": "materials/05-stats.html#mixed-models-with-lme4-1",
+    "title": "Statistics  with R",
+    "section": "Mixed models with {lme4}",
+    "text": "Mixed models with {lme4}\n\nReaction time increased, on average, over time\n\n\n\nsleepstudy %&gt;% \n  ggplot(aes(Days, Reaction)) +\n  geom_point() +\n  stat_smooth(method=\"lm\") +\n  stat_poly_eq(use_label(\n    c(\"eq\", \"R2\")))"
+  },
+  {
+    "objectID": "materials/05-stats.html#mixed-models-with-lme4-2",
+    "href": "materials/05-stats.html#mixed-models-with-lme4-2",
+    "title": "Statistics  with R",
+    "section": "Mixed models with {lme4}",
+    "text": "Mixed models with {lme4}\n\nAre the results similar across individuals?\n\n\n\nsleepstudy %&gt;% \n  ggplot(aes(Days, Reaction)) +\n  geom_point() +\n  stat_smooth(method=\"lm\") +\n  facet_wrap(~Subject, ncol = 6)"
+  },
+  {
+    "objectID": "materials/05-stats.html#mixed-models-with-lme4-3",
+    "href": "materials/05-stats.html#mixed-models-with-lme4-3",
+    "title": "Statistics  with R",
+    "section": "Mixed models with {lme4}",
+    "text": "Mixed models with {lme4}\n\nFitting a mixed model\n\n\nmixed_model&lt;-lmer(Reaction ~ Days + (Days | Subject), data = sleepstudy)\n\nsummary(mixed_model)\n\nLinear mixed model fit by REML ['lmerMod']\nFormula: Reaction ~ Days + (Days | Subject)\n   Data: sleepstudy\n\nREML criterion at convergence: 1743.6\n\nScaled residuals: \n    Min      1Q  Median      3Q     Max \n-3.9536 -0.4634  0.0231  0.4634  5.1793 \n\nRandom effects:\n Groups   Name        Variance Std.Dev. Corr\n Subject  (Intercept) 612.10   24.741       \n          Days         35.07    5.922   0.07\n Residual             654.94   25.592       \nNumber of obs: 180, groups:  Subject, 18\n\nFixed effects:\n            Estimate Std. Error t value\n(Intercept)  251.405      6.825  36.838\nDays          10.467      1.546   6.771\n\nCorrelation of Fixed Effects:\n     (Intr)\nDays -0.138"
+  },
+  {
+    "objectID": "materials/05-stats.html#mixed-models-with-lme4-4",
+    "href": "materials/05-stats.html#mixed-models-with-lme4-4",
+    "title": "Statistics  with R",
+    "section": "Mixed models with {lme4}",
+    "text": "Mixed models with {lme4}\n\nGlobal structure of a mixed models formula\n\nwith FE = Fixed-effects and RE = Random-effects\n\noutcome ~ FEexpr + (REexpr1| factor1)+ (REexpr2| factor2) + ...\nCheck the documentation of the lme4 package for additional info"
+  },
+  {
+    "objectID": "materials/05-stats.html#mixed-models-with-lme4-5",
+    "href": "materials/05-stats.html#mixed-models-with-lme4-5",
+    "title": "Statistics  with R",
+    "section": "Mixed models with {lme4}",
+    "text": "Mixed models with {lme4}\n\nReporting the findings\n\n\nlibrary(report)\n\nreport(mixed_model)\n\nWe fitted a linear mixed model (estimated using REML and nloptwrap optimizer)\nto predict Reaction with Days (formula: Reaction ~ Days). The model included\nDays as random effects (formula: ~Days | Subject). The model's total\nexplanatory power is substantial (conditional R2 = 0.80) and the part related\nto the fixed effects alone (marginal R2) is of 0.28. The model's intercept,\ncorresponding to Days = 0, is at 251.41 (95% CI [237.94, 264.87], t(174) =\n36.84, p &lt; .001). Within this model:\n\n  - The effect of Days is statistically significant and positive (beta = 10.47,\n95% CI [7.42, 13.52], t(174) = 6.77, p &lt; .001; Std. beta = 0.54, 95% CI [0.38,\n0.69])\n\nStandardized parameters were obtained by fitting the model on a standardized\nversion of the dataset. 95% Confidence Intervals (CIs) and p-values were\ncomputed using a Wald t-distribution approximation."
+  },
+  {
+    "objectID": "materials/05-stats.html#t-test",
+    "href": "materials/05-stats.html#t-test",
+    "title": "Statistics  with R",
+    "section": "t-test",
+    "text": "t-test\n\n#t-test\nt.test(x = women$height*2.54, mu = 180, \n       alternative = \"two.sided\",paired = F)%&gt;% \n  report()\n\nEffect sizes were labelled following Cohen's (1988) recommendations.\n\nThe One Sample t-test testing the difference between women$height * 2.54 (mean\n= 165.10) and mu = 180 suggests that the effect is negative, statistically\nsignificant, and large (difference = -14.90, 95% CI [158.81, 171.39], t(14) =\n-5.08, p &lt; .001; Cohen's d = -1.31, 95% CI [-2.00, -0.60])"
+  },
+  {
+    "objectID": "materials/05-stats.html#linear-model",
+    "href": "materials/05-stats.html#linear-model",
+    "title": "Statistics  with R",
+    "section": "Linear Model",
+    "text": "Linear Model\n\n#LM\nlm(diastolic ~ ., data = bp_dataset_mock) %&gt;% report()\n\nWe fitted a linear model (estimated using OLS) to predict diastolic with id,\nage, weight, systolic and mock (formula: diastolic ~ id + age + weight +\nsystolic + mock). The model explains a statistically significant and\nsubstantial proportion of variance (R2 = 0.51, F(6, 291) = 50.46, p &lt; .001,\nadj. R2 = 0.50). The model's intercept, corresponding to id = 0, age = 0,\nweight = 0, systolic = 0 and mock = High, is at 24.78 (95% CI [17.44, 32.12],\nt(291) = 6.64, p &lt; .001). Within this model:\n\n  - The effect of id is statistically non-significant and negative (beta =\n-1.56e-04, 95% CI [-7.61e-04, 4.49e-04], t(291) = -0.51, p = 0.613; Std. beta =\n-0.02, 95% CI [-0.10, 0.06])\n  - The effect of age is statistically significant and negative (beta = -0.10,\n95% CI [-0.17, -0.03], t(291) = -2.92, p = 0.004; Std. beta = -0.14, 95% CI\n[-0.24, -0.05])\n  - The effect of weight is statistically significant and positive (beta = 0.13,\n95% CI [0.06, 0.20], t(291) = 3.60, p &lt; .001; Std. beta = 0.15, 95% CI [0.07,\n0.24])\n  - The effect of systolic is statistically significant and positive (beta =\n0.40, 95% CI [0.35, 0.46], t(291) = 13.95, p &lt; .001; Std. beta = 0.71, 95% CI\n[0.61, 0.81])\n  - The effect of mock [Low] is statistically non-significant and negative (beta\n= -1.42, 95% CI [-3.81, 0.98], t(291) = -1.16, p = 0.245; Std. beta = -0.11,\n95% CI [-0.31, 0.08])\n  - The effect of mock [Medium] is statistically significant and negative (beta =\n-3.22, 95% CI [-5.80, -0.64], t(291) = -2.45, p = 0.015; Std. beta = -0.26, 95%\nCI [-0.47, -0.05])\n\nStandardized parameters were obtained by fitting the model on a standardized\nversion of the dataset. 95% Confidence Intervals (CIs) and p-values were\ncomputed using a Wald t-distribution approximation."
+  },
+  {
+    "objectID": "materials/05-stats.html#generalized-linear-model",
+    "href": "materials/05-stats.html#generalized-linear-model",
+    "title": "Statistics  with R",
+    "section": "Generalized Linear Model",
+    "text": "Generalized Linear Model\n\n#GLM\nlogit_model %&gt;% report()\n\nWe fitted a logistic model (estimated using ML) to predict status with age,\nsex, ecog and meal_cal (formula: status ~ age + sex + ecog + meal_cal). The\nmodel's explanatory power is weak (Tjur's R2 = 0.12). The model's intercept,\ncorresponding to age = 0, sex = 1, ecog = 0 and meal_cal = 0, is at -0.72 (95%\nCI [-3.73, 2.26], p = 0.635). Within this model:\n\n  - The effect of age is statistically non-significant and positive (beta = 0.02,\n95% CI [-0.02, 0.06], p = 0.296; Std. beta = 0.20, 95% CI [-0.18, 0.58])\n  - The effect of sex [2] is statistically significant and negative (beta =\n-1.00, 95% CI [-1.75, -0.27], p = 0.007; Std. beta = -1.00, 95% CI [-1.75,\n-0.27])\n  - The effect of ecog is statistically significant and positive (beta = 0.76,\n95% CI [0.24, 1.30], p = 0.005; Std. beta = 0.56, 95% CI [0.18, 0.96])\n  - The effect of meal cal is statistically non-significant and positive (beta =\n1.77e-04, 95% CI [-7.66e-04, 1.18e-03], p = 0.719; Std. beta = 0.07, 95% CI\n[-0.31, 0.47])\n\nStandardized parameters were obtained by fitting the model on a standardized\nversion of the dataset. 95% Confidence Intervals (CIs) and p-values were\ncomputed using a Wald z-distribution approximation."
+  },
+  {
+    "objectID": "materials/05-stats.html#unlocking-the-power-of-programming",
+    "href": "materials/05-stats.html#unlocking-the-power-of-programming",
+    "title": "Statistics  with R",
+    "section": "Unlocking the power of programming",
+    "text": "Unlocking the power of programming\n\nWhat if you wanted to explore 2, or 5, or 50 models? Would you have to write them all manually?  e.g.   “diastolic ~ age”,  “diastolic ~ age + weight”,  “diastolic ~ age + weight + mock”"
+  },
+  {
+    "objectID": "materials/05-stats.html#enter-loops",
+    "href": "materials/05-stats.html#enter-loops",
+    "title": "Statistics  with R",
+    "section": "Enter… Loops",
+    "text": "Enter… Loops\n\n#First, create a vector with the desired model formulas\nformulas &lt;- c(\"diastolic ~ age\",\n              \"diastolic ~ age + weight\",\n              \"diastolic ~ age + weight + mock\")\n\n#For each model in the \"formulas\" vector, do something...\nfor (i in formulas) {\n  model_x &lt;- lm(i, data = bp_dataset_mock) #Create the model\n  print(broom::tidy(model_x)) #Print the output\n  plot(ggcoefstats(model_x, exclude.intercept = T)) #Plot the coefficients\n}"
+  },
+  {
+    "objectID": "materials/05-stats.html#enter-loops-output",
+    "href": "materials/05-stats.html#enter-loops-output",
+    "title": "Statistics  with R",
+    "section": "Enter… Loops",
+    "text": "Enter… Loops\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic   p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)   74.1      1.97       37.5  6.59e-115\n2 age            0.184    0.0407      4.52 9.11e-  6\n\n\n\n\n\n\n\n\n\n# A tibble: 3 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)   57.5      3.58       16.1  4.05e-42\n2 age            0.163    0.0388      4.19 3.64e- 5\n3 weight         0.247    0.0454      5.44 1.15e- 7\n\n\n\n\n\n\n\n\n\n# A tibble: 5 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)   58.8      3.62      16.2   8.97e-43\n2 age            0.154    0.0383     4.01  7.68e- 5\n3 weight         0.260    0.0448     5.80  1.72e- 8\n4 mockLow       -0.423    1.56      -0.270 7.87e- 1\n5 mockMedium    -5.29     1.68      -3.16  1.76e- 3"
+  },
+  {
+    "objectID": "materials/07-shiny.html#what-is",
+    "href": "materials/07-shiny.html#what-is",
+    "title": "Interactive shinydashboards",
+    "section": "What is  ?",
+    "text": "What is  ?\n\n\nAn R package\nMakes it easy to build interactive web apps from R\n\n\n\n\n\n\n\nNote\n\n\nInteractivity comes at a cost: some computer (the server) needs to be online to run the calculations and present the output.  Recently, the webR project made it possible to run code directly in the browser, without a dedicated server, but the technology is still in its infancy."
+  },
+  {
+    "objectID": "materials/07-shiny.html#anatomy-of-a-shiny-app",
+    "href": "materials/07-shiny.html#anatomy-of-a-shiny-app",
+    "title": "Interactive shinydashboards",
+    "section": "Anatomy of a shiny app",
+    "text": "Anatomy of a shiny app\n\nContained in a single script called app.R\napp.R has three components:\n\na user interface (ui) object\na server function\na call to the shinyApp function\n\n\nlibrary(shiny)\n\n# See above for the definitions of ui and server\nui &lt;- ...\n\nserver &lt;- ...\n\nshinyApp(ui = ui, server = server)\n\nRun shiny::runExample(“01_hello”) in RStudio and explore the app."
+  },
+  {
+    "objectID": "materials/07-shiny.html#shiny-widgets",
+    "href": "materials/07-shiny.html#shiny-widgets",
+    "title": "Interactive shinydashboards",
+    "section": "Shiny widgets",
+    "text": "Shiny widgets"
+  },
+  {
+    "objectID": "materials/07-shiny.html#shiny-syntax",
+    "href": "materials/07-shiny.html#shiny-syntax",
+    "title": "Interactive shinydashboards",
+    "section": "Shiny syntax",
+    "text": "Shiny syntax\n\nsomethingInput (e.g. sliderInput, textInput, …)\n\nDisplay a widget that the user can control\nhappens in the ui\n\nsomethingOutput (e.g. plotOutput, textOutput, …)\n\nReacts to the user input and changes the output as needed\nhappens in the server\n\nrenderSomething (e.g. renderPlot, renderText, …)\n\nDisplays the results of the reactive output\nhappens in the ui"
+  },
+  {
+    "objectID": "materials/07-shiny.html#reactivity",
+    "href": "materials/07-shiny.html#reactivity",
+    "title": "Interactive shinydashboards",
+    "section": "Reactivity",
+    "text": "Reactivity\n\nMeans that outputs automatically update as inputs change.\nSuppose you want to create an app to analyse the gapminder dataset, where the user controls the year.\n\n#Creating a reactive object that takes the user input to filter for year\ngapminder_filtered &lt;-\n  reactive(gapminder %&gt;% \n             filter(year == input$year_input)\n           )"
+  },
+  {
+    "objectID": "materials/07-shiny.html#reactivity-1",
+    "href": "materials/07-shiny.html#reactivity-1",
+    "title": "Interactive shinydashboards",
+    "section": "Reactivity",
+    "text": "Reactivity\n\nIf you wanted to call that object later, you would call it like a function, with ().\n\n#| code-line-numbers: '4'\n#Create a new reactive object, based on the gapminder_filtered dataset\n#This object will obtain the lowest value of life expectancy for the filtered country\nmin_le &lt;- \n  reactive(gapminder_filtered() %&gt;% \n             filter(lifeExp == min(lifeExp)) %&gt;% \n             pluck(\"lifeExp\"))"
+  },
+  {
+    "objectID": "materials/07-shiny.html#reactivity-2",
+    "href": "materials/07-shiny.html#reactivity-2",
+    "title": "Interactive shinydashboards",
+    "section": "Reactivity",
+    "text": "Reactivity\n\nFinally, to display that value on a valueBox, for example:\n\nrenderValueBox({\n  valueBox(\n    value = min_le(),\n    icon = \"fa-thumbs-down\",\n    color = \"danger\")\n})"
+  },
+  {
+    "objectID": "materials/07-shiny.html#shiny-apps-the-easy-way",
+    "href": "materials/07-shiny.html#shiny-apps-the-easy-way",
+    "title": "Interactive shinydashboards",
+    "section": "Shiny “apps” the easy way",
+    "text": "Shiny “apps” the easy way\n\nFlexdashboards\nInteractive quarto documents\n\nQuarto dashboards incoming in the next 1.4 release. Already available in pre-release."
+  },
+  {
     "objectID": "modules/s01-intro.html",
     "href": "modules/s01-intro.html",
     "title": "Introduction to R and RStudio",
@@ -1565,7 +2202,7 @@
     "href": "modules/s05-stats.html",
     "title": "Statistics with R",
     "section": "",
-    "text": "View slides in full screen\n\nOutline\n\nCommon statistical tests\nSyntax of an r model\nLinear regression\nLogistic regression\nSurvival analysis\nReporting model outputs"
+    "text": "View slides in full screen\n\nOutline\n\nCommon statistical tests\nSyntax of an R model\nLinear regression\nLogistic regression\nSurvival analysis\nMixed models\nReporting model outputs"
   },
   {
     "objectID": "modules/s07-shiny.html",

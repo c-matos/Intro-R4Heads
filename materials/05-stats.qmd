@@ -1,0 +1,837 @@
+---
+title: "Statistics <br> with R"
+# subtitle: "Hands-on training"
+author: "<a href='https://github.com/c-matos' style='color:#28a87d;font-weight:600;'>Carlos Matos</a>&ensp;//&ensp;ISPUP&ensp;//&ensp;November 2023"
+format:
+  revealjs:
+    theme: slides.scss
+    logo: ../images/logo.png
+    footer: '[Carlos Matos](https://github.com/c-matos) // ISPUP::R4HEADS(2023)'
+    multiplex: true
+    transition: fade
+    progress: true
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: atom-one
+    # chalkboard:
+    #   theme: whiteboard
+    #   boardmarker-width: 4
+    #   buttons: true
+    pause: true
+    code-copy: true
+    #page-layout: custom
+    code-line-numbers: false
+revealjs-plugins:
+  - pointer
+editor: source
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 3
+    dpi: 200
+execute:
+  freeze: auto
+  cache: false
+  echo: true
+  fig-width: 10.1
+  fig-height: 6.3
+  fig-align: center
+# reference-location: margin
+# citation-location: margin
+code-annotations: hover
+---
+
+## Very brief overview of hypothesis testing
+
+<br>
+
+1. Define the null hypothesis (**H<inf>0</inf>**)
+2. Set the significance level (**alpha**) - usually 0.05
+3. Get the test statistic with your sample data and the p-value
+
+    p-value
+    : probability of obtaining the result we obtained or even more extreme, assuming H0 is true.
+    
+4. Interpret the p-value
+    i) if p < alpha, reject H<inf>0</inf>
+    i) if p >= alpha, not enough evidence to reject H<inf>0</inf>
+
+
+## Statistical tests
+
+![](img/stats-cheatsheet.png)
+
+# No real <br><br>dependent or <br><br> independent <br><br> variables
+
+## Chi-square test
+
+```{r}
+library(medicaldata)  #Sample datasets
+
+chisq.test(covid_testing$result, covid_testing$gender)
+
+```
+
+## Chi-square test
+
+```{r}
+library(ggstatsplot) #Automatically display common statistical tests in plots
+
+ggbarstats(data = covid_testing, x = result, y = gender)
+
+```
+
+
+# Continuous <br><br> dependent <br><br> variables
+
+# Categorical <br><br> predictors {background-color="#FFD166"} 
+
+# Parametric tests {background-color="#e6d9f2"} 
+
+## Statistical tests
+
+![](img/stats-cheatsheet.png)
+
+## One sample t-test
+
+- ***Numeric*** outcome variable (in R data type terms)
+- Comparing **one mean** with a target value
+
+```{r}
+#| include: false
+library(tidyverse)
+library(rio)
+
+develop <- rio::import("data/develop.rds") %>% 
+  mutate(soclass = factor(soclass, 
+                          labels = c("high","medium","low"), #The labels that we see
+                          levels = c(1,2,3), #the values that are coded
+                          ordered = T)) 
+```
+
+```{.r}
+library(tidyverse)
+library(rio)
+
+#develop datest
+#Dataset with a development index at 5yo (general1) and 8yo (general2)
+#Includes socioeconomic class variable, with value 1 = high, 2 = mewdium and 3 = low
+
+#Import from github and create a factor
+develop <- rio::import("https://github.com/c-matos/Intro-R4Heads/raw/main/materials/data/develop.rds") %>% 
+  mutate(soclass = factor(soclass, 
+                          labels = c("high","medium","low"), #The labels that we see
+                          levels = c(1,2,3), #the values that are coded
+                          ordered = T)) # TRUE if the values have an inherent order e.g. high > medium > low
+
+```
+
+
+## One sample t-test
+
+- ***Numeric*** outcome variable (in R data type terms)
+- Comparing **one mean** with a target value
+
+```{r}
+t.test(x = develop$general1, mu = 120)
+```
+
+## Paired Sample t-test
+
+- ***Numeric*** outcome variable (in R data type terms)
+- Comparing **two paired means**
+
+```{r}
+#Paired samples t-test
+t.test(x = develop$general1, y = develop$general2,
+       paired = TRUE)
+
+```
+
+
+## Independent Samples t-test
+
+- ***Numeric*** outcome variable (in R data type terms)
+- Comparing **two independent means**
+
+```{r}
+#Using the polyps data from the {medicaldata} package
+library(medicaldata)
+
+t.test(number12m ~ treatment, data = polyps)
+
+```
+
+- Are variances equal?
+
+## Levene test for homogeneity of variances
+
+```{r}
+library(car)
+
+car::leveneTest(y = number12m ~ treatment, data = polyps)
+
+t.test(number12m ~ treatment, data = polyps, var.equal = T)
+```
+
+## T-test + Levene test
+
+<br>
+
+- Summary
+```{.r}
+#One sample t.test
+t.test(x = a_vector, mu = some_value) 
+
+#Paired samples t.test
+t.test(x = a_vector, y = other_vector, paired = TRUE)
+
+#Independent samples t.test
+t.test(num_vec ~ 2_levels_cat_vec, data = some_df, var.equal = T or F) 
+
+#Levene Test for homogeneity of variances
+car::leveneTest(y = num_vec ~ 2_levels_cat_vec, data = some_df)
+
+```
+
+
+## One-Way ANOVA
+
+- ***Numeric*** outcome variable (in R data type terms)
+- Comparing **more than two means**
+
+```{r}
+#| results: hold
+leveneTest(general1 ~ soclass, data = develop)
+oneway.test(general1 ~ soclass, data = develop)
+
+
+```
+
+::: {.callout-note}
+Remember that a p < alpha for the levene test and for the one-way ANOVA means **at least one** difference between groups. If that is the case, then pairwise comparisons need to be performed to identify which groups differ
+:::
+
+## One-Way ANOVA
+
+- Pairwise comparissons
+```{r}
+
+pairwise.t.test(x = develop$general1,
+                g = develop$soclass,
+                p.adjust.method = "bonferroni")
+
+```
+
+- *High - low* and *high - medium* are significantly different
+
+## One-Way ANOVA {auto-animate="true"}
+
+- Visualizing with ggstatsplot
+```{r}
+#| output-location: slide
+library(ggstatsplot)
+
+develop %>% 
+  ggbetweenstats(x = soclass, 
+                 y = general1, 
+                 p.adjust.method = "bonferroni",
+                 pairwise.display = "all") 
+```
+
+## One-Way ANOVA {auto-animate="true"}
+
+- Extracting the statistics
+```{r}
+#| output-location: column
+#| code-line-numbers: '8'
+#| classes: custom-30-70
+library(ggstatsplot)
+
+develop %>% 
+  ggbetweenstats(x = soclass, 
+                 y = general1, 
+                 p.adjust.method = "bonferroni",
+                 pairwise.display = "all") %>% 
+  extract_stats() %>% glimpse
+```
+
+# Non-parametric <br><br>tests {background-color="#e6d9f2"} 
+
+## Wilcoxon signed-rank test
+
+- Used in similar situations to the one  sample t-test, but tests the **median**
+
+```{r}
+develop <- develop %>% 
+  mutate(general_dif = general2 - general1)
+
+wilcox.test(develop$general_dif, exact = F,
+            correct = F) #Do not use continuity correction
+
+```
+
+## Mann-Whitney U test
+
+- Used to compare **two** sample **means** (similar to Independent samples t-test)
+- It's the same function as the wilcoxon test
+
+```{r}
+
+wilcox.test(number12m ~ treatment, data = polyps,
+            exact = F, correct = F)
+
+```
+
+## Kruskal-Wallis test
+
+- ***Numerical*** outcome variable, comparing **more than two means**
+
+```{r}
+
+kruskal.test(general1 ~ soclass, data = develop)
+
+```
+
+
+
+# Regression <br><br> modelling {background-color="#c4edff"} 
+
+<br>
+$$
+g(Y) = f(X,\beta)
+$$
+
+
+## Statistical models
+
+- Used to describe the relation of one outcome with multiple predictors
+- The choice of model will depend on several factors
+  - Research question
+  - Design type
+  - Type of outcome
+  - Distributional assumptions
+
+## Statistical models
+
+<br> 
+
+Why do we care about modelling?
+
+1. **Describe** strength of the association between outcome and factors of interest
+2. **Adjust** for confounders, therefore reducing noise
+3. **Identify** health determinants and have insights about causality
+4. **Predict** outcomes for diagnostic and prognostic purposes
+
+<br>
+
+Examples include linear regression, logistic regression, Poisson regresison, Cox regression
+
+## 
+
+![](img/stats-cheatsheet.png)
+
+
+# Continuous/Mixed <br><br> predictors {background-color="#FFD166"}
+
+## Linear regression
+
+<br>
+
+- General syntax of a statistical model in R
+  - A `formula` argument, to specify the column names of the variables used in the model
+  - A `data` argument, to specify the dataset
+- The tilde `~` is used to create formulas
+  - The outcome goes to the **left**
+  - The predictors go to the **right**
+  
+```{.r}
+lm(formula = outcome ~ predictor1 + ... + predictor_X,
+   data = my_dataset)
+```
+
+
+## Linear regression
+
+<br>
+
+- Exploring the `blood_pressure` dataset
+```{r}
+
+bp_dataset <- rio::import("data/blood_pressure.sav") %>% 
+  as_tibble() %>% 
+  glimpse()
+
+```
+
+
+## Linear regression
+
+- Modelling systolic blood pressure as a function of age
+```{r}
+#Storing the model results in the "my_lm" object
+my_lm <- lm(formula = systolic ~ age,
+   data = bp_dataset)
+
+my_lm # Only shows the coefficients
+```
+
+> Explore the my_lm object with View(my_lm). What do you see?
+
+## Linear regression {auto-animate="true"}
+
+- `Summary()` shows more details about the model
+```{r}
+#Exploring the "fit" object
+summary(my_lm) #Shows more info
+```
+
+## Tidy model outputs with {broom} {auto-animate="true"}
+
+- [`tidy()`](https://broom.tidymodels.org/) summarizes information about model components
+
+:::: .columns
+::: {.column width="20%"}
+![](img/broom-hex.png) 
+:::
+::: {.column width="79%"}
+```{r}
+my_lm %>% broom::tidy(conf.int = TRUE, conf.level = 0.95)
+```
+:::
+::::
+
+## Tidy model outputs with {broom} 
+
+- [`glance()`](https://broom.tidymodels.org/) reports information about the entire model
+
+:::: .columns
+::: {.column width="20%"}
+![](img/broom-hex.png) 
+:::
+::: {.column width="79%"}
+```{r}
+my_lm %>% broom::glance()
+```
+:::
+::::
+
+## Tidy model outputs with {broom}
+
+- [`augment()`](https://broom.tidymodels.org/) adds informations about observations to a dataset
+- The meaning of each column can be found [here](https://broom.tidymodels.org/reference/augment.lm.html)
+
+:::: .columns
+::: {.column width="20%"}
+![](img/broom-hex.png) 
+:::
+::: {.column width="79%"}
+
+```{r}
+my_lm %>% broom::augment()
+```
+:::
+::::
+
+
+## Linear regression
+
+- Plotting the linear correlation between two variables
+
+```{r}
+
+ggscatterstats(bp_dataset, y = systolic, x = age)
+```
+
+## What does all that mean?
+
+![](img/welch_t-test.png)
+
+## Alternative plot with {ggpmisc}
+
+```{r}
+#| output-location: column
+#| results: hold
+#| classes: custom-40-60
+library(ggpmisc)
+
+bp_dataset %>% 
+  ggplot(aes(diastolic, weight)) +
+  geom_point() +
+  stat_smooth(method = "lm") +
+  stat_poly_eq(use_label(
+    c("eq", "R2", "adj.R2", "P", "n")))
+
+```
+
+Easy way to have finer control over what values are shown in the plot
+
+## Linear regression
+
+- Plotting the coefficients
+```{r}
+#plotting the coefficients
+ggcoefstats(my_lm, exclude.intercept = TRUE) 
+```
+
+## Linear regression
+
+- What if we want to use the model to make predictions for a 55yo person?
+```{r}
+#Create a data.frame with the new data
+new_data <- tibble(age = 55)
+
+#Make the prediction
+predict(my_lm, new_data)
+```
+
+
+
+## Linear regression
+
+- Example with categorical covariates
+
+```{r}
+#Let's change the dataset to add a mock categorical variable with 3 levels
+#Randomly add the values "High", "Medium" or "Low" to a new variable
+bp_dataset_mock <- bp_dataset %>% 
+  mutate(mock = sample(c("High","Medium","Low"), 300, replace =T))
+
+my_lm_mock <- lm(diastolic ~ age + weight + mock, data = bp_dataset_mock)
+
+my_lm_mock %>% broom::tidy()
+```
+
+- Dummy variables are created automatically as needed
+
+## Linear regression
+
+- Example with interactions
+
+```{r}
+#| code-line-numbers: '1'
+my_lm_mock <- lm(diastolic ~  weight*age, data = bp_dataset_mock)
+my_lm_mock %>% broom::tidy()
+```
+
+> Instead of the `*`, use the colon `:` for the interaction. What is the difference?
+
+
+## Linear regression
+
+> Instead of the `*`, use the colon `:` for the interaction. What is the difference?
+
+
+```{r}
+#| code-line-numbers: '1'
+my_lm_mock <- lm(diastolic ~  weight:age, data = bp_dataset_mock)
+my_lm_mock %>% broom::tidy()
+```
+
+::: {.callout-note}
+With the `*`, the interaction parameters are automatically added **individually** to the model, as well as their interaction, while using `:` **only** the interaction is added to the model, thus allowing greater control of the final model.
+:::
+
+## Linear regression {auto-animate="true"}
+
+- The dot `.` adds all the variables as predictors
+- It does not include interactions
+```{r}
+#| code-line-numbers: '1'
+my_lm_all <- lm(diastolic ~ ., data = bp_dataset_mock) # the dot add all the variables as predictors
+my_lm_all %>% broom::tidy()
+
+```
+
+
+## Linear regression {auto-animate="true"}
+
+- The dot `.` adds all the variables as predictors
+- This works well if we want to implement a stepwise approach to variable selection with the `{MASS}` package
+```{r}
+#| code-line-numbers: '3'
+library(MASS)
+
+step <- stepAIC(my_lm_all, direction = "both", trace = F)
+step %>% broom::tidy()
+```
+
+## Checking model assumptions
+
+:::{.scrolling}
+```{r}
+plot(step)
+
+
+```
+:::
+
+
+# Categorical <br><br> dependent variables
+
+## Statistical tests
+
+![](img/stats-cheatsheet.png)
+
+## Logistic regression
+
+- The function `glm` is used for generalized linear models
+- The `family` argument specifies the details of the glm model
+
+```{r}
+#| code-line-numbers: '3'
+#| classes: max-height-300
+cancer_data <- rio::import("data/cancer_data.xlsx")
+logit_model <- glm(status ~ ., data = cancer_data, 
+                   family = "binomial")
+
+logit_model %>% summary()
+```
+
+## Logistic regression
+
+- Available function families in `glm()`
+
+:::: .columns
+::: {.column width="49%"}
+![](img/glm-family.png)
+:::
+::: {.column width="50%"}
+![](img/glm-families.png)
+
+:::
+::::
+
+::: callout-warning
+If you don't specify a family, it may use gaussian by default and your output will not be a logistic regression!
+:::
+
+## Logistic regression
+
+::: {.callout-note}
+Remember that the coefficients of a logistic model are the **log** of Odds Ratio
+:::
+
+- We can specify to the `tidy()` function that we want to **exponentiate** the coefficients
+```{r}
+#| output-location: column
+#| results: hold
+#| classes: max-height-300 .custom-30-70
+# estimate is log-OR
+logit_model %>% 
+  broom::tidy() 
+
+#estimate is OR
+logit_model %>% 
+  broom::tidy(exponentiate = T, 
+              conf.int = T) 
+
+```
+
+## Logistic regression
+
+::: {.callout-warning}
+R will **NOT tell you IF** you should exponentiate or not. You could also (wrongly) exponentiate the coefficients of a linear model. You have to know in which situation it makes sense to exponentiate.
+:::
+
+# Survival analysis {background-color="#FFD166"}
+
+## Survival analysis with {survival}
+
+```{r}
+#| classes: max-height-300
+library(survival)
+library(ggsurvfit)
+
+lung_data <- lung %>% 
+  mutate(sex = factor(sex, levels = c(1,2), labels = c("Male","Female")))
+
+lung_data
+
+```
+
+## Survival analysis with {survival}
+
+```{r}
+#| classes: custom-40-60
+#| output-location: slide
+kaplan_meier <- survfit2(Surv(time, status) ~ sex, data = lung_data)
+
+kaplan_meier %>% 
+  ggsurvfit() +
+  add_confidence_interval() +
+  add_risktable(risktable_stats = c("n.risk", "cum.event")) +
+  labs(
+    x = "Days",
+    y = "Overall survival probability"
+  )
+  
+
+```
+
+
+## Survival analysis with {survival}
+
+- Syntax of a kaplan meier curve with {survival}
+  - The `time` argument is the total follow up time
+  - Alternatively, `time` can be the start date of the follow up, and `time2` can be the end date of follow up
+  - The `event` argument is 1 or 0 if the event occurred or not, respectively
+```{.r}
+survfit2(Surv(time = follow_up_time, event = status) ~ group, data = my_dataset)
+```
+
+## Survival analysis with {survival}
+
+- `survdiff()` can be used to perfom a log rank test for differences in survival curves 
+```{r}
+survdiff(Surv(time, status) ~ sex, data = lung_data)
+```
+
+
+## Survival analysis with {survival}
+
+- For the Cox proportional hazards model there is a similar function, but to which you can add covariates
+
+```{r}
+cox_model <- coxph(Surv(time, status) ~ sex + ph.ecog + wt.loss, data = lung_data)
+
+summary(cox_model) 
+```
+
+# Mixed effects <br><br>regression
+
+## Mixed models with {lme4}
+
+```{r}
+library(lme4)
+
+# Reaction time per day (in milliseconds) for subjects in a sleep deprivation study
+sleepstudy %>% as_tibble()
+
+```
+
+## Mixed models with {lme4}
+
+- Reaction time increased, on average, over time
+```{r}
+#| output-location: column
+#| classes: custom-40-60
+sleepstudy %>% 
+  ggplot(aes(Days, Reaction)) +
+  geom_point() +
+  stat_smooth(method="lm") +
+  stat_poly_eq(use_label(
+    c("eq", "R2")))
+```
+
+## Mixed models with {lme4}
+
+- Are the results similar across individuals?
+```{r}
+#| output-location: column
+#| classes: custom-40-60
+sleepstudy %>% 
+  ggplot(aes(Days, Reaction)) +
+  geom_point() +
+  stat_smooth(method="lm") +
+  facet_wrap(~Subject, ncol = 6)
+
+```
+
+## Mixed models with {lme4}
+
+- Fitting a mixed model
+```{r}
+mixed_model<-lmer(Reaction ~ Days + (Days | Subject), data = sleepstudy)
+
+summary(mixed_model)
+
+```
+
+## Mixed models with {lme4}
+
+- Global structure of a mixed models formula
+  - with FE = Fixed-effects and RE = Random-effects
+```{.r}
+outcome ~ FEexpr + (REexpr1| factor1)+ (REexpr2| factor2) + ...
+```
+
+- Check the [documentation](https://cran.r-project.org/web/packages/lme4/index.html) of the lme4 package for additional info
+
+
+## Mixed models with {lme4}
+
+- Reporting the findings
+```{r}
+library(report)
+
+report(mixed_model)
+```
+
+# Reporting <br><br> model outputs<br><br> with {report}
+
+## t-test
+
+```{r}
+
+#t-test
+t.test(x = women$height*2.54, mu = 180, 
+       alternative = "two.sided",paired = F)%>% 
+  report()
+```
+
+## Linear Model
+
+```{r}
+#LM
+lm(diastolic ~ ., data = bp_dataset_mock) %>% report()
+
+```
+
+## Generalized Linear Model
+
+```{r}
+#GLM
+logit_model %>% report()
+```
+
+## Unlocking the power of programming
+
+::: question
+What if you wanted to explore 2, or 5, or 50 models? Would you have to write them all manually?
+<br>
+e.g. 
+<br>
+"diastolic ~ age",
+<br>
+"diastolic ~ age + weight",
+<br>
+"diastolic ~ age + weight + mock"
+:::
+
+
+## Enter... Loops
+
+
+```{r}
+#| output-location: slide
+#| classes: .scrolling-600
+#First, create a vector with the desired model formulas
+formulas <- c("diastolic ~ age",
+              "diastolic ~ age + weight",
+              "diastolic ~ age + weight + mock")
+
+#For each model in the "formulas" vector, do something...
+for (i in formulas) {
+  model_x <- lm(i, data = bp_dataset_mock) #Create the model
+  print(broom::tidy(model_x)) #Print the output
+  plot(ggcoefstats(model_x, exclude.intercept = T)) #Plot the coefficients
+}
+
+```
+
+#
+
+![](../images/logo.png){width=60% fig-align="center"}
+

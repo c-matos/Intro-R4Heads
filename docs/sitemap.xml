@@ -2,74 +2,90 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/schedule.html</loc>
-    <lastmod>2023-11-22T01:49:28.716Z</lastmod>
+    <lastmod>2023-11-14T11:51:04.406Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/modules/s08-git.html</loc>
-    <lastmod>2023-11-22T01:49:27.768Z</lastmod>
+    <lastmod>2023-11-26T23:21:18.008Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/modules/s06-reporting.html</loc>
-    <lastmod>2023-11-22T01:49:27.021Z</lastmod>
+    <lastmod>2023-11-26T23:20:44.658Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/modules/s04-dataviz.html</loc>
-    <lastmod>2023-11-22T01:49:26.235Z</lastmod>
+    <lastmod>2023-11-22T00:53:11.149Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/modules/s02-tidyverse.html</loc>
-    <lastmod>2023-11-22T01:49:25.433Z</lastmod>
+    <lastmod>2023-11-22T00:52:03.311Z</lastmod>
+  </url>
+  <url>
+    <loc>https://c-matos.github.io/Intro-R4Heads/materials/08-git.html</loc>
+    <lastmod>2023-11-26T23:24:15.384Z</lastmod>
+  </url>
+  <url>
+    <loc>https://c-matos.github.io/Intro-R4Heads/materials/06-reporting.html</loc>
+    <lastmod>2023-11-26T23:24:16.191Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/materials/04-dataviz.html</loc>
-    <lastmod>2023-11-22T01:53:49.172Z</lastmod>
+    <lastmod>2023-11-22T01:53:22.918Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/materials/02-tidyverse.html</loc>
-    <lastmod>2023-11-22T01:49:22.496Z</lastmod>
+    <lastmod>2023-11-22T00:25:55.051Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/materials/00-placeholder.html</loc>
-    <lastmod>2023-11-22T01:49:15.812Z</lastmod>
+    <lastmod>2023-11-22T00:40:49.290Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/index.html</loc>
-    <lastmod>2023-11-22T01:49:14.797Z</lastmod>
+    <lastmod>2023-11-15T10:53:26.069Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/about.html</loc>
-    <lastmod>2023-11-22T01:49:14.388Z</lastmod>
+    <lastmod>2023-11-13T23:42:31.182Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/license.html</loc>
-    <lastmod>2023-11-22T01:49:15.146Z</lastmod>
+    <lastmod>2023-11-13T15:11:19.322Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/materials/01-intro.html</loc>
-    <lastmod>2023-11-22T01:49:18.226Z</lastmod>
+    <lastmod>2023-11-22T00:13:34.457Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/materials/03-eda.html</loc>
-    <lastmod>2023-11-22T01:49:23.455Z</lastmod>
+    <lastmod>2023-11-22T01:33:05.743Z</lastmod>
+  </url>
+  <url>
+    <loc>https://c-matos.github.io/Intro-R4Heads/materials/05-stats.html</loc>
+    <lastmod>2023-11-26T23:24:16.615Z</lastmod>
+  </url>
+  <url>
+    <loc>https://c-matos.github.io/Intro-R4Heads/materials/07-shiny.html</loc>
+    <lastmod>2023-11-26T23:24:15.805Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/modules/s01-intro.html</loc>
-    <lastmod>2023-11-22T01:49:25.058Z</lastmod>
+    <lastmod>2023-11-22T00:52:46.874Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/modules/s03-eda.html</loc>
-    <lastmod>2023-11-22T01:49:25.826Z</lastmod>
+    <lastmod>2023-11-22T00:52:41.854Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/modules/s05-stats.html</loc>
-    <lastmod>2023-11-22T01:49:26.659Z</lastmod>
+    <lastmod>2023-11-26T23:20:26.233Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/modules/s07-shiny.html</loc>
-    <lastmod>2023-11-22T01:49:27.392Z</lastmod>
+    <lastmod>2023-11-26T23:20:56.247Z</lastmod>
   </url>
   <url>
     <loc>https://c-matos.github.io/Intro-R4Heads/prework.html</loc>
-    <lastmod>2023-11-22T01:49:28.152Z</lastmod>
+    <lastmod>2023-11-13T16:42:57.913Z</lastmod>
   </url>
 </urlset>

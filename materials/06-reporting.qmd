@@ -1,0 +1,128 @@
+---
+title: "Reporting with <br> Quarto"
+# subtitle: "Hands-on training"
+author: "<a href='https://github.com/c-matos' style='color:#28a87d;font-weight:600;'>Carlos Matos</a>&ensp;//&ensp;ISPUP&ensp;//&ensp;November 2023"
+format:
+  revealjs:
+    theme: slides.scss
+    logo: ../images/logo.png
+    footer: '[Carlos Matos](https://github.com/c-matos) // ISPUP::R4HEADS(2023)'
+    multiplex: true
+    transition: fade
+    progress: true
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: atom-one
+    # chalkboard:
+    #   theme: whiteboard
+    #   boardmarker-width: 4
+    #   buttons: true
+    pause: true
+    code-copy: false
+    #page-layout: custom
+    code-line-numbers: false
+revealjs-plugins:
+  - pointer
+editor: source
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 3
+    dpi: 200
+execute:
+  freeze: auto
+  cache: false
+  echo: true
+  fig-width: 10.1
+  fig-height: 6.3
+  fig-align: center
+# reference-location: margin
+# citation-location: margin
+code-annotations: hover
+---
+
+## What is ![](https://quarto.org/quarto.png) ?
+
+<br>
+
+-   Unified authoring framework for data science
+    - Seamlessly combine **code**, **results** and **prose**
+-   Fully reproducible
+-   Supports several output formats (e.g. HTML, PDF, Word, Presentations, ...)
+    -   Write in one language ([Markdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)), output to several
+-   Command line tool
+    -   But don't worry, you won't have to deal with the command line
+-   Create websites, blogs, articles, presentations, books, dashboards (in the next version!)
+
+## Why Quarto?
+
+- **Communication** to decision makers
+  - Focus on conclusions, not the code behind
+- **Collaboration** with other data scientists
+  - Interested in conclusions but also the code
+- **Environment** to work in
+  - Modern day notebook
+- Native support for multiple languages 
+  - (R, python, Observable, ...)
+- You can choose between a **source** and **visual** editor
+
+## Anatomy of a Quarto document
+
+It contains three important types of content:
+
+1.  An (optional) **YAML header** surrounded by `---`.
+2.  **Chunks** of R code surrounded by ```` ``` ````.
+3.  **Text mixed** with simple text formatting like `# heading` and `_italics_`.
+    -   Regular text
+    -   Inline code
+    -   Figures
+    -   Tables
+    -   Citations
+    -   Cross-references
+    -   LaTeX Equations
+    -   ...
+
+## Quarto basics
+
+```{=html}
+<iframe width="1024" height="600" src="https://quarto.org/docs/authoring/markdown-basics.html" title="Quarto Documentation"></iframe>
+```
+
+## Quarto citations
+
+- Create a references.bib file in your main project folder
+-	Add `bibliography: references.bib` to the YAML header of your .qmd file
+- Add citations in bibtext format to references.bib
+  - To see an example use `citation(“tidyverse”)` in RStudio
+- (Optionally) define a citation style with csl: [path_to_file.csl]
+  - csl files can be found here: https://github.com/citation-style-language/styles
+  - You can refer directly to the online file (e.g. https://raw.githubusercontent.com/citation-style-language/styles/master/american-medical-association.csl)
+
+
+## Quarto extensions
+
+```{=html}
+<iframe width="1024" height="600" src="https://quarto.org/docs/extensions/" title="Quarto Extensions"></iframe>
+```
+
+
+## Exercises
+
+1. Create a new Quarto document using *File \> New File \> Quarto Document*.  
+2. Read the instructions.  
+3. Practice running the chunks individually.  
+4. Then render the document by clicking the appropriate button.  
+5. Verify that you can modify the code, re-run it, and see modified output.
+6. Add a hyperlink to the course website, re-run it, and see the modified output
+   + https://c-matos.github.io/Intro-R4Heads/
+7. Change the output type (html, pdf, docx) and render again (may need some package installation)
+
+## Exercises
+
+- Replicate the document "06-quarto.pdf", using Quarto.
+- Create similar documents in docx and html formats
+
+#
+
+![](../images/logo.png){width=60% fig-align="center"}

@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.4.510">
 
   <meta name="author" content="Carlos Matos // ISPUP // November 2023">
   <title>Welcome to the  tidyverse</title>
@@ -32,7 +32,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -223,7 +223,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -386,7 +387,6 @@
       margin-right: 0; 
     }
   </style>
-  
   <script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
   <link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <meta property="og:title" content="Welcome to the  tidyverse">
@@ -817,7 +817,11 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="02-tidyverse_files/figure-revealjs/unnamed-chunk-8-1.png" width="2020"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -836,7 +840,11 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="02-tidyverse_files/figure-revealjs/unnamed-chunk-9-1.png" width="2020"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -1471,20 +1479,18 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <h2>Calculate variables with mutate()</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="quarto-layout-panel">
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <p>&nbsp;</p>
 </div>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <figure>
 <p><img data-src="img/mutate-figure.png"></p>
 <figcaption>mutate()</figcaption>
 </figure>
-</div>
 </div>
 </div>
 </div>
@@ -1605,20 +1611,18 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <h2>Grouped summaries with summarise()</h2>
 <div class="columns">
 <div class="column" style="width:30%;">
-<div class="quarto-layout-panel">
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <p>&nbsp;</p>
 </div>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <figure>
 <p><img data-src="img/summarise-figure.png"></p>
 <figcaption>summarise()</figcaption>
 </figure>
-</div>
 </div>
 </div>
 </div>
@@ -1871,7 +1875,7 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <section id="join-datasets-with-_join-2" class="slide level2">
 <h2>Join datasets with *_join()</h2>
 
-<img data-src="img/types-of-joins.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="img/types-of-joins.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="join-datasets-with-_join-3" class="slide level2">
 <h2>Join datasets with *_join()</h2>
 <p><br></p>
@@ -2247,34 +2251,50 @@ How would you calculate the death rate in <code>table1</code> and <code>table2</
 </ul></li>
 </ul>
 <div id="fig-tidy-data" class="quarto-layout-panel">
-<figure>
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-tidy-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-tidy-data" style="flex-basis: 33.3%;justify-content: center;">
 <div id="fig-tidy1" class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/tidy-data1.png" data-ref-parent="fig-tidy-data"></p>
-<figcaption>(a) Existing columns get repeated</figcaption>
+<figure class="quarto-float quarto-subfloat-fig">
+<div aria-describedby="fig-tidy1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="img/tidy-data1.png" data-ref-parent="fig-tidy-data">
+</div>
+<figcaption class="figure quarto-subfloat-caption quarto-subfloat-fig" id="fig-tidy1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Existing columns get repeated
+</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-tidy-data" style="flex-basis: 33.3%;justify-content: center;">
 <div id="fig-tidy2" class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/tidy-data2.png" data-ref-parent="fig-tidy-data"></p>
-<figcaption>(b) Names go to a new column</figcaption>
+<figure class="quarto-float quarto-subfloat-fig">
+<div aria-describedby="fig-tidy2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="img/tidy-data2.png" data-ref-parent="fig-tidy-data">
+</div>
+<figcaption class="figure quarto-subfloat-caption quarto-subfloat-fig" id="fig-tidy2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Names go to a new column
+</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-tidy-data" style="flex-basis: 33.3%;justify-content: center;">
 <div id="fig-tidy3" class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/tidy-data3.png" data-ref-parent="fig-tidy-data"></p>
-<figcaption>(c) Values are preserved, row by row</figcaption>
+<figure class="quarto-float quarto-subfloat-fig">
+<div aria-describedby="fig-tidy3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="img/tidy-data3.png" data-ref-parent="fig-tidy-data">
+</div>
+<figcaption class="figure quarto-subfloat-caption quarto-subfloat-fig" id="fig-tidy3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Values are preserved, row by row
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p></p><figcaption>Figure&nbsp;1: How does pivoting work?</figcaption><p></p>
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-tidy-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: How does pivoting work?
+</figcaption>
 </figure>
 </div>
 </section>
@@ -2367,7 +2387,11 @@ How would you calculate the death rate in <code>table1</code> and <code>table2</
 <span id="cb120-6"><a href="#cb120-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="02-tidyverse_files/figure-revealjs/unnamed-chunk-58-1.png" width="2020"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -2799,7 +2823,7 @@ Columns: 4
 $ year       &lt;int&gt; 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020,…
 $ month      &lt;int&gt; 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 1…
 $ region     &lt;chr&gt; "Portugal", "World", "Portugal", "World", "Portugal", "Worl…
-$ some_value &lt;dbl&gt; -0.893967315, -0.653607296, -1.002733093, 1.503094867, -0.3…</code></pre>
+$ some_value &lt;dbl&gt; 1.53070845, 1.24319833, -0.71736323, -0.61063213, 0.1250573…</code></pre>
 </div>
 </div>
 </section>
@@ -2823,8 +2847,8 @@ Groups: region [2]
 $ year       &lt;int&gt; 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020,…
 $ month      &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7,…
 $ region     &lt;chr&gt; "Portugal", "Portugal", "Portugal", "Portugal", "Portugal",…
-$ some_value &lt;dbl&gt; -0.893967315, -1.002733093, -0.310926633, -0.018757948, -0.…
-$ yoy        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1.3871914, …</code></pre>
+$ some_value &lt;dbl&gt; 1.53070845, -0.71736323, 0.12505738, -0.49000543, 0.0203951…
+$ yoy        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, -0.7213474,…</code></pre>
 </div>
 </div>
 </section></section>
@@ -3058,23 +3082,23 @@ $ some_value &lt;dbl&gt; 1, 2, 3</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb161"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1" aria-hidden="true" tabindex="-1"></a>some_char_vec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] "Placebo"   "Placebo"   "Treatment" "Placebo"   "Treatment" "Placebo"  
-  [7] "Placebo"   "Treatment" "Treatment" "Placebo"   "Placebo"   "Treatment"
- [13] "Treatment" "Treatment" "Treatment" "Treatment" "Treatment" "Treatment"
- [19] "Placebo"   "Placebo"   "Placebo"   "Treatment" "Treatment" "Treatment"
- [25] "Treatment" "Treatment" "Placebo"   "Treatment" "Placebo"   "Treatment"
- [31] "Placebo"   "Treatment" "Treatment" "Placebo"   "Placebo"   "Treatment"
- [37] "Treatment" "Placebo"   "Treatment" "Placebo"   "Placebo"   "Placebo"  
- [43] "Treatment" "Placebo"   "Placebo"   "Treatment" "Treatment" "Placebo"  
- [49] "Treatment" "Placebo"   "Placebo"   "Placebo"   "Treatment" "Placebo"  
- [55] "Placebo"   "Placebo"   "Placebo"   "Treatment" "Placebo"   "Treatment"
- [61] "Placebo"   "Placebo"   "Treatment" "Treatment" "Treatment" "Treatment"
- [67] "Placebo"   "Placebo"   "Treatment" "Placebo"   "Treatment" "Treatment"
- [73] "Treatment" "Placebo"   "Placebo"   "Treatment" "Placebo"   "Treatment"
- [79] "Placebo"   "Placebo"   "Placebo"   "Treatment" "Treatment" "Treatment"
- [85] "Treatment" "Treatment" "Placebo"   "Placebo"   "Placebo"   "Placebo"  
- [91] "Treatment" "Treatment" "Treatment" "Treatment" "Placebo"   "Placebo"  
- [97] "Placebo"   "Placebo"   "Treatment" "Treatment"</code></pre>
+<pre><code>  [1] "Treatment" "Placebo"   "Placebo"   "Treatment" "Placebo"   "Placebo"  
+  [7] "Placebo"   "Placebo"   "Placebo"   "Treatment" "Treatment" "Treatment"
+ [13] "Treatment" "Treatment" "Treatment" "Treatment" "Placebo"   "Treatment"
+ [19] "Placebo"   "Placebo"   "Treatment" "Placebo"   "Treatment" "Placebo"  
+ [25] "Treatment" "Placebo"   "Treatment" "Placebo"   "Treatment" "Placebo"  
+ [31] "Placebo"   "Placebo"   "Placebo"   "Treatment" "Placebo"   "Treatment"
+ [37] "Treatment" "Placebo"   "Placebo"   "Treatment" "Treatment" "Placebo"  
+ [43] "Placebo"   "Placebo"   "Placebo"   "Treatment" "Placebo"   "Placebo"  
+ [49] "Treatment" "Placebo"   "Treatment" "Treatment" "Placebo"   "Placebo"  
+ [55] "Placebo"   "Treatment" "Treatment" "Treatment" "Placebo"   "Placebo"  
+ [61] "Placebo"   "Treatment" "Treatment" "Placebo"   "Treatment" "Treatment"
+ [67] "Treatment" "Placebo"   "Treatment" "Placebo"   "Treatment" "Treatment"
+ [73] "Placebo"   "Treatment" "Treatment" "Treatment" "Treatment" "Treatment"
+ [79] "Placebo"   "Treatment" "Treatment" "Placebo"   "Treatment" "Treatment"
+ [85] "Treatment" "Placebo"   "Placebo"   "Placebo"   "Placebo"   "Placebo"  
+ [91] "Treatment" "Treatment" "Treatment" "Placebo"   "Treatment" "Placebo"  
+ [97] "Treatment" "Placebo"   "Treatment" "Placebo"  </code></pre>
 </div>
 </div>
 </section>
@@ -3091,21 +3115,21 @@ $ some_value &lt;dbl&gt; 1, 2, 3</code></pre>
 <span id="cb163-2"><a href="#cb163-2" aria-hidden="true" tabindex="-1"></a>some_factor_vec <span class="ot">&lt;-</span> <span class="fu">factor</span>(some_char_vec)</span>
 <span id="cb163-3"><a href="#cb163-3" aria-hidden="true" tabindex="-1"></a>some_factor_vec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] Placebo   Placebo   Treatment Placebo   Treatment Placebo   Placebo  
-  [8] Treatment Treatment Placebo   Placebo   Treatment Treatment Treatment
- [15] Treatment Treatment Treatment Treatment Placebo   Placebo   Placebo  
- [22] Treatment Treatment Treatment Treatment Treatment Placebo   Treatment
- [29] Placebo   Treatment Placebo   Treatment Treatment Placebo   Placebo  
- [36] Treatment Treatment Placebo   Treatment Placebo   Placebo   Placebo  
- [43] Treatment Placebo   Placebo   Treatment Treatment Placebo   Treatment
- [50] Placebo   Placebo   Placebo   Treatment Placebo   Placebo   Placebo  
- [57] Placebo   Treatment Placebo   Treatment Placebo   Placebo   Treatment
- [64] Treatment Treatment Treatment Placebo   Placebo   Treatment Placebo  
- [71] Treatment Treatment Treatment Placebo   Placebo   Treatment Placebo  
- [78] Treatment Placebo   Placebo   Placebo   Treatment Treatment Treatment
- [85] Treatment Treatment Placebo   Placebo   Placebo   Placebo   Treatment
- [92] Treatment Treatment Treatment Placebo   Placebo   Placebo   Placebo  
- [99] Treatment Treatment
+<pre><code>  [1] Treatment Placebo   Placebo   Treatment Placebo   Placebo   Placebo  
+  [8] Placebo   Placebo   Treatment Treatment Treatment Treatment Treatment
+ [15] Treatment Treatment Placebo   Treatment Placebo   Placebo   Treatment
+ [22] Placebo   Treatment Placebo   Treatment Placebo   Treatment Placebo  
+ [29] Treatment Placebo   Placebo   Placebo   Placebo   Treatment Placebo  
+ [36] Treatment Treatment Placebo   Placebo   Treatment Treatment Placebo  
+ [43] Placebo   Placebo   Placebo   Treatment Placebo   Placebo   Treatment
+ [50] Placebo   Treatment Treatment Placebo   Placebo   Placebo   Treatment
+ [57] Treatment Treatment Placebo   Placebo   Placebo   Treatment Treatment
+ [64] Placebo   Treatment Treatment Treatment Placebo   Treatment Placebo  
+ [71] Treatment Treatment Placebo   Treatment Treatment Treatment Treatment
+ [78] Treatment Placebo   Treatment Treatment Placebo   Treatment Treatment
+ [85] Treatment Placebo   Placebo   Placebo   Placebo   Placebo   Treatment
+ [92] Treatment Treatment Placebo   Treatment Placebo   Treatment Placebo  
+ [99] Treatment Placebo  
 Levels: Placebo Treatment</code></pre>
 </div>
 </div>
@@ -3279,7 +3303,6 @@ Levels: Placebo Treatment</code></pre>
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -3580,10 +3603,9 @@ Levels: Placebo Treatment</code></pre>
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -3593,8 +3615,17 @@ Levels: Placebo Treatment</code></pre>
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -3652,6 +3683,7 @@ Levels: Placebo Treatment</code></pre>
                 }
                 div.style.top = top - 2 + "px";
                 div.style.height = height + 4 + "px";
+                div.style.left = 0;
                 let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
                 if (gutterDiv === null) {
                   gutterDiv = window.document.createElement("div");
@@ -3677,8 +3709,8 @@ Levels: Placebo Treatment</code></pre>
             });
             selectedAnnoteEl = undefined;
           };
-          // Handle positioning of the toggle
-          window.addEventListener(
+            // Handle positioning of the toggle
+        window.addEventListener(
           "resize",
           throttle(() => {
             elRect = undefined;
@@ -3686,23 +3718,23 @@ Levels: Placebo Treatment</code></pre>
               selectCodeLines(selectedAnnoteEl);
             }
           }, 10)
-          );
-          function throttle(fn, ms) {
-          let throttle = false;
-          let timer;
-            return (...args) => {
-              if(!throttle) { // first call gets through
+        );
+        function throttle(fn, ms) {
+        let throttle = false;
+        let timer;
+          return (...args) => {
+            if(!throttle) { // first call gets through
+                fn.apply(this, args);
+                throttle = true;
+            } else { // all the others get throttled
+                if(timer) clearTimeout(timer); // cancel #2
+                timer = setTimeout(() => {
                   fn.apply(this, args);
-                  throttle = true;
-              } else { // all the others get throttled
-                  if(timer) clearTimeout(timer); // cancel #2
-                  timer = setTimeout(() => {
-                    fn.apply(this, args);
-                    timer = throttle = false;
-                  }, ms);
-              }
-            };
-          }
+                  timer = throttle = false;
+                }, ms);
+            }
+          };
+        }
           const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
           for (let i=0; i<annoteTargets.length; i++) {
             const annoteTarget = annoteTargets[i];

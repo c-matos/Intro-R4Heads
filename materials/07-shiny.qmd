@@ -1,0 +1,150 @@
+---
+title: "Interactive shiny<br>dashboards"
+# subtitle: "Hands-on training"
+author: "<a href='https://github.com/c-matos' style='color:#28a87d;font-weight:600;'>Carlos Matos</a>&ensp;//&ensp;ISPUP&ensp;//&ensp;November 2023"
+format:
+  revealjs:
+    theme: slides.scss
+    logo: ../images/logo.png
+    footer: '[Carlos Matos](https://github.com/c-matos) // ISPUP::R4HEADS(2023)'
+    multiplex: true
+    transition: fade
+    progress: true
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: atom-one
+    # chalkboard:
+    #   theme: whiteboard
+    #   boardmarker-width: 4
+    #   buttons: true
+    pause: true
+    code-copy: false
+    #page-layout: custom
+    code-line-numbers: false
+revealjs-plugins:
+  - pointer
+editor: source
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 3
+    dpi: 200
+execute:
+  freeze: auto
+  cache: false
+  echo: true
+  fig-width: 10.1
+  fig-height: 6.3
+  fig-align: center
+# reference-location: margin
+# citation-location: margin
+code-annotations: hover
+---
+
+## What is ![](https://rstudio.github.io/shiny/reference/figures/logo.png){width="10%"} ?
+
+<br>
+
+- An R package
+- Makes it easy to build interactive web apps from R
+
+::: callout-note
+Interactivity comes at a cost: some computer (the **server**) needs to be online to run the calculations and present the output.
+<br>
+Recently, the [webR](https://docs.r-wasm.org/webr/latest/) project made it possible to run code directly in the browser, without a dedicated server, but the technology is still in its infancy.
+:::
+
+## Anatomy of a shiny app
+
+- Contained in a single script called `app.R`
+- `app.R` has three components:
+  - a user interface (`ui`) object
+  - a `server` function
+  - a call to the `shinyApp` function
+  
+```{.r}
+library(shiny)
+
+# See above for the definitions of ui and server
+ui <- ...
+
+server <- ...
+
+shinyApp(ui = ui, server = server)
+```
+
+> Run shiny::runExample("01_hello") in RStudio and explore the app.
+
+## Shiny widgets
+
+```{=html}
+<iframe width="1024" height="600" src="https://shiny.posit.co/r/gallery/widgets/widget-gallery/" title="Shiny widgets"></iframe>
+```
+
+
+## Shiny syntax
+
+- *something***Input** (e.g. sliderInput, textInput, ...)
+  - Display a widget that the user can control
+  - happens in the `ui`
+- *something***Output** (e.g. plotOutput, textOutput, ...)
+  - **Reacts** to the user input and changes the output as needed
+  - happens in the `server`
+- **render***Something* (e.g. renderPlot, renderText, ...)
+  - Displays the results of the reactive output
+  - happens in the `ui`
+
+## Reactivity
+
+- Means that outputs **automatically** update as inputs change.
+- Suppose you want to create an app to analyse the gapminder dataset, where the user controls the **year**.
+
+```{.r}
+#Creating a reactive object that takes the user input to filter for year
+gapminder_filtered <-
+  reactive(gapminder %>% 
+             filter(year == input$year_input)
+           )
+```
+
+## Reactivity
+
+- If you wanted to call that object later, you would call it like a function, with `()`.
+```{.r}
+#| code-line-numbers: '4'
+#Create a new reactive object, based on the gapminder_filtered dataset
+#This object will obtain the lowest value of life expectancy for the filtered country
+min_le <- 
+  reactive(gapminder_filtered() %>% 
+             filter(lifeExp == min(lifeExp)) %>% 
+             pluck("lifeExp"))
+
+```
+
+## Reactivity
+
+- Finally, to display that value on a valueBox, for example:
+```{.r}
+renderValueBox({
+  valueBox(
+    value = min_le(),
+    icon = "fa-thumbs-down",
+    color = "danger")
+})
+```
+
+![](img/thumbs_down.png)
+
+
+## Shiny "apps" the easy way
+
+- Flexdashboards
+- Interactive quarto documents
+  - Quarto dashboards incoming in the next 1.4 release. Already available in pre-release.
+
+# Exercises
+
+#
+
+![](../images/logo.png){width=60% fig-align="center"}

@@ -7,17 +7,18 @@ tbl-colwidths: [5,20,75]
 ---
 
 ```{=html}
-<iframe class="slide-deck" src="../materials/00-placeholder.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+<iframe class="slide-deck" src="../materials/05-stats.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
 ```
 
-<a href='../materials/00-placeholder.html' target="_blank">View slides in full screen</a>
+<a href='../materials/05-stats.html' target="_blank">View slides in full screen</a>
 
   
 # Outline
 
 -	Common statistical tests
--	Syntax of an r model
+-	Syntax of an R model
 -	Linear regression
 -	Logistic regression
 -	Survival analysis
+- Mixed models
 -	Reporting model outputs
